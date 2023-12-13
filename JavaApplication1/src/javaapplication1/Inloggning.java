@@ -13,7 +13,7 @@ public class Inloggning extends javax.swing.JFrame {
     
     private InfDB idb;
     /**
-     * Creates new form Inloggning
+     * Creates new form Inlogg
      */
     public Inloggning(InfDB db) {
         idb = db;
