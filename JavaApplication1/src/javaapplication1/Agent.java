@@ -10,12 +10,12 @@ public class Agent extends javax.swing.JFrame {
 
     private InfDB idb;
     private int Agent_ID;
-    private varchar Namn;
+    private String Namn;
     private int Telefon;
-    private DATE Anstallningsdatum;
+    private String Anstallningsdatum;
     private char Administration;
-    private varchar Epost;
-    private varchar Losenord;
+    private String Epost;
+    private String Losenord;
     //private (främmande) Omrade;
     
     
