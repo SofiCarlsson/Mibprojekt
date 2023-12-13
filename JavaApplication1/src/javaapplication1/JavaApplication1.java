@@ -15,6 +15,7 @@ import oru.inf.InfException;
 public class JavaApplication1 {
 
     private static InfDB idb;
+    
     /**
      * @param args the command line arguments
      */
