@@ -10,7 +10,7 @@ import oru.inf.InfException;
 public class Utrustning extends javax.swing.JFrame {
 
     private int Utrustnings_ID;
-    private varchar Benamning;
+    private String Benamning;
     
     
     public Utrustning(InfDB db) {

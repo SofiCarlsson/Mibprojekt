@@ -14,11 +14,11 @@ public class Alien extends javax.swing.JFrame {
 
     private InfDB idb;
     private int Alien_ID;
-    private date Registreringsdatum;
-    private varchar Epost;
-    private varchar Losenord;
-    private varchar Namn;
-    private varchar Telefon;
+    private String Registreringsdatum;
+    private String Epost;
+    private String Losenord;
+    private String Namn;
+    private String Telefon;
     //private int Plats;
     //private int Ansvarig_Agent;
     
