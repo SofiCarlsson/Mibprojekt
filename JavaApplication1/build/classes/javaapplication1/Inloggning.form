@@ -23,13 +23,91 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnLoggain" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblLoggain" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblAnvandarnamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLosenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtLosenord" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAnvandarnamn" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="167" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="lblLoggain" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblAnvandarnamn" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAnvandarnamn" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblLosenord" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtLosenord" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <Component id="btnLoggain" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="108" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblAnvandarnamn">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Beirut" size="12" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Anv&#xe4;ndarnamn:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblLosenord">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Beirut" size="12" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="L&#xf6;senord:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblLoggain">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Hoefler Text" size="15" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Logga in"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLoggain">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Beirut" size="12" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Logga in"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAnvandarnamn">
+      <Properties>
+        <Property name="columns" type="int" value="4"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtLosenord">
+      <Properties>
+        <Property name="columns" type="int" value="4"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>

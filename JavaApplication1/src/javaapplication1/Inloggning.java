@@ -29,17 +29,66 @@ public class Inloggning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblAnvandarnamn = new javax.swing.JLabel();
+        lblLosenord = new javax.swing.JLabel();
+        lblLoggain = new javax.swing.JLabel();
+        btnLoggain = new javax.swing.JButton();
+        txtAnvandarnamn = new javax.swing.JTextField();
+        txtLosenord = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblAnvandarnamn.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
+        lblAnvandarnamn.setText("Användarnamn:");
+
+        lblLosenord.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
+        lblLosenord.setText("Lösenord:");
+
+        lblLoggain.setFont(new java.awt.Font("Hoefler Text", 1, 15)); // NOI18N
+        lblLoggain.setText("Logga in");
+
+        btnLoggain.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
+        btnLoggain.setText("Logga in");
+
+        txtAnvandarnamn.setColumns(4);
+
+        txtLosenord.setColumns(4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLoggain)
+                    .addComponent(lblLoggain)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAnvandarnamn)
+                            .addComponent(lblLosenord))
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAnvandarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lblLoggain)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAnvandarnamn)
+                    .addComponent(txtAnvandarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLosenord)
+                    .addComponent(txtLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(btnLoggain)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
@@ -81,5 +130,11 @@ public class Inloggning extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLoggain;
+    private javax.swing.JLabel lblAnvandarnamn;
+    private javax.swing.JLabel lblLoggain;
+    private javax.swing.JLabel lblLosenord;
+    private javax.swing.JTextField txtAnvandarnamn;
+    private javax.swing.JTextField txtLosenord;
     // End of variables declaration//GEN-END:variables
 }
