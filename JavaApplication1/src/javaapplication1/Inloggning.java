@@ -5,6 +5,8 @@
 package javaapplication1;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author soficarlsson
@@ -29,7 +31,7 @@ public class Inloggning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAnvandarnamn = new javax.swing.JLabel();
+        lblEpost = new javax.swing.JLabel();
         lblLosenord = new javax.swing.JLabel();
         lblLoggain = new javax.swing.JLabel();
         btnLoggain = new javax.swing.JButton();
@@ -38,8 +40,8 @@ public class Inloggning extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblAnvandarnamn.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
-        lblAnvandarnamn.setText("Epost:");
+        lblEpost.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
+        lblEpost.setText("Epost:");
 
         lblLosenord.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
         lblLosenord.setText("Lösenord:");
@@ -49,6 +51,11 @@ public class Inloggning extends javax.swing.JFrame {
 
         btnLoggain.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
         btnLoggain.setText("Logga in");
+        btnLoggain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoggainActionPerformed(evt);
+            }
+        });
 
         txtEpost.setColumns(4);
 
@@ -65,7 +72,7 @@ public class Inloggning extends javax.swing.JFrame {
                     .addComponent(lblLoggain)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAnvandarnamn)
+                            .addComponent(lblEpost)
                             .addComponent(lblLosenord))
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +87,7 @@ public class Inloggning extends javax.swing.JFrame {
                 .addComponent(lblLoggain)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAnvandarnamn)
+                    .addComponent(lblEpost)
                     .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,6 +100,42 @@ public class Inloggning extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggainActionPerformed
+                                                     
+      try{
+          String epost = txtEpost.getText();
+	  String losenord = txtLosenord.getText(); 
+          String epostOchLosenord = epost + losenord;
+          
+          ArrayList<HashMap<String, String>> Alien = Mibdb.fechRows("SELECT EPOST, LOSENORD FROM ALIEN");
+          ArrayList<HashMap<String, String>> Agent = Mibdb.fechRows("SELECT EPOST, LOSENORD FROM AGENT");
+          
+          for(int i= 0 ; i<Alien.size() ; i++){
+              String output = "";
+              
+              output += Alien.get(i).get("Epost") + Alien.get(i).get("Losenord");
+               
+                if(epostOchLosenord.equals(output)){
+                  //logga in 
+                }
+             }
+          
+          for(int i= 0 ; i<Agent.size() ; i++){
+              String output = "";
+              output += Agent.get(i).get("Epost") + Agent.get(i).get("Losenord");
+               
+                if(epostOchLosenord.endsWith(output)){
+                  //logga in 
+                }
+             }      
+         
+        }catch(NumberFormatException e){
+            
+           JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
+
+        }
+    }//GEN-LAST:event_btnLoggainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,7 +174,7 @@ public class Inloggning extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoggain;
-    private javax.swing.JLabel lblAnvandarnamn;
+    private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblLoggain;
     private javax.swing.JLabel lblLosenord;
     private javax.swing.JTextField txtEpost;
