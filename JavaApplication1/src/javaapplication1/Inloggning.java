@@ -33,13 +33,13 @@ public class Inloggning extends javax.swing.JFrame {
         lblLosenord = new javax.swing.JLabel();
         lblLoggain = new javax.swing.JLabel();
         btnLoggain = new javax.swing.JButton();
-        txtAnvandarnamn = new javax.swing.JTextField();
+        txtEpost = new javax.swing.JTextField();
         txtLosenord = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblAnvandarnamn.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
-        lblAnvandarnamn.setText("Användarnamn:");
+        lblAnvandarnamn.setText("Epost:");
 
         lblLosenord.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
         lblLosenord.setText("Lösenord:");
@@ -50,7 +50,7 @@ public class Inloggning extends javax.swing.JFrame {
         btnLoggain.setFont(new java.awt.Font("Beirut", 0, 12)); // NOI18N
         btnLoggain.setText("Logga in");
 
-        txtAnvandarnamn.setColumns(4);
+        txtEpost.setColumns(4);
 
         txtLosenord.setColumns(4);
 
@@ -70,8 +70,8 @@ public class Inloggning extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAnvandarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(167, Short.MAX_VALUE))
+                            .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,7 +81,7 @@ public class Inloggning extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAnvandarnamn)
-                    .addComponent(txtAnvandarnamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblLosenord)
@@ -134,7 +134,7 @@ public class Inloggning extends javax.swing.JFrame {
     private javax.swing.JLabel lblAnvandarnamn;
     private javax.swing.JLabel lblLoggain;
     private javax.swing.JLabel lblLosenord;
-    private javax.swing.JTextField txtAnvandarnamn;
+    private javax.swing.JTextField txtEpost;
     private javax.swing.JTextField txtLosenord;
     // End of variables declaration//GEN-END:variables
 }
