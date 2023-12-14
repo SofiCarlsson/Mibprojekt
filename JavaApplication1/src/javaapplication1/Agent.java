@@ -13,16 +13,24 @@ public class Agent extends javax.swing.JFrame {
     private String Namn;
     private int Telefon;
     private String Anstallningsdatum;
-    private char Administration;
+    private String Administrator;
     private String Epost;
     private String Losenord;
-    //private (främmande) Omrade;
+    //private int (främmande nyckel) Omrade;
     
     
     
-    public Agent(InfDB db) { 
+    public Agent(InfDB db, int Agent_ID) { 
         
         idb = db;
+        this.Namn = Namn;
+        this.Telefon = Telefon;
+        this.Anstallningsdatum = Anstallningsdatum;
+        this.Administrator = Administrator;
+        this.Epost = Epost;
+        this.Losenord = Losenord;
+        
+        
         initComponents();
     }
    
