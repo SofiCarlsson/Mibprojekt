@@ -14,7 +14,7 @@ public class Omrade extends javax.swing.JFrame {
 
     private InfDB idb;
     private int Omrades_ID;
-    //private varchar Benamning;
+    //private int Benamning;
     
     /**
      * Creates new form Omrade
