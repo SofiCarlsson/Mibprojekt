@@ -25,6 +25,7 @@ public class Alien extends javax.swing.JFrame {
     /**
      * Creates new form Alien
      */
+    //test
     public Alien(InfDB db, int Alien_ID) {
         idb = db;
         this.Alien_ID = Alien_ID;

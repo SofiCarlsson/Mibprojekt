@@ -6,7 +6,7 @@ package javaapplication1;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
-
+//test
 public class Utrustning extends javax.swing.JFrame {
 
     private int Utrustnings_ID;
