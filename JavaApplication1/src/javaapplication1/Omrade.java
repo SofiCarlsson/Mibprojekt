@@ -23,6 +23,13 @@ public class Omrade extends javax.swing.JFrame {
         idb = db;
         initComponents();
     }
+    
+    public int getOmrades_ID() {
+        return Omrades_ID;
+    }
+    
+    //ska vi verkligen ha en set här?
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

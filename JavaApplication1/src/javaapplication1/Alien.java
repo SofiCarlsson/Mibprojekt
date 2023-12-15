@@ -18,7 +18,7 @@ public class Alien extends javax.swing.JFrame {
     private String Epost;
     private String Losenord;
     private String Namn;
-    private String Telefon;
+    private int Telefon;
     //private int Plats;
     //private int Ansvarig_Agent;
     
@@ -70,8 +70,21 @@ public class Alien extends javax.swing.JFrame {
         this.Losenord = Losenord;
     }
     
-    //Namn get + set 
-    //Telfeon get + set
+    public String getNamn() {
+        return Namn;
+    }
+    
+    public void setNamn() {
+        this.Namn = Namn;
+    }
+    
+    public int getTelefon() {
+        return Telefon;
+    }
+    
+    public void setTelefon() {
+        this.Telefon = Telefon;
+    }
     
 
     /**
