@@ -19,6 +19,22 @@ public class Utrustning extends javax.swing.JFrame {
         this.Benamning = Benamning;
         initComponents();
     }
+    
+    public int getUtrustnings_ID() {
+        return Utrustnings_ID;
+    }
+    
+    public void setUtrustnings_ID() {
+        this.Utrustnings_ID = Utrustnings_ID;
+    }
+    
+    public String getBenamning() {
+        return Benamning;
+    }
+    
+    public void setBenamning() {
+        this.Benamning = Benamning;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

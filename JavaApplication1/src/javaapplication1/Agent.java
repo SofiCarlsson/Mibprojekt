@@ -33,6 +33,57 @@ public class Agent extends javax.swing.JFrame {
         
         initComponents();
     }
+    
+    //Get + set för övriga fields in 
+    public int getAgen_ID() {
+        return Agent_ID;
+    }
+    
+    public void setAgent_ID() {
+        this.Agent_ID = Agent_ID;
+    }
+    
+    public String getNamn() {
+        return Namn;
+    }
+    
+    public void setNamn() {
+        this.Namn = Namn;
+    }
+    
+    public int getTelefon() {
+        return Telefon;
+    }
+    
+    public void setTelefon() {
+        this.Telefon = Telefon;
+    }
+    
+    public String getAnstallningsdatum() {
+        return Anstallningsdatum;
+    }
+    
+    public void setAnstallningsdatum() {
+        this.Anstallningsdatum = Anstallningsdatum;
+    }
+    
+    public String getAdministrator() {
+        return Administrator;
+    }
+    
+    public void setAdministrator() {
+        this.Administrator = Administrator;
+    }
+    
+    public String getEpost() {
+        return Epost;
+    }
+    
+    public void setEpost() {
+        this.Epost = Epost;
+    }
+    
+    //Här ska get + set kanske in om vi ska ha område som fält
    
     /**
      * This method is called from within the constructor to initialize the form.
