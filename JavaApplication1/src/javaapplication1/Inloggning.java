@@ -107,6 +107,7 @@ public class Inloggning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Loggar in på programmet genom att sätta in tabellvärdena i en ArrayLis/HashMap och jämföra med txt fälten som skickas in.
     private void btnLoggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggainActionPerformed
                                                      
       try{
@@ -120,11 +121,13 @@ public class Inloggning extends javax.swing.JFrame {
           ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
           
           
+          //Går igenom alla Alien Losenord med Email och kollar om något mtachar med det som skrevs in i txt fälten. 
           for(int i= 0 ; i<Alien.size() ; i++){
               String output = "";
               
               output += Alien.get(i).get("Epost") + Alien.get(i).get("Losenord");
                
+                //Här jämförs om det eposten+lösenordet = det värdena som hämtas.
                 if(epostOchLosenord.equals(output)){
                    JOptionPane.showMessageDialog(null, " Rätt lösnenord angivet" );
                    

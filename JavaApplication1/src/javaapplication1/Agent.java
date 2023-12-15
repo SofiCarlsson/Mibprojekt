@@ -3,12 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.sql.Statement;
 
 
 public class Agent extends javax.swing.JFrame {
 
+    //Fälten för klassen Agent
     private InfDB idb;
     private int Agent_ID;
     private String Namn;
@@ -20,7 +27,7 @@ public class Agent extends javax.swing.JFrame {
     //private int (främmande nyckel) Omrade;
     
     
-    
+    //Konstruktor för Agent klassen
     public Agent(InfDB db, int Agent_ID,String Namn, String Telefon, String Anstallningsdatum, String Administrator, String Epost, String Losenord) { 
         
         idb = db;
@@ -85,6 +92,8 @@ public class Agent extends javax.swing.JFrame {
         this.Epost = Epost;
     }
     
+    
+    
     //Här ska get + set kanske in om vi ska ha område som fält
    
     /**
@@ -101,7 +110,13 @@ public class Agent extends javax.swing.JFrame {
         lblOmradeschefAgent = new javax.swing.JLabel();
         txtOmradeschefAgent = new javax.swing.JTextField();
         lblKontorschefAgent = new javax.swing.JLabel();
+        txtgammaltLosenord = new javax.swing.JTextField();
         txtKontorschefAgent = new javax.swing.JTextField();
+        lblgammaltLosenord = new javax.swing.JLabel();
+        lblEpost = new javax.swing.JLabel();
+        txtEpost = new javax.swing.JTextField();
+        lblNyttLosenord = new javax.swing.JLabel();
+        txtNyttLosenord = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,6 +125,11 @@ public class Agent extends javax.swing.JFrame {
 
         btbAndraLosenordAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btbAndraLosenordAgent.setText("Ändra Lösenord");
+        btbAndraLosenordAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btbAndraLosenordAgentActionPerformed(evt);
+            }
+        });
 
         lblOmradeschefAgent.setFont(new java.awt.Font("Big Caslon", 0, 13)); // NOI18N
         lblOmradeschefAgent.setText("Områdenschef");
@@ -122,15 +142,18 @@ public class Agent extends javax.swing.JFrame {
 
         txtKontorschefAgent.setColumns(4);
 
+        lblgammaltLosenord.setText("Gammalt Lösenord");
+
+        lblEpost.setText("Epost");
+
+        lblNyttLosenord.setText("Nytt Lösenord");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(btbAndraLosenordAgent))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,8 +165,24 @@ public class Agent extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtOmradeschefAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtKontorschefAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(227, Short.MAX_VALUE))
+                                    .addComponent(txtKontorschefAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btbAndraLosenordAgent)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblgammaltLosenord)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(lblEpost))
+                                    .addComponent(lblNyttLosenord))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNyttLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtgammaltLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,13 +197,75 @@ public class Agent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKontorschefAgent)
                     .addComponent(txtKontorschefAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtgammaltLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblgammaltLosenord))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEpost)
+                    .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNyttLosenord)
+                    .addComponent(txtNyttLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btbAndraLosenordAgent)
                 .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btbAndraLosenordAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbAndraLosenordAgentActionPerformed
+    try
+      {
+              String epost = txtEpost.getText();
+              String gammaltLosenord = txtgammaltLosenord.getText(); 
+              String nyttLosenord = txtNyttLosenord.getText();
+	      String fragaAgent = "SELECT Epost, Losenord FROM mibdb.Agent";
+
+          ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
+         
+        boolean epostFinns = false;
+        for (HashMap<String, String> agentEpost : Agent) {
+             if (agentEpost.get("EPOST").equals(epost)) {
+                  epostFinns = true;
+                 break;
+                 }
+             }
+
+        if (epostFinns==true) {
+            for (HashMap<String, String> agentLosenord : Agent) {
+             if (agentLosenord.get("EPOST").equals(epost)) {
+                 gammaltLosenord = agentLosenord.get("LOSENORD");
+                  break;
+                 }
+               }
+            
+         //Här ska vi ändra det gammla lösenordet till det nya lösenordet på den platsen som har emaila dressen som vi skrev in.
+        if (gammaltLosenord.equals(Losenord)){
+ 
+           nyttLosenord = Losenord;
+            
+                    
+//            String updateQuery = "UPDATE Agent SET LOSENORD = '" + nyttLosenord + "' WHERE EPOST = '" + epost + "'";
+//            idb.executeUpdate(updateQuery);
+                 }
+            
+             }      
+         
+        }catch(NumberFormatException e){
+            
+           JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
+           
+           
+           //Vet ej vad denna gör men annars så blir den arg på variabeln fragaAgent.
+        } catch (InfException ex) {
+            Logger.getLogger(Agent.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btbAndraLosenordAgentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,10 +304,16 @@ public class Agent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbAndraLosenordAgent;
+    private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblKontorschefAgent;
+    private javax.swing.JLabel lblNyttLosenord;
     private javax.swing.JLabel lblOmradeschefAgent;
     private javax.swing.JLabel lblStartsidaAgent;
+    private javax.swing.JLabel lblgammaltLosenord;
+    private javax.swing.JTextField txtEpost;
     private javax.swing.JTextField txtKontorschefAgent;
+    private javax.swing.JTextField txtNyttLosenord;
     private javax.swing.JTextField txtOmradeschefAgent;
+    private javax.swing.JTextField txtgammaltLosenord;
     // End of variables declaration//GEN-END:variables
 }
