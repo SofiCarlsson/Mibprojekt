@@ -33,6 +33,16 @@ public class Agent extends javax.swing.JFrame {
         
         initComponents();
     }
+    
+    //Get + set för övriga fields in 
+    
+    public String getEpost() {
+        return Epost;
+    }
+    
+    public void setEpost() {
+        this.Epost = Epost;
+    }
    
     /**
      * This method is called from within the constructor to initialize the form.

@@ -30,12 +30,49 @@ public class Alien extends javax.swing.JFrame {
         idb = db;
         this.Alien_ID = Alien_ID;
         this.Registreringsdatum = Registreringsdatum;
-        this.Namn = Namn;
         this.Epost = Epost;
         this.Losenord = Losenord;
+        this.Namn = Namn;
         this.Telefon = Telefon;
         initComponents();
     }
+    
+    public int getAlien_ID() {
+        return Alien_ID;
+    }
+    
+    public void setAlien_ID() {
+        this.Alien_ID = Alien_ID;
+    }
+    
+    public String getRegistreringsdatum() {
+        return Registreringsdatum;
+    }
+    
+    //public void setRegistreringsdatum() {
+    //  this.Registreringsdatum = Registreringsdatum;
+    //}
+    
+    
+    public String getEpost() {
+        return Epost;
+    }
+    
+    public void setEpost() {
+        this.Epost = Epost;
+    }
+    
+    public String getLosenord() {
+        return Losenord;
+    }
+    
+    public void setLosenord() {
+        this.Losenord = Losenord;
+    }
+    
+    //Namn get + set 
+    //Telfeon get + set
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
