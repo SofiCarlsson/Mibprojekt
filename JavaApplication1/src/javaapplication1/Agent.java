@@ -6,12 +6,13 @@ package javaapplication1;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
+
 public class Agent extends javax.swing.JFrame {
 
     private InfDB idb;
     private int Agent_ID;
     private String Namn;
-    private int Telefon;
+    private String Telefon;
     private String Anstallningsdatum;
     private String Administrator;
     private String Epost;
@@ -20,9 +21,10 @@ public class Agent extends javax.swing.JFrame {
     
     
     
-    public Agent(InfDB db, int Agent_ID) { 
+    public Agent(InfDB db, int Agent_ID,String Namn, String Telefon, String Anstallningsdatum, String Administrator, String Epost, String Losenord) { 
         
         idb = db;
+        this.Agent_ID= Agent_ID;
         this.Namn = Namn;
         this.Telefon = Telefon;
         this.Anstallningsdatum = Anstallningsdatum;
@@ -39,7 +41,7 @@ public class Agent extends javax.swing.JFrame {
         return Agent_ID;
     }
     
-    public void setAgent_ID() {
+    public void setAgent_ID(int Agent_ID) {
         this.Agent_ID = Agent_ID;
     }
     
@@ -47,15 +49,15 @@ public class Agent extends javax.swing.JFrame {
         return Namn;
     }
     
-    public void setNamn() {
+    public void setNamn(String Namn) {
         this.Namn = Namn;
     }
     
-    public int getTelefon() {
+    public String getTelefon() {
         return Telefon;
     }
     
-    public void setTelefon() {
+    public void setTelefon(String Telefon) {
         this.Telefon = Telefon;
     }
     
@@ -63,7 +65,7 @@ public class Agent extends javax.swing.JFrame {
         return Anstallningsdatum;
     }
     
-    public void setAnstallningsdatum() {
+    public void setAnstallningsdatum(String Anstallningsdatum) {
         this.Anstallningsdatum = Anstallningsdatum;
     }
     
@@ -71,7 +73,7 @@ public class Agent extends javax.swing.JFrame {
         return Administrator;
     }
     
-    public void setAdministrator() {
+    public void setAdministrator(String Administrator) {
         this.Administrator = Administrator;
     }
     
@@ -79,7 +81,7 @@ public class Agent extends javax.swing.JFrame {
         return Epost;
     }
     
-    public void setEpost() {
+    public void setEpost(String Epost) {
         this.Epost = Epost;
     }
     

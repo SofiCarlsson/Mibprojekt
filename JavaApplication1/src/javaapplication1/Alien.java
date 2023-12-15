@@ -18,7 +18,7 @@ public class Alien extends javax.swing.JFrame {
     private String Epost;
     private String Losenord;
     private String Namn;
-    private int Telefon;
+    private String Telefon;
     //private int Plats;
     //private int Ansvarig_Agent;
     
@@ -26,7 +26,7 @@ public class Alien extends javax.swing.JFrame {
      * Creates new form Alien
      */
     //test
-    public Alien(InfDB db, int Alien_ID) {
+    public Alien(InfDB db, int Alien_ID, String Registreringsdatum, String Epost, String Losenord, String Namn, String Telefon) {
         idb = db;
         this.Alien_ID = Alien_ID;
         this.Registreringsdatum = Registreringsdatum;
@@ -41,7 +41,7 @@ public class Alien extends javax.swing.JFrame {
         return Alien_ID;
     }
     
-    public void setAlien_ID() {
+    public void setAlien_ID(int Alien_ID) {
         this.Alien_ID = Alien_ID;
     }
     
@@ -58,7 +58,7 @@ public class Alien extends javax.swing.JFrame {
         return Epost;
     }
     
-    public void setEpost() {
+    public void setEpost(String Epost) {
         this.Epost = Epost;
     }
     
@@ -66,7 +66,7 @@ public class Alien extends javax.swing.JFrame {
         return Losenord;
     }
     
-    public void setLosenord() {
+    public void setLosenord(String Losenord) {
         this.Losenord = Losenord;
     }
     
@@ -74,15 +74,15 @@ public class Alien extends javax.swing.JFrame {
         return Namn;
     }
     
-    public void setNamn() {
+    public void setNamn(String Namn) {
         this.Namn = Namn;
     }
     
-    public int getTelefon() {
+    public String getTelefon() {
         return Telefon;
     }
     
-    public void setTelefon() {
+    public void setTelefon(String Telefon) {
         this.Telefon = Telefon;
     }
     

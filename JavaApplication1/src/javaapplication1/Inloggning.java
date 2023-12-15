@@ -144,10 +144,12 @@ public class Inloggning extends javax.swing.JFrame {
         }catch(NumberFormatException e){
             
            JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
-
+           System.out.println("Internt felmedelande" + e.getMessage());
+           
         } catch (InfException ex) {
             Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
+            
         }
     }//GEN-LAST:event_btnLoggainActionPerformed
 
