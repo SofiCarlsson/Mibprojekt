@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JOptionPane;
@@ -109,9 +113,12 @@ public class Inloggning extends javax.swing.JFrame {
           String epost = txtEpost.getText();
 	  String losenord = txtLosenord.getText(); 
           String epostOchLosenord = epost + losenord;
+          String fragaAlien = "SELECT Epost, Losenord FROM mibdb.Alien";
+          String fragaAgent = "SELECT Epost, Losenord FROM mibdb.Agent";
+                 
+          ArrayList<HashMap<String, String>> Alien = idb.fetchRows(fragaAlien);
+          ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
           
-          ArrayList<HashMap<String, String>> Alien = Mibdb.fechRows("SELECT EPOST, LOSENORD FROM ALIEN");
-          ArrayList<HashMap<String, String>> Agent = Mibdb.fechRows("SELECT EPOST, LOSENORD FROM AGENT");
           
           for(int i= 0 ; i<Alien.size() ; i++){
               String output = "";
@@ -119,7 +126,8 @@ public class Inloggning extends javax.swing.JFrame {
               output += Alien.get(i).get("Epost") + Alien.get(i).get("Losenord");
                
                 if(epostOchLosenord.equals(output)){
-                  //logga in 
+                   JOptionPane.showMessageDialog(null, " Rätt lösnenord angivet" );
+                   
                 }
              }
           
@@ -127,8 +135,9 @@ public class Inloggning extends javax.swing.JFrame {
               String output = "";
               output += Agent.get(i).get("Epost") + Agent.get(i).get("Losenord");
                
-                if(epostOchLosenord.endsWith(output)){
-                  //logga in 
+                if(epostOchLosenord.equals(output)){
+                   JOptionPane.showMessageDialog(null, " Rätt lösnenord angivet" );
+                   
                 }
              }      
          
@@ -136,6 +145,9 @@ public class Inloggning extends javax.swing.JFrame {
             
            JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
 
+        } catch (InfException ex) {
+            Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
         }
     }//GEN-LAST:event_btnLoggainActionPerformed
 

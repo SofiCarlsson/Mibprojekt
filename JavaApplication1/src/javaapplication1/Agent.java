@@ -47,6 +47,8 @@ public class Agent extends javax.swing.JFrame {
         btbAndraLosenordAgent = new javax.swing.JButton();
         lblOmradeschefAgent = new javax.swing.JLabel();
         txtOmradeschefAgent = new javax.swing.JTextField();
+        lblKontorschefAgent = new javax.swing.JLabel();
+        txtKontorschefAgent = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +64,11 @@ public class Agent extends javax.swing.JFrame {
         txtOmradeschefAgent.setColumns(4);
         txtOmradeschefAgent.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
 
+        lblKontorschefAgent.setFont(new java.awt.Font("Big Caslon", 0, 13)); // NOI18N
+        lblKontorschefAgent.setText("Kontorschef");
+
+        txtKontorschefAgent.setColumns(4);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -76,9 +83,13 @@ public class Agent extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblStartsidaAgent)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblOmradeschefAgent)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblOmradeschefAgent)
+                                    .addComponent(lblKontorschefAgent))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtOmradeschefAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtOmradeschefAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtKontorschefAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(227, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -90,7 +101,11 @@ public class Agent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblOmradeschefAgent)
                     .addComponent(txtOmradeschefAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblKontorschefAgent)
+                    .addComponent(txtKontorschefAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                 .addComponent(btbAndraLosenordAgent)
                 .addGap(20, 20, 20))
         );
@@ -135,8 +150,10 @@ public class Agent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbAndraLosenordAgent;
+    private javax.swing.JLabel lblKontorschefAgent;
     private javax.swing.JLabel lblOmradeschefAgent;
     private javax.swing.JLabel lblStartsidaAgent;
+    private javax.swing.JTextField txtKontorschefAgent;
     private javax.swing.JTextField txtOmradeschefAgent;
     // End of variables declaration//GEN-END:variables
 }

@@ -33,10 +33,16 @@
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblStartsidaAgent" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="lblOmradeschefAgent" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblOmradeschefAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblKontorschefAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtOmradeschefAgent" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtOmradeschefAgent" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtKontorschefAgent" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -55,7 +61,12 @@
                   <Component id="lblOmradeschefAgent" min="-2" max="-2" attributes="0"/>
                   <Component id="txtOmradeschefAgent" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="196" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblKontorschefAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtKontorschefAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="155" max="32767" attributes="0"/>
               <Component id="btbAndraLosenordAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -93,6 +104,19 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Beirut" size="13" style="0"/>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblKontorschefAgent">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Big Caslon" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Kontorschef"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtKontorschefAgent">
+      <Properties>
+        <Property name="columns" type="int" value="4"/>
       </Properties>
     </Component>
   </SubComponents>
