@@ -12,7 +12,7 @@ public class Utrustning extends javax.swing.JFrame {
     private InfDB idb;
     private String Utrustnings_ID;
     private String Benamning;
-    
+    //fnrejkgbkre
     
     public Utrustning(InfDB db, String Utrustnings_ID, String Benamning) {
         idb = db;
