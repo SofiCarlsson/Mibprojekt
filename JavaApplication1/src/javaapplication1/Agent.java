@@ -113,6 +113,7 @@ public class Agent extends javax.swing.JFrame {
         txtNyttLosenord = new javax.swing.JTextField();
         lblOmrådeschefRuta = new javax.swing.JLabel();
         lblKontorschefRuta = new javax.swing.JLabel();
+        btnNyregistreraAlien = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,6 +144,9 @@ public class Agent extends javax.swing.JFrame {
         lblOmrådeschefRuta.setText("ID in här");
 
         lblKontorschefRuta.setText("ID in här också");
+
+        btnNyregistreraAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
+        btnNyregistreraAlien.setText("Nyregistrera Alien");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,8 +181,12 @@ public class Agent extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNyttLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtgammaltLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(95, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtgammaltLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                                        .addComponent(btnNyregistreraAlien)))))
+                        .addGap(8, 8, 8)))
+                .addContainerGap(5, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +204,8 @@ public class Agent extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtgammaltLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblgammaltLosenord))
+                    .addComponent(lblgammaltLosenord)
+                    .addComponent(btnNyregistreraAlien))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEpost)
@@ -250,6 +259,7 @@ public class Agent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbAndraLosenordAgent;
+    private javax.swing.JButton btnNyregistreraAlien;
     private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblKontorschefAgent;
     private javax.swing.JLabel lblKontorschefRuta;

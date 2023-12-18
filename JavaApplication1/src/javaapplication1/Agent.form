@@ -59,13 +59,18 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtNyttLosenord" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEpost" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtgammaltLosenord" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtgammaltLosenord" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                                      <Component id="btnNyregistreraAlien" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="95" max="32767" attributes="0"/>
+              <EmptySpace pref="5" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,6 +93,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtgammaltLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblgammaltLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNyregistreraAlien" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -177,6 +183,14 @@
     <Component class="javax.swing.JLabel" name="lblKontorschefRuta">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID in h&#xe4;r ocks&#xe5;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyregistreraAlien">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nyregistrera Alien"/>
       </Properties>
     </Component>
   </SubComponents>

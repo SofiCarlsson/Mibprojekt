@@ -26,15 +26,10 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="lblOmradeschefAlien" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtOmradeschefAlien" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Component id="btnAndraLosenordAlien" min="-2" max="-2" attributes="0"/>
                   <Component id="lblStartsidaAlien" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="241" max="32767" attributes="0"/>
+              <EmptySpace pref="240" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,12 +38,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="lblStartsidaAlien" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtOmradeschefAlien" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblOmradeschefAlien" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="191" max="32767" attributes="0"/>
+              <EmptySpace pref="199" max="32767" attributes="0"/>
               <Component id="btnAndraLosenordAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
@@ -70,19 +60,6 @@
           <Font name="Arial Rounded MT Bold" size="13" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra L&#xf6;senord"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtOmradeschefAlien">
-      <Properties>
-        <Property name="columns" type="int" value="4"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblOmradeschefAlien">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Big Caslon" size="13" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Omr&#xe5;deschef"/>
       </Properties>
     </Component>
   </SubComponents>

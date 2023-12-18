@@ -96,8 +96,6 @@ public class Alien extends javax.swing.JFrame {
 
         lblStartsidaAlien = new javax.swing.JLabel();
         btnAndraLosenordAlien = new javax.swing.JButton();
-        txtOmradeschefAlien = new javax.swing.JTextField();
-        lblOmradeschefAlien = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,11 +105,6 @@ public class Alien extends javax.swing.JFrame {
         btnAndraLosenordAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnAndraLosenordAlien.setText("Ändra Lösenord");
 
-        txtOmradeschefAlien.setColumns(4);
-
-        lblOmradeschefAlien.setFont(new java.awt.Font("Big Caslon", 0, 13)); // NOI18N
-        lblOmradeschefAlien.setText("Områdeschef");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,24 +112,16 @@ public class Alien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblOmradeschefAlien)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtOmradeschefAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAndraLosenordAlien)
                     .addComponent(lblStartsidaAlien))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(lblStartsidaAlien)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtOmradeschefAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblOmradeschefAlien))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                 .addComponent(btnAndraLosenordAlien)
                 .addGap(23, 23, 23))
         );
@@ -181,8 +166,6 @@ public class Alien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraLosenordAlien;
-    private javax.swing.JLabel lblOmradeschefAlien;
     private javax.swing.JLabel lblStartsidaAlien;
-    private javax.swing.JTextField txtOmradeschefAlien;
     // End of variables declaration//GEN-END:variables
 }
