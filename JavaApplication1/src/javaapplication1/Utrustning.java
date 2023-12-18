@@ -10,22 +10,22 @@ import oru.inf.InfException;
 public class Utrustning extends javax.swing.JFrame {
     
     private InfDB idb;
-    private int Utrustnings_ID;
+    private String Utrustnings_ID;
     private String Benamning;
     
     
-    public Utrustning(InfDB db, int Utrustnings_ID, String Benamning) {
+    public Utrustning(InfDB db, String Utrustnings_ID, String Benamning) {
         idb = db;
         this.Utrustnings_ID = Utrustnings_ID;
         this.Benamning = Benamning;
         initComponents();
     }
     
-    public int getUtrustnings_ID() {
+    public String getUtrustnings_ID() {
         return Utrustnings_ID;
     }
     
-    public void setUtrustnings_ID(int nyUtrustnings_ID) {
+    public void setUtrustnings_ID(String nyUtrustnings_ID) {
       Utrustnings_ID = nyUtrustnings_ID;
     }
     
@@ -92,7 +92,7 @@ public class Utrustning extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Utrustning().setVisible(true);
+               // new Utrustning().setVisible(true);
             }
         });
     }

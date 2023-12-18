@@ -244,7 +244,7 @@ public class Agent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Agent().setVisible(true);
+                //new Agent().setVisible(true);
             }
         });
     }
