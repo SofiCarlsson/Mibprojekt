@@ -13,7 +13,7 @@ import oru.inf.InfException;
 public class Alien extends javax.swing.JFrame {
 
     private InfDB idb;
-    private int Alien_ID;
+    private String Alien_ID;
     private String Registreringsdatum;
     private String Epost;
     private String Losenord;
@@ -26,22 +26,18 @@ public class Alien extends javax.swing.JFrame {
      * Creates new form Alien
      */
     //test
-    public Alien(InfDB db, int Alien_ID, String Registreringsdatum, String Epost, String Losenord, String Namn, String Telefon) {
+    public Alien(InfDB db, String Alien_ID) {
         idb = db;
         this.Alien_ID = Alien_ID;
-        this.Registreringsdatum = Registreringsdatum;
-        this.Epost = Epost;
-        this.Losenord = Losenord;
-        this.Namn = Namn;
-        this.Telefon = Telefon;
+        
         initComponents();
     }
     
-    public int getAlien_ID() {
+    public String getAlien_ID() {
         return Alien_ID;
     }
     
-    public void setAlien_ID(int Alien_ID) {
+    public void setAlien_ID(String Alien_ID) {
         this.Alien_ID = Alien_ID;
     }
     

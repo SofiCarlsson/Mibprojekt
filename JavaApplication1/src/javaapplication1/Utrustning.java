@@ -8,12 +8,13 @@ import oru.inf.InfException;
 
 //test
 public class Utrustning extends javax.swing.JFrame {
-
+    
+    private InfDB idb;
     private int Utrustnings_ID;
     private String Benamning;
     
     
-    public Utrustning(InfDB db, int Utrustnings_ID) {
+    public Utrustning(InfDB db, int Utrustnings_ID, String Benamning) {
         idb = db;
         this.Utrustnings_ID = Utrustnings_ID;
         this.Benamning = Benamning;
@@ -24,16 +25,16 @@ public class Utrustning extends javax.swing.JFrame {
         return Utrustnings_ID;
     }
     
-    public void setUtrustnings_ID() {
-        this.Utrustnings_ID = Utrustnings_ID;
+    public void setUtrustnings_ID(int nyUtrustnings_ID) {
+      Utrustnings_ID = nyUtrustnings_ID;
     }
     
     public String getBenamning() {
         return Benamning;
     }
     
-    public void setBenamning() {
-        this.Benamning = Benamning;
+    public void setBenamning(String nyBenamning) {
+       Benamning = nyBenamning;
     }
 
     /**

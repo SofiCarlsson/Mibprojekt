@@ -17,7 +17,7 @@ public class Agent extends javax.swing.JFrame {
 
     //Fälten för klassen Agent
     private InfDB idb;
-    private int Agent_ID;
+    private String Agent_ID;
     private String Namn;
     private String Telefon;
     private String Anstallningsdatum;
@@ -28,23 +28,23 @@ public class Agent extends javax.swing.JFrame {
     
     
     //Konstruktor för Agent klassen
-    public Agent(InfDB db, int Agent_ID,String Namn, String Telefon, String Anstallningsdatum, String Administrator, String Epost, String Losenord) { 
+    public Agent(InfDB db, String Agent_ID) { 
         
         idb = db;
         this.Agent_ID= Agent_ID;
-        this.Namn = Namn;
-        this.Telefon = Telefon;
-        this.Anstallningsdatum = Anstallningsdatum;
-        this.Administrator = Administrator;
-        this.Epost = Epost;
-        this.Losenord = Losenord;
+       // this.Namn = Namn;
+       //this.Telefon = Telefon;
+       // this.Anstallningsdatum = Anstallningsdatum;
+       // this.Administrator = Administrator;
+       // this.Epost = Epost;
+       //this.Losenord = Losenord;
         
         
         initComponents();
     }
     
     //Get + set för övriga fields in 
-    public int getAgen_ID() {
+    public String getAgen_ID() {
         return Agent_ID;
     }
     
@@ -91,7 +91,9 @@ public class Agent extends javax.swing.JFrame {
     public void setEpost(String Epost) {
         this.Epost = Epost;
     }
-    
+     public String getLosenord() {
+        return Losenord;
+     }
     
     
     //Här ska get + set kanske in om vi ska ha område som fält
@@ -217,54 +219,34 @@ public class Agent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Tagit bort email och nu har vi bara att skriva in gammalt lösenord och nytt lösenord som text fields. 
+    //Metdoen jämför om det gamla lösenordet är korrekt, och om det är det så ändras värdet på lösonordsfältet till det man skrev in. 
+    //Annars kommmer det ett felmedelande.
+    
     private void btbAndraLosenordAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbAndraLosenordAgentActionPerformed
     try
       {
-              String epost = txtEpost.getText();
+              //String inskrivenEpost = txtEpost.getText();
               String gammaltLosenord = txtgammaltLosenord.getText(); 
               String nyttLosenord = txtNyttLosenord.getText();
-	      String fragaAgent = "SELECT Epost, Losenord FROM mibdb.Agent";
+	      String fragaAgent = "SELECT Epost, Losenord FROM Agent";
 
-          ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
+              ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
          
-        boolean epostFinns = false;
-        for (HashMap<String, String> agentEpost : Agent) {
-             if (agentEpost.get("EPOST").equals(epost)) {
-                  epostFinns = true;
-                 break;
-                 }
-             }
-
-        if (epostFinns==true) {
-            for (HashMap<String, String> agentLosenord : Agent) {
-             if (agentLosenord.get("EPOST").equals(epost)) {
-                 gammaltLosenord = agentLosenord.get("LOSENORD");
-                  break;
-                 }
-               }
-            
-         //Här ska vi ändra det gammla lösenordet till det nya lösenordet på den platsen som har emaila dressen som vi skrev in.
-        if (gammaltLosenord.equals(Losenord)){
- 
-           nyttLosenord = Losenord;
-            
-                    
-//            String updateQuery = "UPDATE Agent SET LOSENORD = '" + nyttLosenord + "' WHERE EPOST = '" + epost + "'";
-//            idb.executeUpdate(updateQuery);
-                 }
-            
-             }      
-         
-        }catch(NumberFormatException e){
-            
+                for(int i = 0; i<Agent.size() ; i++){
+                       ArrayList<HashMap<String, String>> enAgent = enAgent.get(i);
+                        
+                             if(gammaltLosenord)= enAgent.getLosenord()){
+              
+                                 Losenord = nyttLosenord;
+                          }
+                       }
+             }catch(NumberFormatException e){
+           
            JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
+            txtgammaltLosenord.requestFocus();
            
-           
-           //Vet ej vad denna gör men annars så blir den arg på variabeln fragaAgent.
-        } catch (InfException ex) {
-            Logger.getLogger(Agent.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_btbAndraLosenordAgentActionPerformed
 
     /**

@@ -13,18 +13,19 @@ import oru.inf.InfException;
 public class Omrade extends javax.swing.JFrame {
 
     private InfDB idb;
-    private int Omrades_ID;
-    //private int Benamning;
+    private String Omrades_ID;
+    //private int Benamning; främmande
     
     /**
      * Creates new form Omrade
      */
-    public Omrade(InfDB db) {
+    public Omrade(InfDB db, String Omrades_ID) {
         idb = db;
+        this.Omrades_ID = Omrades_ID;
         initComponents();
     }
     
-    public int getOmrades_ID() {
+    public String getOmrades_ID() {
         return Omrades_ID;
     }
     

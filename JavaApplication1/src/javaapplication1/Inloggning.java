@@ -6,7 +6,9 @@ package javaapplication1;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
+//Varför har vi dessa?
 import java.util.logging.Logger;
+//VArför har vi denna?
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JOptionPane;
@@ -63,6 +65,7 @@ public class Inloggning extends javax.swing.JFrame {
 
         txtEpost.setColumns(4);
         txtEpost.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
+        txtEpost.setText("ao");
 
         txtLosenord.setColumns(4);
         txtLosenord.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
@@ -114,8 +117,8 @@ public class Inloggning extends javax.swing.JFrame {
           String epost = txtEpost.getText();
 	  String losenord = txtLosenord.getText(); 
           String epostOchLosenord = epost + losenord;
-          String fragaAlien = "SELECT Epost, Losenord FROM mibdb.Alien";
-          String fragaAgent = "SELECT Epost, Losenord FROM mibdb.Agent";
+          String fragaAlien = "SELECT Epost, Losenord FROM Alien";
+          String fragaAgent = "SELECT Epost, Losenord, Agent_ID FROM Agent";
                  
           ArrayList<HashMap<String, String>> Alien = idb.fetchRows(fragaAlien);
           ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
@@ -140,19 +143,19 @@ public class Inloggning extends javax.swing.JFrame {
                
                 if(epostOchLosenord.equals(output)){
                    JOptionPane.showMessageDialog(null, " Rätt lösnenord angivet" );
-                   
+                  
+                   //Kommer in i Source för Agent.
+                   Agent agentFonster = new Agent(idb, Agent.get(i).get("Agent_ID"));
+                   agentFonster.setVisible(true);
                 }
              }      
-         
-        }catch(NumberFormatException e){
+         //VARFÖR FUNKAR INTE CATCHEN???
+        }catch(InfException ettUndantag){
             
-           JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
-           System.out.println("Internt felmedelande" + e.getMessage());
-           
-        } catch (InfException ex) {
-            Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
-            
+              JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
+              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
+              txtLosenord.requestFocus();
+        
         }
     }//GEN-LAST:event_btnLoggainActionPerformed
 
