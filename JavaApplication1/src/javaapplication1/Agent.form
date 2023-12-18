@@ -34,10 +34,10 @@
                                   <Component id="lblOmradeschefAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblKontorschefAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtOmradeschefAgent" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtKontorschefAgent" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblOmrådeschefRuta" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblKontorschefRuta" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -65,7 +65,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="183" max="32767" attributes="0"/>
+              <EmptySpace pref="95" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,14 +77,14 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lblOmradeschefAgent" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtOmradeschefAgent" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOmrådeschefRuta" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblKontorschefAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtKontorschefAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblKontorschefRuta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtgammaltLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblgammaltLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -94,7 +94,7 @@
                   <Component id="lblEpost" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtEpost" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNyttLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyttLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -131,14 +131,6 @@
         <Property name="text" type="java.lang.String" value="Omr&#xe5;denschef"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtOmradeschefAgent">
-      <Properties>
-        <Property name="columns" type="int" value="4"/>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Beirut" size="13" style="0"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblKontorschefAgent">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -148,8 +140,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtgammaltLosenord">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtKontorschefAgent">
       <Properties>
         <Property name="columns" type="int" value="4"/>
       </Properties>
@@ -165,6 +155,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEpost">
+      <Properties>
+        <Property name="columns" type="int" value="4"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNyttLosenord">
       <Properties>
@@ -172,6 +165,19 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNyttLosenord">
+      <Properties>
+        <Property name="columns" type="int" value="4"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOmr&#xe5;deschefRuta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID in h&#xe4;r"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblKontorschefRuta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID in h&#xe4;r ocks&#xe5;"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

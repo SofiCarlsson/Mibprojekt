@@ -31,6 +31,8 @@ public class Alien extends javax.swing.JFrame {
         this.Alien_ID = Alien_ID;
         
         initComponents();
+        //Här ska en sql-fråga in där vem som är onmrådesansvarig
+        //för (ett valt) alltså en aliens område in. 
     }
     
     public String getAlien_ID() {
