@@ -48,7 +48,7 @@ public class Agent extends javax.swing.JFrame {
         return Agent_ID;
     }
     
-    public void setAgent_ID(int Agent_ID) {
+    public void setAgent_ID(String Agent_ID) {
         this.Agent_ID = Agent_ID;
     }
     
@@ -127,11 +127,6 @@ public class Agent extends javax.swing.JFrame {
 
         btbAndraLosenordAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btbAndraLosenordAgent.setText("Ändra Lösenord");
-        btbAndraLosenordAgent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btbAndraLosenordAgentActionPerformed(evt);
-            }
-        });
 
         lblOmradeschefAgent.setFont(new java.awt.Font("Big Caslon", 0, 13)); // NOI18N
         lblOmradeschefAgent.setText("Områdenschef");
@@ -218,36 +213,6 @@ public class Agent extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    //Tagit bort email och nu har vi bara att skriva in gammalt lösenord och nytt lösenord som text fields. 
-    //Metdoen jämför om det gamla lösenordet är korrekt, och om det är det så ändras värdet på lösonordsfältet till det man skrev in. 
-    //Annars kommmer det ett felmedelande.
-    
-    private void btbAndraLosenordAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbAndraLosenordAgentActionPerformed
-    try
-      {
-              //String inskrivenEpost = txtEpost.getText();
-              String gammaltLosenord = txtgammaltLosenord.getText(); 
-              String nyttLosenord = txtNyttLosenord.getText();
-	      String fragaAgent = "SELECT Epost, Losenord FROM Agent";
-
-              ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
-         
-                for(int i = 0; i<Agent.size() ; i++){
-                       ArrayList<HashMap<String, String>> enAgent = enAgent.get(i);
-                        
-                             if(gammaltLosenord)= enAgent.getLosenord()){
-              
-                                 Losenord = nyttLosenord;
-                          }
-                       }
-             }catch(NumberFormatException e){
-           
-           JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
-            txtgammaltLosenord.requestFocus();
-           
-        }
-    }//GEN-LAST:event_btbAndraLosenordAgentActionPerformed
 
     /**
      * @param args the command line arguments

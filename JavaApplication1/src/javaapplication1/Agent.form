@@ -122,9 +122,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra L&#xf6;senord"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btbAndraLosenordAgentActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblOmradeschefAgent">
       <Properties>
