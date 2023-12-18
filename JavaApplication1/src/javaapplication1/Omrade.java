@@ -87,7 +87,7 @@ public class Omrade extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Omrade().setVisible(true);
+                //new Omrade().setVisible(true);
             }
         });
     }

@@ -65,10 +65,11 @@ public class Inloggning extends javax.swing.JFrame {
 
         txtEpost.setColumns(4);
         txtEpost.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
-        txtEpost.setText("ao@mib");
+        txtEpost.setText("ao@mib.net");
 
         txtLosenord.setColumns(4);
         txtLosenord.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
+        txtLosenord.setText("planka");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,7 +134,10 @@ public class Inloggning extends javax.swing.JFrame {
                 //Här jämförs om det eposten+lösenordet = det värdena som hämtas.
                 if(epostOchLosenord.equals(output)){
                    JOptionPane.showMessageDialog(null, " Rätt lösnenord angivet" );
-                   
+                    
+                   //Kommer in Source för Alien
+                   Alien alienFonster = new Alien(idb, Alien.get(i).get("Alien_ID"));
+                   alienFonster.setVisible(true);
                 }
              }
           
