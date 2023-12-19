@@ -55,14 +55,14 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
 
-        btnsokInfoOmAgent.setText("Sök information om en agent");
+        btnsokInfoOmAgent.setText("Se och ändrainformation om en agent");
         btnsokInfoOmAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsokInfoOmAgentActionPerformed(evt);
             }
         });
 
-        btngeadministratorStatus.setText("Ge administratörstatus till en agent");
+        btngeadministratorStatus.setText("//Ge administratörstatus till en agent");
         btngeadministratorStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btngeadministratorStatusActionPerformed(evt);
