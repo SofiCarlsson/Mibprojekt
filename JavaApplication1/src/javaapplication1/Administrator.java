@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -13,7 +15,12 @@ public class Administrator extends javax.swing.JFrame {
     /**
      * Creates new form Administrator
      */
-    public Administrator() {
+    private InfDB idb;
+    /**
+     * Creates new form Inlogg
+     */
+    public Administrator(InfDB db) {
+        idb = db;
         initComponents();
     }
 
@@ -42,8 +49,18 @@ public class Administrator extends javax.swing.JFrame {
         btntaBortUtrustning.setText("Ta bort utrustning");
 
         btnregistreraNyAlien.setText("Registrera ny agent");
+        btnregistreraNyAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistreraNyAlienActionPerformed(evt);
+            }
+        });
 
         btnsokInfoOmAgent.setText("Sök information om en agent");
+        btnsokInfoOmAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsokInfoOmAgentActionPerformed(evt);
+            }
+        });
 
         btngeadministratorStatus.setText("Ge administratörstatus till en agent");
 
@@ -55,33 +72,47 @@ public class Administrator extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(btntaBortAlien)
-                    .addComponent(btntaBortUtrustning)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btntaBortAlien)
+                        .addGap(18, 18, 18)
+                        .addComponent(btntaBortUtrustning))
                     .addComponent(btnregistreraNyAlien)
                     .addComponent(btnsokInfoOmAgent)
                     .addComponent(btngeadministratorStatus))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(btntaBortUtrustning)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnregistreraNyAlien)
                 .addGap(18, 18, 18)
                 .addComponent(btnsokInfoOmAgent)
                 .addGap(18, 18, 18)
                 .addComponent(btngeadministratorStatus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(btntaBortAlien)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btntaBortAlien)
+                    .addComponent(btntaBortUtrustning))
                 .addGap(30, 30, 30))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnsokInfoOmAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsokInfoOmAgentActionPerformed
+        //Öppnar ny ruta för att söka information om en agent
+        SokInfoOmAgent sokinfoomagentFonster = new SokInfoOmAgent();
+                   sokinfoomagentFonster.setVisible(true);
+    }//GEN-LAST:event_btnsokInfoOmAgentActionPerformed
+
+    private void btnregistreraNyAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistreraNyAlienActionPerformed
+        //Öppnar ny ruta för att registrera en ny agent
+        NyregistreraAgent registreraAgentfonster = new Nyregistrera();
+        registreraAgentfonster.setVisible(true);
+    }//GEN-LAST:event_btnregistreraNyAlienActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,8 +143,8 @@ public class Administrator extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Administrator().setVisible(true);
+            public void run()
+                //new Administrator().setVisible(true);
             }
         });
     }
