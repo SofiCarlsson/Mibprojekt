@@ -105,7 +105,7 @@
                   <Component id="lblOmKommunikation" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtOmKommunikation" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -113,6 +113,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblRegNyRubrik">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Beirut" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="H&#xe4;r kan du registrera ny Agentutrusning:"/>
       </Properties>
     </Component>

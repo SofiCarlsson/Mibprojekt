@@ -47,6 +47,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lblHärvisasRubrik.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
         lblHärvisasRubrik.setText("Här visas all info om en Alien");
 
         btnÄndraInfo.setText("Ändra info");
@@ -175,7 +176,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtVisaLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblVisaLösenord))
-                        .addContainerGap(56, Short.MAX_VALUE))
+                        .addContainerGap(59, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

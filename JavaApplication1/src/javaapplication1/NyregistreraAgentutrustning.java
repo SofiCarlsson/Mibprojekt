@@ -62,6 +62,7 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lblRegNyRubrik.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
         lblRegNyRubrik.setText("Här kan du registrera ny Agentutrusning:");
 
         lblNyRegUtrustningsID.setText("UtrusningsID");
@@ -154,7 +155,7 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOmKommunikation)
                     .addComponent(txtOmKommunikation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
