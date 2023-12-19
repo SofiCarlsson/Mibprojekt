@@ -132,6 +132,11 @@ public class Agent extends javax.swing.JFrame {
 
         btnNyregistreraAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnNyregistreraAlien.setText("Nyregistrera Alien");
+        btnNyregistreraAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNyregistreraAlienActionPerformed(evt);
+            }
+        });
 
         btnÄndrainfoomAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnÄndrainfoomAlien.setText("Ändra info om Alien");
@@ -228,6 +233,12 @@ public class Agent extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNyregistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyregistreraAlienActionPerformed
+        // TODO add your handling code here:
+        NyregistreraAlien visaNyAlien = new NyregistreraAlien(idb);
+        visaNyAlien.setVisible(true);
+    }//GEN-LAST:event_btnNyregistreraAlienActionPerformed
 
     /**
      * @param args the command line arguments

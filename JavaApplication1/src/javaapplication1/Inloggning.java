@@ -152,6 +152,11 @@ public class Inloggning extends javax.swing.JFrame {
                    Agent agentFonster = new Agent(idb, Agent.get(i).get("Agent_ID"));
                    agentFonster.setVisible(true);
                 }
+                else{
+                    JOptionPane.showMessageDialog(null, " Fel email eller Lösenord angivet" );
+                    txtLosenord.requestFocus();
+                }
+
              }      
          //VARFÖR FUNKAR INTE CATCHEN???
         }catch(InfException ettUndantag){

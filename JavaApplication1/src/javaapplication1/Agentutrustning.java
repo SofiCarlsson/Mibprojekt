@@ -6,19 +6,35 @@ package javaapplication1;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
-/**
- *
- * @author oliviacleve
- */
-public class ÄndrainfoomAlien extends javax.swing.JFrame {
-
+//test
+public class Agentutrustning extends javax.swing.JFrame {
+    
     private InfDB idb;
-    /**
-     * Creates new form ÄndrainfoomAlien
-     */
-    public ÄndrainfoomAlien(InfDB db) {
+    private String Utrustnings_ID;
+    private String Benamning;
+    
+    
+    public Agentutrustning(InfDB db, String Utrustnings_ID, String Benamning) {
         idb = db;
+        this.Utrustnings_ID = Utrustnings_ID;
+
         initComponents();
+    }
+    
+    public String getUtrustnings_ID() {
+        return Utrustnings_ID;
+    }
+    
+    public void setUtrustnings_ID(String nyUtrustnings_ID) {
+      Utrustnings_ID = nyUtrustnings_ID;
+    }
+    
+    public String getBenamning() {
+        return Benamning;
+    }
+    
+    public void setBenamning(String nyBenamning) {
+       Benamning = nyBenamning;
     }
 
     /**
@@ -63,20 +79,21 @@ public class ÄndrainfoomAlien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ÄndrainfoomAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agentutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ÄndrainfoomAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agentutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ÄndrainfoomAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agentutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ÄndrainfoomAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Agentutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              //  new ÄndrainfoomAlien().setVisible(true);
+               // new Utrustning().setVisible(true);
             }
         });
     }
