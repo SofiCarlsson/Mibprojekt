@@ -103,14 +103,9 @@ public class Agent extends javax.swing.JFrame {
     private void initComponents() {
 
         lblStartsidaAgent = new javax.swing.JLabel();
-        lblOmradeschefAgent = new javax.swing.JLabel();
-        lblKontorschefAgent = new javax.swing.JLabel();
-        lblOmrådeschefRuta = new javax.swing.JLabel();
-        lblKontorschefRuta = new javax.swing.JLabel();
         btnNyregistreraAlien = new javax.swing.JButton();
-        btnÄndrainfoomAlien = new javax.swing.JButton();
         btnNyregistreraAgentutrustning = new javax.swing.JButton();
-        btnSeinfoomAlien = new javax.swing.JButton();
+        btnSeochändrainfoomAlien = new javax.swing.JButton();
         btnSökOmrådeschef = new javax.swing.JButton();
         btnTopplistaöverAgenter = new javax.swing.JButton();
         btnMinutrustning = new javax.swing.JButton();
@@ -121,16 +116,6 @@ public class Agent extends javax.swing.JFrame {
         lblStartsidaAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         lblStartsidaAgent.setText("Startsida AGENT");
 
-        lblOmradeschefAgent.setFont(new java.awt.Font("Big Caslon", 0, 13)); // NOI18N
-        lblOmradeschefAgent.setText("Områdenschef");
-
-        lblKontorschefAgent.setFont(new java.awt.Font("Big Caslon", 0, 13)); // NOI18N
-        lblKontorschefAgent.setText("Kontorschef");
-
-        lblOmrådeschefRuta.setText("ID in här");
-
-        lblKontorschefRuta.setText("ID in här också");
-
         btnNyregistreraAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnNyregistreraAlien.setText("Nyregistrera Alien");
         btnNyregistreraAlien.addActionListener(new java.awt.event.ActionListener() {
@@ -139,14 +124,11 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
-        btnÄndrainfoomAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
-        btnÄndrainfoomAlien.setText("Ändra info om Alien");
-
         btnNyregistreraAgentutrustning.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnNyregistreraAgentutrustning.setText("Nyregistrera Agentutrustning");
 
-        btnSeinfoomAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
-        btnSeinfoomAlien.setText("Se info om Alien");
+        btnSeochändrainfoomAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
+        btnSeochändrainfoomAlien.setText("Se och ändra info om Alien");
 
         btnSökOmrådeschef.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnSökOmrådeschef.setText("Sök Områdeschef");
@@ -156,6 +138,11 @@ public class Agent extends javax.swing.JFrame {
 
         btnMinutrustning.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnMinutrustning.setText("Min utrustning");
+        btnMinutrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinutrustningActionPerformed(evt);
+            }
+        });
 
         btnAdministratör.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnAdministratör.setText("Administratör");
@@ -168,62 +155,38 @@ public class Agent extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSeinfoomAlien)
-                            .addComponent(btnNyregistreraAlien))
-                        .addGap(17, 17, 17))
+                        .addComponent(btnSeochändrainfoomAlien)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSökOmrådeschef)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblKontorschefAgent)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblKontorschefRuta))
-                            .addComponent(lblStartsidaAgent)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblOmradeschefAgent)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblOmrådeschefRuta)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnÄndrainfoomAlien)
-                        .addGap(11, 11, 11))
+                        .addComponent(btnNyregistreraAlien)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnNyregistreraAgentutrustning)
-                            .addComponent(btnMinutrustning)
-                            .addComponent(btnTopplistaöverAgenter))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addComponent(btnTopplistaöverAgenter)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                         .addComponent(btnAdministratör)
-                        .addGap(46, 46, 46))))
+                        .addGap(46, 46, 46))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMinutrustning)
+                            .addComponent(btnNyregistreraAgentutrustning)
+                            .addComponent(btnSökOmrådeschef)
+                            .addComponent(lblStartsidaAgent))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(lblStartsidaAgent)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblOmradeschefAgent)
-                            .addComponent(lblOmrådeschefRuta))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblKontorschefAgent)
-                            .addComponent(lblKontorschefRuta)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(btnNyregistreraAlien)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSeinfoomAlien)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnÄndrainfoomAlien)))
-                .addGap(26, 26, 26)
+                .addGap(14, 14, 14)
+                .addComponent(lblStartsidaAgent)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMinutrustning)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNyregistreraAgentutrustning)
-                .addGap(38, 38, 38)
+                .addGap(34, 34, 34)
+                .addComponent(btnNyregistreraAlien)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSeochändrainfoomAlien)
+                .addGap(44, 44, 44)
                 .addComponent(btnSökOmrådeschef)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -240,6 +203,12 @@ public class Agent extends javax.swing.JFrame {
         NyregistreraAlien visaNyAlien = new NyregistreraAlien(idb);
         visaNyAlien.setVisible(true);
     }//GEN-LAST:event_btnNyregistreraAlienActionPerformed
+
+    private void btnMinutrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinutrustningActionPerformed
+        // TODO add your handling code here:
+        Minutrustning visaMinUtrustning = new Minutrustning(idb);
+        visaMinUtrustning.setVisible(true);
+    }//GEN-LAST:event_btnMinutrustningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,14 +250,9 @@ public class Agent extends javax.swing.JFrame {
     private javax.swing.JButton btnMinutrustning;
     private javax.swing.JButton btnNyregistreraAgentutrustning;
     private javax.swing.JButton btnNyregistreraAlien;
-    private javax.swing.JButton btnSeinfoomAlien;
+    private javax.swing.JButton btnSeochändrainfoomAlien;
     private javax.swing.JButton btnSökOmrådeschef;
     private javax.swing.JButton btnTopplistaöverAgenter;
-    private javax.swing.JButton btnÄndrainfoomAlien;
-    private javax.swing.JLabel lblKontorschefAgent;
-    private javax.swing.JLabel lblKontorschefRuta;
-    private javax.swing.JLabel lblOmradeschefAgent;
-    private javax.swing.JLabel lblOmrådeschefRuta;
     private javax.swing.JLabel lblStartsidaAgent;
     // End of variables declaration//GEN-END:variables
 }
