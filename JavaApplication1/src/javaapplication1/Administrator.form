@@ -87,7 +87,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnsokInfoOmAgent">
       <Properties>
-        <Property name="text" type="java.lang.String" value="S&#xf6;k information om en agent"/>
+        <Property name="text" type="java.lang.String" value="Se och &#xe4;ndrainformation om en agent"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsokInfoOmAgentActionPerformed"/>
@@ -95,7 +95,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btngeadministratorStatus">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ge administrat&#xf6;rstatus till en agent"/>
+        <Property name="text" type="java.lang.String" value="//Ge administrat&#xf6;rstatus till en agent"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btngeadministratorStatusActionPerformed"/>
