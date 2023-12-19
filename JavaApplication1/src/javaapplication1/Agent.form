@@ -23,91 +23,89 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnSeinfoomAlien" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNyregistreraAlien" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnSökOmrådeschef" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblKontorschefAgent" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblKontorschefRuta" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="lblStartsidaAgent" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblOmradeschefAgent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblKontorschefAgent" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblOmrådeschefRuta" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblKontorschefRuta" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lblOmradeschefAgent" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblOmrådeschefRuta" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnÄndrainfoomAlien" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btbAndraLosenordAgent" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblgammaltLosenord" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="lblEpost" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblNyttLosenord" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNyttLosenord" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtEpost" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txtgammaltLosenord" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="27" max="32767" attributes="0"/>
-                                      <Component id="btnNyregistreraAlien" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
+                          <Component id="btnNyregistreraAgentutrustning" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnMinutrustning" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTopplistaöverAgenter" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                      <Component id="btnAdministratör" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="5" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="lblStartsidaAgent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblOmradeschefAgent" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblOmrådeschefRuta" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="lblStartsidaAgent" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblOmradeschefAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblOmrådeschefRuta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblKontorschefAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblKontorschefRuta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="btnNyregistreraAlien" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnSeinfoomAlien" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnÄndrainfoomAlien" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="btnMinutrustning" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnNyregistreraAgentutrustning" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Component id="btnSökOmrådeschef" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblKontorschefAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblKontorschefRuta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTopplistaöverAgenter" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdministratör" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtgammaltLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblgammaltLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnNyregistreraAlien" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblEpost" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtEpost" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="18" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNyttLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNyttLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btbAndraLosenordAgent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,14 +117,6 @@
           <Font name="Arial Rounded MT Bold" size="13" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Startsida AGENT"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btbAndraLosenordAgent">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra L&#xf6;senord"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblOmradeschefAgent">
@@ -145,36 +135,6 @@
         <Property name="text" type="java.lang.String" value="Kontorschef"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtgammaltLosenord">
-      <Properties>
-        <Property name="columns" type="int" value="4"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblgammaltLosenord">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gammalt L&#xf6;senord"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblEpost">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Epost"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtEpost">
-      <Properties>
-        <Property name="columns" type="int" value="4"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblNyttLosenord">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nytt L&#xf6;senord"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtNyttLosenord">
-      <Properties>
-        <Property name="columns" type="int" value="4"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblOmr&#xe5;deschefRuta">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID in h&#xe4;r"/>
@@ -191,6 +151,62 @@
           <Font name="Arial Rounded MT Bold" size="13" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nyregistrera Alien"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn&#xc4;ndrainfoomAlien">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra info om Alien"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNyregistreraAgentutrustning">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nyregistrera Agentutrustning"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSeinfoomAlien">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Se info om Alien"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnS&#xf6;kOmr&#xe5;deschef">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k Omr&#xe5;deschef"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTopplista&#xf6;verAgenter">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Topplista &#xf6;ver Agenter"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnMinutrustning">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Min utrustning"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAdministrat&#xf6;r">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Administrat&#xf6;r"/>
       </Properties>
     </Component>
   </SubComponents>
