@@ -211,6 +211,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Administrat&#xf6;r"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdministrat&#xf6;rActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

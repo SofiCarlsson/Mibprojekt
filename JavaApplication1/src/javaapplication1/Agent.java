@@ -158,6 +158,11 @@ public class Agent extends javax.swing.JFrame {
 
         btnAdministratör.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnAdministratör.setText("Administratör");
+        btnAdministratör.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdministratörActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,6 +244,12 @@ public class Agent extends javax.swing.JFrame {
         NyregistreraAlien visaNyAlien = new NyregistreraAlien(idb);
         visaNyAlien.setVisible(true);
     }//GEN-LAST:event_btnNyregistreraAlienActionPerformed
+
+    private void btnAdministratörActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministratörActionPerformed
+        // TODO add your handling code here:
+        Administrator visaAdministrator = new Administrator(idb);
+        visaAdministrator.setVisible(true);
+    }//GEN-LAST:event_btnAdministratörActionPerformed
 
     /**
      * @param args the command line arguments
