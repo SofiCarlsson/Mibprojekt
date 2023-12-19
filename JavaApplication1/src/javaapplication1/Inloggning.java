@@ -151,6 +151,7 @@ public class Inloggning extends javax.swing.JFrame {
                    //Kommer in i Source för Agent.
                    Agent agentFonster = new Agent(idb, Agent.get(i).get("Agent_ID"));
                    agentFonster.setVisible(true);
+                   break;
                 }
                 else{
                     JOptionPane.showMessageDialog(null, " Fel email eller Lösenord angivet" );
