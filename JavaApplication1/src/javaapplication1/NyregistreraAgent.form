@@ -35,29 +35,29 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtanstallningsDatum" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtnyAgentAnstallningsDatum" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtadminstatus" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtnyAgentAdminstatus" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txttelefon" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtnyAgentTelefon" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtagentNamn" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtnyAgentNamn" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="txtagentID" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtnyAgentID" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -71,16 +71,16 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="txtlosenord" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtnyAgentLosenord" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                      <Component id="txtepost" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNyAgentEpost" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="83" max="32767" attributes="0"/>
-              <Component id="btnregistrera" min="-2" max="-2" attributes="0"/>
+              <Component id="btnnyAgentRegistrera" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -93,40 +93,40 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtagentID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtnyAgentID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtagentNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtnyAgentNamn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txttelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtnyAgentTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtanstallningsDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtnyAgentAnstallningsDatum" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtadminstatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtnyAgentAdminstatus" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtepost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNyAgentEpost" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtlosenord" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnregistrera" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtnyAgentLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnnyAgentRegistrera" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
@@ -179,21 +179,21 @@
         <Property name="text" type="java.lang.String" value="Omr&#xe5;de"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtagentID">
+    <Component class="javax.swing.JTextField" name="txtnyAgentID">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtagentNamn">
+    <Component class="javax.swing.JTextField" name="txtnyAgentNamn">
     </Component>
-    <Component class="javax.swing.JTextField" name="txttelefon">
+    <Component class="javax.swing.JTextField" name="txtnyAgentTelefon">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtanstallningsDatum">
+    <Component class="javax.swing.JTextField" name="txtnyAgentAnstallningsDatum">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtadminstatus">
+    <Component class="javax.swing.JTextField" name="txtnyAgentAdminstatus">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtepost">
+    <Component class="javax.swing.JTextField" name="txtNyAgentEpost">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtlosenord">
+    <Component class="javax.swing.JTextField" name="txtnyAgentLosenord">
     </Component>
-    <Component class="javax.swing.JButton" name="btnregistrera">
+    <Component class="javax.swing.JButton" name="btnnyAgentRegistrera">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrera"/>
       </Properties>

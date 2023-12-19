@@ -32,7 +32,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btntaBortUtrustning" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="btnregistreraNyAlien" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnregistreraNyAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="btnsokInfoOmAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="btngeadministratorStatus" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -46,7 +46,7 @@
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnregistreraNyAlien" min="-2" max="-2" attributes="0"/>
+              <Component id="btnregistreraNyAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnsokInfoOmAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -77,12 +77,12 @@
         <Property name="text" type="java.lang.String" value="Ta bort utrustning"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnregistreraNyAlien">
+    <Component class="javax.swing.JButton" name="btnregistreraNyAgent">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrera ny agent"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnregistreraNyAlienActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnregistreraNyAgentActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnsokInfoOmAgent">
@@ -97,6 +97,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ge administrat&#xf6;rstatus till en agent"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btngeadministratorStatusActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

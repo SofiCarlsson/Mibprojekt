@@ -28,6 +28,7 @@ public class Agent extends javax.swing.JFrame {
     
     
     //Konstruktor för Agent klassen
+    
     public Agent(InfDB db, String Agent_ID) { 
         
         idb = db;

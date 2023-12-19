@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -13,7 +15,10 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     /**
      * Creates new form SokInfoOmAgent
      */
-    public SokInfoOmAgent() {
+    private InfDB idb;
+    
+    public SokInfoOmAgent(InfDB db) {
+        idb = db;
         initComponents();
     }
 
@@ -27,10 +32,42 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        txtagentID = new javax.swing.JTextField();
+        btnsok = new javax.swing.JButton();
+        lblnamn = new javax.swing.JLabel();
+        lbltelefon = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Information om agent");
+
+        txtagentID.setText("Skriv in agentID här");
+
+        btnsok.setText("Sök");
+        btnsok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsokActionPerformed(evt);
+            }
+        });
+
+        lblnamn.setText("Namn");
+
+        lbltelefon.setText("Telefon");
+
+        jLabel4.setText("Anställningsdatum");
+
+        jLabel5.setText("Administartörstatus");
+
+        jLabel6.setText("Epost");
+
+        jLabel7.setText("Lösenord");
+
+        jLabel8.setText("Område");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -38,19 +75,60 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtagentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnsok))
+                    .addComponent(lblnamn)
+                    .addComponent(lbltelefon)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtagentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnsok))
+                .addGap(18, 18, 18)
+                .addComponent(lblnamn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbltelefon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnsokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsokActionPerformed
+        //Sök fram all info om en viss agent
+        
+        /**
+         * a, ta in agentID
+         * b, sök igenom databasen för all info
+         * c, skriv ut info i rätt text field
+         */
+       
+    }//GEN-LAST:event_btnsokActionPerformed
 
     /**
      * @param args the command line arguments
@@ -82,12 +160,21 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SokInfoOmAgent().setVisible(true);
+                //new SokInfoOmAgent().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnsok;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lblnamn;
+    private javax.swing.JLabel lbltelefon;
+    private javax.swing.JTextField txtagentID;
     // End of variables declaration//GEN-END:variables
 }

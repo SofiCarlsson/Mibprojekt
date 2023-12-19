@@ -36,7 +36,7 @@ public class Administrator extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btntaBortAlien = new javax.swing.JButton();
         btntaBortUtrustning = new javax.swing.JButton();
-        btnregistreraNyAlien = new javax.swing.JButton();
+        btnregistreraNyAgent = new javax.swing.JButton();
         btnsokInfoOmAgent = new javax.swing.JButton();
         btngeadministratorStatus = new javax.swing.JButton();
 
@@ -48,10 +48,10 @@ public class Administrator extends javax.swing.JFrame {
 
         btntaBortUtrustning.setText("Ta bort utrustning");
 
-        btnregistreraNyAlien.setText("Registrera ny agent");
-        btnregistreraNyAlien.addActionListener(new java.awt.event.ActionListener() {
+        btnregistreraNyAgent.setText("Registrera ny agent");
+        btnregistreraNyAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnregistreraNyAlienActionPerformed(evt);
+                btnregistreraNyAgentActionPerformed(evt);
             }
         });
 
@@ -63,6 +63,11 @@ public class Administrator extends javax.swing.JFrame {
         });
 
         btngeadministratorStatus.setText("Ge administratörstatus till en agent");
+        btngeadministratorStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngeadministratorStatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,7 +81,7 @@ public class Administrator extends javax.swing.JFrame {
                         .addComponent(btntaBortAlien)
                         .addGap(18, 18, 18)
                         .addComponent(btntaBortUtrustning))
-                    .addComponent(btnregistreraNyAlien)
+                    .addComponent(btnregistreraNyAgent)
                     .addComponent(btnsokInfoOmAgent)
                     .addComponent(btngeadministratorStatus))
                 .addContainerGap(124, Short.MAX_VALUE))
@@ -87,7 +92,7 @@ public class Administrator extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnregistreraNyAlien)
+                .addComponent(btnregistreraNyAgent)
                 .addGap(18, 18, 18)
                 .addComponent(btnsokInfoOmAgent)
                 .addGap(18, 18, 18)
@@ -108,11 +113,17 @@ public class Administrator extends javax.swing.JFrame {
                    sokinfoomagentFonster.setVisible(true);
     }//GEN-LAST:event_btnsokInfoOmAgentActionPerformed
 
-    private void btnregistreraNyAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistreraNyAlienActionPerformed
+    private void btnregistreraNyAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistreraNyAgentActionPerformed
         //Öppnar ny ruta för att registrera en ny agent
         NyregistreraAgent registreraAgentfonster = new Nyregistrera();
         registreraAgentfonster.setVisible(true);
-    }//GEN-LAST:event_btnregistreraNyAlienActionPerformed
+    }//GEN-LAST:event_btnregistreraNyAgentActionPerformed
+
+    private void btngeadministratorStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngeadministratorStatusActionPerformed
+        // TODO add your handling code here:
+        GeAdministratorStatus gorAdminfonster = new GeAdministratorStatus();
+        gorAdminfonster.setVisible(true);
+    }//GEN-LAST:event_btngeadministratorStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,7 +162,7 @@ public class Administrator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btngeadministratorStatus;
-    private javax.swing.JButton btnregistreraNyAlien;
+    private javax.swing.JButton btnregistreraNyAgent;
     private javax.swing.JButton btnsokInfoOmAgent;
     private javax.swing.JButton btntaBortAlien;
     private javax.swing.JButton btntaBortUtrustning;
