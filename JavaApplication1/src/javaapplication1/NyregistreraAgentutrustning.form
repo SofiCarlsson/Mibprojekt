@@ -95,17 +95,17 @@
                   <Component id="lblOmVapen" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtOmVapen" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblOmTeknik" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtOmTeknik" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblOmKommunikation" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtOmKommunikation" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
