@@ -147,6 +147,11 @@ public class Agent extends javax.swing.JFrame {
 
         btnAdministratör.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnAdministratör.setText("Administratör");
+        btnAdministratör.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdministratörActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         jButton1.setText("Lista Aliens på plats");
@@ -217,6 +222,12 @@ public class Agent extends javax.swing.JFrame {
         Minutrustning visaMinUtrustning = new Minutrustning(idb);
         visaMinUtrustning.setVisible(true);
     }//GEN-LAST:event_btnMinutrustningActionPerformed
+
+    private void btnAdministratörActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministratörActionPerformed
+        // TODO add your handling code here:
+        Administrator adminFonster = new Administrator(idb);
+                   adminFonster.setVisible(true);
+    }//GEN-LAST:event_btnAdministratörActionPerformed
 
     /**
      * @param args the command line arguments
