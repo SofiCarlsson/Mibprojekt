@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,12 +15,38 @@ package javaapplication1;
  */
 public class TopplistaOverAgenter extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form TopplistaOverAgenter
      */
-    public TopplistaOverAgenter() {
+    public TopplistaOverAgenter(InfDB db) {
+        idb = db;
         initComponents();
+      
     }
+    
+    private void fyllCbVäljområdetopp3() {
+        String fraga = ("SELECT Agent_ID, Namn FROM Agent");
+                
+                ArrayList<String> allaToppAgenter;
+                
+                try {
+                    allaToppAgenter = idb.fetchColumn(fraga);
+                    
+                    for (String ToppAgent : allaToppAgenter) {
+                        cbVäljområdetopp3.addItem(ToppAgent);
+                    }
+                } catch (InfException UndantagEtt) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEtt.getMessage());
+                }
+                catch (Exception UndantagEtt) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEtt.getMessage());
+                }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,35 +58,37 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTopp3Rubrik = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbVäljområdetopp3 = new javax.swing.JComboBox<>();
         lblVäljOmrådeTopp3 = new javax.swing.JLabel();
         lblPlats1 = new javax.swing.JLabel();
-        txtPlats1 = new javax.swing.JTextField();
         lblPlats2 = new javax.swing.JLabel();
-        txtPlats2 = new javax.swing.JTextField();
         lblPlats3 = new javax.swing.JLabel();
-        txtPlats3 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaVisatopp3 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblTopp3Rubrik.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
         lblTopp3Rubrik.setText("Topp tre  Agenter med ansvar för flest Aliens i ett område");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbVäljområdetopp3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbVäljområdetopp3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbVäljområdetopp3ActionPerformed(evt);
+            }
+        });
 
         lblVäljOmrådeTopp3.setText("Välj område");
 
         lblPlats1.setText("Plats 1");
 
-        txtPlats1.setColumns(4);
-
         lblPlats2.setText("Plats 2");
-
-        txtPlats2.setColumns(4);
 
         lblPlats3.setText("Plats 3");
 
-        txtPlats3.setColumns(4);
+        txtAreaVisatopp3.setColumns(20);
+        txtAreaVisatopp3.setRows(5);
+        jScrollPane1.setViewportView(txtAreaVisatopp3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,20 +97,23 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTopp3Rubrik)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblVäljOmrådeTopp3)
-                            .addComponent(lblPlats1)
-                            .addComponent(lblPlats2)
-                            .addComponent(lblPlats3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(lblPlats1)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPlats3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPlats2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPlats1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(cbVäljområdetopp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(lblPlats2)
+                                .addGap(44, 44, 44)
+                                .addComponent(lblPlats3)))))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,69 +123,104 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblVäljOmrådeTopp3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(cbVäljområdetopp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPlats1)
-                    .addComponent(txtPlats1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPlats2)
-                    .addComponent(txtPlats2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPlats3)
-                    .addComponent(txtPlats3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(98, Short.MAX_VALUE))
+                    .addComponent(lblPlats3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void cbVäljområdetopp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVäljområdetopp3ActionPerformed
+        // TODO add your handling code here:
+        txtAreaVisatopp3.setText("");
+    
+        ArrayList<HashMap<String, String>> TreToppAgenter;
+        
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+            String valdToppAgent = cbVäljområdetopp3.getSelectedItem().toString();
+            String fraga = "SELECT Agent_ID, Namn FROM Agent WHERE Agent_ID IN (SELECT Ansvarig_Agent FROM Alien WHERE Alien.Plats IN (SELECT Plats_ID FROM Plats WHERE Finns_I IN (SELECT Omrades_ID FROM Omrade WHERE Omrades_ID IN (SELECT Omrade FROM Agent))))";
+            TreToppAgenter = idb.fetchRows(fraga);
+            
+            for (HashMap<String, String> Toppen : TreToppAgenter) {
+                txtAreaVisatopp3.append(Toppen.get("Agent_ID") + "\t");
+                txtAreaVisatopp3.append(Toppen.get("Namn") + "\n");
+            }
+        } catch (InfException UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
                 }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                catch (Exception UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+        
+        
+  
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TopplistaOverAgenter().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+                // Variables declaration - do not modify                     
+    private javax.swing.JComboBox<String> cbVäljområdetopp3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPlats1;
     private javax.swing.JLabel lblPlats2;
     private javax.swing.JLabel lblPlats3;
     private javax.swing.JLabel lblTopp3Rubrik;
     private javax.swing.JLabel lblVäljOmrådeTopp3;
-    private javax.swing.JTextField txtPlats1;
-    private javax.swing.JTextField txtPlats2;
-    private javax.swing.JTextField txtPlats3;
+    private javax.swing.JTextArea txtAreaVisatopp3;
+    
+////    // End of variables declaration     
+    }//GEN-LAST:event_cbVäljområdetopp3ActionPerformed
+
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new TopplistaOverAgenter().setVisible(true);
+//            }
+//        });
+//    }
+
+/*
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbVäljområdetopp3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPlats1;
+    private javax.swing.JLabel lblPlats2;
+    private javax.swing.JLabel lblPlats3;
+    private javax.swing.JLabel lblTopp3Rubrik;
+    private javax.swing.JLabel lblVäljOmrådeTopp3;
+    private javax.swing.JTextArea txtAreaVisatopp3;
     // End of variables declaration//GEN-END:variables
-}
+*/

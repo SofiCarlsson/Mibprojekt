@@ -112,19 +112,19 @@ public class Administrator extends javax.swing.JFrame {
 
     private void btnsokInfoOmAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsokInfoOmAgentActionPerformed
         //Öppnar ny ruta för att söka information om en agent
-        SokInfoOmAgent sokinfoomagentFonster = new SokInfoOmAgent();
+        SokInfoOmAgent sokinfoomagentFonster = new SokInfoOmAgent(idb);
                    sokinfoomagentFonster.setVisible(true);
     }//GEN-LAST:event_btnsokInfoOmAgentActionPerformed
 
     private void btnregistreraNyAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistreraNyAgentActionPerformed
         //Öppnar ny ruta för att registrera en ny agent
-        NyregistreraAgent registreraAgentfonster = new Nyregistrera();
+        NyregistreraAgent registreraAgentfonster = new NyregistreraAgent(idb);
         registreraAgentfonster.setVisible(true);
     }//GEN-LAST:event_btnregistreraNyAgentActionPerformed
 
     private void btngeadministratorStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngeadministratorStatusActionPerformed
         // TODO add your handling code here:
-        GeAdministratorStatus gorAdminfonster = new GeAdministratorStatus();
+        GeAdministratorStatus gorAdminfonster = new GeAdministratorStatus(idb);
         gorAdminfonster.setVisible(true);
     }//GEN-LAST:event_btngeadministratorStatusActionPerformed
 
@@ -155,12 +155,12 @@ public class Administrator extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run()
-                //new Administrator().setVisible(true);
-            }
-        });
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run();
+//                new Administrator().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
