@@ -14,7 +14,7 @@ public class Omrade extends javax.swing.JFrame {
 
     private InfDB idb;
     private String Omrades_ID;
-    //private int Benamning; främmande
+    private String Benamning;
     
     /**
      * Creates new form Omrade
@@ -29,7 +29,9 @@ public class Omrade extends javax.swing.JFrame {
         return Omrades_ID;
     }
     
-    //ska vi verkligen ha en set här?
+    public String getBenamning() {
+        return Benamning;
+    }
     
 
     /**

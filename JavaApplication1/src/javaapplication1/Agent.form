@@ -128,6 +128,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="S&#xf6;k Omr&#xe5;deschef"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnS&#xf6;kOmr&#xe5;deschefActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTopplista&#xf6;verAgenter">
       <Properties>
