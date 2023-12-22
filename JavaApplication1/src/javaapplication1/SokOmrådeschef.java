@@ -3,18 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
-
+import oru.inf.InfDB;
+import oru.inf.InfException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 /**
  *
- * @author oliviacleve
+ * Denna metoden söker upp Omradeschefen för ett angivet Område
  */
 public class SokOmrådeschef extends javax.swing.JFrame {
-
+    
+    private InfDB idb;
     /**
      * Creates new form SökOmrådeschef
      */
-    public SokOmrådeschef() {
+    public SokOmrådeschef(InfDB db) {
         initComponents();
+        idb = db;
+        fyllCbValjOmrade();
+        
     }
 
     /**
@@ -89,6 +97,34 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void fyllCbValjOmrade(){
+    
+        String fraga = ("SELECT Benamning FROM Omrade");
+        
+        ArrayList<String> allaOmraden;
+        
+        try{
+        
+        allaOmraden = idb.fetchColumn(fraga);
+        
+            for(String benamning : allaOmraden){
+            
+                    cbVäljområde.addItem(benamning);
+            }
+        } catch (InfException ettUndantag){
+        
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+        }
+        catch (Exception ettUndantag){
+        
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+        }
+    
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

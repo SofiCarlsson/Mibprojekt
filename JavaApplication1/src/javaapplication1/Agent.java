@@ -133,6 +133,11 @@ public class Agent extends javax.swing.JFrame {
 
         btnSökOmrådeschef.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnSökOmrådeschef.setText("Sök Områdeschef");
+        btnSökOmrådeschef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSökOmrådeschefActionPerformed(evt);
+            }
+        });
 
         btnTopplistaöverAgenter.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnTopplistaöverAgenter.setText("Topplista över Agenter");
@@ -228,6 +233,12 @@ public class Agent extends javax.swing.JFrame {
         Administrator adminFonster = new Administrator(idb);
                    adminFonster.setVisible(true);
     }//GEN-LAST:event_btnAdministratörActionPerformed
+
+    private void btnSökOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökOmrådeschefActionPerformed
+           // TODO add your handling code here:
+           SokOmrådeschef visaChef = new SokOmrådeschef(idb);
+           visaChef.setVisible(true);
+    }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
 
     /**
      * @param args the command line arguments
