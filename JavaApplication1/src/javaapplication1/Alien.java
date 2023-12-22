@@ -96,6 +96,13 @@ public class Alien extends javax.swing.JFrame {
 
         lblStartsidaAlien = new javax.swing.JLabel();
         btnAndraLosenordAlien = new javax.swing.JButton();
+        lblMittOmrade = new javax.swing.JLabel();
+        txtMittOmrade = new javax.swing.JTextField();
+        lblOmradesChef = new javax.swing.JLabel();
+        lblNamn = new javax.swing.JLabel();
+        lblTelefonnummer = new javax.swing.JLabel();
+        lblMejladress = new javax.swing.JLabel();
+        btnHamtaOmradeschef = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +111,28 @@ public class Alien extends javax.swing.JFrame {
 
         btnAndraLosenordAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnAndraLosenordAlien.setText("Ändra Lösenord");
+        btnAndraLosenordAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAndraLosenordAlienActionPerformed(evt);
+            }
+        });
+
+        lblMittOmrade.setText("Område:");
+
+        lblOmradesChef.setText("Områdeschef");
+
+        lblNamn.setText("Namn");
+
+        lblTelefonnummer.setText("Telefonnummer");
+
+        lblMejladress.setText("Mejladress");
+
+        btnHamtaOmradeschef.setText("Hämta områdeschef");
+        btnHamtaOmradeschef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHamtaOmradeschefActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,21 +142,84 @@ public class Alien extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAndraLosenordAlien)
-                    .addComponent(lblStartsidaAlien))
-                .addContainerGap(240, Short.MAX_VALUE))
+                    .addComponent(lblStartsidaAlien)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblMittOmrade)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtMittOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnHamtaOmradeschef))
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNamn)
+                            .addComponent(lblOmradesChef)
+                            .addComponent(lblTelefonnummer)
+                            .addComponent(lblMejladress))))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(lblStartsidaAlien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMittOmrade)
+                    .addComponent(txtMittOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOmradesChef))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNamn)
+                    .addComponent(btnHamtaOmradeschef))
+                .addGap(18, 18, 18)
+                .addComponent(lblTelefonnummer)
+                .addGap(18, 18, 18)
+                .addComponent(lblMejladress)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(btnAndraLosenordAlien)
                 .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAndraLosenordAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordAlienActionPerformed
+     try {
+        // Skapa en instans av AndraLosenordAlienFrame och gör den synlig
+        AndraLosenordAlien losenordFonster = new AndraLosenordAlien();
+        losenordFonster.setVisible(true);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Ett fel inträffade vid ändring av lösenordet.");
+    }   
+    }//GEN-LAST:event_btnAndraLosenordAlienActionPerformed
+
+    private void btnHamtaOmradeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHamtaOmradeschefActionPerformed
+    try {
+    String Omrade = txtMittOmrade.getText();
+    String fragaEtt = "SELECT AGENT_ID from OMRADESCHEF where OMRADE =" +Omrade;
+            String resultatEtt = idb.fetchSingle(fragaEtt);
+    lblOmradesChef.setText(resultatEtt);
+   
+    String fragaTva = "SELECT NAMN from AGENT where AGENT_ID =" +resultatEtt;
+    String resultatTva = idb.fetchSingle(fragaTva);
+    lblNamn.setText(resultatTva);
+    
+    String fragaTre = "SELECT TELEFON from AGENT where AGENT_ID =" +resultatEtt;
+    String resultatTre = idb.fetchSingle(fragaTre);
+    lblTelefonnummer.setText(resultatTre);
+    
+    String fragaFyra = "SELECT EPOST from AGENT where AGENT_ID =" +resultatEtt;
+    String resultatFyra = idb.fetchSingle(fragaFyra);
+    lblMejladress.setText(resultatFyra);
+    
+} catch (InfException e) {
+    
+}
+
+    }//GEN-LAST:event_btnHamtaOmradeschefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +258,13 @@ public class Alien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraLosenordAlien;
+    private javax.swing.JButton btnHamtaOmradeschef;
+    private javax.swing.JLabel lblMejladress;
+    private javax.swing.JLabel lblMittOmrade;
+    private javax.swing.JLabel lblNamn;
+    private javax.swing.JLabel lblOmradesChef;
     private javax.swing.JLabel lblStartsidaAlien;
+    private javax.swing.JLabel lblTelefonnummer;
+    private javax.swing.JTextField txtMittOmrade;
     // End of variables declaration//GEN-END:variables
 }

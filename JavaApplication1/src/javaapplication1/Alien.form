@@ -28,8 +28,25 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnAndraLosenordAlien" min="-2" max="-2" attributes="0"/>
                   <Component id="lblStartsidaAlien" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblMittOmrade" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtMittOmrade" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btnHamtaOmradeschef" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblNamn" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblOmradesChef" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTelefonnummer" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMejladress" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="240" max="32767" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -38,7 +55,22 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="lblStartsidaAlien" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="199" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblMittOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtMittOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOmradesChef" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblNamn" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnHamtaOmradeschef" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lblTelefonnummer" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lblMejladress" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
               <Component id="btnAndraLosenordAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
@@ -61,6 +93,44 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra L&#xf6;senord"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndraLosenordAlienActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMittOmrade">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Omr&#xe5;de:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtMittOmrade">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOmradesChef">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Omr&#xe5;deschef"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNamn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Namn"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTelefonnummer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Telefonnummer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMejladress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mejladress"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnHamtaOmradeschef">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H&#xe4;mta omr&#xe5;deschef"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHamtaOmradeschefActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
