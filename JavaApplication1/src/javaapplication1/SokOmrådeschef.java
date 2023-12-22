@@ -124,7 +124,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
     
     }
     
-    
+    // Gör en knappmetod för att fylla text Area men det är oklart för att det är arv av områdeschef från agent.
     /**
      * @param args the command line arguments
      */
@@ -156,7 +156,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SokOmrådeschef().setVisible(true);
+               // new SokOmrådeschef().setVisible(true);
             }
         });
     }
