@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -20,8 +23,30 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     public SokInfoOmAgent(InfDB db) {
         idb = db;
         initComponents();
+        fyllCBAgentID();
     }
 
+    //Fyller AgentID-rullmenyn med värden
+            private void fyllCBAgentID(){
+        String fraga = "SELECT agent_ID from mibdb.Agent";
+        
+                ArrayList<String> allaAgentID;
+                
+       try {
+               allaAgentID = idb.fetchColumn(fraga);
+               
+               for (String ettID : allaAgentID){
+                  cbinfoAgentID.addItem(ettID);
+                
+               }
+       
+       }catch(InfException ettUndantag){
+            
+              JOptionPane.showMessageDialog(null, " Databasfel! " );
+              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
+             
+    }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,8 +71,8 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        cbinfoAgentID = new javax.swing.JComboBox<>();
+        txtinfoAgentNamn = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
@@ -86,9 +111,14 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbinfoAgentID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbinfoAgentID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbinfoAgentIDActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setColumns(7);
+        txtinfoAgentNamn.setColumns(7);
 
         jTextField2.setColumns(7);
 
@@ -113,7 +143,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                             .addComponent(lblvaljEnAgent)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbinfoAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lbltelefon)
@@ -123,7 +153,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtinfoAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(6, 6, 6)
                                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
@@ -162,11 +192,11 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblvaljEnAgent)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbinfoAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblnamn)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtinfoAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbltelefon)
@@ -206,55 +236,49 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void cbinfoAgentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbinfoAgentIDActionPerformed
+        // Aktiverar CBrutan för att välja agentID
+        txtinfoAgentNamn.setText("");
+    
+        ArrayList<HashMap<String, String>> agentIDLista;
+        
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+            String valdAgent = cbinfoAgentID.getSelectedItem().toString();
+            String fraga = "SELECT Agent_ID, namn FROM mibdb.Agent";
+            agentIDLista = idb.fetchRows(fraga);
+            
+            for (HashMap<String, String> enAgent : agentIDLista) {
+                //txtinfoAgentNamn.setText(enAgent.get("Agent_ID") + "\t");
+                String agentIDFranLista = enAgent.get("Agent_ID");
+                
+                if (agentIDFranLista.equals(valdAgent))
+                 txtinfoAgentNamn.setText(enAgent.get("Namn"));
+                
+            }
+        } catch (InfException UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
                 }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                catch (Exception UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+        
+        
+  
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                //new SokInfoOmAgent().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnandraInfoAgent;
+    private javax.swing.JComboBox<String> cbinfoAgentID;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -264,5 +288,68 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lblnamn;
     private javax.swing.JLabel lbltelefon;
     private javax.swing.JLabel lblvaljEnAgent;
+    private javax.swing.JTextField txtinfoAgentNamn;
+
+    }//GEN-LAST:event_cbinfoAgentIDActionPerformed
+///*
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                //new SokInfoOmAgent().setVisible(true);
+//            }
+//        });
+
+   
+/*
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnandraInfoAgent;
+    private javax.swing.JComboBox<String> cbinfoAgentID;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel lblagentKontorschef;
+    private javax.swing.JLabel lblagentOmradeschef;
+    private javax.swing.JLabel lblnamn;
+    private javax.swing.JLabel lbltelefon;
+    private javax.swing.JLabel lblvaljEnAgent;
+    private javax.swing.JTextField txtinfoAgentNamn;
     // End of variables declaration//GEN-END:variables
-}
+}*/
