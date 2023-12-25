@@ -170,7 +170,8 @@ public class Inloggning extends javax.swing.JFrame {
 
     //Loggar in på programmet genom att sätta in tabellvärdena i en ArrayLis/HashMap och jämföra med txt fälten som skickas in.
     private void btnLoggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggainActionPerformed
-                                                     
+    
+     if(Validering.txtFaltArInteTom(txtLosenord)){  
       try{
           String epost = txtEpost.getText();
 	  String losenord = txtLosenord.getText(); 
@@ -209,10 +210,11 @@ public class Inloggning extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_btnLoggainActionPerformed
-
+    }
     private void btnLoggaInAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInAlienActionPerformed
 
-       try{
+       if(Validering.txtFaltAlienArInteTom(txtLosenordAlien)){ 
+           try{
        String EpostAlien = txtEpostAlien.getText();
        String losenordAlien = txtLosenordAlien.getText();
        String epostOchLosenord = EpostAlien + losenordAlien;
@@ -238,7 +240,7 @@ public class Inloggning extends javax.swing.JFrame {
                 }
                  else{
                     JOptionPane.showMessageDialog(null, " Fel email eller Lösenord angivet" );
-                    txtLosenord.requestFocus();
+                    txtLosenordAlien.requestFocus();
                     break;
                 }
           }
@@ -247,11 +249,12 @@ public class Inloggning extends javax.swing.JFrame {
             
               JOptionPane.showMessageDialog(null, " Databasfel" );
               System.out.println("Internt felmedelande" + ettUndantag.getMessage());
-              txtLosenord.requestFocus();
+              txtLosenordAlien.requestFocus();
                      
                      }
         
         }
+    }
        
           // Variables declaration - do not modify                     
     private javax.swing.JButton btnLoggaInAlien;
