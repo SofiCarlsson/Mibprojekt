@@ -111,18 +111,19 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Denna metoden fyller TextArea med informationen om vem som är Områdeschef fför den valda benämningen av området.
     private void cbVäljområdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVäljområdeActionPerformed
-        txtAreaÄrOmrådeschef.setText("");
-        
-        ArrayList<HashMap<String, String>> soktOmradeschef;
-        
+//        txtAreaÄrOmrådeschef.setText("");
+//        
+//        ArrayList<HashMap<String, String>> soktOmradeschef;
+//        
 //        try {
 //        
 //                String valdBenamning = cbVäljområde.getSelectedItem().toString();
 //                String fraga = "SELECT Namn,Agent_ID FROM Agent where Agent.Agent_ID in (Select Omradeschef.Agent_ID from Omradeschef where Omradeschef.Omrade in (Select Omrade.Omrades_ID from Omrade where Benamning  = '" + valdBenamning + "'))";
 //                
-                //soktOmradeschef = idb.fetchRow(fraga);
-                //Denna blir fel 
+//                soktOmradeschef = idb.fetchRow(fraga);
+//                ((Denna blir fel))
 //                
 //                for(HashMap<String, String> omradesChef : soktOmradeschef){
 //                
@@ -136,6 +137,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_cbVäljområdeActionPerformed
 
+    //Denna metoden fyller skrollboxen med de benämningar som det finns för Området.
     private void fyllCbValjOmrade(){
         
         String fraga = ("SELECT Benamning FROM Omrade;");

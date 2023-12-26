@@ -171,7 +171,9 @@ public class Inloggning extends javax.swing.JFrame {
     //Loggar in på programmet genom att sätta in tabellvärdena i en ArrayLis/HashMap och jämföra med txt fälten som skickas in.
     private void btnLoggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggainActionPerformed
     
-     if(Validering.txtFaltArInteTom(txtLosenord)){  
+        //Denna if-sats kollar om fälten Lösenord och Epost inte är tomt mha klassen validering.
+        //Sedan kollar denna metoden om lösenordet och email hör ihopp, om den gör det loggar man in på Agent.
+     if(Validering.txtFaltArInteTom(txtLosenord) && Validering.txtFaltArInteTom(txtEpost)){  
       try{
           String epost = txtEpost.getText();
 	  String losenord = txtLosenord.getText(); 
@@ -211,9 +213,11 @@ public class Inloggning extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoggainActionPerformed
     }
+    //Denna if-sats kollar om fälten Lösenord och Epost inte är tomt mha klassen validering.
+    //Denna metod loggar in på Alien om txtFalt har värde och lösenord och email hör ihop. 
     private void btnLoggaInAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInAlienActionPerformed
 
-       if(Validering.txtFaltAlienArInteTom(txtLosenordAlien)){ 
+       if(Validering.txtFaltArInteTom(txtLosenordAlien) && Validering.txtFaltArInteTom (txtEpostAlien)){ 
            try{
        String EpostAlien = txtEpostAlien.getText();
        String losenordAlien = txtLosenordAlien.getText();
