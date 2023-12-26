@@ -21,9 +21,10 @@ public class Validering {
     
     JOptionPane.showMessageDialog(null, " Skriv in något i rutan" );
     resultat = false;               
-   
+    txtLosenord.requestFocus();
     }
     return resultat;
+ 
     }
     
     public static boolean txtFaltAlienArInteTom(JTextField txtLosenordAlien){
@@ -34,7 +35,7 @@ public class Validering {
     
     JOptionPane.showMessageDialog(null, " Skriv in något i rutan" );
     resultat = false;               
-   
+    txtLosenordAlien.requestFocus();
     }
     return resultat;
     }

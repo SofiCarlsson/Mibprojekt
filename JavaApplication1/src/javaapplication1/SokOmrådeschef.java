@@ -40,6 +40,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         txtFortsätterText = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaÄrOmrådeschef = new javax.swing.JTextArea();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +50,11 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         lblVäljOmråde.setText("Välj område");
 
         cbVäljområde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbVäljområde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbVäljområdeActionPerformed(evt);
+            }
+        });
 
         txtFortsätterText.setText("är områdeschef i det angivna området");
 
@@ -56,23 +62,29 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         txtAreaÄrOmrådeschef.setRows(5);
         jScrollPane1.setViewportView(txtAreaÄrOmrådeschef);
 
+        btnTillbaka.setText("Tillbaka");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblSökOmrådeschef)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblVäljOmråde)
-                            .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSökOmrådeschef)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblVäljOmråde)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbVäljområde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(txtFortsätterText)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnTillbaka)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,15 +103,42 @@ public class SokOmrådeschef extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(txtFortsätterText)
-                        .addGap(140, 140, 140))))
+                        .addGap(102, 102, 102)
+                        .addComponent(btnTillbaka)
+                        .addGap(15, 15, 15))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cbVäljområdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVäljområdeActionPerformed
+        txtAreaÄrOmrådeschef.setText("");
+        
+        ArrayList<HashMap<String, String>> soktOmradeschef;
+        
+//        try {
+//        
+//                String valdBenamning = cbVäljområde.getSelectedItem().toString();
+//                String fraga = "SELECT Namn,Agent_ID FROM Agent where Agent.Agent_ID in (Select Omradeschef.Agent_ID from Omradeschef where Omradeschef.Omrade in (Select Omrade.Omrades_ID from Omrade where Benamning  = '" + valdBenamning + "'))";
+//                
+                //soktOmradeschef = idb.fetchRow(fraga);
+                //Denna blir fel 
+//                
+//                for(HashMap<String, String> omradesChef : soktOmradeschef){
+//                
+//                txtAreaÄrOmrådeschef.append(omradesChef.get("Agent_ID") + "\t");
+//                txtAreaÄrOmrådeschef.append("" + omradesChef.get("Namn") + "\t");
+//                }
+//                
+//        }catch(InfException ettUndantag){
+//            JOptionPane.showMessageDialog(null, "Databasfel!");
+//        
+//        }
+    }//GEN-LAST:event_cbVäljområdeActionPerformed
+
     private void fyllCbValjOmrade(){
-    
-        String fraga = ("SELECT Benamning FROM Omrade");
+        
+        String fraga = ("SELECT Benamning FROM Omrade;");
         
         ArrayList<String> allaOmraden;
         
@@ -128,40 +167,41 @@ public class SokOmrådeschef extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-               // new SokOmrådeschef().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//               //new SokOmrådeschef().setVisible(true);
+//            }
+//        });
+//    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JComboBox<String> cbVäljområde;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSökOmrådeschef;
