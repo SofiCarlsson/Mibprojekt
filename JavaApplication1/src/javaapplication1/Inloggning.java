@@ -327,4 +327,4 @@ public class Inloggning extends javax.swing.JFrame {
     private javax.swing.JTextField txtLosenord;
     private javax.swing.JTextField txtLosenordAlien;
     // End of variables declaration//GEN-END:variables
-/*
+*/
