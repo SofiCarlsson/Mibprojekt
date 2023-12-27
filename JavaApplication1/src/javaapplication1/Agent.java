@@ -111,6 +111,7 @@ public class Agent extends javax.swing.JFrame {
         btnMinutrustning = new javax.swing.JButton();
         btnAdministratör = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,6 +162,14 @@ public class Agent extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         jButton1.setText("Lista Aliens på plats");
 
+        btnTillbaka.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 13)); // NOI18N
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,19 +184,24 @@ public class Agent extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnNyregistreraAgentutrustning)
-                            .addComponent(btnMinutrustning))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnTopplistaöverAgenter)
-                            .addComponent(btnSökOmrådeschef))
-                        .addGap(39, 39, 39))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblStartsidaAgent)
                             .addComponent(btnSeochändrainfoomAlien)
                             .addComponent(jButton1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnTillbaka))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnNyregistreraAgentutrustning)
+                                    .addComponent(btnMinutrustning))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnTopplistaöverAgenter)
+                                    .addComponent(btnSökOmrådeschef))))
+                        .addGap(39, 39, 39))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +224,9 @@ public class Agent extends javax.swing.JFrame {
                 .addComponent(btnSeochändrainfoomAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(btnTillbaka)
+                .addContainerGap())
         );
 
         pack();
@@ -239,6 +255,12 @@ public class Agent extends javax.swing.JFrame {
            SokOmrådeschef visaChef = new SokOmrådeschef(idb);
            visaChef.setVisible(true);
     }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
+
+    //Knapp som går tillbaka till inloggningen
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        Inloggning visaInloggning = new Inloggning(idb);
+        visaInloggning.setVisible(true);
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,6 +304,7 @@ public class Agent extends javax.swing.JFrame {
     private javax.swing.JButton btnNyregistreraAlien;
     private javax.swing.JButton btnSeochändrainfoomAlien;
     private javax.swing.JButton btnSökOmrådeschef;
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnTopplistaöverAgenter;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblStartsidaAgent;

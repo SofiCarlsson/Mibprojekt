@@ -103,6 +103,7 @@ public class Alien extends javax.swing.JFrame {
         lblTelefonnummer = new javax.swing.JLabel();
         lblMejladress = new javax.swing.JLabel();
         btnHamtaOmradeschef = new javax.swing.JButton();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +135,14 @@ public class Alien extends javax.swing.JFrame {
             }
         });
 
+        btnTillbaka.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 13)); // NOI18N
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,22 +150,28 @@ public class Alien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAndraLosenordAlien)
-                    .addComponent(lblStartsidaAlien)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblStartsidaAlien)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblMittOmrade)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtMittOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnHamtaOmradeschef))
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNamn)
-                            .addComponent(lblOmradesChef)
-                            .addComponent(lblTelefonnummer)
-                            .addComponent(lblMejladress))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblMittOmrade)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtMittOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnHamtaOmradeschef))
+                                .addGap(80, 80, 80)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNamn)
+                                    .addComponent(lblOmradesChef)
+                                    .addComponent(lblTelefonnummer)
+                                    .addComponent(lblMejladress))))
+                        .addContainerGap(56, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAndraLosenordAlien)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnTillbaka)
+                        .addGap(48, 48, 48))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +191,11 @@ public class Alien extends javax.swing.JFrame {
                 .addComponent(lblTelefonnummer)
                 .addGap(18, 18, 18)
                 .addComponent(lblMejladress)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(btnAndraLosenordAlien)
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAndraLosenordAlien)
+                    .addComponent(btnTillbaka))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -220,6 +237,11 @@ public class Alien extends javax.swing.JFrame {
 }
 
     }//GEN-LAST:event_btnHamtaOmradeschefActionPerformed
+//Knapp för att gå tillbaka till inloggningen
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+        Inloggning visaInloggning = new Inloggning(idb);
+        visaInloggning.setVisible(true);        
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,6 +281,7 @@ public class Alien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraLosenordAlien;
     private javax.swing.JButton btnHamtaOmradeschef;
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JLabel lblMejladress;
     private javax.swing.JLabel lblMittOmrade;
     private javax.swing.JLabel lblNamn;

@@ -40,7 +40,6 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         txtFortsätterText = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaÄrOmrådeschef = new javax.swing.JTextArea();
-        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,8 +61,6 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         txtAreaÄrOmrådeschef.setRows(5);
         jScrollPane1.setViewportView(txtAreaÄrOmrådeschef);
 
-        btnTillbaka.setText("Tillbaka");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,10 +78,6 @@ public class SokOmrådeschef extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtFortsätterText)
                 .addContainerGap(57, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnTillbaka)
-                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,9 +96,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(txtFortsätterText)
-                        .addGap(102, 102, 102)
-                        .addComponent(btnTillbaka)
-                        .addGap(15, 15, 15))))
+                        .addGap(140, 140, 140))))
         );
 
         pack();
@@ -203,7 +194,6 @@ public class SokOmrådeschef extends javax.swing.JFrame {
 //    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnTillbaka;
     private javax.swing.JComboBox<String> cbVäljområde;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSökOmrådeschef;
