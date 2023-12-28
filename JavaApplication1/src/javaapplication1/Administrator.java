@@ -39,6 +39,7 @@ public class Administrator extends javax.swing.JFrame {
         btnregistreraNyAgent = new javax.swing.JButton();
         btnsokInfoOmAgent = new javax.swing.JButton();
         btngeadministratorStatus = new javax.swing.JButton();
+        btnTaBortAgent = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,8 +47,18 @@ public class Administrator extends javax.swing.JFrame {
         jLabel1.setText("Du är inloggad som administratör");
 
         btntaBortAlien.setText("Ta bort en alien");
+        btntaBortAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntaBortAlienActionPerformed(evt);
+            }
+        });
 
         btntaBortUtrustning.setText("Ta bort utrustning");
+        btntaBortUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntaBortUtrustningActionPerformed(evt);
+            }
+        });
 
         btnregistreraNyAgent.setText("Registrera ny agent");
         btnregistreraNyAgent.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +81,8 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
 
+        btnTaBortAgent.setText("Ta bort agent");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,17 +90,20 @@ public class Administrator extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnregistreraNyAgent)
-                    .addComponent(jLabel1)
-                    .addComponent(btnsokInfoOmAgent)
-                    .addComponent(btngeadministratorStatus))
-                .addContainerGap(139, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(btntaBortAlien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btntaBortUtrustning)
-                .addGap(38, 38, 38))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnregistreraNyAgent)
+                            .addComponent(jLabel1)
+                            .addComponent(btnsokInfoOmAgent)
+                            .addComponent(btngeadministratorStatus))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btntaBortAlien)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTaBortAgent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btntaBortUtrustning)
+                        .addGap(23, 23, 23))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,7 +119,8 @@ public class Administrator extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btntaBortAlien)
-                    .addComponent(btntaBortUtrustning))
+                    .addComponent(btntaBortUtrustning)
+                    .addComponent(btnTaBortAgent))
                 .addGap(30, 30, 30))
         );
 
@@ -123,10 +140,22 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnregistreraNyAgentActionPerformed
 
     private void btngeadministratorStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngeadministratorStatusActionPerformed
-        // TODO add your handling code here:
+        // Öppnar ny ruta för att ändra Adminstatus
         GeAdministratorStatus gorAdminfonster = new GeAdministratorStatus(idb);
         gorAdminfonster.setVisible(true);
     }//GEN-LAST:event_btngeadministratorStatusActionPerformed
+
+    private void btntaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntaBortAlienActionPerformed
+        // Öppnar ny ruta för att radera Alien
+        TaBortAlien taBortAlienfonster = new TaBortAlien(idb);
+        taBortAlienfonster.setVisible(true);
+    }//GEN-LAST:event_btntaBortAlienActionPerformed
+
+    private void btntaBortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntaBortUtrustningActionPerformed
+        // TODO add your handling code here:
+        TabBortUtrustning taBortUtrustningfonster = new TabBortUtrustning(idb);
+        taBortUtrustningfonster.setVisible(true);
+    }//GEN-LAST:event_btntaBortUtrustningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +193,7 @@ public class Administrator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnTaBortAgent;
     private javax.swing.JButton btngeadministratorStatus;
     private javax.swing.JButton btnregistreraNyAgent;
     private javax.swing.JButton btnsokInfoOmAgent;

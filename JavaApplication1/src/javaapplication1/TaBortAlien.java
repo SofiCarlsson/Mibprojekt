@@ -3,23 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
-import javax.swing.JOptionPane;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
  * @author sarahill
  */
-public class TabBortUtrustning extends javax.swing.JFrame {
+public class TaBortAlien extends javax.swing.JFrame {
 
     /**
-     * Creates new form TabBortUtrustning
+     * Creates new form TaBortAlien
      */
+    
     private InfDB idb;
     
-    public TabBortUtrustning(InfDB db) {
-        idb = db;
+    public TaBortAlien(InfDB db) {
+        idb=db;
         initComponents();
     }
 
@@ -32,22 +37,22 @@ public class TabBortUtrustning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtAlienIDRadera = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtUtrustningsID = new javax.swing.JTextField();
-        btnraderaUtrustning = new javax.swing.JButton();
+        btnRaderaAlien = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtAlienIDRadera.setColumns(7);
+
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 15)); // NOI18N
-        jLabel1.setText("Skriv in ett Utrustnings-ID för att radera från systemet. Det går inte att ångra denna åtgärd.");
+        jLabel1.setText("Skriv in Alien-ID på den alien du vill radera från systemet. Det går inte att ångra denna åtgärd.");
 
-        txtUtrustningsID.setColumns(7);
-
-        btnraderaUtrustning.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        btnraderaUtrustning.setText("Radera");
-        btnraderaUtrustning.addActionListener(new java.awt.event.ActionListener() {
+        btnRaderaAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        btnRaderaAlien.setText("Radera");
+        btnRaderaAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnraderaUtrustningActionPerformed(evt);
+                btnRaderaAlienActionPerformed(evt);
             }
         });
 
@@ -56,36 +61,36 @@ public class TabBortUtrustning extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnraderaUtrustning)
-                    .addComponent(txtUtrustningsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRaderaAlien)
+                    .addComponent(txtAlienIDRadera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtUtrustningsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(btnraderaUtrustning)
-                .addGap(27, 27, 27))
+                .addComponent(txtAlienIDRadera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(btnRaderaAlien)
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnraderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnraderaUtrustningActionPerformed
-        //Raderar en utrustning från systemet
-          try {
-        String utrustningsID = txtUtrustningsID.getText();
-        String raderaUtrustning = "DELETE * FROM mibdb.Utrustning WHERE Utrustnings_ID = utrustningsID";
+    private void btnRaderaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaAlienActionPerformed
+        //Raderar en alien från systemet
+        try {
+        String alienID = txtAlienIDRadera.getText();
+        String raderaAlien = "DELETE * FROM mibdb.Alien WHERE Alien_ID = alienID";
         
-        //Uppdaterar databasen
-        idb.update(raderaUtrustning);
+        //Uppdatera databasen
+        idb.update(raderaAlien);
         
         }
         catch (InfException ettUndantag){
@@ -95,14 +100,15 @@ public class TabBortUtrustning extends javax.swing.JFrame {
         
         }
 }
-    private javax.swing.JButton btnraderaUtrustning;
+    private javax.swing.JButton btnRaderaAlien;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtUtrustningsID;
-    }//GEN-LAST:event_btnraderaUtrustningActionPerformed
+    private javax.swing.JTextField txtAlienIDRadera;
+        
+    }//GEN-LAST:event_btnRaderaAlienActionPerformed
 
-//    /**
-//     * @param args the command line arguments
-//     */
+    /**
+     * @param args the command line arguments
+     */
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -117,27 +123,27 @@ public class TabBortUtrustning extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(TabBortUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(TaBortAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(TabBortUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(TaBortAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(TabBortUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(TaBortAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(TabBortUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(TaBortAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                //new TabBortUtrustning().setVisible(true);
+//                new TaBortAlien().setVisible(true);
 //            }
 //        });
 //    }
 /*
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnraderaUtrustning;
+    private javax.swing.JButton btnRaderaAlien;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtUtrustningsID;
+    private javax.swing.JTextField txtAlienIDRadera;
     // End of variables declaration//GEN-END:variables
 }*/
