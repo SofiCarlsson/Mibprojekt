@@ -46,8 +46,18 @@ public class Administrator extends javax.swing.JFrame {
         jLabel1.setText("Du är inloggad som administratör");
 
         btntaBortAlien.setText("Ta bort en alien");
+        btntaBortAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntaBortAlienActionPerformed(evt);
+            }
+        });
 
         btntaBortUtrustning.setText("Ta bort utrustning");
+        btntaBortUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntaBortUtrustningActionPerformed(evt);
+            }
+        });
 
         btnregistreraNyAgent.setText("Registrera ny agent");
         btnregistreraNyAgent.addActionListener(new java.awt.event.ActionListener() {
@@ -123,10 +133,22 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnregistreraNyAgentActionPerformed
 
     private void btngeadministratorStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngeadministratorStatusActionPerformed
-        // TODO add your handling code here:
+        // Öppnar ny ruta för att ändra Adminstatus
         GeAdministratorStatus gorAdminfonster = new GeAdministratorStatus(idb);
         gorAdminfonster.setVisible(true);
     }//GEN-LAST:event_btngeadministratorStatusActionPerformed
+
+    private void btntaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntaBortAlienActionPerformed
+        // Öppnar ny ruta för att radera Alien
+        TaBortAlien taBortAlienfonster = new TaBortAlien(idb);
+        taBortAlienfonster.setVisible(true);
+    }//GEN-LAST:event_btntaBortAlienActionPerformed
+
+    private void btntaBortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntaBortUtrustningActionPerformed
+        // TODO add your handling code here:
+        TabBortUtrustning taBortUtrustningfonster = new TabBortUtrustning(idb);
+        taBortUtrustningfonster.setVisible(true);
+    }//GEN-LAST:event_btntaBortUtrustningActionPerformed
 
     /**
      * @param args the command line arguments

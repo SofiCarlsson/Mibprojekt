@@ -76,11 +76,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort en alien"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btntaBortAlienActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btntaBortUtrustning">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort utrustning"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btntaBortUtrustningActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnregistreraNyAgent">
       <Properties>

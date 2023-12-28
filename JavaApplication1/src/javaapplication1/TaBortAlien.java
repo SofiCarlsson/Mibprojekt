@@ -43,6 +43,8 @@ public class TaBortAlien extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtAlienIDRadera.setColumns(7);
+
         jLabel1.setText("Skriv in Alien-ID på den alien du vill radera från systemet. Det går inte att ångra denna åtgärd.");
 
         btnRaderaAlien.setText("Radera");

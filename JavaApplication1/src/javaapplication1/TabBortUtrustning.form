@@ -27,7 +27,7 @@
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnraderaUtrustning" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtraderaUtrustning" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtUtrustningsID" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="63" max="32767" attributes="0"/>
@@ -40,7 +40,7 @@
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtraderaUtrustning" min="-2" max="-2" attributes="0"/>
+              <Component id="txtUtrustningsID" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="170" max="32767" attributes="0"/>
               <Component id="btnraderaUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -54,15 +54,18 @@
         <Property name="text" type="java.lang.String" value="Skriv in ett utrustnings-ID f&#xf6;r att radera fr&#xe5;n systemet"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtraderaUtrustning">
+    <Component class="javax.swing.JTextField" name="txtUtrustningsID">
       <Properties>
         <Property name="columns" type="int" value="7"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnraderaUtrustning">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Radera utrustning"/>
+        <Property name="text" type="java.lang.String" value="Radera"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnraderaUtrustningActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
