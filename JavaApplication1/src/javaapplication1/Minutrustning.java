@@ -6,6 +6,9 @@ package javaapplication1;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 /**
  *
@@ -20,8 +23,42 @@ public class Minutrustning extends javax.swing.JFrame {
     public Minutrustning(InfDB db) {
         idb = db;
         initComponents();
+        fylltxtAreaUtkvitteradutrustning();
     }
     
+      private void fylltxtAreaUtkvitteradutrustning()
+    {
+         txtAreaUtkvitteradutrustning.setText("");
+    
+        ArrayList<HashMap<String, String>> Utkvittutrust = new ArrayList<HashMap<String, String>>();
+        
+        try {
+            String fraga = "SELECT Utrustnings_ID, Benamning FROM Utrustning WHERE Utrustnings_ID IN (SELECT Utrustnings_ID FROM Innehar_Utrustning WHERE Agent_ID IN (SELECT Agent_ID FROM Agent))";
+            Utkvittutrust = idb.fetchRows(fraga);
+            
+            for (HashMap<String, String> Utrust : Utkvittutrust) {
+                txtAreaUtkvitteradutrustning.append(Utrust.get("Utrustnings_ID") + "\t");
+                txtAreaUtkvitteradutrustning.append(Utrust.get("Benamning") + "\n");
+            }
+        } catch (InfException UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+                catch (Exception UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+        
+  
+        }
+      
+      // Variables declaration - do not modify                     
+    private javax.swing.JComboBox<String> cbVäljkategori;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblKategoriförutkvitteradutrustning;
+    private javax.swing.JLabel lblUtkvittrubrik;
+    private javax.swing.JTextArea txtAreaUtkvitteradutrustning;
+    // End of variables declaration  
     
     
     /**
@@ -91,38 +128,39 @@ public class Minutrustning extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//               // new Minutrustning().setVisible(true);
+//            }
+//        });
+//    }
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-               // new Minutrustning().setVisible(true);
-            }
-        });
-    }
-
+    /*
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbVäljkategori;
     private javax.swing.JScrollPane jScrollPane1;
@@ -130,4 +168,5 @@ public class Minutrustning extends javax.swing.JFrame {
     private javax.swing.JLabel lblUtkvittrubrik;
     private javax.swing.JTextArea txtAreaUtkvitteradutrustning;
     // End of variables declaration//GEN-END:variables
+*/
 }
