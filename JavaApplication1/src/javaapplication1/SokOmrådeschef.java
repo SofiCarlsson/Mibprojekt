@@ -23,6 +23,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         idb = db;
         fyllCbValjOmrade();
         
+        
     }
 
     /**
@@ -40,6 +41,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         txtFortsätterText = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaÄrOmrådeschef = new javax.swing.JTextArea();
+        btnTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +63,13 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         txtAreaÄrOmrådeschef.setRows(5);
         jScrollPane1.setViewportView(txtAreaÄrOmrådeschef);
 
+        btnTillbaka.setText("Tillbaka");
+        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,6 +87,10 @@ public class SokOmrådeschef extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtFortsätterText)
                 .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnTillbaka)
+                .addGap(70, 70, 70))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +109,9 @@ public class SokOmrådeschef extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(txtFortsätterText)
-                        .addGap(140, 140, 140))))
+                        .addGap(102, 102, 102)
+                        .addComponent(btnTillbaka)
+                        .addGap(15, 15, 15))))
         );
 
         pack();
@@ -104,32 +119,49 @@ public class SokOmrådeschef extends javax.swing.JFrame {
 
     //Denna metoden fyller TextArea med informationen om vem som är Områdeschef fför den valda benämningen av området.
     private void cbVäljområdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVäljområdeActionPerformed
-//        txtAreaÄrOmrådeschef.setText("");
-//        
-//        ArrayList<HashMap<String, String>> soktOmradeschef;
-//        
-//        try {
-//        
-//                String valdBenamning = cbVäljområde.getSelectedItem().toString();
-//                String fraga = "SELECT Namn,Agent_ID FROM Agent where Agent.Agent_ID in (Select Omradeschef.Agent_ID from Omradeschef where Omradeschef.Omrade in (Select Omrade.Omrades_ID from Omrade where Benamning  = '" + valdBenamning + "'))";
-//                
-//                soktOmradeschef = idb.fetchRow(fraga);
-//                ((Denna blir fel))
-//                
-//                for(HashMap<String, String> omradesChef : soktOmradeschef){
-//                
-//                txtAreaÄrOmrådeschef.append(omradesChef.get("Agent_ID") + "\t");
-//                txtAreaÄrOmrådeschef.append("" + omradesChef.get("Namn") + "\t");
-//                }
-//                
-//        }catch(InfException ettUndantag){
-//            JOptionPane.showMessageDialog(null, "Databasfel!");
-//        
-//        }
+        txtAreaÄrOmrådeschef.setText("");
+        
+        ArrayList<HashMap<String, String>> soktOmradeschef = new ArrayList<HashMap<String, String>>();
+        String valdBenamning = cbVäljområde.getSelectedItem().toString();
+         if(valdBenamning!=""){
+        try {
+        
+               
+                String fraga = "SELECT Namn, Agent_ID FROM Agent where Agent.Agent_ID in (Select Omradeschef.Agent_ID from Omradeschef where Omradeschef.Omrade in (Select Omrade.Omrades_ID from Omrade where Benamning  = '" + valdBenamning + "'))";
+                
+                System.out.println(valdBenamning);
+                    
+                      // String soktOmradeschefNamn = idb.fetchRow(fraga).get(0).toString();
+                      soktOmradeschef.add(idb.fetchRow(fraga));
+                      //Fetch row hämtar bara en rad.
+                      
+                   
+               
+                for(HashMap<String, String> omradesChef : soktOmradeschef){
+                
+                txtAreaÄrOmrådeschef.append(omradesChef.get("Agent_ID") + "\t");
+                txtAreaÄrOmrådeschef.append("" + omradesChef.get("Namn") + "\t");
+            
+                }
+                    
+                
+        }catch(InfException ettUndantag){
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+         }
+        }
     }//GEN-LAST:event_cbVäljområdeActionPerformed
+
+    //Knapp för att gå tillbaka till AgentFrameDesign
+    //Den funkar inte??
+    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+//         Agent visaAgent = new Agent(idb);
+//         visaAgent.setVisible(true);
+    }//GEN-LAST:event_btnTillbakaActionPerformed
 
     //Denna metoden fyller skrollboxen med de benämningar som det finns för Området.
     private void fyllCbValjOmrade(){
+        //Töm skrollboxen
+        //cbVäljområde.;
         
         String fraga = ("SELECT Benamning FROM Omrade;");
         
@@ -152,8 +184,9 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+           
         }
-    
+       
     }
     
     // Gör en knappmetod för att fylla text Area men det är oklart för att det är arv av områdeschef från agent.
@@ -194,6 +227,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
 //    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnTillbaka;
     private javax.swing.JComboBox<String> cbVäljområde;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSökOmrådeschef;
