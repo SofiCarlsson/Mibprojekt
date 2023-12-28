@@ -39,7 +39,7 @@ public class TabBortUtrustning extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 15)); // NOI18N
-        jLabel1.setText("Skriv in ett utrustnings-ID för att radera från systemet. Det går inte att ångra denna åtgärd.");
+        jLabel1.setText("Skriv in ett Utrustnings-ID för att radera från systemet. Det går inte att ångra denna åtgärd.");
 
         txtUtrustningsID.setColumns(7);
 
@@ -56,7 +56,7 @@ public class TabBortUtrustning extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnraderaUtrustning)
                     .addComponent(txtUtrustningsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -79,11 +79,12 @@ public class TabBortUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnraderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnraderaUtrustningActionPerformed
-        // TODO add your handling code here:
+        //Raderar en utrustning från systemet
           try {
         String utrustningsID = txtUtrustningsID.getText();
         String raderaUtrustning = "DELETE * FROM mibdb.Utrustning WHERE Utrustnings_ID = utrustningsID";
         
+        //Uppdaterar databasen
         idb.update(raderaUtrustning);
         
         }

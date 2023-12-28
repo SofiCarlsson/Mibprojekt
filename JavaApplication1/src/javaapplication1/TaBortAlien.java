@@ -84,12 +84,12 @@ public class TaBortAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRaderaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaAlienActionPerformed
-        //Radera en alien från systemet
-        // SQL-fråga för att ta bort alienen med det angivna ID:t
+        //Raderar en alien från systemet
         try {
         String alienID = txtAlienIDRadera.getText();
         String raderaAlien = "DELETE * FROM mibdb.Alien WHERE Alien_ID = alienID";
         
+        //Uppdatera databasen
         idb.update(raderaAlien);
         
         }

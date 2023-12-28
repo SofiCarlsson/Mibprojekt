@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -37,11 +38,17 @@ public class TaBortAgent extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Skriv in ett agent-ID för att radera agenten från systemet");
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 15)); // NOI18N
+        jLabel1.setText("Skriv in ett Agent-ID för att radera agenten från systemet. Det går inte att ångra denna åtgärd.");
 
         txtraderaAgent.setColumns(7);
 
-        btnraderaAgent.setText("Radera agent");
+        btnraderaAgent.setText("Radera");
+        btnraderaAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnraderaAgentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,25 +57,43 @@ public class TaBortAgent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnraderaAgent)
+                    .addComponent(jLabel1)
                     .addComponent(txtraderaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(54, Short.MAX_VALUE))
+                    .addComponent(btnraderaAgent))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtraderaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(btnraderaAgent)
                 .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnraderaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnraderaAgentActionPerformed
+        // Radera en agent från systemet
+        try {
+        String agentID = txtraderaAgent.getText();
+        String raderaAgent = "DELETE * FROM mibdb.Agent WHERE Agent_ID = agentID";
+        
+        //Uppdaterar databasen
+        idb.update(raderaAgent);
+        
+        }
+        catch (InfException ettUndantag){
+            
+              JOptionPane.showMessageDialog(null, " Databasfel" );
+              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
+        
+        }
+    }//GEN-LAST:event_btnraderaAgentActionPerformed
 
     /**
      * @param args the command line arguments

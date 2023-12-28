@@ -26,22 +26,22 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnraderaAgent" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtraderaAgent" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtraderaAgent" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnraderaAgent" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="txtraderaAgent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="167" max="32767" attributes="0"/>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
               <Component id="btnraderaAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
@@ -51,7 +51,10 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Skriv in ett agent-ID f&#xf6;r att radera agenten fr&#xe5;n systemet"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="15" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Skriv in ett Agent-ID f&#xf6;r att radera agenten fr&#xe5;n systemet. Det g&#xe5;r inte att &#xe5;ngra denna &#xe5;tg&#xe4;rd."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtraderaAgent">
@@ -61,8 +64,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnraderaAgent">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Radera agent"/>
+        <Property name="text" type="java.lang.String" value="Radera"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnraderaAgentActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
