@@ -119,7 +119,8 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordActionPerformed
-   try{
+   if(Validering.txtFaltArInteTom(txtMejladress) && Validering.txtFaltArInteTom(txtGammaltLosenord)&& Validering.txtFaltArInteTom(txtNyttLosenord)){  
+        try{
           String epost = txtMejladress.getText();
 	  String gammaltLosenord = txtGammaltLosenord.getText(); 
           String nyttLosenord = txtNyttLosenord.getText();
@@ -155,10 +156,11 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                    
                    break;
                 }
-               // else {
-               // JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord");
+                else {
+                JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord");
         
                // }
+                }
              }
           
      
@@ -171,6 +173,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
         
         }
 
+     }
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
 
     /**
