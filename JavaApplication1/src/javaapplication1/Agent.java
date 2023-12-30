@@ -239,7 +239,7 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNyregistreraAlienActionPerformed
 
     private void btnMinutrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinutrustningActionPerformed
-        // TODO add your handling code here:
+        //Knapp till MinUtrustning
         Minutrustning visaMinUtrustning = new Minutrustning(idb);
         visaMinUtrustning.setVisible(true);
     }//GEN-LAST:event_btnMinutrustningActionPerformed
@@ -251,7 +251,7 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdministratörActionPerformed
 
     private void btnSökOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökOmrådeschefActionPerformed
-           // TODO add your handling code here:
+           //Knapp till SökOmrådeschef 
            SokOmrådeschef visaChef = new SokOmrådeschef(idb);
            visaChef.setVisible(true);
     }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
