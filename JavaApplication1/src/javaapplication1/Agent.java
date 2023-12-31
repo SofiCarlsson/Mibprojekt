@@ -112,6 +112,8 @@ public class Agent extends javax.swing.JFrame {
         btnAdministratör = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnTillbaka = new javax.swing.JButton();
+        btnSokAliensEfterRas = new javax.swing.JButton();
+        btnAndraLosenord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -170,6 +172,20 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
+        btnSokAliensEfterRas.setText("Sök Aliens efter ras");
+        btnSokAliensEfterRas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSokAliensEfterRasActionPerformed(evt);
+            }
+        });
+
+        btnAndraLosenord.setText("Ändra lösenord");
+        btnAndraLosenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAndraLosenordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -200,7 +216,9 @@ public class Agent extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnTopplistaöverAgenter)
-                                    .addComponent(btnSökOmrådeschef))))
+                                    .addComponent(btnSökOmrådeschef)
+                                    .addComponent(btnSokAliensEfterRas)
+                                    .addComponent(btnAndraLosenord))))
                         .addGap(39, 39, 39))))
         );
         layout.setVerticalGroup(
@@ -219,12 +237,19 @@ public class Agent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdministratör)
                 .addGap(63, 63, 63)
-                .addComponent(btnNyregistreraAlien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSeochändrainfoomAlien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNyregistreraAlien)
+                    .addComponent(btnSokAliensEfterRas))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSeochändrainfoomAlien)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(btnAndraLosenord)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(btnTillbaka)
                 .addContainerGap())
         );
@@ -239,7 +264,7 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNyregistreraAlienActionPerformed
 
     private void btnMinutrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinutrustningActionPerformed
-        // TODO add your handling code here:
+        //Knapp till MinUtrustning
         Minutrustning visaMinUtrustning = new Minutrustning(idb);
         visaMinUtrustning.setVisible(true);
     }//GEN-LAST:event_btnMinutrustningActionPerformed
@@ -251,7 +276,7 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdministratörActionPerformed
 
     private void btnSökOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökOmrådeschefActionPerformed
-           // TODO add your handling code here:
+           //Knapp till SökOmrådeschef 
            SokOmrådeschef visaChef = new SokOmrådeschef(idb);
            visaChef.setVisible(true);
     }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
@@ -261,6 +286,25 @@ public class Agent extends javax.swing.JFrame {
         Inloggning visaInloggning = new Inloggning(idb);
         visaInloggning.setVisible(true);
     }//GEN-LAST:event_btnTillbakaActionPerformed
+
+    private void btnSokAliensEfterRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAliensEfterRasActionPerformed
+  //Knapp till sök aliens efter ras
+        SokAliensEfterRas visaRas = new SokAliensEfterRas(idb);
+        visaRas.setVisible(true);
+    }//GEN-LAST:event_btnSokAliensEfterRasActionPerformed
+
+    private void btnAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordActionPerformed
+// Knapp till ändra lösenord för agenter
+     try {
+        // Skapa en instans av AndraLosenordAlienFrame och gör den synlig
+        AndraLosenordAgent losenordFonsterAgent = new AndraLosenordAgent();
+        losenordFonsterAgent.setVisible(true);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Ett fel inträffade vid ändring av lösenordet.");
+    }  
+    }//GEN-LAST:event_btnAndraLosenordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,10 +343,12 @@ public class Agent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdministratör;
+    private javax.swing.JButton btnAndraLosenord;
     private javax.swing.JButton btnMinutrustning;
     private javax.swing.JButton btnNyregistreraAgentutrustning;
     private javax.swing.JButton btnNyregistreraAlien;
     private javax.swing.JButton btnSeochändrainfoomAlien;
+    private javax.swing.JButton btnSokAliensEfterRas;
     private javax.swing.JButton btnSökOmrådeschef;
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnTopplistaöverAgenter;

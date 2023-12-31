@@ -14,14 +14,14 @@ import oru.inf.InfException;
  *
  * @author mallan
  */
-public class AndraLosenordAlien extends javax.swing.JFrame {
+public class AndraLosenordAgent extends javax.swing.JFrame {
 
-    private InfDB idb;
+       private InfDB idb; 
     
     /**
-     * Creates new form AndraLosenordAlien
+     * Creates new form AndraLosenordAgent
      */
-    public AndraLosenordAlien() {
+    public AndraLosenordAgent() {
         initComponents();
         
         try{
@@ -93,7 +93,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblGammaltLosenord)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblNyttLosenord)))))
                 .addGap(45, 45, 45))
         );
@@ -119,60 +119,54 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordActionPerformed
-   if(Validering.txtFaltArInteTom(txtMejladress) && Validering.txtFaltArInteTom(txtGammaltLosenord)&& Validering.txtFaltArInteTom(txtNyttLosenord)){  
+     if(Validering.txtFaltArInteTom(txtMejladress) && Validering.txtFaltArInteTom(txtGammaltLosenord)&& Validering.txtFaltArInteTom(txtNyttLosenord)){  
         try{
-          String epost = txtMejladress.getText();
-	  String gammaltLosenord = txtGammaltLosenord.getText(); 
-          String nyttLosenord = txtNyttLosenord.getText();
-          String epostOchLosenord = epost + gammaltLosenord;
-          
-          String fragaAlien = "SELECT Epost, Losenord FROM Alien";
-                 
-          ArrayList<HashMap<String, String>> Alien = idb.fetchRows(fragaAlien);
-          
-          
-          //Går igenom alla Alien Losenord med Email och kollar om något mtachar med det som skrevs in i txt fälten. 
-          for(int i= 0 ; i<Alien.size() ; i++){
-              String output = "";
-              
-              output += Alien.get(i).get("Epost") + Alien.get(i).get("Losenord");
-               
+            String epost = txtMejladress.getText();
+            String gammaltLosenord = txtGammaltLosenord.getText();
+            String nyttLosenord = txtNyttLosenord.getText();
+            String epostOchLosenord = epost + gammaltLosenord;
+
+            String fragaAgent = "SELECT Epost, Losenord FROM Agent";
+
+            ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
+
+            //Går igenom alla Agent Losenord med Email och kollar om något mtachar med det som skrevs in i txt fälten.
+            for(int i= 0 ; i<Agent.size() ; i++){
+                String output = "";
+
+                output += Agent.get(i).get("Epost") + Agent.get(i).get("Losenord");
+
                 //Här jämförs om det eposten+lösenordet = det värdena som hämtas.
                 if(epostOchLosenord.equals(output)){
-                 
-                  String updateQuery = "UPDATE Alien SET Losenord = '" + nyttLosenord + "' WHERE Epost = '" + epost + "'";
-           
-                 idb.update(updateQuery);
-                    
-                    
+
+                    String updateQuery = "UPDATE Agent SET Losenord = '" + nyttLosenord + "' WHERE Epost = '" + epost + "'";
+
+                    idb.update(updateQuery);
+
                     JOptionPane.showMessageDialog(null, " Lösenordet har ändrats." );
-                    
+
                     // Stäng detta fönster om ändringen lyckades
                     this.dispose();
-                    
-                   //Kommer in Source för Alien
-                   Alien alienFonster = new Alien(idb, Alien.get(i).get("Alien_ID"));
-                   alienFonster.setVisible(true);
-                   
-                   break;
-                }
-                else {
-                JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord");
-        
-               // }
-                }
-             }
-          
-     
-        
-        }catch(InfException ettUndantag){
-            
-              JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
-              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
-              txtGammaltLosenord.requestFocus();
-        
-        }
 
+                    //Kommer in Source för Agent
+                    Agent agentFonster = new Agent(idb, Agent.get(i).get("Agent_ID"));
+                    agentFonster.setVisible(true);
+
+                    break;
+                }
+                // else {
+                    // JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord");
+
+                    // }
+            }
+
+        }catch(InfException ettUndantag){
+
+            JOptionPane.showMessageDialog(null, " Fel lösnenord angivet" );
+            System.out.println("Internt felmedelande" + ettUndantag.getMessage());
+            txtGammaltLosenord.requestFocus();
+
+        }
      }
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
 
@@ -193,20 +187,20 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AndraLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AndraLosenordAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AndraLosenordAlien().setVisible(true);
+                new AndraLosenordAgent().setVisible(true);
             }
         });
     }
