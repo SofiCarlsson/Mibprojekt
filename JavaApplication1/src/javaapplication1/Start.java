@@ -9,19 +9,19 @@ import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
-/**ss/
+/**
  *
- * @author soficarlsson
+ * @author mallan
  */
-public class JavaApplication1 {
-
-    private static InfDB idb;
+public class Start {
     
+    private static InfDB idb;
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InfException {
-       
+    public static void main(String[] args) {
+               
         try{
             idb = new InfDB ("mibdb", "3306", "mibdba", "mibkey");
             new Inloggning(idb).setVisible(true);
@@ -30,4 +30,5 @@ public class JavaApplication1 {
         }
       }
     }
-   
+    
+
