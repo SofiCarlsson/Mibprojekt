@@ -114,7 +114,7 @@ public class Agent extends javax.swing.JFrame {
         btnLoggaUt = new javax.swing.JButton();
         btnSokAliensEfterRas = new javax.swing.JButton();
         btnAndraLosenord = new javax.swing.JButton();
-        btnDatumFörAlienRegistrering = new javax.swing.JButton();
+        btnDatumFörRegistreringAvAliens = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,7 +189,7 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
-        btnDatumFörAlienRegistrering.setText("Datum för registrering av Aliens");
+        btnDatumFörRegistreringAvAliens.setText("Datum för registrering av Aliens");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,8 +225,8 @@ public class Agent extends javax.swing.JFrame {
                         .addGap(26, 26, 26))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDatumFörAlienRegistrering)
-                .addGap(143, 143, 143))
+                .addComponent(btnDatumFörRegistreringAvAliens)
+                .addGap(170, 170, 170))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,9 +243,9 @@ public class Agent extends javax.swing.JFrame {
                     .addComponent(btnTopplistaöverAgenter))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdministratör)
-                .addGap(27, 27, 27)
-                .addComponent(btnDatumFörAlienRegistrering)
-                .addGap(13, 13, 13)
+                .addGap(21, 21, 21)
+                .addComponent(btnDatumFörRegistreringAvAliens)
+                .addGap(19, 19, 19)
                 .addComponent(btnNyregistreraAlien)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -316,61 +316,61 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
 
       // Variables declaration - do not modify                     
-    private javax.swing.JButton btnAdministratör;
-    private javax.swing.JButton btnAndraLosenord;
-    private javax.swing.JButton btnListaAliensPaPlats;
-    private javax.swing.JButton btnLoggaUt;
-    private javax.swing.JButton btnMinutrustning;
-    private javax.swing.JButton btnNyregistreraAgentutrustning;
-    private javax.swing.JButton btnNyregistreraAlien;
-    private javax.swing.JButton btnSeochändrainfoomAlien;
-    private javax.swing.JButton btnSokAliensEfterRas;
-    private javax.swing.JButton btnSökOmrådeschef;
-    private javax.swing.JButton btnTopplistaöverAgenter;
-    private javax.swing.JLabel lblStartsidaAgent;
+//    private javax.swing.JButton btnAdministratör;
+//    private javax.swing.JButton btnAndraLosenord;
+//    private javax.swing.JButton btnListaAliensPaPlats;
+//    private javax.swing.JButton btnLoggaUt;
+//    private javax.swing.JButton btnMinutrustning;
+//    private javax.swing.JButton btnNyregistreraAgentutrustning;
+//    private javax.swing.JButton btnNyregistreraAlien;
+//    private javax.swing.JButton btnSeochändrainfoomAlien;
+//    private javax.swing.JButton btnSokAliensEfterRas;
+//    private javax.swing.JButton btnSökOmrådeschef;
+//    private javax.swing.JButton btnTopplistaöverAgenter;
+//    private javax.swing.JLabel lblStartsidaAgent;
     // End of variables declaration 
     
     
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                //new Agent().setVisible(true);
-//            }
-//        });
-//    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    /*
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                //new Agent().setVisible(true);
+            }
+        });
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdministratör;
     private javax.swing.JButton btnAndraLosenord;
-    private javax.swing.JButton btnDatumFörAlienRegistrering;
+    private javax.swing.JButton btnDatumFörRegistreringAvAliens;
     private javax.swing.JButton btnListaAliensPaPlats;
     private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnMinutrustning;
@@ -382,7 +382,7 @@ public class Agent extends javax.swing.JFrame {
     private javax.swing.JButton btnTopplistaöverAgenter;
     private javax.swing.JLabel lblStartsidaAgent;
     // End of variables declaration//GEN-END:variables
-/*
+
     
-    */
+    
 }
