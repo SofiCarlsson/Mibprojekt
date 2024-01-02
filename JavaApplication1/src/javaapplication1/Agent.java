@@ -145,6 +145,11 @@ public class Agent extends javax.swing.JFrame {
 
         btnTopplistaöverAgenter.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnTopplistaöverAgenter.setText("Topplista över Agenter");
+        btnTopplistaöverAgenter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTopplistaöverAgenterActionPerformed(evt);
+            }
+        });
 
         btnMinutrustning.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnMinutrustning.setText("Min utrustning");
@@ -226,7 +231,7 @@ public class Agent extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDatumFörRegistreringAvAliens)
-                .addGap(170, 170, 170))
+                .addGap(127, 127, 127))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,9 +248,9 @@ public class Agent extends javax.swing.JFrame {
                     .addComponent(btnTopplistaöverAgenter))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdministratör)
-                .addGap(21, 21, 21)
+                .addGap(22, 22, 22)
                 .addComponent(btnDatumFörRegistreringAvAliens)
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addComponent(btnNyregistreraAlien)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -314,6 +319,10 @@ public class Agent extends javax.swing.JFrame {
         System.out.println("Ett fel inträffade vid ändring av lösenordet.");
     }  
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
+
+    private void btnTopplistaöverAgenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopplistaöverAgenterActionPerformed
+        new TopplistaOverAgenter(idb).setVisible(true);
+    }//GEN-LAST:event_btnTopplistaöverAgenterActionPerformed
 
       // Variables declaration - do not modify                     
 //    private javax.swing.JButton btnAdministratör;
