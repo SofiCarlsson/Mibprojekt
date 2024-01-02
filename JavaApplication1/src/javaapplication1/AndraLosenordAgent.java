@@ -215,3 +215,5 @@ public class AndraLosenordAgent extends javax.swing.JFrame {
     private javax.swing.JTextField txtNyttLosenord;
     // End of variables declaration//GEN-END:variables
 }
+//Lägga till en bolean istället för else så att loopen inte körs igenom så många gånger
+//och bara visar felmeddelandet när det verkligen behövs.

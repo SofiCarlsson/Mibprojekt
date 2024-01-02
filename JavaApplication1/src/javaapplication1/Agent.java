@@ -114,6 +114,7 @@ public class Agent extends javax.swing.JFrame {
         btnTillbaka = new javax.swing.JButton();
         btnSokAliensEfterRas = new javax.swing.JButton();
         btnAndraLosenord = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,6 +187,8 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("jButton2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -220,6 +223,11 @@ public class Agent extends javax.swing.JFrame {
                                     .addComponent(btnSokAliensEfterRas)
                                     .addComponent(btnAndraLosenord))))
                         .addGap(39, 39, 39))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,6 +260,11 @@ public class Agent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(btnTillbaka)
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -353,6 +366,7 @@ public class Agent extends javax.swing.JFrame {
     private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnTopplistaöverAgenter;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel lblStartsidaAgent;
     // End of variables declaration//GEN-END:variables
 }

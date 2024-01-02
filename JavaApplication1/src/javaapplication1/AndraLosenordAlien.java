@@ -156,11 +156,10 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                    
                    break;
                 }
-                else {
-                JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord");
+               // else {
+               // JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord");
         
                // }
-                }
              }
           
      
