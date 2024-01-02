@@ -140,23 +140,30 @@ public class Administrator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnregistreraNyAgentActionPerformed
 
     private void btngeadministratorStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngeadministratorStatusActionPerformed
-        // Öppnar ny ruta för att ändra Adminstatus
+        //Öppnar ny ruta för att ändra Adminstatus
         GeAdministratorStatus gorAdminfonster = new GeAdministratorStatus(idb);
         gorAdminfonster.setVisible(true);
     }//GEN-LAST:event_btngeadministratorStatusActionPerformed
 
     private void btntaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntaBortAlienActionPerformed
-        // Öppnar ny ruta för att radera Alien
+        //Öppnar ny ruta för att radera Alien
         TaBortAlien taBortAlienfonster = new TaBortAlien(idb);
         taBortAlienfonster.setVisible(true);
     }//GEN-LAST:event_btntaBortAlienActionPerformed
 
     private void btntaBortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntaBortUtrustningActionPerformed
-        // TODO add your handling code here:
+        //Öppnar ny ruta för att radera utrustning
         TabBortUtrustning taBortUtrustningfonster = new TabBortUtrustning(idb);
         taBortUtrustningfonster.setVisible(true);
     }//GEN-LAST:event_btntaBortUtrustningActionPerformed
+   
+    private void btnTaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        //Öppnar ny ruta för att radera agent
+        TaBortAgent taBortAgentfonster = new TaBortAgent(idb);
+        taBortAgentfonster.setVisible(true);
+    }                 
 
+    
     /**
      * @param args the command line arguments
      */
