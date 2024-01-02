@@ -50,7 +50,6 @@ public class SokOmrådeschef extends javax.swing.JFrame {
 
         lblVäljOmråde.setText("Välj område");
 
-        cbVäljområde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbVäljområde.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbVäljområdeActionPerformed(evt);
@@ -129,7 +128,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
                
                 String fraga = "SELECT Namn, Agent_ID FROM Agent where Agent.Agent_ID in (Select Omradeschef.Agent_ID from Omradeschef where Omradeschef.Omrade in (Select Omrade.Omrades_ID from Omrade where Benamning  = '" + valdBenamning + "'))";
                 
-                System.out.println(valdBenamning);
+                
                     
                       // String soktOmradeschefNamn = idb.fetchRow(fraga).get(0).toString();
                       soktOmradeschef.add(idb.fetchRow(fraga));

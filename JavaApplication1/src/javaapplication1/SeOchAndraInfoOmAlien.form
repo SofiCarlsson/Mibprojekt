@@ -119,14 +119,6 @@
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblVisaAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtVisaAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="35" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace pref="17" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblVisaNamn" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -146,9 +138,18 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtVisaLösenord" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblVisaLösenord" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnÄndraInfo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblVisaAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtVisaAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnÄndraInfo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -168,9 +169,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra info"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraInfoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAngeAlienID">
       <Properties>
@@ -267,7 +265,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="F&#xf6;r att &#xe4;ndra info, fyll i ny info och tryck p&#xe5; knappen &quot;&#xc4;ndra info&quot;"/>
+        <Property name="text" type="java.lang.String" value="Tryck p&#xe5; knappen &quot;&#xc4;ndra info&quot; om du vill &#xe4;ndra n&#xe5;gon av infon i rutona."/>
       </Properties>
     </Component>
   </SubComponents>
