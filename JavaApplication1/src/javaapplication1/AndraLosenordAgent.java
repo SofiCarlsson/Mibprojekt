@@ -149,21 +149,21 @@ public class AndraLosenordAgent extends javax.swing.JFrame {
 
                     // Stäng detta fönster om ändringen lyckades
                     this.dispose();
-
-                    lyckadAndring = true;
                     
                     //Kommer in Source för Agent
                     Agent agentFonster = new Agent(idb, Agent.get(i).get("Agent_ID"));
                     agentFonster.setVisible(true);
 
+                    lyckadAndring = true;
                     break;
                 }
-                 else {
+            }
+                 if (!lyckadAndring) {
                      JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord");
 
                      }
             }
-            }
+            
 
         }catch(InfException ettUndantag){
 
