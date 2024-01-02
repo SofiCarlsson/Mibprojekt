@@ -26,42 +26,42 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnAdministratör" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnNyregistreraAlien" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblStartsidaAgent" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnSeochändrainfoomAlien" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnNyregistreraAgentutrustning" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnMinutrustning" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="98" max="32767" attributes="0"/>
+                              <EmptySpace pref="112" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnTopplistaöverAgenter" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnSökOmrådeschef" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnSokAliensEfterRas" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnAndraLosenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnListaAliensPaPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblStartsidaAgent" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSeochändrainfoomAlien" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSokAliensEfterRas" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnDatumForRegistreringAvAliens" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnLoggaUt" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAndraLosenord" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnNyregistreraAlien" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAdministratör" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -84,26 +84,23 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnAdministratör" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnNyregistreraAlien" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSokAliensEfterRas" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnSeochändrainfoomAlien" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="btnAndraLosenord" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="13" max="32767" attributes="0"/>
-              <Component id="btnTillbaka" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <Component id="btnNyregistreraAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnSeochändrainfoomAlien" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnDatumForRegistreringAvAliens" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnListaAliensPaPlats" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAndraLosenord" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnSokAliensEfterRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnLoggaUt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,6 +132,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Nyregistrera Agentutrustning"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNyregistreraAgentutrustningActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSeoch&#xe4;ndrainfoomAlien">
       <Properties>
@@ -165,6 +165,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Topplista &#xf6;ver Agenter"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTopplista&#xf6;verAgenterActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnMinutrustning">
       <Properties>
@@ -188,27 +191,33 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdministrat&#xf6;rActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnListaAliensPaPlats">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Rounded MT Bold" size="13" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Lista Aliens p&#xe5; plats"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListaAliensPaPlatsActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnTillbaka">
+    <Component class="javax.swing.JButton" name="btnLoggaUt">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Rounded MT Bold" size="13" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Tillbaka"/>
+        <Property name="text" type="java.lang.String" value="Logga ut"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTillbakaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoggaUtActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSokAliensEfterRas">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="S&#xf6;k Aliens efter ras"/>
       </Properties>
       <Events>
@@ -217,10 +226,24 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAndraLosenord">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra l&#xf6;senord"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndraLosenordActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDatumForRegistreringAvAliens">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Datum f&#xf6;r registrering av Aliens"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDatumForRegistreringAvAliensActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -14,7 +14,7 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
     private String Benamning;
     
     
-    public NyregistreraAgentutrustning(InfDB db, String Utrustnings_ID, String Benamning) {
+    public NyregistreraAgentutrustning(InfDB db) {
         idb = db;
         this.Utrustnings_ID = Utrustnings_ID;
 
