@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -85,20 +86,44 @@ public class TaBortAlien extends javax.swing.JFrame {
 
     private void btnRaderaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaAlienActionPerformed
         //Raderar en alien från systemet
-        try {
-        String alienID = txtAlienIDRadera.getText();
-        String raderaAlien = "DELETE * FROM mibdb.Alien WHERE Alien_ID = alienID";
-        
-        //Uppdatera databasen
-        idb.update(raderaAlien);
-        
+               try{
+            //Ger variabelnman till värdena från rutorna och boxarna
+            String alienID = txtAlienIDRadera.getText();
+            String raderaFraga = "SELECT alien_ID from mibdb.Alien";
+            
+            //Hämtar kolumnen enligt sql-frågan och gör en lista
+            ArrayList allaAlienID = idb.fetchColumn(raderaFraga);
+            
+            //Kollar om ID:t finns i listan
+            if (allaAlienID.contains(alienID)){
+            //Uppdaterar databasen
+            String raderaAlienBoglodite = "DELETE FROM Boglodite WHERE Alien_ID = " + alienID;
+            idb.delete(raderaAlienBoglodite);
+            
+            String raderaAlienSquid = "DELETE FROM Omradeschef WHERE Alien_ID = " + alienID;
+            idb.delete(raderaAlienSquid);
+            
+            String raderaAlienWorm = "DELETE FROM Omradeschef WHERE Alien_ID = " + alienID;
+            idb.delete(raderaAlienWorm);
+            
+            String raderaAlien = "DELETE FROM Alien WHERE Alien_ID = " + alienID;
+            idb.delete(raderaAlien);
+
+            //Skriver ut meddelande att agenten är raderad
+            JOptionPane.showMessageDialog(null, " Alien har raderats." );
+            }
+            else { JOptionPane.showMessageDialog(null, " Alien hittades inte." );
+                
+            }
         }
         catch (InfException ettUndantag){
             
               JOptionPane.showMessageDialog(null, " Databasfel" );
-              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
-        
+              System.out.println("Det gick inte att ta bort alien" + ettUndantag.getMessage());
+              //txtraderaAlien.requestFocus();
         }
+     
+
 }
     private javax.swing.JButton btnRaderaAlien;
     private javax.swing.JLabel jLabel1;

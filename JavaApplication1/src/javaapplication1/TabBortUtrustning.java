@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import java.util.ArrayList;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JOptionPane;
@@ -79,20 +80,45 @@ public class TabBortUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnraderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnraderaUtrustningActionPerformed
-        //Raderar en utrustning från systemet
-          try {
-        String utrustningsID = txtUtrustningsID.getText();
-        String raderaUtrustning = "DELETE * FROM mibdb.Utrustning WHERE Utrustnings_ID = utrustningsID";
-        
-        //Uppdaterar databasen
-        idb.update(raderaUtrustning);
-        
+   //Raderar en utrustning från systemet
+        try{
+            //Ger variabelnman till värdena från rutorna och boxarna
+            String utrustningsID = txtUtrustningsID.getText();
+            String raderaFraga = "SELECT Utrustnings_ID from mibdb.Alien";
+            
+            //Hämtar kolumnen enligt sql-frågan och gör en lista
+            ArrayList allaUtrustningsID = idb.fetchColumn(raderaFraga);
+            
+            //Kollar om ID:t finns i listan
+            if (allaUtrustningsID.contains(utrustningsID)){
+            //Uppdaterar databasen
+            String raderaUtrustningInnehar = "DELETE FROM Innehar_Utrustning WHERE Utrustnings_ID = " + utrustningsID;
+            idb.delete(raderaUtrustningInnehar);
+            
+            String raderaUtrustningKommunikation = "DELETE FROM Kommunikation WHERE Utrustnings_ID = " + utrustningsID;
+            idb.delete(raderaUtrustningKommunikation);
+            
+            String raderaUtrustningTeknik = "DELETE FROM Teknik WHERE Utrustnings_ID = " + utrustningsID;
+            idb.delete(raderaUtrustningTeknik);
+            
+            String raderaUtrustningVapen = "DELETE FROM Vapen WHERE Utrustnings_ID = " + utrustningsID;
+            idb.delete(raderaUtrustningVapen);
+            
+            String raderaUtrustning = "DELETE FROM Alien WHERE Utrustnings_ID = " + utrustningsID;
+            idb.delete(raderaUtrustning);
+
+            //Skriver ut meddelande att agenten är raderad
+            JOptionPane.showMessageDialog(null, " Utrustningen har raderats." );
+            }
+            else { JOptionPane.showMessageDialog(null, " Utrustningen hittades inte." );
+                
+            }
         }
         catch (InfException ettUndantag){
             
               JOptionPane.showMessageDialog(null, " Databasfel" );
-              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
-        
+              System.out.println("Det gick inte att ta bort utrustningen" + ettUndantag.getMessage());
+              //txtraderaAlien.requestFocus();
         }
 }
     private javax.swing.JButton btnraderaUtrustning;
