@@ -52,9 +52,9 @@
                   <Component id="lblKategoriförutkvitteradutrustning" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbVäljkategori" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="99" max="32767" attributes="0"/>
+              <EmptySpace pref="103" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,7 +94,6 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Man vill ju kunna visa ifall en agent har flera vapen utkvitterade samtidigt.&#xa;Ska vi d&#xe5; ha en combobox eller hur g&#xf6;r vi?"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -47,6 +47,34 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
     }
     
     
+    private void fylltxtAreaVisatopp3()
+    {
+         txtAreaVisatopp3.setText("");
+    
+        ArrayList<HashMap<String, String>> Topp3Alien = new ArrayList<HashMap<String, String>>();
+        String Datum1 = cbVäljområdetopp3.getSelectedItem().toString();
+         
+        try {
+            String fraga = "SELECT Agent_ID, Namn FROM Agent WHERE Agent_ID IN (SELECT Omrade FROM Agent WHERE Agent_ID IN (SELECT Ansvarig_Agent FROM Alien WHERE Agent_ID))";
+            Topp3Alien = idb.fetchRows(fraga);
+            
+            for (HashMap<String, String> Topp : Topp3Alien) {
+                txtAreaVisatopp3.append(Topp.get("Agent_ID") + "\t");
+                txtAreaVisatopp3.append(Topp.get("Namn") + "\n");
+
+            }
+        } catch (InfException UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+                catch (Exception UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+        
+  
+        }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,13 +93,13 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
         lblPlats3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaVisatopp3 = new javax.swing.JTextArea();
+        btnSök = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblTopp3Rubrik.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
         lblTopp3Rubrik.setText("Topp tre  Agenter med ansvar för flest Aliens i ett område");
 
-        cbVäljområdetopp3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbVäljområdetopp3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbVäljområdetopp3ActionPerformed(evt);
@@ -90,6 +118,13 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
         txtAreaVisatopp3.setRows(5);
         jScrollPane1.setViewportView(txtAreaVisatopp3);
 
+        btnSök.setText("Sök");
+        btnSök.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSökActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,7 +142,10 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
                                 .addComponent(lblPlats1)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbVäljområdetopp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbVäljområdetopp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnSök))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(lblPlats2)
@@ -123,7 +161,8 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblVäljOmrådeTopp3)
-                    .addComponent(cbVäljområdetopp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbVäljområdetopp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSök))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPlats1)
@@ -164,56 +203,64 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
         
   
         }
-                // Variables declaration - do not modify                     
-    private javax.swing.JComboBox<String> cbVäljområdetopp3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblPlats1;
-    private javax.swing.JLabel lblPlats2;
-    private javax.swing.JLabel lblPlats3;
-    private javax.swing.JLabel lblTopp3Rubrik;
-    private javax.swing.JLabel lblVäljOmrådeTopp3;
-    private javax.swing.JTextArea txtAreaVisatopp3;
-    
-////    // End of variables declaration     
+//                // Variables declaration - do not modify                     
+//    private javax.swing.JComboBox<String> cbVäljområdetopp3;
+//    private javax.swing.JScrollPane jScrollPane1;
+//    private javax.swing.JLabel lblPlats1;
+//    private javax.swing.JLabel lblPlats2;
+//    private javax.swing.JLabel lblPlats3;
+//    private javax.swing.JLabel lblTopp3Rubrik;
+//    private javax.swing.JLabel lblVäljOmrådeTopp3;
+//    private javax.swing.JTextArea txtAreaVisatopp3;
+//    
+//////    // End of variables declaration    
+    /*
     }//GEN-LAST:event_cbVäljområdetopp3ActionPerformed
+*/
+    
+    private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
+        fyllCbVäljområdetopp3();
+    }//GEN-LAST:event_btnSökActionPerformed
 
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new TopplistaOverAgenter().setVisible(true);
-//            }
-//        });
-//    }
 
-/*
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TopplistaOverAgenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+              //  new TopplistaOverAgenter().setVisible(true);
+            }
+        });
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSök;
     private javax.swing.JComboBox<String> cbVäljområdetopp3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPlats1;
@@ -223,4 +270,4 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
     private javax.swing.JLabel lblVäljOmrådeTopp3;
     private javax.swing.JTextArea txtAreaVisatopp3;
     // End of variables declaration//GEN-END:variables
-*/
+}

@@ -17,6 +17,7 @@ import oru.inf.InfException;
 public class AndraLosenordAlien extends javax.swing.JFrame {
 
     private InfDB idb;
+    private boolean lyckadAndring = false;
     
     /**
      * Creates new form AndraLosenordAlien
@@ -154,13 +155,14 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                    Alien alienFonster = new Alien(idb, Alien.get(i).get("Alien_ID"));
                    alienFonster.setVisible(true);
                    
+                   lyckadAndring = true;
                    break;
                 }
-                else {
+          }
+                if (!lyckadAndring) {
                 JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord");
         
-               // }
-                }
+   
              }
           
      
