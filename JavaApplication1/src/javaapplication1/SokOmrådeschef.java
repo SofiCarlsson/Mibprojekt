@@ -38,10 +38,10 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         lblSökOmrådeschef = new javax.swing.JLabel();
         lblVäljOmråde = new javax.swing.JLabel();
         cbVäljområde = new javax.swing.JComboBox<>();
-        txtFortsätterText = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaÄrOmrådeschef = new javax.swing.JTextArea();
-        btnTillbaka = new javax.swing.JButton();
+        lblAgentID = new javax.swing.JLabel();
+        lblNamn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,18 +56,13 @@ public class SokOmrådeschef extends javax.swing.JFrame {
             }
         });
 
-        txtFortsätterText.setText("är områdeschef i det angivna området");
-
         txtAreaÄrOmrådeschef.setColumns(20);
         txtAreaÄrOmrådeschef.setRows(5);
         jScrollPane1.setViewportView(txtAreaÄrOmrådeschef);
 
-        btnTillbaka.setText("Tillbaka");
-        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTillbakaActionPerformed(evt);
-            }
-        });
+        lblAgentID.setText("Agent ID");
+
+        lblNamn.setText("Namn");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,15 +76,13 @@ public class SokOmrådeschef extends javax.swing.JFrame {
                         .addComponent(lblVäljOmråde)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbVäljområde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(txtFortsätterText)
-                .addContainerGap(57, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnTillbaka)
-                .addGap(70, 70, 70))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblAgentID)
+                                .addGap(75, 75, 75)
+                                .addComponent(lblNamn))
+                            .addComponent(cbVäljområde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,17 +93,13 @@ public class SokOmrådeschef extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblVäljOmråde)
                     .addComponent(cbVäljområde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(txtFortsätterText)
-                        .addGap(102, 102, 102)
-                        .addComponent(btnTillbaka)
-                        .addGap(15, 15, 15))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAgentID)
+                    .addComponent(lblNamn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102))
         );
 
         pack();
@@ -150,13 +139,6 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbVäljområdeActionPerformed
 
-    //Knapp för att gå tillbaka till AgentFrameDesign
-    //Den funkar inte??
-    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
-//         Agent visaAgent = new Agent(idb);
-//         visaAgent.setVisible(true);
-    }//GEN-LAST:event_btnTillbakaActionPerformed
-
     //Denna metoden fyller skrollboxen med de benämningar som det finns för Området.
     private void fyllCbValjOmrade(){
         //Töm skrollboxen
@@ -187,8 +169,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
         }
        
     }
-    
-    // Gör en knappmetod för att fylla text Area men det är oklart för att det är arv av områdeschef från agent.
+   
     /**
      * @param args the command line arguments
      */
@@ -226,12 +207,12 @@ public class SokOmrådeschef extends javax.swing.JFrame {
 //    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnTillbaka;
     private javax.swing.JComboBox<String> cbVäljområde;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAgentID;
+    private javax.swing.JLabel lblNamn;
     private javax.swing.JLabel lblSökOmrådeschef;
     private javax.swing.JLabel lblVäljOmråde;
     private javax.swing.JTextArea txtAreaÄrOmrådeschef;
-    private javax.swing.JLabel txtFortsätterText;
     // End of variables declaration//GEN-END:variables
 }

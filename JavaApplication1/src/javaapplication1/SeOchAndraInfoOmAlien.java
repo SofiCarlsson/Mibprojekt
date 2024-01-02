@@ -304,7 +304,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
 
     //När man trycker på denna knappen och skrivit in något nytt i txt fälten ändras värdet till det man skrev in. (Man får inte ändra epost)
     private void btnÄndraInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraInfoActionPerformed
-       if(Validering.txtFaltArInteTom(txtVisaRegDatum) && Validering.txtFaltArInteTom(txtVisaNamn) && Validering.txtFaltArInteTom(txtVisaEpost) && Validering.txtFaltArInteTom(txtVisaLösenord)&& Validering.txtFaltArInteTom(txtVisaPlats) && Validering.txtFaltArInteTom(txtVisaAnsvarigAgent)){
+       if(Validering.txtFaltArInteTom(txtVisaRegDatum) && Validering.txtFaltArInteTom(txtVisaNamn) && Validering.txtFaltArInteTom(txtVisaLösenord)&& Validering.txtFaltArInteTom(txtVisaPlats) && Validering.txtFaltArInteTom(txtVisaAnsvarigAgent)){
           try{
            String fragaAlien = "SELECT * FROM Alien";
 
@@ -314,32 +314,36 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
            String nyttRegDatum = txtVisaRegDatum.getText();
            String nyttNamn = txtVisaNamn.getText();
            String nyTelefon = txtVisaTelefon.getText();
+           String nyLosenord = txtVisaLösenord.getText();
            String nyPlats = txtVisaPlats.getText();
            String nyAnsvarigAgent = txtVisaAnsvarigAgent.getText();
            
            
            
-//           String updateQueryRegDatum = "UPDATE Alien SET Registreringsdatum = '" + nyttRegDatum + "' WHERE Alien_ID = '" + valdAlien + "'";
-//           
-//                 idb.update(updateQueryRegDatum);
-//       
+           String updateQueryRegDatum = "UPDATE Alien SET Registreringsdatum = '" + nyttRegDatum + "' WHERE Alien_ID = '" + valdAlien + "'";
+           
+                 idb.update(updateQueryRegDatum);
+       
             String updateQueryNamn = "UPDATE Alien SET Namn = '" + nyttNamn + "' WHERE Alien_ID = '" + valdAlien + "'";
            
                  idb.update(updateQueryNamn);
+                
+            String updateQueryTelefon = "UPDATE Alien SET Telefon = '" + nyTelefon + "' WHERE Alien_ID = '" + valdAlien + "'";
+           
+                 idb.update(updateQueryTelefon);
                  
                  
+            String updateQueryLosenord = "UPDATE Alien SET Losenord = '" + nyLosenord + "' WHERE Alien_ID = '" + valdAlien + "'";
+          
+                 idb.update(updateQueryLosenord);
                  
-//            String updateQueryTelefon = "UPDATE Alien SET Telefon = '" + nyTelefon + "' WHERE Alien_ID = '" + valdAlien + "'";
-//           
-//                 idb.update(updateQueryTelefon);
-//                 
              String updateQueryPlats = "UPDATE Alien SET Plats = '" + nyPlats + "' WHERE Alien_ID = '" + valdAlien + "'";
            
                  idb.update(updateQueryPlats);
              
-//              String updateQueryAnsvarigAgent = "UPDATE Alien SET Namn = '" + nyAnsvarigAgent + "' WHERE Alien_ID = '" + valdAlien + "'";
-//           
-//                 idb.update(updateQueryAnsvarigAgent);
+              String updateQueryAnsvarigAgent = "UPDATE Alien SET Namn = '" + nyAnsvarigAgent + "' WHERE Alien_ID = '" + valdAlien + "'";
+           
+                 idb.update(updateQueryAnsvarigAgent);
                  
             JOptionPane.showMessageDialog(null, " Infomrationen har ändrats." );
                  
