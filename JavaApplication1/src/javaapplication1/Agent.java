@@ -110,10 +110,11 @@ public class Agent extends javax.swing.JFrame {
         btnTopplistaöverAgenter = new javax.swing.JButton();
         btnMinutrustning = new javax.swing.JButton();
         btnAdministratör = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        btnTillbaka = new javax.swing.JButton();
+        btnListaAliensPaPlats = new javax.swing.JButton();
+        btnLoggaUt = new javax.swing.JButton();
         btnSokAliensEfterRas = new javax.swing.JButton();
         btnAndraLosenord = new javax.swing.JButton();
+        btnDatumFörAlienRegistrering = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,17 +162,18 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
-        jButton1.setText("Lista Aliens på plats");
+        btnListaAliensPaPlats.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
+        btnListaAliensPaPlats.setText("Lista Aliens på plats");
 
-        btnTillbaka.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 13)); // NOI18N
-        btnTillbaka.setText("Tillbaka");
-        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+        btnLoggaUt.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 13)); // NOI18N
+        btnLoggaUt.setText("Logga ut");
+        btnLoggaUt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTillbakaActionPerformed(evt);
+                btnLoggaUtActionPerformed(evt);
             }
         });
 
+        btnSokAliensEfterRas.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnSokAliensEfterRas.setText("Sök Aliens efter ras");
         btnSokAliensEfterRas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,12 +181,15 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
+        btnAndraLosenord.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnAndraLosenord.setText("Ändra lösenord");
         btnAndraLosenord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAndraLosenordActionPerformed(evt);
             }
         });
+
+        btnDatumFörAlienRegistrering.setText("Datum för registrering av Aliens");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,29 +202,31 @@ public class Agent extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAdministratör)
                             .addComponent(btnNyregistreraAlien))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 402, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnNyregistreraAgentutrustning)
+                            .addComponent(btnMinutrustning))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnTopplistaöverAgenter)
+                            .addComponent(btnSökOmrådeschef))
+                        .addGap(39, 39, 39))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnListaAliensPaPlats)
                             .addComponent(lblStartsidaAgent)
                             .addComponent(btnSeochändrainfoomAlien)
-                            .addComponent(jButton1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnTillbaka))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnNyregistreraAgentutrustning)
-                                    .addComponent(btnMinutrustning))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnTopplistaöverAgenter)
-                                    .addComponent(btnSökOmrådeschef)
-                                    .addComponent(btnSokAliensEfterRas)
-                                    .addComponent(btnAndraLosenord))))
-                        .addGap(39, 39, 39))))
+                            .addComponent(btnSokAliensEfterRas))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLoggaUt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAndraLosenord, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(26, 26, 26))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDatumFörAlienRegistrering)
+                .addGap(143, 143, 143))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,22 +243,24 @@ public class Agent extends javax.swing.JFrame {
                     .addComponent(btnTopplistaöverAgenter))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdministratör)
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNyregistreraAlien)
-                    .addComponent(btnSokAliensEfterRas))
+                .addGap(27, 27, 27)
+                .addComponent(btnDatumFörAlienRegistrering)
+                .addGap(13, 13, 13)
+                .addComponent(btnNyregistreraAlien)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSeochändrainfoomAlien)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(btnListaAliensPaPlats)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSokAliensEfterRas))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(btnAndraLosenord)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(btnTillbaka)
-                .addContainerGap())
+                        .addGap(26, 26, 26)
+                        .addComponent(btnAndraLosenord)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLoggaUt)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -282,10 +291,10 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
 
     //Knapp som går tillbaka till inloggningen
-    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+    private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Inloggning visaInloggning = new Inloggning(idb);
         visaInloggning.setVisible(true);
-    }//GEN-LAST:event_btnTillbakaActionPerformed
+    }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void btnSokAliensEfterRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAliensEfterRasActionPerformed
   //Knapp till sök aliens efter ras
@@ -306,53 +315,74 @@ public class Agent extends javax.swing.JFrame {
     }  
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                //new Agent().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+      // Variables declaration - do not modify                     
     private javax.swing.JButton btnAdministratör;
     private javax.swing.JButton btnAndraLosenord;
+    private javax.swing.JButton btnListaAliensPaPlats;
+    private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnMinutrustning;
     private javax.swing.JButton btnNyregistreraAgentutrustning;
     private javax.swing.JButton btnNyregistreraAlien;
     private javax.swing.JButton btnSeochändrainfoomAlien;
     private javax.swing.JButton btnSokAliensEfterRas;
     private javax.swing.JButton btnSökOmrådeschef;
-    private javax.swing.JButton btnTillbaka;
     private javax.swing.JButton btnTopplistaöverAgenter;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lblStartsidaAgent;
+    // End of variables declaration 
+    
+    
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Agent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                //new Agent().setVisible(true);
+//            }
+//        });
+//    }
+
+    /*
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdministratör;
+    private javax.swing.JButton btnAndraLosenord;
+    private javax.swing.JButton btnDatumFörAlienRegistrering;
+    private javax.swing.JButton btnListaAliensPaPlats;
+    private javax.swing.JButton btnLoggaUt;
+    private javax.swing.JButton btnMinutrustning;
+    private javax.swing.JButton btnNyregistreraAgentutrustning;
+    private javax.swing.JButton btnNyregistreraAlien;
+    private javax.swing.JButton btnSeochändrainfoomAlien;
+    private javax.swing.JButton btnSokAliensEfterRas;
+    private javax.swing.JButton btnSökOmrådeschef;
+    private javax.swing.JButton btnTopplistaöverAgenter;
     private javax.swing.JLabel lblStartsidaAgent;
     // End of variables declaration//GEN-END:variables
+/*
+    
+    */
 }
