@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 public class Inloggning extends javax.swing.JFrame {
     
     private InfDB idb;
+    private boolean lyckadInloggning;
     /**
      * Creates new form Inlogg
      */
@@ -187,22 +188,24 @@ public class Inloggning extends javax.swing.JFrame {
           for(int i= 0 ; i<Agent.size() ; i++){
               String output = "";
               output += Agent.get(i).get("Epost") + Agent.get(i).get("Losenord");
-               
-                if(epostOchLosenord.equals(output)){
+             
+                if (epostOchLosenord.equals(output)){
                    JOptionPane.showMessageDialog(null, " Rätt lösnenord angivet" );
                   
                    //Kommer in i Source för Agent.
                    Agent agentFonster = new Agent(idb, Agent.get(i).get("Agent_ID"));
                    agentFonster.setVisible(true);
+                   
+                   lyckadInloggning = true;
                    break;
                 }
-                else{
+          }
+                if (!lyckadInloggning) {
                     JOptionPane.showMessageDialog(null, " Fel email eller Lösenord angivet" );
                     txtLosenord.requestFocus();
-                    break;
                 }
 
-             }      
+                   
          //VARFÖR FUNKAR INTE CATCHEN???
         }catch(InfException ettUndantag){
             
@@ -240,14 +243,16 @@ public class Inloggning extends javax.swing.JFrame {
                    //Kommer in Source för Alien
                    Alien alienFonster = new Alien(idb, Alien.get(i).get("Alien_ID"));
                    alienFonster.setVisible(true);
+                   
+                   lyckadInloggning = true;
                    break;
                 }
-                 else{
+                }
+                 if (!lyckadInloggning) {
                     JOptionPane.showMessageDialog(null, " Fel email eller Lösenord angivet" );
                     txtLosenordAlien.requestFocus();
-                    break;
                 }
-          }
+          
                 
              }catch(InfException ettUndantag){
             
