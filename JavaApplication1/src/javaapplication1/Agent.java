@@ -263,7 +263,7 @@ public class Agent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNyregistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyregistreraAlienActionPerformed
-        // TODO add your handling code here:
+        //Knapp till NyregisteraAlien
         NyregistreraAlien visaNyAlien = new NyregistreraAlien(idb);
         visaNyAlien.setVisible(true);
     }//GEN-LAST:event_btnNyregistreraAlienActionPerformed
@@ -275,7 +275,7 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMinutrustningActionPerformed
 
     private void btnAdministratörActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministratörActionPerformed
-        // TODO add your handling code here:
+        //Knapp till Administratör
         Administrator adminFonster = new Administrator(idb);
                    adminFonster.setVisible(true);
     }//GEN-LAST:event_btnAdministratörActionPerformed
@@ -286,20 +286,26 @@ public class Agent extends javax.swing.JFrame {
            visaChef.setVisible(true);
     }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
 
+<<<<<<< Updated upstream
     //Knapp som går tillbaka till inloggningen
     private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+=======
+  
+    private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
+        //Knapp som går tillbaka till inloggningen
+>>>>>>> Stashed changes
         Inloggning visaInloggning = new Inloggning(idb);
         visaInloggning.setVisible(true);
     }//GEN-LAST:event_btnTillbakaActionPerformed
 
     private void btnSokAliensEfterRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAliensEfterRasActionPerformed
-  //Knapp till sök aliens efter ras
+        //Knapp till SökAliensEfterRas
         SokAliensEfterRas visaRas = new SokAliensEfterRas(idb);
         visaRas.setVisible(true);
     }//GEN-LAST:event_btnSokAliensEfterRasActionPerformed
 
     private void btnAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordActionPerformed
-// Knapp till ändra lösenord för agenter
+    // Knapp till ändra lösenord för agenter
      try {
         // Skapa en instans av AndraLosenordAlienFrame och gör den synlig
         AndraLosenordAgent losenordFonsterAgent = new AndraLosenordAgent();
@@ -311,10 +317,54 @@ public class Agent extends javax.swing.JFrame {
     }  
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
 
+<<<<<<< Updated upstream
     private void btnSeochändrainfoomAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeochändrainfoomAlienActionPerformed
         SeOchAndraInfoOmAlien visaInfoOmAlien = new SeOchAndraInfoOmAlien(idb);
         visaInfoOmAlien.setVisible(true);    }//GEN-LAST:event_btnSeochändrainfoomAlienActionPerformed
 
+=======
+    private void btnTopplistaöverAgenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopplistaöverAgenterActionPerformed
+        //Knapp till TopplistaÖverAgenter
+        new TopplistaOverAgenter(idb).setVisible(true);
+    }//GEN-LAST:event_btnTopplistaöverAgenterActionPerformed
+
+    private void btnNyregistreraAgentutrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyregistreraAgentutrustningActionPerformed
+        //Knapp till NyregistreraAgentUtrustning
+        new NyregistreraAgentutrustning(idb).setVisible(true);
+    }//GEN-LAST:event_btnNyregistreraAgentutrustningActionPerformed
+
+    private void btnSeochändrainfoomAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeochändrainfoomAlienActionPerformed
+        //Knapp till SeOchAndraInfoOmAlien
+        new SeOchAndraInfoOmAlien(idb).setVisible(true);
+    }//GEN-LAST:event_btnSeochändrainfoomAlienActionPerformed
+
+    private void btnListaAliensPaPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaAliensPaPlatsActionPerformed
+        //Knapp till ListaAliensPåPlats
+        new ListaAlienspaplats(idb).setVisible(true);
+    }//GEN-LAST:event_btnListaAliensPaPlatsActionPerformed
+
+    private void btnDatumFörRegistreringAvAliensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatumFörRegistreringAvAliensActionPerformed
+        //Knapp till DatumFörRegistreringAvAliens
+        new DatumForRegistreringAvAliens(idb).setVisible(true);
+    }//GEN-LAST:event_btnDatumFörRegistreringAvAliensActionPerformed
+
+      // Variables declaration - do not modify                     
+//    private javax.swing.JButton btnAdministratör;
+//    private javax.swing.JButton btnAndraLosenord;
+//    private javax.swing.JButton btnListaAliensPaPlats;
+//    private javax.swing.JButton btnLoggaUt;
+//    private javax.swing.JButton btnMinutrustning;
+//    private javax.swing.JButton btnNyregistreraAgentutrustning;
+//    private javax.swing.JButton btnNyregistreraAlien;
+//    private javax.swing.JButton btnSeochändrainfoomAlien;
+//    private javax.swing.JButton btnSokAliensEfterRas;
+//    private javax.swing.JButton btnSökOmrådeschef;
+//    private javax.swing.JButton btnTopplistaöverAgenter;
+//    private javax.swing.JLabel lblStartsidaAgent;
+    // End of variables declaration 
+    
+    
+>>>>>>> Stashed changes
     /**
      * @param args the command line arguments
      */
