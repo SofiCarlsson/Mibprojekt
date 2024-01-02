@@ -133,6 +133,11 @@ public class Agent extends javax.swing.JFrame {
 
         btnSeochändrainfoomAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnSeochändrainfoomAlien.setText("Se och ändra info om Alien");
+        btnSeochändrainfoomAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeochändrainfoomAlienActionPerformed(evt);
+            }
+        });
 
         btnSökOmrådeschef.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnSökOmrådeschef.setText("Sök Områdeschef");
@@ -305,6 +310,10 @@ public class Agent extends javax.swing.JFrame {
         System.out.println("Ett fel inträffade vid ändring av lösenordet.");
     }  
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
+
+    private void btnSeochändrainfoomAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeochändrainfoomAlienActionPerformed
+        SeOchAndraInfoOmAlien visaInfoOmAlien = new SeOchAndraInfoOmAlien(idb);
+        visaInfoOmAlien.setVisible(true);    }//GEN-LAST:event_btnSeochändrainfoomAlienActionPerformed
 
     /**
      * @param args the command line arguments

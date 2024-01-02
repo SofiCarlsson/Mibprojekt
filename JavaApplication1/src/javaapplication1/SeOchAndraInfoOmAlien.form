@@ -33,35 +33,20 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblVisaEpost" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="txtVisaEpost" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblVisaTelefon" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace pref="30" max="32767" attributes="0"/>
-                                              <Component id="txtVisaTelefon" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="lblVisaNamn" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="txtVisaNamn" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblVisaLösenord" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="txtVisaLösenord" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblVisaLösenord" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="txtVisaLösenord" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblVisaRegDatum" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtVisaRegDatum" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtVisaNamn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtVisaRegDatum" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtVisaTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -89,10 +74,20 @@
                                       <Component id="cbInfoAlienID" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblVisaEpost" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblVisaTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblVisaNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                              <Component id="txtVisaEpost" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -105,7 +100,7 @@
               <Component id="lblHärvisasRubrik" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblVisaPlats" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
@@ -132,20 +127,20 @@
                       <EmptySpace min="35" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtVisaNamn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblVisaNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVisaNamn" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtVisaNamn" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtVisaTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblVisaTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblVisaEpost" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtVisaEpost" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblVisaEpost" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtVisaEpost" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -173,6 +168,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra info"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn&#xc4;ndraInfoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAngeAlienID">
       <Properties>
@@ -190,6 +188,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbInfoAlienIDActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -201,7 +202,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtVisaRegDatum">
       <Properties>
-        <Property name="columns" type="int" value="4"/>
+        <Property name="columns" type="int" value="8"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVisaNamn">
@@ -211,7 +212,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtVisaNamn">
       <Properties>
-        <Property name="columns" type="int" value="4"/>
+        <Property name="columns" type="int" value="8"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVisaTelefon">
@@ -221,7 +222,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtVisaTelefon">
       <Properties>
-        <Property name="columns" type="int" value="4"/>
+        <Property name="columns" type="int" value="8"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVisaEpost">
@@ -231,7 +232,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtVisaEpost">
       <Properties>
-        <Property name="columns" type="int" value="4"/>
+        <Property name="columns" type="int" value="8"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVisaL&#xf6;senord">
@@ -241,7 +242,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtVisaL&#xf6;senord">
       <Properties>
-        <Property name="columns" type="int" value="4"/>
+        <Property name="columns" type="int" value="8"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVisaPlats">

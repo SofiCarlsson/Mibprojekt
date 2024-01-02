@@ -87,30 +87,40 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
         lblHärvisasRubrik.setText("Här visas all info om en Alien");
 
         btnÄndraInfo.setText("Ändra info");
+        btnÄndraInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnÄndraInfoActionPerformed(evt);
+            }
+        });
 
         lblAngeAlienID.setText("Ange AlienID");
 
         cbInfoAlienID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbInfoAlienID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbInfoAlienIDActionPerformed(evt);
+            }
+        });
 
         lblVisaRegDatum.setText("Registreringsdatum");
 
-        txtVisaRegDatum.setColumns(4);
+        txtVisaRegDatum.setColumns(8);
 
         lblVisaNamn.setText("Namn");
 
-        txtVisaNamn.setColumns(4);
+        txtVisaNamn.setColumns(8);
 
         lblVisaTelefon.setText("Telefon");
 
-        txtVisaTelefon.setColumns(4);
+        txtVisaTelefon.setColumns(8);
 
         lblVisaEpost.setText("Epost");
 
-        txtVisaEpost.setColumns(4);
+        txtVisaEpost.setColumns(8);
 
         lblVisaLösenord.setText("Lösenord");
 
-        txtVisaLösenord.setColumns(4);
+        txtVisaLösenord.setColumns(8);
 
         lblVisaPlats.setText("Plats");
 
@@ -135,29 +145,18 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(lblVisaEpost)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(txtVisaEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(lblVisaTelefon)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                                                .addComponent(txtVisaTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblVisaNamn)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(txtVisaNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(lblVisaLösenord)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtVisaLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lblVisaLösenord)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtVisaLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblVisaRegDatum)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtVisaRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtVisaNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtVisaRegDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtVisaTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -176,8 +175,16 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                                         .addComponent(lblAngeAlienID)
                                         .addGap(52, 52, 52)
                                         .addComponent(cbInfoAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 18, Short.MAX_VALUE)))
-                        .addContainerGap(63, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblVisaEpost, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblVisaTelefon, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblVisaNamn, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(83, 83, 83)
+                                .addComponent(txtVisaEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(204, 204, 204)))
+                        .addContainerGap(31, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +193,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                 .addComponent(lblHärvisasRubrik)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblVisaPlats, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -207,16 +214,16 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                             .addComponent(txtVisaAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtVisaNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblVisaNamn))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblVisaNamn, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtVisaNamn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtVisaTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblVisaTelefon))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblVisaEpost)
                             .addComponent(txtVisaEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -229,6 +236,95 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    //När man väljer ett AlienId i rullmenyn kommer värdena upp
+    private void cbInfoAlienIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbInfoAlienIDActionPerformed
+      //txtVisaRegDatum.setText("");
+      
+      ArrayList<HashMap<String, String>> alienIDLista = new ArrayList<HashMap<String, String>>();
+      
+      try{
+      
+          String valdAlien = cbInfoAlienID.getSelectedItem().toString();
+          String fraga = "SELECT * FROM Alien";
+          alienIDLista = idb.fetchRows(fraga);
+          
+          for(HashMap<String, String> enAlien : alienIDLista){
+        
+              String alienIDFranLista = enAlien.get("Alien_ID");
+                 
+                if (alienIDFranLista.equals(valdAlien)){
+                    //Sätter in anställningsdatum för agenten i anst.dat.rutan
+                 txtVisaRegDatum.setText(enAlien.get("Registreringsdatum"));
+                 }
+                 
+                 if (alienIDFranLista.equals(valdAlien)){
+                    //Sätter in namnet för agenten i namnrutan
+                 txtVisaNamn.setText(enAlien.get("Namn"));
+                 }
+                 
+                if (alienIDFranLista.equals(valdAlien)){
+                    //Sätter in telefonnumret för agenten i telefonrutan
+                 txtVisaTelefon.setText(enAlien.get("Telefon"));
+                }
+                
+                if (alienIDFranLista.equals(valdAlien)){
+                    //Sätter in epost för agenten i epostrutan
+                 txtVisaEpost.setText(enAlien.get("Epost"));
+                }
+                
+                 if (alienIDFranLista.equals(valdAlien)){
+                    //Sätter in lösenord för agenten i lösenordsrutan
+                 txtVisaLösenord.setText(enAlien.get("Losenord"));
+                 }
+                 
+                 if (alienIDFranLista.equals(valdAlien)){
+                    //Sätter in lösenord för agenten i lösenordsrutan
+                 txtVisaPlats.setText(enAlien.get("Plats"));
+                 }
+                 
+                 if (alienIDFranLista.equals(valdAlien)){
+                    //Sätter in lösenord för agenten i lösenordsrutan
+                 txtVisaAnsvarigAgent.setText(enAlien.get("Ansvarig_Agent"));
+                     
+                    }
+                   }
+          
+                }catch (InfException UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                    
+                }
+                catch (Exception UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+          }
+    }//GEN-LAST:event_cbInfoAlienIDActionPerformed
+
+    //När man trycker på denna knappen och skrivit in något nytt i txt fälten ändras värdet till det man skrev in.
+    private void btnÄndraInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraInfoActionPerformed
+      
+        ArrayList<HashMap<String, String>> alienIDLista = new ArrayList<HashMap<String, String>>();
+      
+      try{
+      
+          String valdAlien = cbInfoAlienID.getSelectedItem().toString();
+          String fraga = "SELECT * FROM Alien";
+          alienIDLista = idb.fetchRows(fraga);
+          
+          for(HashMap<String, String> enAlien : alienIDLista){
+        
+              String alienIDFranLista = enAlien.get("Alien_ID");
+                 
+        if(txtVisaEpost.equals(enAlien.get("Namn"))){
+            
+            
+            
+        }}
+        
+        
+        
+    }//GEN-LAST:event_btnÄndraInfoActionPerformed
 
     /**
      * @param args the command line arguments
