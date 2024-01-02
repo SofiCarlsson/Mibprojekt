@@ -26,7 +26,7 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
     }
     
     private void fyllCbVäljområdetopp3() {
-        String fraga = ("SELECT Agent_ID, Namn FROM Agent");
+        String fraga = ("SELECT Omrade FROM Agent");
                 
                 ArrayList<String> allaToppAgenter;
                 
@@ -141,7 +141,7 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtAreaVisatopp3.setText("");
     
-        ArrayList<HashMap<String, String>> TreToppAgenter;
+        ArrayList<HashMap<String, String>> TreToppAgenter = new ArrayList<HashMap<String, String>>();
         
         try {
             String valdToppAgent = cbVäljområdetopp3.getSelectedItem().toString();
