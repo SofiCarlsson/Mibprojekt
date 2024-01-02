@@ -199,7 +199,7 @@ public class Inloggning extends javax.swing.JFrame {
                 else{
                     JOptionPane.showMessageDialog(null, " Fel email eller Lösenord angivet" );
                     txtLosenord.requestFocus();
-                    break;
+                 
                 }
 
              }      
