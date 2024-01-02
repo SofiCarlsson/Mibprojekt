@@ -131,9 +131,19 @@ public class Agent extends javax.swing.JFrame {
 
         btnNyregistreraAgentutrustning.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnNyregistreraAgentutrustning.setText("Nyregistrera Agentutrustning");
+        btnNyregistreraAgentutrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNyregistreraAgentutrustningActionPerformed(evt);
+            }
+        });
 
         btnSeochändrainfoomAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnSeochändrainfoomAlien.setText("Se och ändra info om Alien");
+        btnSeochändrainfoomAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeochändrainfoomAlienActionPerformed(evt);
+            }
+        });
 
         btnSökOmrådeschef.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnSökOmrådeschef.setText("Sök Områdeschef");
@@ -169,6 +179,11 @@ public class Agent extends javax.swing.JFrame {
 
         btnListaAliensPaPlats.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnListaAliensPaPlats.setText("Lista Aliens på plats");
+        btnListaAliensPaPlats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaAliensPaPlatsActionPerformed(evt);
+            }
+        });
 
         btnLoggaUt.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 13)); // NOI18N
         btnLoggaUt.setText("Logga ut");
@@ -194,7 +209,13 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
+        btnDatumFörRegistreringAvAliens.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
         btnDatumFörRegistreringAvAliens.setText("Datum för registrering av Aliens");
+        btnDatumFörRegistreringAvAliens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDatumFörRegistreringAvAliensActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,16 +243,13 @@ public class Agent extends javax.swing.JFrame {
                             .addComponent(btnListaAliensPaPlats)
                             .addComponent(lblStartsidaAgent)
                             .addComponent(btnSeochändrainfoomAlien)
-                            .addComponent(btnSokAliensEfterRas))
+                            .addComponent(btnSokAliensEfterRas)
+                            .addComponent(btnDatumFörRegistreringAvAliens))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnLoggaUt, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnAndraLosenord, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(26, 26, 26))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDatumFörRegistreringAvAliens)
-                .addGap(127, 127, 127))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,24 +266,21 @@ public class Agent extends javax.swing.JFrame {
                     .addComponent(btnTopplistaöverAgenter))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdministratör)
-                .addGap(22, 22, 22)
-                .addComponent(btnDatumFörRegistreringAvAliens)
-                .addGap(18, 18, 18)
+                .addGap(62, 62, 62)
                 .addComponent(btnNyregistreraAlien)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSeochändrainfoomAlien)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnListaAliensPaPlats)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSokAliensEfterRas))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(btnAndraLosenord)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLoggaUt)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSeochändrainfoomAlien)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDatumFörRegistreringAvAliens)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnListaAliensPaPlats)
+                    .addComponent(btnAndraLosenord))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSokAliensEfterRas)
+                    .addComponent(btnLoggaUt))
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -323,6 +338,26 @@ public class Agent extends javax.swing.JFrame {
     private void btnTopplistaöverAgenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopplistaöverAgenterActionPerformed
         new TopplistaOverAgenter(idb).setVisible(true);
     }//GEN-LAST:event_btnTopplistaöverAgenterActionPerformed
+
+    private void btnNyregistreraAgentutrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyregistreraAgentutrustningActionPerformed
+        // TODO add your handling code here:
+        new NyregistreraAgentutrustning(idb).setVisible(true);
+    }//GEN-LAST:event_btnNyregistreraAgentutrustningActionPerformed
+
+    private void btnSeochändrainfoomAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeochändrainfoomAlienActionPerformed
+        // TODO add your handling code here:
+        new SeOchAndraInfoOmAlien(idb).setVisible(true);
+    }//GEN-LAST:event_btnSeochändrainfoomAlienActionPerformed
+
+    private void btnListaAliensPaPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaAliensPaPlatsActionPerformed
+        // TODO add your handling code here:
+        new ListaAlienspaplats(idb).setVisible(true);
+    }//GEN-LAST:event_btnListaAliensPaPlatsActionPerformed
+
+    private void btnDatumFörRegistreringAvAliensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatumFörRegistreringAvAliensActionPerformed
+        // TODO add your handling code here:
+        new DatumForRegistreringAvAliens(idb).setVisible(true);
+    }//GEN-LAST:event_btnDatumFörRegistreringAvAliensActionPerformed
 
       // Variables declaration - do not modify                     
 //    private javax.swing.JButton btnAdministratör;
