@@ -28,6 +28,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
         fyllCBAlienID();
     }
 
+    //Fyller skrollboxen med AlienID värden som man kan välja mellan.
          private void fyllCBAlienID(){
     
          cbInfoAlienID.removeAllItems();
@@ -237,10 +238,10 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //När man väljer ett AlienId i rullmenyn kommer värdena upp
+    
+    //När man väljer ett AlienId i rullmenyn kommer värdena för Regestreringsdatum, Namn, Telefon, Epost, Lösenord, Plats och Ansvarig Agent upp.
     private void cbInfoAlienIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbInfoAlienIDActionPerformed
-      //txtVisaRegDatum.setText("");
-      
+    
       ArrayList<HashMap<String, String>> alienIDLista = new ArrayList<HashMap<String, String>>();
       
       try{
@@ -303,27 +304,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
 
     //När man trycker på denna knappen och skrivit in något nytt i txt fälten ändras värdet till det man skrev in.
     private void btnÄndraInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraInfoActionPerformed
-      
-        ArrayList<HashMap<String, String>> alienIDLista = new ArrayList<HashMap<String, String>>();
-      
-      try{
-      
-          String valdAlien = cbInfoAlienID.getSelectedItem().toString();
-          String fraga = "SELECT * FROM Alien";
-          alienIDLista = idb.fetchRows(fraga);
-          
-          for(HashMap<String, String> enAlien : alienIDLista){
-        
-              String alienIDFranLista = enAlien.get("Alien_ID");
-                 
-        if(txtVisaEpost.equals(enAlien.get("Namn"))){
-            
-            
-            
-        }}
-        
-        
-        
+       
     }//GEN-LAST:event_btnÄndraInfoActionPerformed
 
     /**
