@@ -85,7 +85,6 @@ public class Minutrustning extends javax.swing.JFrame {
 
         txtAreaUtkvitteradutrustning.setColumns(20);
         txtAreaUtkvitteradutrustning.setRows(5);
-        txtAreaUtkvitteradutrustning.setText("Man vill ju kunna visa ifall en agent har flera vapen utkvitterade samtidigt.\nSka vi då ha en combobox eller hur gör vi?");
         jScrollPane1.setViewportView(txtAreaUtkvitteradutrustning);
 
         lblKategoriförutkvitteradutrustning.setText("Välj kategori");
@@ -117,9 +116,9 @@ public class Minutrustning extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKategoriförutkvitteradutrustning)
                     .addComponent(cbVäljkategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();

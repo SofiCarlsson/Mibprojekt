@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -19,7 +22,84 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
     public DatumForRegistreringAvAliens(InfDB db) {
         idb = db;
         initComponents();
+        fyllCbDatum1();
+        fyllCbDatum2();
     }
+    
+     private void fyllCbDatum1() {
+        String fraga = ("SELECT Registreringsdatum FROM Alien");
+                
+                ArrayList<String> allaDatum;
+                
+                try {
+                    allaDatum = idb.fetchColumn(fraga);
+                    cbDatum1.removeAllItems();
+                    for (String Dat1 : allaDatum) {
+                        cbDatum1.addItem(Dat1);
+                    }
+                } catch (InfException UndantagEtt) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEtt.getMessage());
+                }
+                catch (Exception UndantagEtt) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEtt.getMessage());
+                }
+    }
+     
+     private void fyllCbDatum2() {
+        String fraga = ("SELECT Registreringsdatum FROM Alien");
+                
+                ArrayList<String> allaDatumen;
+                
+                try {
+                    allaDatumen = idb.fetchColumn(fraga);
+                    cbDatum2.removeAllItems();
+                    for (String Dat2 : allaDatumen) {
+                        cbDatum2.addItem(Dat2);
+                    }
+                } catch (InfException UndantagEtt) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEtt.getMessage());
+                }
+                catch (Exception UndantagEtt) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEtt.getMessage());
+                }
+    }
+    
+
+    
+    
+    
+     private void fylltxtAreaDatumAliens()
+    {
+         txtAreaVisaDatumen.setText("");
+    
+        ArrayList<HashMap<String, String>> DatAlien = new ArrayList<HashMap<String, String>>();
+        String Datum1 = cbDatum1.getSelectedItem().toString();
+        String Datum2 = cbDatum2.getSelectedItem().toString(); 
+        try {
+            String fraga = "SELECT Alien_ID, Namn FROM Alien WHERE Registreringsdatum BETWEEN '"+ Datum1 + "' AND '"+ Datum2 +"'";
+            DatAlien = idb.fetchRows(fraga);
+            
+            for (HashMap<String, String> Datum : DatAlien) {
+                txtAreaVisaDatumen.append(Datum.get("Alien_ID") + "\t");
+                txtAreaVisaDatumen.append(Datum.get("Namn") + "\n");
+
+            }
+        } catch (InfException UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+                catch (Exception UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+        
+  
+        }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,21 +110,80 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblHärVisasDatumForRegistrering = new javax.swing.JLabel();
+        lblVäljDatumintervall = new javax.swing.JLabel();
+        cbDatum1 = new javax.swing.JComboBox<>();
+        cbDatum2 = new javax.swing.JComboBox<>();
+        txtAreaVisaDatumAliens = new javax.swing.JScrollPane();
+        txtAreaVisaDatumen = new javax.swing.JTextArea();
+        btnSok = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblHärVisasDatumForRegistrering.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
+        lblHärVisasDatumForRegistrering.setText("Här visas alla Aliens registrerade mellan de valda datumen:");
+
+        lblVäljDatumintervall.setText("Välj ett datumintervall för att visa registrerade Aliens");
+
+        txtAreaVisaDatumen.setColumns(20);
+        txtAreaVisaDatumen.setRows(5);
+        txtAreaVisaDatumAliens.setViewportView(txtAreaVisaDatumen);
+
+        btnSok.setText("Sök");
+        btnSok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSokActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHärVisasDatumForRegistrering)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lblVäljDatumintervall))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAreaVisaDatumAliens, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbDatum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbDatum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSok)))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblHärVisasDatumForRegistrering)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(lblVäljDatumintervall)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbDatum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbDatum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSok))
+                .addGap(27, 27, 27)
+                .addComponent(txtAreaVisaDatumAliens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokActionPerformed
+        fylltxtAreaDatumAliens();
+    }//GEN-LAST:event_btnSokActionPerformed
 
     /**
      * @param args the command line arguments
@@ -82,5 +221,12 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSok;
+    private javax.swing.JComboBox<String> cbDatum1;
+    private javax.swing.JComboBox<String> cbDatum2;
+    private javax.swing.JLabel lblHärVisasDatumForRegistrering;
+    private javax.swing.JLabel lblVäljDatumintervall;
+    private javax.swing.JScrollPane txtAreaVisaDatumAliens;
+    private javax.swing.JTextArea txtAreaVisaDatumen;
     // End of variables declaration//GEN-END:variables
 }
