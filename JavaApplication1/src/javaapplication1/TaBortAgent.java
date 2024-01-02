@@ -6,6 +6,7 @@ package javaapplication1;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,6 +22,7 @@ public class TaBortAgent extends javax.swing.JFrame {
     public TaBortAgent(InfDB db) {
         idb = db;
         initComponents();
+        fyllCBBytTillAgent();
     }
 
     /**
@@ -35,6 +37,9 @@ public class TaBortAgent extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtraderaAgent = new javax.swing.JTextField();
         btnraderaAgent = new javax.swing.JButton();
+        cbBytTillAgent = new javax.swing.JComboBox<>();
+        lblAgentID = new javax.swing.JLabel();
+        lblNyAgent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +55,12 @@ public class TaBortAgent extends javax.swing.JFrame {
             }
         });
 
+        cbBytTillAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblAgentID.setText("Skriv in det agent-ID du vill radera");
+
+        lblNyAgent.setText("Välj en agent som ska ersätta som ny kontaktperson");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -58,7 +69,14 @@ public class TaBortAgent extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(txtraderaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAgentID)
+                            .addComponent(txtraderaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNyAgent)
+                            .addComponent(cbBytTillAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnraderaAgent))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -68,8 +86,14 @@ public class TaBortAgent extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtraderaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAgentID)
+                    .addComponent(lblNyAgent))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtraderaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbBytTillAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(btnraderaAgent)
                 .addGap(27, 27, 27))
         );
@@ -77,62 +101,124 @@ public class TaBortAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Fyller rullmenyn för att byta agent med värden
+            private void fyllCBBytTillAgent(){
+                cbBytTillAgent.removeAllItems();
+                String fraga = "SELECT agent_ID from mibdb.Agent";
+        
+                ArrayList<String> allaAgentID;
+                
+            try {
+               allaAgentID = idb.fetchColumn(fraga);
+               
+               for (String ettID : allaAgentID){
+                  cbBytTillAgent.addItem(ettID);
+                
+               }
+       
+       }catch(InfException ettUndantag){
+            
+              JOptionPane.showMessageDialog(null, " Databasfel! " );
+              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
+             
+    }
+    }
+
     private void btnraderaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnraderaAgentActionPerformed
         // Radera en agent från systemet
-        try {
-        String agentID = txtraderaAgent.getText();
-        String raderaAgent = "DELETE * FROM mibdb.Agent WHERE Agent_ID = agentID";
-        
-        //Uppdaterar databasen
-        idb.update(raderaAgent);
-        
+        try{
+            //Ger variabelnman till värdena från rutorna och boxarna
+            String agentID = txtraderaAgent.getText();
+            String nyAgentID = cbBytTillAgent.getSelectedItem().toString();
+            String raderaFraga = "SELECT agent_ID from mibdb.Agent";
+            
+            //Hämtar kolumnen enligt sql-frågan och gör en lista
+            ArrayList allaAgentID = idb.fetchColumn(raderaFraga);
+            
+            //Kollar om ID:t finns i listan
+            if (allaAgentID.contains(agentID)){
+            //Uppdaterar databasen
+            String raderaAgentOmradeschef = "DELETE FROM Omradeschef WHERE Agent_ID = " + agentID;
+            idb.delete(raderaAgentOmradeschef);
+            
+            String raderaAgentKontorschef = "DELETE FROM Kontorschef WHERE Agent_ID = " + agentID;
+            idb.delete(raderaAgentKontorschef);
+            
+            String raderaAgentInneharUtrustning = "DELETE FROM Innehar_Utrustning WHERE Agent_ID = " + agentID;
+            idb.delete(raderaAgentInneharUtrustning);
+            
+            String raderaAgentFaltagent = "DELETE FROM Faltagent WHERE Agent_ID = " + agentID;
+            idb.delete(raderaAgentFaltagent);
+            
+            String raderaAgentAlien = "UPDATE mibdb.Alien SET Ansvarig_Agent = " + nyAgentID + " WHERE Ansvarig_Agent =" + agentID;
+            idb.update(raderaAgentAlien);
+            
+            String raderaAgent = "DELETE FROM Agent WHERE Agent_ID = " + agentID;
+            idb.delete(raderaAgent);
+
+            //Skriver ut meddelande att agenten är raderad
+            JOptionPane.showMessageDialog(null, " Agenten har raderats." );
+            }
+            else { JOptionPane.showMessageDialog(null, " Agenten hittades inte." );
+                
+            }
         }
         catch (InfException ettUndantag){
             
               JOptionPane.showMessageDialog(null, " Databasfel" );
-              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
-        
+              System.out.println("Det gick inte att ta bort agenten" + ettUndantag.getMessage());
+              txtraderaAgent.requestFocus();
         }
-    }//GEN-LAST:event_btnraderaAgentActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TaBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TaBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TaBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TaBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                //new TaBortAgent().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnraderaAgent;
+    } 
+private javax.swing.JButton btnraderaAgent;
+    private javax.swing.JComboBox<String> cbBytTillAgent;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtraderaAgent;
+    private javax.swing.JLabel lblAgentID;
+    private javax.swing.JLabel lblNyAgent;
+    }//GEN-LAST:event_btnraderaAgentActionPerformed
+
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TaBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TaBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TaBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TaBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                //new TaBortAgent().setVisible(true);
+//            }
+//        });
+//    }
+/*
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnraderaAgent;
+    private javax.swing.JComboBox<String> cbBytTillAgent;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAgentID;
+    private javax.swing.JLabel lblNyAgent;
+    private javax.swing.JTextField txtraderaAgent;
     // End of variables declaration//GEN-END:variables
-}
+}*/
