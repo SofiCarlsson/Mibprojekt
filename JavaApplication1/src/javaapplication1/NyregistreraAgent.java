@@ -220,21 +220,21 @@ public class NyregistreraAgent extends javax.swing.JFrame {
             String nyTelefon = txtnyAgentTelefon.getText();
             String nyAnstallningsdatum = txtnyAgentAnstallningsDatum.getText();
             String nyAdminstatus = txtnyAgentAdminstatus.getText();
-           // String nyOmrade
+            String nyOmrade = cbValjOmrade.getSelectedItem().toString();
             String nyEpost = txtNyAgentEpost.getText();
             String nyLosenord = txtnyAgentLosenord.getText();
             
             
             
-            String fraga = "INSERT INTO Alien VALUES ('"+
+            String fraga = "INSERT INTO Agent VALUES ('"+
                  nyAgentID + "' , '" +
                  nyNamn + "' , '" +
                  nyTelefon + "' , '" +
                  nyAnstallningsdatum + "' , '" +
                  nyAdminstatus + "' , '" +
-                 //nyOmrade + "' , '" +
                  nyEpost + "' , '" +
-                 nyLosenord + "')";
+                 nyLosenord + "' , '" +
+                 nyOmrade + "')";
         
                  System.out.println(fraga);
         
