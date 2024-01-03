@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -17,10 +18,21 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     /**
      * Creates new form NyregistreraAlien
      */
-    public NyregistreraAlien(InfDB db) {
-       idb = db;
-        
+    public NyregistreraAlien(InfDB idb) {
         initComponents();
+        this.idb = idb;
+        fyllCbValjRas();
+    }
+        public NyregistreraAlien() {
+        initComponents();
+                this.idb = idb;
+        fyllCbValjRas();
+        try{
+            idb = new InfDB ("mibdb", "3306", "mibdba", "mibkey");
+            new Inloggning(idb).setVisible(true);
+        } catch (InfException ex){
+            java.util.logging.Logger.getLogger(JavaApplication1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -50,11 +62,14 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         txtNyAlienAnsvarigAgent = new javax.swing.JTextField();
         txtNyAlienPlats = new javax.swing.JTextField();
         btnRegistreraAlien = new javax.swing.JButton();
+        CbValjRas = new javax.swing.JComboBox<>();
+        txtRasVariabel = new javax.swing.JTextField();
+        lblRasVal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblRubrikvidnyregistrering.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
-        lblRubrikvidnyregistrering.setText("Registrera en ny Alien genom att fylla i informationene nedan:");
+        lblRubrikvidnyregistrering.setText("Registrera en ny Alien genom att fylla i informationen nedan:");
 
         lblNyAlienAlienID.setText("AlienID");
 
@@ -95,6 +110,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             }
         });
 
+        CbValjRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,12 +119,14 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNyAlienRegistreringsdatum)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNyAlienRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblNyAlienRegistreringsdatum)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtNyAlienRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CbValjRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(2, 2, 2)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -143,8 +162,12 @@ public class NyregistreraAlien extends javax.swing.JFrame {
                                             .addComponent(txtNyAlienAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnRegistreraAlien))))
-                        .addComponent(lblRubrikvidnyregistrering)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addComponent(lblRubrikvidnyregistrering, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(lblRasVal))
+                    .addComponent(txtRasVariabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,15 +177,23 @@ public class NyregistreraAlien extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyAlienRegistreringsdatum)
-                    .addComponent(txtNyAlienRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNyAlienRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CbValjRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNyAlienAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNyAlienAlienID))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNyAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNyAlienNamn))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNyAlienAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNyAlienAlienID))
+                    .addComponent(lblRasVal, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNyAlienNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNyAlienNamn)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(txtRasVariabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyAlienTelefon)
@@ -215,7 +246,6 @@ String fraga = "INSERT INTO Alien VALUES ('"+
         plats + "' , '" +
         ansvarigAgent + "')";
 
-System.out.println (fraga);
     
     idb.insert(fraga);
     
@@ -225,8 +255,76 @@ System.out.println (fraga);
         // Meddela användaren om att något gick fel
         JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Alien: " + e.getMessage());
     }
+
+try {
+    String alienID = txtNyAlienAlienID.getText();
+    String rasVariabel = txtRasVariabel.getText();
+    String valdRas = CbValjRas.getSelectedItem().toString();
+
+    String rasFraga = "INSERT INTO " + valdRas + " VALUES ('" +
+            alienID + "' , '" +
+            rasVariabel + "')";
+
+    System.out.println (rasFraga);
+    
+    idb.insert(rasFraga);
+
+    JOptionPane.showMessageDialog(null, "Ny Alien har registrerats i rastabell!");
+} catch (InfException e) {
+    e.printStackTrace();
+    // Meddela användaren om att något gick fel
+    JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Alien: " + e.getMessage());
+}
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
+ private void fyllCbValjRas()   {
+   CbValjRas.removeAllItems();
+        // Skapa en lista för raserna
+    ArrayList<String> allaRaser = new ArrayList<>();
+
+    try {
+        // Hämta raserna från databasen och lägg till i listan
+        allaRaser.add("Squid");
+        allaRaser.add("Worm");
+        allaRaser.add("Boglodite");
+
+        // Skapa ett ComboBoxModel och fyll det med raserna
+        javax.swing.DefaultComboBoxModel<String> model = new javax.swing.DefaultComboBoxModel<>(allaRaser.toArray(String[]::new));
+
+        // Tilldela ComboBoxModel till ComboBox
+        CbValjRas.setModel(model);
+        
+        CbValjRas.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+        // Hantera händelsen när användaren väljer en ras
+        updateTextInfo();
+        }
+        });
+        
+    } catch (Exception e) {
+       e.printStackTrace();
+        // Hantera eventuella fel här
+        
+    }
+}
+private void updateTextInfo() {
+    try {
+        // Hämta den valda rasen från ComboBox
+        String valdRas = CbValjRas.getSelectedItem().toString();
+        if (valdRas.equals("Boglodite")) {
+            lblRasVal.setText("Antal Boogies");
+        } else if (valdRas.equals("Squid")) {
+            lblRasVal.setText("Antal Armar");
+        } else if (valdRas.equals("Worm")) {
+            lblRasVal.setText("Längd");
+        } else {
+            lblRasVal.setText("");
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        // Hantera eventuella fel här
+    }
+}
     /**
      * @param args the command line arguments
      */
@@ -263,6 +361,7 @@ System.out.println (fraga);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CbValjRas;
     private javax.swing.JButton btnRegistreraAlien;
     private javax.swing.JLabel lblNyAlienAlienID;
     private javax.swing.JLabel lblNyAlienAnsvarigAgent;
@@ -272,6 +371,7 @@ System.out.println (fraga);
     private javax.swing.JLabel lblNyAlienPlats;
     private javax.swing.JLabel lblNyAlienRegistreringsdatum;
     private javax.swing.JLabel lblNyAlienTelefon;
+    private javax.swing.JLabel lblRasVal;
     private javax.swing.JLabel lblRubrikvidnyregistrering;
     private javax.swing.JTextField txtNyAlienAlienID;
     private javax.swing.JTextField txtNyAlienAnsvarigAgent;
@@ -281,5 +381,6 @@ System.out.println (fraga);
     private javax.swing.JTextField txtNyAlienPlats;
     private javax.swing.JTextField txtNyAlienRegistreringsdatum;
     private javax.swing.JTextField txtNyAlienTelefon;
+    private javax.swing.JTextField txtRasVariabel;
     // End of variables declaration//GEN-END:variables
 }

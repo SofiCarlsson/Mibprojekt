@@ -26,13 +26,15 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="lblNyAlienRegistreringsdatum" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtNyAlienRegistreringsdatum" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
+                          <Component id="lblNyAlienRegistreringsdatum" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="txtNyAlienRegistreringsdatum" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="CbValjRas" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -80,10 +82,15 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Component id="lblRubrikvidnyregistrering" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblRubrikvidnyregistrering" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
+                      <Component id="lblRasVal" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="txtRasVariabel" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,16 +103,28 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNyAlienRegistreringsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyAlienRegistreringsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CbValjRas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNyAlienAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNyAlienAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtNyAlienAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNyAlienAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="lblRasVal" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNyAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNyAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtNyAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNyAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Component id="txtRasVariabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -151,7 +170,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Beirut" size="13" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Registrera en ny Alien genom att fylla i informationene nedan:"/>
+        <Property name="text" type="java.lang.String" value="Registrera en ny Alien genom att fylla i informationen nedan:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNyAlienAlienID">
@@ -241,6 +260,25 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistreraAlienActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="CbValjRas">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtRasVariabel">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRasVal">
     </Component>
   </SubComponents>
 </Form>
