@@ -70,6 +70,53 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
              
     }
    }
+       private void fyllPaInfo(){
+               // Fyller på information om en viss agent
+        txtinfoAgentNamn.setText("");
+    
+        ArrayList<HashMap<String, String>> agentIDLista;
+        
+        try {
+            String valdAgent = cbinfoAgentID.getSelectedItem().toString();
+            String fraga = "SELECT Agent_ID, namn, telefon, anstallningsdatum, epost, losenord, Omrade, administrator FROM mibdb.Agent";
+            agentIDLista = idb.fetchRows(fraga);
+            
+            
+            for (HashMap<String, String> enAgent : agentIDLista) {
+                //txtinfoAgentNamn.setText(enAgent.get("Agent_ID") + "\t");
+                String agentIDFranLista = enAgent.get("Agent_ID");
+                
+                if (agentIDFranLista.equals(valdAgent)){
+                    //Sätter in namnet för agenten i namnrutan
+                 txtinfoAgentNamn.setText(enAgent.get("Namn"));
+                
+                    //Sätter in telefonnumret för agenten i telefonrutan
+                 txtifoAgentTelefon.setText(enAgent.get("Telefon"));
+
+                    //Sätter in anställningsdatum för agenten i anst.dat.rutan
+                 txtinfoAgentAnstallningsdatum.setText(enAgent.get("Anstallningsdatum"));
+
+                    //Sätter in adminstatus för agenten i lösenordsrutan
+                 txtInfoAgentAdminStatus.setText(enAgent.get("Administrator"));
+
+                    //Sätter in epost för agenten i epostrutan
+                 txtinfoAgentEpost.setText(enAgent.get("Epost"));
+
+                    //Sätter in lösenord för agenten i lösenordsrutan
+                 txtinfoAgentLosenord.setText(enAgent.get("Losenord"));
+   
+            }
+            }
+        } catch (InfException UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+                catch (Exception UndantagEn) {
+                    //JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+   
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -327,65 +374,6 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnAndraInfoAgentActionPerformed
 
-    
-    private void fyllPaInfo(){
-               // Aktiverar CBrutan för att välja agentID
-        txtinfoAgentNamn.setText("");
-    
-        ArrayList<HashMap<String, String>> agentIDLista;
-        ArrayList<HashMap<String, String>> omradeLista;
-        
-        try {
-            String valdAgent = cbinfoAgentID.getSelectedItem().toString();
-            String fraga = "SELECT Agent_ID, namn, telefon, anstallningsdatum, epost, losenord, Omrade, administrator FROM mibdb.Agent";
-            agentIDLista = idb.fetchRows(fraga);
-            String fragaOmrade = "SELECT Omrade From Omradeschef WHERE Agent_ID IN (SELECT Agent_ID From Agent)";
-            omradeLista = idb.fetchRows(fragaOmrade);
-            
-            
-            for (HashMap<String, String> enAgent : agentIDLista) {
-                //txtinfoAgentNamn.setText(enAgent.get("Agent_ID") + "\t");
-                String agentIDFranLista = enAgent.get("Agent_ID");
-                
-                if (agentIDFranLista.equals(valdAgent))
-                    //Sätter in namnet för agenten i namnrutan
-                 txtinfoAgentNamn.setText(enAgent.get("Namn"));
-                
-                    //Sätter in telefonnumret för agenten i telefonrutan
-                 txtifoAgentTelefon.setText(enAgent.get("Telefon"));
-
-                    //Sätter in anställningsdatum för agenten i anst.dat.rutan
-                 txtinfoAgentAnstallningsdatum.setText(enAgent.get("Anstallningsdatum"));
-
-                    //Sätter in adminstatus för agenten i lösenordsrutan
-                 txtInfoAgentAdminStatus.setText(enAgent.get("Administrator"));
-
-                    //Sätter in epost för agenten i epostrutan
-                 txtinfoAgentEpost.setText(enAgent.get("Epost"));
-
-                    //Sätter in lösenord för agenten i lösenordsrutan
-                 txtinfoAgentLosenord.setText(enAgent.get("Losenord"));
-
-                    //Sätter in område för agenten i lösenordsrutan
-                 cbinfoAgentOmrade.addItem(enAgent.get("Omrade"));
-
-                    //Sätter in områdeschef för agenten i lösenordsrutan
-                 cbinfoAgentOmrade.addItem(enAgent.get("Omradeschef"));
-                 
-                
-            }
-        } catch (InfException UndantagEn) {
-                    JOptionPane.showMessageDialog(null, "Databasfel!");
-                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
-                }
-                catch (Exception UndantagEn) {
-                    //JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
-                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
-                }
-        
-        
-   
-    }
     /**
      * @param args the command line arguments
      */
