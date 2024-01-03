@@ -318,13 +318,13 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void btnSokAliensEfterRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAliensEfterRasActionPerformed
-  //Knapp till sök aliens efter ras
+        //Knapp till SökAliensEfterRas
         SokAliensEfterRas visaRas = new SokAliensEfterRas(idb);
         visaRas.setVisible(true);
     }//GEN-LAST:event_btnSokAliensEfterRasActionPerformed
 
     private void btnAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordActionPerformed
-// Knapp till ändra lösenord för agenter
+        // Knapp till ändra lösenord för agenter
      try {
         // Skapa en instans av AndraLosenordAlienFrame och gör den synlig
         AndraLosenordAgent losenordFonsterAgent = new AndraLosenordAgent();
@@ -337,6 +337,7 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
 
     private void btnSeochändrainfoomAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeochändrainfoomAlienActionPerformed
+        //Knapp till SeochÄndraInfoOmAlien
         SeOchAndraInfoOmAlien visaInfoOmAlien = new SeOchAndraInfoOmAlien(idb);
         visaInfoOmAlien.setVisible(true);    }//GEN-LAST:event_btnSeochändrainfoomAlienActionPerformed
 

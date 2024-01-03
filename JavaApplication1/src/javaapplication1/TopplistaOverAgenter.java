@@ -17,7 +17,7 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
 
     private InfDB idb;
     /**
-     * Creates new form TopplistaOverAgenter
+     * Konstruktorn för TopplistaOverAgenter
      */
     public TopplistaOverAgenter(InfDB db) {
         idb = db;
@@ -61,18 +61,18 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
         String Väljområdetopp3 = cbVäljområdetopp3.getSelectedItem().toString();
          
         try {
-            String fraga = "SELECT Agent.AGENT_ID, AGENT.Namn, COUNT(AGENT.AGENT_ID) AS AntalAliens FROM Agent\n" +
-"JOIN Alien ON agent.Agent_ID = alien.Ansvarig_Agent\n" +
-"WHERE ALIEN.Plats = '2'\n" +
-"GROUP BY AGENT.AGENT_ID\n" +
-"ORDER BY ANTALALIENS DESC\n" +
-"LIMIT 3;";
+            String fraga = "SELECT Agent.Agent_ID, AGENT.Namn, COUNT(AGENT.AGENT_ID) AS AntalAliens FROM Agent\n" +
+                           "JOIN Alien ON agent.Agent_ID = alien.Ansvarig_Agent\n" +
+                           "WHERE ALIEN.Plats = '"+ Väljområdetopp3 +"'\n" +
+                           "GROUP BY AGENT.AGENT_ID\n" +
+                           "ORDER BY ANTALALIENS DESC\n" +
+                           "LIMIT 3;";
             Topp3Alien = idb.fetchRows(fraga);
             
             for (HashMap<String, String> Topp : Topp3Alien) {
                 txtAreaVisatopp3.append(Topp.get("Agent_ID") + "\t");
-                txtAreaVisatopp3.append(Topp.get("AntalAliens") + "\t");
-                txtAreaVisatopp3.append(Topp.get("Namn") + "\n");
+                txtAreaVisatopp3.append(Topp.get("Namn") + "\t");
+                txtAreaVisatopp3.append(Topp.get("AntalAliens") + "\n");
 
             }
         } catch (InfException UndantagEn) {
@@ -106,6 +106,9 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaVisatopp3 = new javax.swing.JTextArea();
         btnSök = new javax.swing.JButton();
+        lblAgentIDtext = new javax.swing.JLabel();
+        lblAntalAlienstext = new javax.swing.JLabel();
+        lblAgentNamntext = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,6 +140,12 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
             }
         });
 
+        lblAgentIDtext.setText("Agent ID");
+
+        lblAntalAlienstext.setText("Antal Aliens");
+
+        lblAgentNamntext.setText("Agent Namn");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,25 +153,28 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTopp3Rubrik)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblVäljOmrådeTopp3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(lblPlats1)))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPlats1)
+                            .addComponent(lblPlats2)
+                            .addComponent(lblPlats3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbVäljområdetopp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSök))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(lblPlats2)
-                                .addGap(44, 44, 44)
-                                .addComponent(lblPlats3)))))
+                                .addComponent(lblAgentIDtext)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblAgentNamntext)
+                                .addGap(28, 28, 28)
+                                .addComponent(lblAntalAlienstext))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblVäljOmrådeTopp3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbVäljområdetopp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSök)))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -177,12 +189,19 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
                     .addComponent(btnSök))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPlats1)
-                    .addComponent(lblPlats2)
-                    .addComponent(lblPlats3))
+                    .addComponent(lblAgentIDtext)
+                    .addComponent(lblAntalAlienstext)
+                    .addComponent(lblAgentNamntext))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblPlats1)
+                        .addGap(2, 2, 2)
+                        .addComponent(lblPlats2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPlats3))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();
@@ -192,31 +211,31 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
     
     private void cbVäljområdetopp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVäljområdetopp3ActionPerformed
         
-        txtAreaVisatopp3.setText("");
-    
-        ArrayList<HashMap<String, String>> TreToppAgenter;
-        
-        try {
-            String Väljområdetopp3 = cbVäljområdetopp3.getSelectedItem().toString();
-            String fraga = "SELECT Agent_ID, Namn FROM Agent WHERE Agent_ID IN (SELECT Ansvarig_Agent FROM Alien WHERE Alien.Plats IN (SELECT Plats_ID FROM Plats WHERE Finns_I IN (SELECT Omrades_ID FROM Omrade WHERE Omrades_ID IN (SELECT Omrade FROM Agent))))";
-            TreToppAgenter = idb.fetchRows(fraga);
-            
-            for (HashMap<String, String> Toppen : TreToppAgenter) {
-                txtAreaVisatopp3.append(Toppen.get("Agent_ID") + "\t");
-                txtAreaVisatopp3.append(Toppen.get("Namn") + "\n");
-            }
-        } catch (InfException UndantagEn) {
-                    JOptionPane.showMessageDialog(null, "Databasfel!");
-                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
-                }
-                catch (Exception UndantagEn) {
-                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
-                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
-                }
-        
-        
-  
-        }
+//        txtAreaVisatopp3.setText("");
+//    
+//        ArrayList<HashMap<String, String>> TreToppAgenter;
+//        
+//        try {
+//            String Väljområdetopp3 = cbVäljområdetopp3.getSelectedItem().toString();
+//            String fraga = "SELECT Agent_ID, Namn FROM Agent WHERE Agent_ID IN (SELECT Ansvarig_Agent FROM Alien WHERE Alien.Plats IN (SELECT Plats_ID FROM Plats WHERE Finns_I IN (SELECT Omrades_ID FROM Omrade WHERE Omrades_ID IN (SELECT Omrade FROM Agent))))";
+//            TreToppAgenter = idb.fetchRows(fraga);
+//            
+//            for (HashMap<String, String> Toppen : TreToppAgenter) {
+//                txtAreaVisatopp3.append(Toppen.get("Agent_ID") + "\t");
+//                txtAreaVisatopp3.append(Toppen.get("Namn") + "\n");
+//            }
+//        } catch (InfException UndantagEn) {
+//                    JOptionPane.showMessageDialog(null, "Databasfel!");
+//                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+//                }
+//                catch (Exception UndantagEn) {
+//                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+//                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+//                }
+//        
+//        
+//  
+//        }
     
     
     
@@ -233,10 +252,10 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
 //////    // End of variables declaration    
     /*
     }//GEN-LAST:event_cbVäljområdetopp3ActionPerformed
-*/
+*/ } 
     
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-        fyllCbVäljområdetopp3();
+        fylltxtAreaVisatopp3();
     }//GEN-LAST:event_btnSökActionPerformed
 
 
@@ -280,6 +299,9 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
     private javax.swing.JButton btnSök;
     private javax.swing.JComboBox<String> cbVäljområdetopp3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAgentIDtext;
+    private javax.swing.JLabel lblAgentNamntext;
+    private javax.swing.JLabel lblAntalAlienstext;
     private javax.swing.JLabel lblPlats1;
     private javax.swing.JLabel lblPlats2;
     private javax.swing.JLabel lblPlats3;
