@@ -3,7 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import oru.inf.InfException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,8 +25,31 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     public NyregistreraAgent(InfDB db) {
         idb = db;
         initComponents();
+        fyllCbAgentOmrade();
     }
 
+    private void fyllCbAgentOmrade(){
+    
+    cbValjOmrade.removeAllItems();
+    String fragaOmrade = "SELECT Omrades_ID FROM Omrade";
+    ArrayList<String> allaOmradesID;
+    
+    try{
+    
+        allaOmradesID = idb.fetchColumn(fragaOmrade);
+        
+            for(String ettOmrade : allaOmradesID){
+                
+                cbValjOmrade.addItem(ettOmrade);
+            
+            }
+    
+    }catch(InfException ettUndantag){
+            
+              JOptionPane.showMessageDialog(null, " Databasfel! " );
+              System.out.println("Internt felmedelande" + ettUndantag.getMessage());     
+          }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,14 +60,14 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblNamn = new javax.swing.JLabel();
+        lblAgentID = new javax.swing.JLabel();
+        lblTelefon = new javax.swing.JLabel();
+        lblAnstallningsdatum = new javax.swing.JLabel();
+        lblAdministratorstatus = new javax.swing.JLabel();
+        lblEpost = new javax.swing.JLabel();
+        lblLosenord = new javax.swing.JLabel();
+        lblOmrade = new javax.swing.JLabel();
         txtnyAgentID = new javax.swing.JTextField();
         txtnyAgentNamn = new javax.swing.JTextField();
         txtnyAgentTelefon = new javax.swing.JTextField();
@@ -47,27 +76,27 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         txtNyAgentEpost = new javax.swing.JTextField();
         txtnyAgentLosenord = new javax.swing.JTextField();
         btnnyAgentRegistrera = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbValjOmrade = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Registrera en ny agent genom att fylla i informationen");
 
-        jLabel2.setText("Namn");
+        lblNamn.setText("Namn");
 
-        jLabel3.setText("AgentID");
+        lblAgentID.setText("AgentID");
 
-        jLabel4.setText("Telefon");
+        lblTelefon.setText("Telefon");
 
-        jLabel5.setText("Anställningsdatum");
+        lblAnstallningsdatum.setText("Anställningsdatum");
 
-        jLabel6.setText("Administratörstatus");
+        lblAdministratorstatus.setText("Administratörstatus");
 
-        jLabel7.setText("Epost");
+        lblEpost.setText("Epost");
 
-        jLabel8.setText("Lösenord");
+        lblLosenord.setText("Lösenord");
 
-        jLabel9.setText("Område");
+        lblOmrade.setText("Område");
 
         txtnyAgentID.setColumns(7);
 
@@ -84,8 +113,13 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         txtnyAgentLosenord.setColumns(7);
 
         btnnyAgentRegistrera.setText("Registrera");
+        btnnyAgentRegistrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnyAgentRegistreraActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbValjOmrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,18 +132,18 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
+                                .addComponent(lblLosenord)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtnyAgentLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addComponent(lblEpost)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtNyAgentEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2))
+                                    .addComponent(lblAgentID)
+                                    .addComponent(lblTelefon)
+                                    .addComponent(lblNamn))
                                 .addGap(91, 91, 91)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,16 +151,16 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                                         .addComponent(txtnyAgentNamn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtnyAgentTelefon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(lblAnstallningsdatum)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtnyAgentAnstallningsDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel9))
+                                    .addComponent(lblAdministratorstatus)
+                                    .addComponent(lblOmrade))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbValjOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtnyAgentAdminstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(31, 31, 31)
                         .addComponent(btnnyAgentRegistrera)))
@@ -139,35 +173,35 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lblAgentID)
                     .addComponent(txtnyAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblNamn)
                     .addComponent(txtnyAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(lblTelefon)
                     .addComponent(txtnyAgentTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(lblAnstallningsdatum)
                     .addComponent(txtnyAgentAnstallningsDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(lblAdministratorstatus)
                     .addComponent(txtnyAgentAdminstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblOmrade)
+                    .addComponent(cbValjOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(lblEpost)
                     .addComponent(txtNyAgentEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                    .addComponent(lblLosenord)
                     .addComponent(txtnyAgentLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnnyAgentRegistrera))
                 .addGap(25, 25, 25))
@@ -176,53 +210,93 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnnyAgentRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnyAgentRegistreraActionPerformed
+
+    if(Validering.txtFaltArInteTom(txtnyAgentID) && Validering.isHeltal(txtnyAgentID) && Validering.txtFaltArInteTom(txtnyAgentNamn) && Validering.txtFaltArInteTom(txtnyAgentTelefon)&& Validering.isHeltal(txtnyAgentTelefon) && Validering.txtFaltArInteTom(txtnyAgentAnstallningsDatum) && Validering.txtFaltArInteTom(txtnyAgentAdminstatus)&& Validering.txtFaltArInteTom(txtNyAgentEpost)&& Validering.txtFaltArInteTom(txtnyAgentLosenord)){
+         
+        try{
+            String nyAgentID = txtnyAgentID.getText();
+            String nyNamn = txtnyAgentNamn.getText();
+            String nyTelefon = txtnyAgentTelefon.getText();
+            String nyAnstallningsdatum = txtnyAgentAnstallningsDatum.getText();
+            String nyAdminstatus = txtnyAgentAdminstatus.getText();
+           // String nyOmrade
+            String nyEpost = txtNyAgentEpost.getText();
+            String nyLosenord = txtnyAgentLosenord.getText();
+            
+            
+            
+            String fraga = "INSERT INTO Alien VALUES ('"+
+                 nyAgentID + "' , '" +
+                 nyNamn + "' , '" +
+                 nyTelefon + "' , '" +
+                 nyAnstallningsdatum + "' , '" +
+                 nyAdminstatus + "' , '" +
+                 //nyOmrade + "' , '" +
+                 nyEpost + "' , '" +
+                 nyLosenord + "')";
+        
+                 System.out.println(fraga);
+        
+                 idb.insert(fraga);
+        
+                JOptionPane.showMessageDialog(null, "Ny Agent har registrerats!");
+                
+        } catch(InfException e){
+            //e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Agent!");
+        }
+
+       }
+    }//GEN-LAST:event_btnnyAgentRegistreraActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    //public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(NyregistreraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        //java.awt.EventQueue.invokeLater(new Runnable() {
+           // public void run() {
               //new NyregistreraAgent().setVisible(true);
-            }
-        });
-    }
+            //}
+        //});
+    //}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnnyAgentRegistrera;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbValjOmrade;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblAdministratorstatus;
+    private javax.swing.JLabel lblAgentID;
+    private javax.swing.JLabel lblAnstallningsdatum;
+    private javax.swing.JLabel lblEpost;
+    private javax.swing.JLabel lblLosenord;
+    private javax.swing.JLabel lblNamn;
+    private javax.swing.JLabel lblOmrade;
+    private javax.swing.JLabel lblTelefon;
     private javax.swing.JTextField txtNyAgentEpost;
     private javax.swing.JTextField txtnyAgentAdminstatus;
     private javax.swing.JTextField txtnyAgentAnstallningsDatum;
