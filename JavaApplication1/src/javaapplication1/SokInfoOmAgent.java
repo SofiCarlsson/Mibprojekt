@@ -26,6 +26,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
         idb = db;
         initComponents();
         fyllCBAgentID();
+        fyllCBOmrade();
     }
 
     //Fyller AgentID-rullmenyn med värden
@@ -324,8 +325,11 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
         fyllPaInfo();
     }//GEN-LAST:event_btnSokInfoAgentActionPerformed
 
+    //När man trycker på denna knappen och skrivit in något nytt i textfälten ändras värdet till det man skrev in. 
+    //(Man får inte ändra epost)
     private void btnAndraInfoAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraInfoAgentActionPerformed
-        try{
+        if(Validering.txtFaltArInteTom(txtinfoAgentAnstallningsdatum) && Validering.txtFaltArInteTom(txtinfoAgentNamn) && Validering.txtFaltArInteTom(txtinfoAgentLosenord)&& Validering.txtFaltArInteTom(txtInfoAgentAdminStatus) && Validering.txtFaltArInteTom(txtinfoAgentEpost)&& Validering.txtFaltArInteTom(txtifoAgentTelefon)){
+       try{
            String fragaAgent = "SELECT * FROM Agent";
 
             ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
@@ -371,42 +375,42 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
             System.out.println("Internt felmedelande" + ettUndantag.getMessage());    
        
        }
-       
+        }
     }//GEN-LAST:event_btnAndraInfoAgentActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                //new SokInfoOmAgent().setVisible(true);
-            }
-        });}
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(SokInfoOmAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                //new SokInfoOmAgent().setVisible(true);
+//            }
+//        });}
 
 
 

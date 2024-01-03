@@ -86,7 +86,8 @@ public class TaBortAlien extends javax.swing.JFrame {
 
     private void btnRaderaAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaAlienActionPerformed
         //Raderar en alien från systemet
-               try{
+         if(Validering.txtFaltArInteTom(txtAlienIDRadera)){      
+        try{
             //Ger variabelnman till värdena från rutorna och boxarna
             String alienID = txtAlienIDRadera.getText();
             String raderaFraga = "SELECT alien_ID from mibdb.Alien";
@@ -122,7 +123,7 @@ public class TaBortAlien extends javax.swing.JFrame {
               System.out.println("Det gick inte att ta bort alien" + ettUndantag.getMessage());
               //txtraderaAlien.requestFocus();
         }
-     
+      }
 
 }
     private javax.swing.JButton btnRaderaAlien;

@@ -126,6 +126,7 @@ public class TaBortAgent extends javax.swing.JFrame {
 
     private void btnraderaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnraderaAgentActionPerformed
         // Radera en agent från systemet
+        if(Validering.txtFaltArInteTom(txtraderaAgent)){
         try{
             //Ger variabelnman till värdena från rutorna och boxarna
             String agentID = txtraderaAgent.getText();
@@ -169,6 +170,7 @@ public class TaBortAgent extends javax.swing.JFrame {
               System.out.println("Det gick inte att ta bort agenten" + ettUndantag.getMessage());
               txtraderaAgent.requestFocus();
         }
+       }
     } 
 private javax.swing.JButton btnraderaAgent;
     private javax.swing.JComboBox<String> cbBytTillAgent;

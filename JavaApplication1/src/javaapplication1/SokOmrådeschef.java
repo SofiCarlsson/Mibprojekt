@@ -117,14 +117,8 @@ public class SokOmrådeschef extends javax.swing.JFrame {
                
                 String fraga = "SELECT Namn, Agent_ID FROM Agent where Agent.Agent_ID in (Select Omradeschef.Agent_ID from Omradeschef where Omradeschef.Omrade in (Select Omrade.Omrades_ID from Omrade where Benamning  = '" + valdBenamning + "'))";
                 
-                
-                    
-                      // String soktOmradeschefNamn = idb.fetchRow(fraga).get(0).toString();
-                      soktOmradeschef.add(idb.fetchRow(fraga));
-                      //Fetch row hämtar bara en rad.
-                      
-                   
-               
+                    soktOmradeschef.add(idb.fetchRow(fraga));
+                  
                 for(HashMap<String, String> omradesChef : soktOmradeschef){
                 
                 txtAreaÄrOmrådeschef.append(omradesChef.get("Agent_ID") + "\t");
@@ -132,7 +126,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
             
                 }
                     
-                
+              
         }catch(InfException ettUndantag){
             JOptionPane.showMessageDialog(null, "Databasfel!");
          }
@@ -141,8 +135,6 @@ public class SokOmrådeschef extends javax.swing.JFrame {
 
     //Denna metoden fyller skrollboxen med de benämningar som det finns för Området.
     private void fyllCbValjOmrade(){
-        //Töm skrollboxen
-        //cbVäljområde.;
         
         String fraga = ("SELECT Benamning FROM Omrade;");
         

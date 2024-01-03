@@ -67,7 +67,6 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        CbValjplats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         CbValjplats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CbValjplatsActionPerformed(evt);
@@ -132,7 +131,7 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
             AliensPlats = idb.fetchRows(fraga);
             
             for (HashMap<String, String> Platser : AliensPlats) {
-                txtAreaDessaAliensFinns.append(Platser.get("Agent_I") + "\t");
+                txtAreaDessaAliensFinns.append(Platser.get("Alien_ID") + "\t");
                 txtAreaDessaAliensFinns.append(Platser.get("Namn") + "\n");
             }
         } catch (InfException UndantagEn) {
