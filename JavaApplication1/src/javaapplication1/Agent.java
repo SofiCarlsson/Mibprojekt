@@ -288,7 +288,7 @@ public class Agent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNyregistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyregistreraAlienActionPerformed
-        // TODO add your handling code here:
+        //Knapp till NyregistreraAlien
         NyregistreraAlien visaNyAlien = new NyregistreraAlien(idb);
         visaNyAlien.setVisible(true);
     }//GEN-LAST:event_btnNyregistreraAlienActionPerformed
@@ -300,7 +300,7 @@ public class Agent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMinutrustningActionPerformed
 
     private void btnAdministratörActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministratörActionPerformed
-        // TODO add your handling code here:
+        //Knapp till Administratör
         Administrator adminFonster = new Administrator(idb);
                    adminFonster.setVisible(true);
     }//GEN-LAST:event_btnAdministratörActionPerformed
@@ -311,8 +311,9 @@ public class Agent extends javax.swing.JFrame {
            visaChef.setVisible(true);
     }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
 
-    //Knapp som går tillbaka till inloggningen
+    
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
+    //Knapp som går tillbaka till inloggningen
         Inloggning visaInloggning = new Inloggning(idb);
         visaInloggning.setVisible(true);
     }//GEN-LAST:event_btnLoggaUtActionPerformed
