@@ -22,19 +22,25 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
     public TopplistaOverAgenter(InfDB db) {
         idb = db;
         initComponents();
+        fyllCbVäljområdetopp3();
       
     }
     
     private void fyllCbVäljområdetopp3() {
-        String fraga = ("SELECT Agent_ID, Namn FROM Agent");
+    //private void cbVäljområdetopp3ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        String fraga = ("SELECT distinct Omrade FROM Agent");
                 
-                ArrayList<String> allaToppAgenter;
+                ArrayList<String> allaOmraden;
+//                ArrayList<String> allaOmraden2 = new ArrayList<String>();
+//                allaOmraden2.add("97");
+//                allaOmraden2.add("98");
+//                allaOmraden2.add("99");
                 
                 try {
-                    allaToppAgenter = idb.fetchColumn(fraga);
-                    
-                    for (String ToppAgent : allaToppAgenter) {
-                        cbVäljområdetopp3.addItem(ToppAgent);
+                    allaOmraden = idb.fetchColumn(fraga);
+                    cbVäljområdetopp3.removeAllItems();
+                    for (String ToppOmrade : allaOmraden) {
+                        cbVäljområdetopp3.addItem(ToppOmrade);
                     }
                 } catch (InfException UndantagEtt) {
                     JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -52,14 +58,20 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
          txtAreaVisatopp3.setText("");
     
         ArrayList<HashMap<String, String>> Topp3Alien = new ArrayList<HashMap<String, String>>();
-        String Datum1 = cbVäljområdetopp3.getSelectedItem().toString();
+        String Väljområdetopp3 = cbVäljområdetopp3.getSelectedItem().toString();
          
         try {
-            String fraga = "SELECT Agent_ID, Namn FROM Agent WHERE Agent_ID IN (SELECT Omrade FROM Agent WHERE Agent_ID IN (SELECT Ansvarig_Agent FROM Alien WHERE Agent_ID))";
+            String fraga = "SELECT Agent.AGENT_ID, AGENT.Namn, COUNT(AGENT.AGENT_ID) AS AntalAliens FROM Agent\n" +
+"JOIN Alien ON agent.Agent_ID = alien.Ansvarig_Agent\n" +
+"WHERE ALIEN.Plats = '2'\n" +
+"GROUP BY AGENT.AGENT_ID\n" +
+"ORDER BY ANTALALIENS DESC\n" +
+"LIMIT 3;";
             Topp3Alien = idb.fetchRows(fraga);
             
             for (HashMap<String, String> Topp : Topp3Alien) {
                 txtAreaVisatopp3.append(Topp.get("Agent_ID") + "\t");
+                txtAreaVisatopp3.append(Topp.get("AntalAliens") + "\t");
                 txtAreaVisatopp3.append(Topp.get("Namn") + "\n");
 
             }
@@ -176,14 +188,16 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void cbVäljområdetopp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVäljområdetopp3ActionPerformed
-        // TODO add your handling code here:
+        
         txtAreaVisatopp3.setText("");
     
         ArrayList<HashMap<String, String>> TreToppAgenter;
         
         try {
-            String valdToppAgent = cbVäljområdetopp3.getSelectedItem().toString();
+            String Väljområdetopp3 = cbVäljområdetopp3.getSelectedItem().toString();
             String fraga = "SELECT Agent_ID, Namn FROM Agent WHERE Agent_ID IN (SELECT Ansvarig_Agent FROM Alien WHERE Alien.Plats IN (SELECT Plats_ID FROM Plats WHERE Finns_I IN (SELECT Omrades_ID FROM Omrade WHERE Omrades_ID IN (SELECT Omrade FROM Agent))))";
             TreToppAgenter = idb.fetchRows(fraga);
             
@@ -203,6 +217,9 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
         
   
         }
+    
+    
+    
 //                // Variables declaration - do not modify                     
 //    private javax.swing.JComboBox<String> cbVäljområdetopp3;
 //    private javax.swing.JScrollPane jScrollPane1;

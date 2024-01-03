@@ -117,6 +117,8 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
         txtAreaVisaDatumAliens = new javax.swing.JScrollPane();
         txtAreaVisaDatumen = new javax.swing.JTextArea();
         btnSok = new javax.swing.JButton();
+        lblAlien_IDtext = new javax.swing.JLabel();
+        lblNamntext = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,6 +138,10 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
             }
         });
 
+        lblAlien_IDtext.setText("Alien ID");
+
+        lblNamntext.setText("Namn");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,20 +151,23 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblHärVisasDatumForRegistrering)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(lblVäljDatumintervall))))
+                            .addComponent(lblVäljDatumintervall)
+                            .addComponent(lblHärVisasDatumForRegistrering)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAreaVisaDatumAliens, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbDatum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbDatum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSok)))))
+                                .addComponent(lblAlien_IDtext)
+                                .addGap(63, 63, 63)
+                                .addComponent(lblNamntext))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtAreaVisaDatumAliens)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(cbDatum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cbDatum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnSok))))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -166,16 +175,20 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(lblHärVisasDatumForRegistrering)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(lblVäljDatumintervall)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbDatum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbDatum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSok))
-                .addGap(27, 27, 27)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAlien_IDtext)
+                    .addComponent(lblNamntext))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAreaVisaDatumAliens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -224,7 +237,9 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
     private javax.swing.JButton btnSok;
     private javax.swing.JComboBox<String> cbDatum1;
     private javax.swing.JComboBox<String> cbDatum2;
+    private javax.swing.JLabel lblAlien_IDtext;
     private javax.swing.JLabel lblHärVisasDatumForRegistrering;
+    private javax.swing.JLabel lblNamntext;
     private javax.swing.JLabel lblVäljDatumintervall;
     private javax.swing.JScrollPane txtAreaVisaDatumAliens;
     private javax.swing.JTextArea txtAreaVisaDatumen;
