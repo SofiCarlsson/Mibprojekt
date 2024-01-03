@@ -215,7 +215,8 @@ public class Alien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAndraLosenordAlienActionPerformed
 
     private void btnHamtaOmradeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHamtaOmradeschefActionPerformed
-    try {
+   if(Validering.txtFaltArInteTom(txtMittOmrade) && Validering.isHeltal(txtMittOmrade)){
+        try {
     String Omrade = txtMittOmrade.getText();
     String fragaEtt = "SELECT AGENT_ID from OMRADESCHEF where OMRADE =" +Omrade;
             String resultatEtt = idb.fetchSingle(fragaEtt);
@@ -234,8 +235,8 @@ public class Alien extends javax.swing.JFrame {
     lblMejladress.setText(resultatFyra);
     
 } catch (InfException e) {
-    
-}
+    }    
+  }
 
     }//GEN-LAST:event_btnHamtaOmradeschefActionPerformed
 //Knapp för att gå tillbaka till inloggningen
