@@ -100,10 +100,10 @@ public class TaBortAlien extends javax.swing.JFrame {
             String raderaAlienBoglodite = "DELETE FROM Boglodite WHERE Alien_ID = " + alienID;
             idb.delete(raderaAlienBoglodite);
             
-            String raderaAlienSquid = "DELETE FROM Omradeschef WHERE Alien_ID = " + alienID;
+            String raderaAlienSquid = "DELETE FROM Squid WHERE Alien_ID = " + alienID;
             idb.delete(raderaAlienSquid);
             
-            String raderaAlienWorm = "DELETE FROM Omradeschef WHERE Alien_ID = " + alienID;
+            String raderaAlienWorm = "DELETE FROM Worm WHERE Alien_ID = " + alienID;
             idb.delete(raderaAlienWorm);
             
             String raderaAlien = "DELETE FROM Alien WHERE Alien_ID = " + alienID;
