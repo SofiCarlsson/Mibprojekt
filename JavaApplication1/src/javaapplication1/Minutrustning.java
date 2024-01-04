@@ -60,17 +60,17 @@ private void fylltxtAreaUtkvitteradutrustning() {
     String ValjAgent = cbValjAgent.getSelectedItem().toString();
 
     try {
-        String fraga = "SELECT IU.UTRUSTNINGS_ID, U.BENAMNING " +
-                       "FROM INNEHAR_UTRUSTNING IU " +
-                       "JOIN UTRUSTNING U ON IU.UTRUSTNINGS_ID = U.UTRUSTNINGS_ID " +
-                       "WHERE IU.AGENT_ID = '" + ValjAgent + "'";
+        String fraga = "SELECT IU.Utrustnings_ID, U.Benamning " +
+                       "FROM Innehar_Utrustning IU " +
+                       "JOIN Utrustning U ON IU.Utrustnings_ID = U.Utrustnings_ID " +
+                       "WHERE IU.Agent_ID = '" + ValjAgent + "'";
         
         Utkvittutrust = idb.fetchRows(fraga);
 
         for (HashMap<String, String> Utrust : Utkvittutrust) {
             // Använd "UTRUSTNINGS_ID" och "BENAMNING" som nycklar istället för "Utrustnings_ID" och "Benamning"
-            txtAreaUtkvitteradutrustning.append(Utrust.get("UTRUSTNINGS_ID") + "\t");
-            txtAreaUtkvitteradutrustning.append(Utrust.get("BENAMNING") + "\n");
+            txtAreaUtkvitteradutrustning.append(Utrust.get("Utrustnings_ID") + "\t");
+            txtAreaUtkvitteradutrustning.append(Utrust.get("Benamning") + "\n");
         }
     } catch (InfException UndantagEn) {
         JOptionPane.showMessageDialog(null, "Databasfel!");
