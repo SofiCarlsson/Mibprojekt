@@ -31,7 +31,6 @@
                           <Component id="btnregistreraNyAgent" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnsokInfoOmAgent" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btngeadministratorStatus" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -56,9 +55,7 @@
               <Component id="btnregistreraNyAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnsokInfoOmAgent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btngeadministratorStatus" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="112" max="32767" attributes="0"/>
+              <EmptySpace pref="147" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btntaBortAlien" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btntaBortUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -108,14 +105,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsokInfoOmAgentActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btngeadministratorStatus">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="//Ge administrat&#xf6;rstatus till en agent"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btngeadministratorStatusActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTaBortAgent">
