@@ -10,7 +10,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
- *
+ * Här kan man söka på vissa alien som har varit på besök mellan bestämda datum.
  * @author oliviacleve
  */
 public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
@@ -26,6 +26,7 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
         fyllCbDatum2();
     }
     
+    //Fyller combocoxen med registreringsdatumsvärden.
      private void fyllCbDatum1() {
         String fraga = ("SELECT Registreringsdatum FROM Alien");
                 
@@ -47,6 +48,7 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
                 }
     }
      
+     //Fyller den andra combocoxen med registreringsdatumsvärden.
      private void fyllCbDatum2() {
         String fraga = ("SELECT Registreringsdatum FROM Alien");
                 
@@ -71,7 +73,7 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
 
     
     
-    
+    //Skriver ut vilka aliens som varit på besök under dessa datum
      private void fylltxtAreaDatumAliens()
     {
          txtAreaVisaDatumen.setText("");
@@ -195,6 +197,7 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokActionPerformed
+        //Anropar metoden för att fylla i textrutorna
         fylltxtAreaDatumAliens();
     }//GEN-LAST:event_btnSokActionPerformed
 

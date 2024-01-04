@@ -11,7 +11,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
- *
+ *Här ändrar man lösenord för en alien
  * @author mallan
  */
 public class AndraLosenordAlien extends javax.swing.JFrame {
@@ -132,7 +132,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
           ArrayList<HashMap<String, String>> Alien = idb.fetchRows(fragaAlien);
           
           
-          //Går igenom alla Alien Losenord med Email och kollar om något mtachar med det som skrevs in i txt fälten. 
+          //Går igenom alla Alien Losenord med Epost och kollar om något matchar med det som skrevs in i txt-fälten. 
           for(int i= 0 ; i<Alien.size() ; i++){
               String output = "";
               
@@ -174,7 +174,6 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
               txtGammaltLosenord.requestFocus();
         
         }
-
      }
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
 
