@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 public class ListaAlienspaplats extends javax.swing.JFrame {
 
     private InfDB idb;
+   
     /**
      * Creates new form Alienspaplats
      */
@@ -23,6 +24,7 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
         idb = db;
         initComponents();
         fyllCbValjplats();
+       
     }
     
       private void fyllCbValjplats() {
