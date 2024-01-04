@@ -103,7 +103,7 @@ public class Alien extends javax.swing.JFrame {
         lblTelefonnummer = new javax.swing.JLabel();
         lblMejladress = new javax.swing.JLabel();
         btnHamtaOmradeschef = new javax.swing.JButton();
-        btnTillbaka = new javax.swing.JButton();
+        btnLoggaUt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,11 +137,11 @@ public class Alien extends javax.swing.JFrame {
             }
         });
 
-        btnTillbaka.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 13)); // NOI18N
-        btnTillbaka.setText("Tillbaka");
-        btnTillbaka.addActionListener(new java.awt.event.ActionListener() {
+        btnLoggaUt.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 13)); // NOI18N
+        btnLoggaUt.setText("Logga ut");
+        btnLoggaUt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTillbakaActionPerformed(evt);
+                btnLoggaUtActionPerformed(evt);
             }
         });
 
@@ -172,7 +172,7 @@ public class Alien extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAndraLosenordAlien)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnTillbaka)
+                        .addComponent(btnLoggaUt)
                         .addGap(48, 48, 48))))
         );
         layout.setVerticalGroup(
@@ -196,7 +196,7 @@ public class Alien extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAndraLosenordAlien)
-                    .addComponent(btnTillbaka))
+                    .addComponent(btnLoggaUt))
                 .addGap(22, 22, 22))
         );
 
@@ -241,10 +241,10 @@ public class Alien extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnHamtaOmradeschefActionPerformed
 //Knapp för att gå tillbaka till inloggningen
-    private void btnTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTillbakaActionPerformed
+    private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
         Inloggning visaInloggning = new Inloggning(idb);
         visaInloggning.setVisible(true);        
-    }//GEN-LAST:event_btnTillbakaActionPerformed
+    }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,7 +284,7 @@ public class Alien extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraLosenordAlien;
     private javax.swing.JButton btnHamtaOmradeschef;
-    private javax.swing.JButton btnTillbaka;
+    private javax.swing.JButton btnLoggaUt;
     private javax.swing.JLabel lblMejladress;
     private javax.swing.JLabel lblMittOmrade;
     private javax.swing.JLabel lblNamn;
