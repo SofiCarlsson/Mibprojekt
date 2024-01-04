@@ -168,24 +168,12 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                 String omradeVarde = idb.fetchSingle(hamtaOmrade);
 
                 cbOmradesChef.setSelectedItem(omradeVarde);
-                System.out.println(hamtaOmrade);
-                
-                if (omradeVarde == null){
-                    String nullVarde1 = "Ej områdeschef";
-                    cbOmradesChef.addItem(nullVarde1);
-                    cbOmradesChef.setSelectedItem(nullVarde1);
-                }
             
                 //Sätter in kontorsbeteckning i Kontorschefsrutan
                 String hamtaKontor = "SELECT Kontorsbeteckning FROM Kontorschef WHERE Agent_ID =" + valdAgent;
                 String kontorVarde = idb.fetchSingle(hamtaKontor);
                 
                 cbKontorsChef.setSelectedItem(kontorVarde);
-                if (kontorVarde == null){
-                    String nullVarde2 = "Ej kontorschef";
-                    cbKontorsChef.addItem(nullVarde2);
-                    cbKontorsChef.setSelectedItem(nullVarde2);
-                }
                 
 
         } catch (InfException UndantagEn) {
