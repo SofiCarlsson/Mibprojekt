@@ -27,6 +27,8 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
         initComponents();
         fyllCBAgentID();
         fyllCBOmrade();
+        fyllOmradesChef();
+        fyllKontorsChef();
     }
 
     //Fyller AgentID-rullmenyn med värden
@@ -55,7 +57,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
              //Fyller Administratörstatus-rullmenyn med värden
             private void fyllCBOmrade(){
                 cbinfoAgentOmrade.removeAllItems();
-        String fraga = "SELECT benamning from mibdb.Omrade";
+        String fraga = "SELECT Omrade from Agent";
         
                 ArrayList<String> allaOmraden;
                 
@@ -71,16 +73,66 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
              
     }
    }
+            
+             //Fyller Områdeschefs-rullmenyn med värden
+        private void fyllOmradesChef(){
+            cbOmradesChef.removeAllItems();
+            String fraga = "SELECT Omrade FROM Omradeschef";
+            
+            ArrayList<String> allaOmradesChef;
+            
+            try {
+                allaOmradesChef = idb.fetchColumn(fraga);
+                for (String enOmradesChef : allaOmradesChef)
+                cbOmradesChef.addItem(enOmradesChef);
+            
+            }catch(InfException ettUndantag){
+            
+              JOptionPane.showMessageDialog(null, " Databasfel!" );
+              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
+             
+    }   
+}
+                    //Fyller Kontorschefs-rullmenyn med värden
+        private void fyllKontorsChef(){
+            cbKontorsChef.removeAllItems();
+            String fraga = "SELECT Kontorsbeteckning FROM Kontorschef";
+            
+            ArrayList<String> allaKontorsChef;
+            
+            try {
+                allaKontorsChef = idb.fetchColumn(fraga);
+                for (String enKontorsChef : allaKontorsChef)
+                cbKontorsChef.addItem(enKontorsChef);
+            
+            }catch(InfException ettUndantag){
+            
+              JOptionPane.showMessageDialog(null, " Databasfel!" );
+              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
+             
+    }   
+}
+
        private void fyllPaInfo(){
                // Fyller på information om en viss agent
         txtinfoAgentNamn.setText("");
     
         ArrayList<HashMap<String, String>> agentIDLista;
+        ArrayList<HashMap<String, String>> omradesChefsLista;
+        ArrayList<HashMap<String, String>> kontorsChefsLista;
         
         try {
             String valdAgent = cbinfoAgentID.getSelectedItem().toString();
+           
             String fraga = "SELECT Agent_ID, namn, telefon, anstallningsdatum, epost, losenord, Omrade, administrator FROM mibdb.Agent";
             agentIDLista = idb.fetchRows(fraga);
+            
+             String fragaOmradesChef = "SELECT Omrade From Omradeschef WHERE Agent_ID IN (SELECT Agent_ID From Agent)";
+            omradesChefsLista = idb.fetchRows(fragaOmradesChef);
+            
+            String fragaKontorsChef = "SELECT Kontorsbeteckning FROM Kontorschef WHERE Agent_ID IN (SELECT Agent_ID from Agent)";
+            kontorsChefsLista = idb.fetchRows(fragaKontorsChef);
+
             
             
             for (HashMap<String, String> enAgent : agentIDLista) {
@@ -105,9 +157,37 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
 
                     //Sätter in lösenord för agenten i lösenordsrutan
                  txtinfoAgentLosenord.setText(enAgent.get("Losenord"));
+                    
+                    //Sätter in område för agenten i områdessrutan
+                 cbinfoAgentOmrade.setSelectedItem(enAgent.get("Omrade"));
    
             }
             }
+            //Sätter in områdeschefsområde för agenten i områdeschefsrullmenyn
+            String hamtaOmrade = "SELECT Omrade FROM Omradeschef WHERE Agent_ID =" + valdAgent;
+                String omradeVarde = idb.fetchSingle(hamtaOmrade);
+
+                cbOmradesChef.setSelectedItem(omradeVarde);
+                System.out.println(hamtaOmrade);
+                
+                if (omradeVarde == null){
+                    String nullVarde1 = "Ej områdeschef";
+                    cbOmradesChef.addItem(nullVarde1);
+                    cbOmradesChef.setSelectedItem(nullVarde1);
+                }
+            
+                //Sätter in kontorsbeteckning i Kontorschefsrutan
+                String hamtaKontor = "SELECT Kontorsbeteckning FROM Kontorschef WHERE Agent_ID =" + valdAgent;
+                String kontorVarde = idb.fetchSingle(hamtaKontor);
+                
+                cbKontorsChef.setSelectedItem(kontorVarde);
+                if (kontorVarde == null){
+                    String nullVarde2 = "Ej kontorschef";
+                    cbKontorsChef.addItem(nullVarde2);
+                    cbKontorsChef.setSelectedItem(nullVarde2);
+                }
+                
+
         } catch (InfException UndantagEn) {
                     JOptionPane.showMessageDialog(null, "Databasfel!");
                     System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
@@ -140,8 +220,8 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
         lblagentOmradeschef = new javax.swing.JLabel();
         lblagentKontorschef = new javax.swing.JLabel();
         cbinfoAgentOmrade = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        cbOmradesChef = new javax.swing.JComboBox<>();
+        cbKontorsChef = new javax.swing.JComboBox<>();
         cbinfoAgentID = new javax.swing.JComboBox<>();
         txtinfoAgentNamn = new javax.swing.JTextField();
         txtifoAgentTelefon = new javax.swing.JTextField();
@@ -178,9 +258,9 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
 
         cbinfoAgentOmrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbOmradesChef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbKontorsChef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         cbinfoAgentID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -248,11 +328,11 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(lblagentKontorschef)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbKontorsChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(lblagentOmradeschef)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbOmradesChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -309,11 +389,11 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblagentOmradeschef)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbOmradesChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblagentKontorschef)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbKontorsChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -340,8 +420,10 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
            String nyttAnstallningsDatum = txtinfoAgentAnstallningsdatum.getText();
            String nyAdminStatus = txtInfoAgentAdminStatus.getText();
            String nyLosenord = txtinfoAgentLosenord.getText();
-           String nyEpost = txtinfoAgentEpost.getText();
-           
+           String nyttOmrade = cbinfoAgentOmrade.getSelectedItem().toString();
+           String nyOmradesChef = cbOmradesChef.getSelectedItem().toString();
+           String nyKontorsChef = cbKontorsChef.getSelectedItem().toString();
+
 
            String uppdateraNamn = "UPDATE Agent SET Namn = '" + nyttNamn + "' WHERE Agent_ID = '" + valdAgent + "'";
            
@@ -362,10 +444,19 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
              String uppdateraLosenord = "UPDATE Agent SET Losenord = '" + nyLosenord + "' WHERE Agent_ID = '" + valdAgent + "'";
            
                  idb.update(uppdateraLosenord);
-             
-              String uppdateraEpost = "UPDATE Agent SET Epost = '" + nyEpost + "' WHERE Agent_ID = '" + valdAgent + "'";
+                 
+                 String uppdateraOmrade = "UPDATE Agent SET Omrade = '" + nyttOmrade + "' WHERE Agent_ID = '" + valdAgent + "'";
            
-                 idb.update(uppdateraEpost);
+                 idb.update(uppdateraOmrade);
+                 
+            String uppdateraOmradesChef = "UPDATE Omradeschef SET Omrade = '" + nyOmradesChef + "' WHERE Agent_ID = '" + valdAgent + "'";
+           
+                 idb.update(uppdateraOmradesChef);
+                 
+            String uppdateraKontorsChef = "UPDATE Kontorschef SET Kontorsbeteckning = '" + nyKontorsChef + "' WHERE Agent_ID = '" + valdAgent + "'";
+           
+                 idb.update(uppdateraKontorsChef);
+
                  
             JOptionPane.showMessageDialog(null, " Infomrationen har ändrats." );
                  
@@ -417,10 +508,10 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraInfoAgent;
     private javax.swing.JButton btnSokInfoAgent;
+    private javax.swing.JComboBox<String> cbKontorsChef;
+    private javax.swing.JComboBox<String> cbOmradesChef;
     private javax.swing.JComboBox<String> cbinfoAgentID;
     private javax.swing.JComboBox<String> cbinfoAgentOmrade;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
