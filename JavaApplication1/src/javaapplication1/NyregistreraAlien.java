@@ -65,6 +65,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         CbValjRas = new javax.swing.JComboBox<>();
         txtRasVariabel = new javax.swing.JTextField();
         lblRasVal = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,6 +113,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
 
         CbValjRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel1.setText("Ras");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,6 +128,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(txtNyAlienRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(CbValjRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(2, 2, 2)
@@ -178,7 +183,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyAlienRegistreringsdatum)
                     .addComponent(txtNyAlienRegistreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CbValjRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CbValjRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -224,7 +230,36 @@ public class NyregistreraAlien extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+ private void fyllCbValjRas()   {
+   CbValjRas.removeAllItems();
+        // Skapa en lista för raserna
+    ArrayList<String> allaRaser = new ArrayList<>();
 
+    try {
+        // Hämta raserna från databasen och lägg till i listan
+        allaRaser.add("Squid");
+        allaRaser.add("Worm");
+        allaRaser.add("Boglodite");
+
+        // Skapa ett ComboBoxModel och fyll det med raserna
+        javax.swing.DefaultComboBoxModel<String> model = new javax.swing.DefaultComboBoxModel<>(allaRaser.toArray(String[]::new));
+
+        // Tilldela ComboBoxModel till ComboBox
+        CbValjRas.setModel(model);
+        
+        CbValjRas.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+        // Hantera händelsen när användaren väljer en ras
+        updateTextInfo();
+        }
+        });
+        
+    } catch (Exception e) {
+       e.printStackTrace();
+        // Hantera eventuella fel här
+        
+    }
+}
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
 try {
     String registreringsdatum = txtNyAlienRegistreringsdatum.getText();
@@ -277,36 +312,6 @@ try {
 }
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
- private void fyllCbValjRas()   {
-   CbValjRas.removeAllItems();
-        // Skapa en lista för raserna
-    ArrayList<String> allaRaser = new ArrayList<>();
-
-    try {
-        // Hämta raserna från databasen och lägg till i listan
-        allaRaser.add("Squid");
-        allaRaser.add("Worm");
-        allaRaser.add("Boglodite");
-
-        // Skapa ett ComboBoxModel och fyll det med raserna
-        javax.swing.DefaultComboBoxModel<String> model = new javax.swing.DefaultComboBoxModel<>(allaRaser.toArray(String[]::new));
-
-        // Tilldela ComboBoxModel till ComboBox
-        CbValjRas.setModel(model);
-        
-        CbValjRas.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-        // Hantera händelsen när användaren väljer en ras
-        updateTextInfo();
-        }
-        });
-        
-    } catch (Exception e) {
-       e.printStackTrace();
-        // Hantera eventuella fel här
-        
-    }
-}
 private void updateTextInfo() {
     try {
         // Hämta den valda rasen från ComboBox
@@ -363,6 +368,7 @@ private void updateTextInfo() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbValjRas;
     private javax.swing.JButton btnRegistreraAlien;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblNyAlienAlienID;
     private javax.swing.JLabel lblNyAlienAnsvarigAgent;
     private javax.swing.JLabel lblNyAlienEpost;

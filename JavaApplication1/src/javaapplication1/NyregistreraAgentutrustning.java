@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -10,31 +12,24 @@ import oru.inf.InfException;
 public class NyregistreraAgentutrustning extends javax.swing.JFrame {
     
     private InfDB idb;
-    private String Utrustnings_ID;
-    private String Benamning;
-    
-    
-    public NyregistreraAgentutrustning(InfDB db) {
-        idb = db;
-        this.Utrustnings_ID = Utrustnings_ID;
-
+    /**
+     * Creates new form NyregistreraAgent
+     */
+    public NyregistreraAgentutrustning(InfDB idb) {
         initComponents();
+        this.idb = idb;
+        fyllcbKategori();
     }
-    
-    public String getUtrustnings_ID() {
-        return Utrustnings_ID;
-    }
-    
-    public void setUtrustnings_ID(String nyUtrustnings_ID) {
-      Utrustnings_ID = nyUtrustnings_ID;
-    }
-    
-    public String getBenamning() {
-        return Benamning;
-    }
-    
-    public void setBenamning(String nyBenamning) {
-       Benamning = nyBenamning;
+        public NyregistreraAgentutrustning() {
+        initComponents();
+                this.idb = idb;
+        fyllcbKategori();
+        try{
+            idb = new InfDB ("mibdb", "3306", "mibdba", "mibkey");
+            new Inloggning(idb).setVisible(true);
+        } catch (InfException ex){
+            java.util.logging.Logger.getLogger(JavaApplication1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -52,13 +47,10 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
         lblNyRegBenämning = new javax.swing.JLabel();
         txtNyRegBenämning = new javax.swing.JTextField();
         lblNyRegKategori = new javax.swing.JLabel();
-        txtNyRegKategori = new javax.swing.JTextField();
-        lblOmVapen = new javax.swing.JLabel();
-        txtOmVapen = new javax.swing.JTextField();
-        lblOmTeknik = new javax.swing.JLabel();
-        txtOmTeknik = new javax.swing.JTextField();
-        lblOmKommunikation = new javax.swing.JLabel();
-        txtOmKommunikation = new javax.swing.JTextField();
+        lblKategori = new javax.swing.JLabel();
+        txtKategori = new javax.swing.JTextField();
+        cbKategori = new javax.swing.JComboBox<>();
+        btnRegistreraUtrustning = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,19 +67,16 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
 
         lblNyRegKategori.setText("Kategori");
 
-        txtNyRegKategori.setColumns(4);
+        txtKategori.setColumns(4);
 
-        lblOmVapen.setText("Om vapen, fyll i kaliber");
+        cbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        txtOmVapen.setColumns(4);
-
-        lblOmTeknik.setText("Om teknik, fyll i kraftkälla");
-
-        txtOmTeknik.setColumns(4);
-
-        lblOmKommunikation.setText("Om kommunikation, fyll i överföringsteknik");
-
-        txtOmKommunikation.setColumns(4);
+        btnRegistreraUtrustning.setText("Registrera Utrustning");
+        btnRegistreraUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistreraUtrustningActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,7 +87,6 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRegNyRubrik)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblNyRegUtrustningsID)
@@ -106,25 +94,19 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
                                     .addComponent(lblNyRegKategori))
                                 .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNyRegKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtNyRegUtrustningsID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNyRegBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtNyRegBenämning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblKategori)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblRegNyRubrik))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblOmVapen)
-                                    .addComponent(lblOmTeknik))
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtOmTeknik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtOmVapen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblOmKommunikation)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtOmKommunikation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                        .addGap(272, 272, 272)
+                        .addComponent(btnRegistreraUtrustning)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,25 +124,109 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyRegKategori)
-                    .addComponent(txtNyRegKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblOmVapen)
-                    .addComponent(txtOmVapen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblOmTeknik)
-                    .addComponent(txtOmTeknik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblOmKommunikation)
-                    .addComponent(txtOmKommunikation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblKategori)
+                    .addComponent(txtKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(btnRegistreraUtrustning)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegistreraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraUtrustningActionPerformed
+     if(Validering.txtFaltArInteTom(txtNyRegUtrustningsID) && Validering.txtFaltArInteTom(txtNyRegBenämning)){ 
+        try {
+            String UtrustningsID = txtNyRegUtrustningsID.getText();
+            String kommunikationsBenamning = txtNyRegBenämning.getText();
+
+            String fraga = "INSERT INTO Utrustning VALUES ('"+
+            UtrustningsID + "' , '" +
+            kommunikationsBenamning + "')";
+
+            idb.insert(fraga);
+
+            JOptionPane.showMessageDialog(null, "Ny Utrustning har registrerats!");
+        } catch (InfException e) {
+            e.printStackTrace();
+            // Meddela användaren om att något gick fel
+            JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Utrustning: " + e.getMessage());
+        }
+     if(Validering.txtFaltArInteTom(txtNyRegUtrustningsID) && Validering.txtFaltArInteTom(txtKategori)){ 
+        try {
+            String UtrustningsID = txtNyRegUtrustningsID.getText();
+            String kategoriVariabel = txtKategori.getText();
+            String valdKategori = cbKategori.getSelectedItem().toString();
+
+            String kategoriFraga = "INSERT INTO " + valdKategori + " VALUES ('" +
+            UtrustningsID + "' , '" +
+            kategoriVariabel + "')";
+
+            System.out.println (kategoriFraga);
+
+            idb.insert(kategoriFraga);
+
+            JOptionPane.showMessageDialog(null, "Ny Utrustning har registrerats i utrustningstabell!");
+        } catch (InfException e) {
+            e.printStackTrace();
+            // Meddela användaren om att något gick fel
+            JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Utrustningstabell: " + e.getMessage());
+        }
+     }
+     }
+    }//GEN-LAST:event_btnRegistreraUtrustningActionPerformed
+
+ private void fyllcbKategori()   {
+   cbKategori.removeAllItems();
+        // Skapa en lista för raserna
+    ArrayList<String> allaKategorier = new ArrayList<>();
+
+    try {
+        // Hämta raserna från databasen och lägg till i listan
+        allaKategorier.add("Vapen");
+        allaKategorier.add("Teknik");
+        allaKategorier.add("Kommunikation");
+
+        // Skapa ett ComboBoxModel och fyll det med raserna
+        javax.swing.DefaultComboBoxModel<String> model = new javax.swing.DefaultComboBoxModel<>(allaKategorier.toArray(String[]::new));
+
+        // Tilldela ComboBoxModel till ComboBox
+        cbKategori.setModel(model);
+        
+        cbKategori.addActionListener((java.awt.event.ActionEvent evt) -> {
+            // Hantera händelsen när användaren väljer en ras
+            updateTextInfo();
+        });
+        
+    } catch (Exception e) {
+       e.printStackTrace();
+        // Hantera eventuella fel här
+        
+    }
+}    
+    
+private void updateTextInfo() {
+    try {
+        // Hämta den valda rasen från ComboBox
+        String valdKategori = cbKategori.getSelectedItem().toString();
+        if (valdKategori.equals("Vapen")) {
+            lblKategori.setText("Vapen, fyll i kaliber");
+        } else if (valdKategori.equals("Teknik")) {
+            lblKategori.setText("Teknik, fyll i kraftkälla");
+        } else if (valdKategori.equals("Kommunikation")) {
+            lblKategori.setText("Kommunikation, fyll i överföringsteknik");
+        } else {
+            lblKategori.setText("");
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        // Hantera eventuella fel här
+    }
+} 
+ 
     /**
      * @param args the command line arguments
      */
@@ -200,18 +266,15 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistreraUtrustning;
+    private javax.swing.JComboBox<String> cbKategori;
+    private javax.swing.JLabel lblKategori;
     private javax.swing.JLabel lblNyRegBenämning;
     private javax.swing.JLabel lblNyRegKategori;
     private javax.swing.JLabel lblNyRegUtrustningsID;
-    private javax.swing.JLabel lblOmKommunikation;
-    private javax.swing.JLabel lblOmTeknik;
-    private javax.swing.JLabel lblOmVapen;
     private javax.swing.JLabel lblRegNyRubrik;
+    private javax.swing.JTextField txtKategori;
     private javax.swing.JTextField txtNyRegBenämning;
-    private javax.swing.JTextField txtNyRegKategori;
     private javax.swing.JTextField txtNyRegUtrustningsID;
-    private javax.swing.JTextField txtOmKommunikation;
-    private javax.swing.JTextField txtOmTeknik;
-    private javax.swing.JTextField txtOmVapen;
     // End of variables declaration//GEN-END:variables
 }
