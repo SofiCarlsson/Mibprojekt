@@ -23,6 +23,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
         idb = db;
         initComponents();
         fyllCBAlienID();
+        fyllcbRas();
     }
 
     //Fyller skrollboxen med AlienID värden som man kan välja mellan.
@@ -49,11 +50,38 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
           }
         }
          
+          // Skapa en lista för raserna
+        
+         private void fyllcbRas()   {
+            cbRas.removeAllItems();
+       
+            ArrayList<String> allaRaser = new ArrayList<>();
+
+       try {
+        // Hämta raserna från databasen och lägg till i listan
+        allaRaser.add("Squid");
+        allaRaser.add("Worm");
+        allaRaser.add("Boglodite");
+
+        // Skapa ett ComboBoxModel och fyll det med raserna
+        
+        javax.swing.DefaultComboBoxModel<String> model = new javax.swing.DefaultComboBoxModel<>(allaRaser.toArray(String[]::new));
+       // Tilldela ComboBoxModel till ComboBox
+        cbRas.setModel(model);
+       }
+        catch (Exception e) {
+       e.printStackTrace();
+        // Hantera eventuella fel här
+        }
+    }
+       
+         
      //Fyller på infomationen om en viss alien i textfälten.
      private void fyllPaInfoAlien(){
      
      ArrayList<HashMap<String, String>> alienIDLista = new ArrayList<HashMap<String, String>>();
-      
+     ArrayList<HashMap<String, String>> alienRasLista = new ArrayList<HashMap<String, String>>();
+ 
       try{
       
           String valdAlien = cbInfoAlienID.getSelectedItem().toString();
@@ -100,7 +128,12 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                      
                     }
                    }
-          
+                 //Skirva ut ras i comboboxen för ras
+                String fragaRas = "SELECT 'Boglodite' as tabell from Boglodite where Alien_ID= '" + valdAlien + "' Union all SELECT 'Squid' as tabell from Squid where Alien_ID= '" + valdAlien + "' Union all SELECT 'Worm' as tabell from Worm where Alien_ID= '" + valdAlien + "'";
+               String rasHamtad = idb.fetchSingle(fragaRas);
+                cbRas.setSelectedItem(rasHamtad);
+             
+         
                 }catch (InfException UndantagEn) {
                     JOptionPane.showMessageDialog(null, "Databasfel!");
                     System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
@@ -146,6 +179,8 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
         lblInfoAndraInfo = new javax.swing.JLabel();
         btnSok = new javax.swing.JButton();
         lblInfoSok = new javax.swing.JLabel();
+        lblRas = new javax.swing.JLabel();
+        cbRas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -202,6 +237,10 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
 
         lblInfoSok.setText("Välj ett AlienID och tryck på \"Sök\" för att få upp informationen om den Alien.");
 
+        lblRas.setText("Ras");
+
+        cbRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -217,17 +256,36 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblInfoAndraInfo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(lblAngeAlienID)
+                                        .addGap(52, 52, 52)
+                                        .addComponent(cbInfoAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 89, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblVisaEpost, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblVisaNamn, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(389, 389, 389))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblVisaRegDatum)
-                                    .addComponent(lblVisaLösenord))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtVisaEpost, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                                    .addComponent(txtVisaTelefon)
-                                    .addComponent(txtVisaNamn)
-                                    .addComponent(txtVisaRegDatum)
-                                    .addComponent(txtVisaLösenord))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblVisaRegDatum)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(lblRas)
+                                                .addComponent(lblVisaLösenord)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtVisaEpost, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                                            .addComponent(txtVisaTelefon)
+                                            .addComponent(txtVisaNamn)
+                                            .addComponent(txtVisaRegDatum)
+                                            .addComponent(txtVisaLösenord)
+                                            .addComponent(cbRas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(lblVisaTelefon))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -240,21 +298,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                                             .addComponent(txtVisaAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(btnSok, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnÄndraInfo))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblInfoAndraInfo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(lblAngeAlienID)
-                                        .addGap(52, 52, 52)
-                                        .addComponent(cbInfoAlienID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 89, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblVisaEpost, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblVisaTelefon, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblVisaNamn, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(389, 389, 389)))
+                                        .addComponent(btnÄndraInfo)))))
                         .addContainerGap(27, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -266,7 +310,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                 .addComponent(lblInfoSok)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblInfoAndraInfo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblVisaPlats, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -297,7 +341,11 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtVisaLösenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblVisaLösenord))
-                        .addGap(68, 68, 68))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRas)
+                            .addComponent(cbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -416,10 +464,12 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
     private javax.swing.JButton btnSok;
     private javax.swing.JButton btnÄndraInfo;
     private javax.swing.JComboBox<String> cbInfoAlienID;
+    private javax.swing.JComboBox<String> cbRas;
     private javax.swing.JLabel lblAngeAlienID;
     private javax.swing.JLabel lblHärvisasRubrik;
     private javax.swing.JLabel lblInfoAndraInfo;
     private javax.swing.JLabel lblInfoSok;
+    private javax.swing.JLabel lblRas;
     private javax.swing.JLabel lblVisaAnsvarigAgent;
     private javax.swing.JLabel lblVisaEpost;
     private javax.swing.JLabel lblVisaLösenord;
