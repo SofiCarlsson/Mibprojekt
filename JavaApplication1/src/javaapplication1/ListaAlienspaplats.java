@@ -26,12 +26,13 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
     }
     
       private void fyllCbValjplats() {
-        String fraga = ("SELECT Plats FROM Alien");
+        String fraga = ("SELECT Plats_ID FROM Plats");
                 
                 ArrayList<String> allaPlatser;
                 
                 try {
                     allaPlatser = idb.fetchColumn(fraga);
+                    CbValjplats.removeAllItems();
                     
                     for (String Plats : allaPlatser) {
                         CbValjplats.addItem(Plats);
@@ -47,6 +48,34 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
     }
       
       
+      private void fylltxtAreaDessaAliensFinns()
+    {
+         txtAreaDessaAliensFinns.setText("");
+    
+        ArrayList<HashMap<String, String>> AliensFinns = new ArrayList<HashMap<String, String>>();
+        String Valjplats = CbValjplats.getSelectedItem().toString();
+         
+        try {
+            String fraga = "SELECT Alien_ID, Namn FROM Alien WHERE Plats = '"+ Valjplats +"'";
+            System.out.println(fraga);
+            AliensFinns = idb.fetchRows(fraga);
+            
+            for (HashMap<String, String> AlienFP : AliensFinns) {
+                txtAreaDessaAliensFinns.append(AlienFP.get("Alien_ID") + "\t");
+                txtAreaDessaAliensFinns.append(AlienFP.get("Namn") + "\n");
+
+            }
+        } catch (InfException UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Databasfel!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+                catch (Exception UndantagEn) {
+                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+                }
+        
+  
+        }
 
 
     /**
@@ -64,6 +93,7 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaDessaAliensFinns = new javax.swing.JTextArea();
         lblDessaAliensFinns = new javax.swing.JLabel();
+        btnSokare = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +114,13 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
 
         lblDessaAliensFinns.setText("Dessa Aliens finns på den angivna platsen");
 
+        btnSokare.setText("Sök");
+        btnSokare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSokareActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,7 +133,9 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblVäljPlats)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CbValjplats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CbValjplats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSokare))
                     .addComponent(lblDessaAliensFinns))
                 .addContainerGap(237, Short.MAX_VALUE))
         );
@@ -108,7 +147,8 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblVäljPlats)
-                    .addComponent(CbValjplats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CbValjplats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSokare))
                 .addGap(18, 18, 18)
                 .addComponent(lblDessaAliensFinns)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -120,80 +160,89 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CbValjplatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbValjplatsActionPerformed
-        // TODO add your handling code here:
-        txtAreaDessaAliensFinns.setText("");
-        
-        ArrayList<HashMap<String, String>> AliensPlats;
-        
-        try {
-            String valdPlats = CbValjplats.getSelectedItem().toString();
-            String fraga = "SELECT Alien_ID, Namn FROM Alien where Alien_ID IN (SELECT Alien_ID FROM Omrade)";
-            AliensPlats = idb.fetchRows(fraga);
-            
-            for (HashMap<String, String> Platser : AliensPlats) {
-                txtAreaDessaAliensFinns.append(Platser.get("Alien_ID") + "\t");
-                txtAreaDessaAliensFinns.append(Platser.get("Namn") + "\n");
-            }
-        } catch (InfException UndantagEn) {
-                    JOptionPane.showMessageDialog(null, "Databasfel!");
-                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
-                }
-                catch (Exception UndantagEn) {
-                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
-                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
-                }
-        }
-     private javax.swing.JComboBox<String> CbValjplats;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblDessaAliensFinns;
-    private javax.swing.JLabel lblListaAliensPåPlatsRubrik;
-    private javax.swing.JLabel lblVäljPlats;
-    private javax.swing.JTextArea txtAreaDessaAliensFinns;      
-    }//GEN-LAST:event_CbValjplatsActionPerformed
-//
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
+//        // TODO add your handling code here:
+//        txtAreaDessaAliensFinns.setText("");
+//        
+//        ArrayList<HashMap<String, String>> AliensPlats;
+//        
 //        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
+//            String valdPlats = CbValjplats.getSelectedItem().toString();
+//            String fraga = "SELECT Alien_ID, Namn FROM Alien where Alien_ID IN (SELECT Alien_ID FROM Omrade)";
+//            AliensPlats = idb.fetchRows(fraga);
+//            
+//            for (HashMap<String, String> Platser : AliensPlats) {
+//                txtAreaDessaAliensFinns.append(Platser.get("Alien_ID") + "\t");
+//                txtAreaDessaAliensFinns.append(Platser.get("Namn") + "\n");
 //            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(ListaAlienspaplats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(ListaAlienspaplats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(ListaAlienspaplats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(ListaAlienspaplats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InfException UndantagEn) {
+//                    JOptionPane.showMessageDialog(null, "Databasfel!");
+//                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+//                }
+//                catch (Exception UndantagEn) {
+//                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+//                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+//                }
 //        }
-//        //</editor-fold>
-////        //</editor-fold>
-////
-////        /* Create and display the form */
-////        java.awt.EventQueue.invokeLater(new Runnable() {
-////            public void run() {
-////              // new Alienspaplats().setVisible(true);
-////            }
-////        });
-////    }
-//
-/*
+
+//    private javax.swing.JComboBox<String> CbValjplats;
+//    private javax.swing.JScrollPane jScrollPane1;
+//    private javax.swing.JLabel lblDessaAliensFinns;
+//    private javax.swing.JLabel lblListaAliensPåPlatsRubrik;
+//    private javax.swing.JLabel lblVäljPlats;
+//    private javax.swing.JTextArea txtAreaDessaAliensFinns;    
+
+    }//GEN-LAST:event_CbValjplatsActionPerformed
+
+    private void btnSokareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokareActionPerformed
+
+        fylltxtAreaDessaAliensFinns();
+    }//GEN-LAST:event_btnSokareActionPerformed
+
+ 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ListaAlienspaplats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ListaAlienspaplats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ListaAlienspaplats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ListaAlienspaplats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+              // new Alienspaplats().setVisible(true);
+            }
+        });
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbValjplats;
+    private javax.swing.JButton btnSokare;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDessaAliensFinns;
     private javax.swing.JLabel lblListaAliensPåPlatsRubrik;
     private javax.swing.JLabel lblVäljPlats;
     private javax.swing.JTextArea txtAreaDessaAliensFinns;
     // End of variables declaration//GEN-END:variables
-}*/
+}
