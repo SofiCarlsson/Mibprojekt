@@ -120,6 +120,8 @@ public class Alien extends javax.swing.JFrame {
 
         lblMittOmrade.setText("Område:");
 
+        txtMittOmrade.setColumns(4);
+
         lblOmradesChef.setText("Områdeschef");
 
         lblNamn.setText("Namn");
@@ -154,12 +156,11 @@ public class Alien extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblStartsidaAlien)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblMittOmrade)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtMittOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                        .addGap(45, 45, 45))
+                                        .addComponent(txtMittOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(btnHamtaOmradeschef))
                                 .addGap(80, 80, 80)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
