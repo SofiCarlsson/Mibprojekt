@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 
 /**
- *
+ *Här kan man se vilken utrustning som är registrerad för en viss agent
  * @author oliviacleve
  */
 public class Minutrustning extends javax.swing.JFrame {
@@ -26,6 +26,7 @@ public class Minutrustning extends javax.swing.JFrame {
         fyllcbValjAgent();
     }
     
+    //Fyller väljagent-rullmenyn med värden.
      private void fyllcbValjAgent(){
     
    
@@ -52,6 +53,7 @@ public class Minutrustning extends javax.swing.JFrame {
     }
     
 private void fylltxtAreaUtkvitteradutrustning() {
+    //Hämtar ut den utrustning som är uttkvitterad av en viss agent
     txtAreaUtkvitteradutrustning.setText("");
 
     ArrayList<HashMap<String, String>> Utkvittutrust = new ArrayList<HashMap<String, String>>();

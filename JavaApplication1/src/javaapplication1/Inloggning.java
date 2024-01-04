@@ -205,8 +205,6 @@ public class Inloggning extends javax.swing.JFrame {
                     txtLosenord.requestFocus();
                 }
 
-                   
-         //VARFÖR FUNKAR INTE CATCHEN???
         }catch(InfException ettUndantag){
             
               JOptionPane.showMessageDialog(null, " Databasfel" );
