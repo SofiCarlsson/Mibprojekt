@@ -206,7 +206,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblagentOmradeschef">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Omr&#xe5;deschef"/>
+        <Property name="text" type="java.lang.String" value="Chefsomr&#xe5;de"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblagentKontorschef">
