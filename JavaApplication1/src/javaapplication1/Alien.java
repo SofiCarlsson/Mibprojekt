@@ -7,7 +7,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
- *
+ *Hit kommer man om man är inloggad som en alien.
  * @author oliviacleve
  */
 public class Alien extends javax.swing.JFrame {

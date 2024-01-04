@@ -11,7 +11,9 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.sql.Statement;
-
+/*
+Här loggas min in som agent och kan då välja vad man vill göra som inloggad agent.
+*/
 
 public class Agent extends javax.swing.JFrame {
 
@@ -311,7 +313,6 @@ public class Agent extends javax.swing.JFrame {
            visaChef.setVisible(true);
     }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
 
-    
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
     //Knapp som går tillbaka till inloggningen
         Inloggning visaInloggning = new Inloggning(idb);

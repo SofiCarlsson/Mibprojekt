@@ -55,7 +55,7 @@
               <Component id="btnregistreraNyAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnsokInfoOmAgent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="147" max="32767" attributes="0"/>
+              <EmptySpace pref="146" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btntaBortAlien" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btntaBortUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -70,13 +70,16 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Beirut" size="13" style="0"/>
+          <Font name="Arial Rounded MT Bold" size="15" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Du &#xe4;r inloggad som administrat&#xf6;r"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btntaBortAlien">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ta bort en alien"/>
       </Properties>
       <Events>
@@ -85,6 +88,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btntaBortUtrustning">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ta bort utrustning"/>
       </Properties>
       <Events>
@@ -93,6 +99,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnregistreraNyAgent">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Registrera ny agent"/>
       </Properties>
       <Events>
@@ -101,6 +110,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnsokInfoOmAgent">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Se och &#xe4;ndrainformation om en agent"/>
       </Properties>
       <Events>
@@ -109,6 +121,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnTaBortAgent">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ta bort agent"/>
       </Properties>
       <Events>

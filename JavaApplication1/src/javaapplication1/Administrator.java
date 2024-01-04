@@ -7,7 +7,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
- *
+ * Här kan man se vad en administratör kan göra och klicka sig vidare på de funktionerna.
  * @author sarahill
  */
 public class Administrator extends javax.swing.JFrame {
@@ -42,9 +42,10 @@ public class Administrator extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 15)); // NOI18N
         jLabel1.setText("Du är inloggad som administratör");
 
+        btntaBortAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btntaBortAlien.setText("Ta bort en alien");
         btntaBortAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,6 +53,7 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
 
+        btntaBortUtrustning.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btntaBortUtrustning.setText("Ta bort utrustning");
         btntaBortUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +61,7 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
 
+        btnregistreraNyAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnregistreraNyAgent.setText("Registrera ny agent");
         btnregistreraNyAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +69,7 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
 
+        btnsokInfoOmAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnsokInfoOmAgent.setText("Se och ändrainformation om en agent");
         btnsokInfoOmAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +77,7 @@ public class Administrator extends javax.swing.JFrame {
             }
         });
 
+        btnTaBortAgent.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         btnTaBortAgent.setText("Ta bort agent");
         btnTaBortAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +115,7 @@ public class Administrator extends javax.swing.JFrame {
                 .addComponent(btnregistreraNyAgent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnsokInfoOmAgent)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btntaBortAlien)
                     .addComponent(btntaBortUtrustning)
