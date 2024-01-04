@@ -82,6 +82,11 @@ public class Administrator extends javax.swing.JFrame {
         });
 
         btnTaBortAgent.setText("Ta bort agent");
+        btnTaBortAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTaBortAgentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,12 +161,14 @@ public class Administrator extends javax.swing.JFrame {
         TabBortUtrustning taBortUtrustningfonster = new TabBortUtrustning(idb);
         taBortUtrustningfonster.setVisible(true);
     }//GEN-LAST:event_btntaBortUtrustningActionPerformed
-   
-    private void btnTaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {                                               
+
+    private void btnTaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAgentActionPerformed
         //Öppnar ny ruta för att radera agent
         TaBortAgent taBortAgentfonster = new TaBortAgent(idb);
         taBortAgentfonster.setVisible(true);
-    }                 
+    }//GEN-LAST:event_btnTaBortAgentActionPerformed
+   
+                
 
     
     /**
