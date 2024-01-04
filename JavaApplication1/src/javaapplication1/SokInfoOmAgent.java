@@ -414,6 +414,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
            String nyKontorsChef = cbKontorsChef.getSelectedItem() != null ? cbKontorsChef.getSelectedItem().toString() : null;
 
 
+
            String uppdateraNamn = "UPDATE Agent SET Namn = '" + nyttNamn + "' WHERE Agent_ID = '" + valdAgent + "'";
            
                  idb.update(uppdateraNamn);
@@ -430,24 +431,21 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
           
                  idb.update(uppdateraAdminStatus);
                  
-             String uppdateraLosenord = "UPDATE Agent SET Losenord = '" + nyLosenord + "' WHERE Agent_ID = '" + valdAgent + "'";
+            String uppdateraLosenord = "UPDATE Agent SET Losenord = '" + nyLosenord + "' WHERE Agent_ID = '" + valdAgent + "'";
            
                  idb.update(uppdateraLosenord);
                  
-           if (nyttOmrade != null) {
-                String uppdateraOmrade = "UPDATE Agent SET Omrade = '" + nyttOmrade + "' WHERE Agent_ID = '" + valdAgent + "'";
-                idb.update(uppdateraOmrade);
-            }
-
-            if (nyOmradesChef != null) {
-                String uppdateraOmradesChef = "UPDATE Omradeschef SET Agent_ID = '" + valdAgent + "' WHERE Omrade = '" + nyOmradesChef + "'";
-                idb.update(uppdateraOmradesChef);
-            }
-
-            if (nyKontorsChef != null) {
-                String uppdateraKontorsChef = "UPDATE Kontorschef SET Agent_ID = '" + valdAgent + "' WHERE Kontorsbeteckning = '" + nyKontorsChef + "'";
-                idb.update(uppdateraKontorsChef);
-            }
+            String uppdateraOmrade = "UPDATE Agent SET Omrade = '" + nyttOmrade + "' WHERE Agent_ID = '" + valdAgent + "'";
+           
+                 idb.update(uppdateraOmrade);
+                 
+            String uppdateraOmradesChef = "UPDATE Omradeschef SET Agent_ID = '" + valdAgent + "' WHERE Omrade = '" + nyOmradesChef + "'";
+           
+                 idb.update(uppdateraOmradesChef);
+                 
+            String uppdateraKontorsChef = "UPDATE Kontorschef SET Agent_ID = '" + valdAgent + "' WHERE Kontorsbeteckning = '" + nyKontorsChef + "'";
+           
+                 idb.update(uppdateraKontorsChef);
 
                  
             JOptionPane.showMessageDialog(null, " Infomrationen har ändrats." );
