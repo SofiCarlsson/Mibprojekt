@@ -261,7 +261,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
     }
 }
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-try {
+if(Validering.txtFaltArInteTom(txtNyAlienRegistreringsdatum) && Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtNyAlienNamn)&& Validering.isHeltal(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienEpost)&& Validering.txtFaltArInteTom(txtNyAlienLösenord)&& Validering.txtFaltArInteTom(txtNyAlienAnsvarigAgent)&& Validering.txtFaltArInteTom(txtNyAlienPlats)){
+        try {
     String registreringsdatum = txtNyAlienRegistreringsdatum.getText();
     String alienID = txtNyAlienAlienID.getText();
     String namn = txtNyAlienNamn.getText();
@@ -291,6 +292,7 @@ String fraga = "INSERT INTO Alien VALUES ('"+
         JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Alien: " + e.getMessage());
     }
 
+if(Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtRasVariabel)){   
 try {
     String alienID = txtNyAlienAlienID.getText();
     String rasVariabel = txtRasVariabel.getText();
@@ -309,6 +311,8 @@ try {
     e.printStackTrace();
     // Meddela användaren om att något gick fel
     JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Alien: " + e.getMessage());
+}
+}
 }
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
