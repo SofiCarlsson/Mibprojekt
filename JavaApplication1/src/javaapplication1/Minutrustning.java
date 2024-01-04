@@ -23,42 +23,70 @@ public class Minutrustning extends javax.swing.JFrame {
     public Minutrustning(InfDB db) {
         idb = db;
         initComponents();
-        fylltxtAreaUtkvitteradutrustning();
+        fyllcbValjAgent();
     }
     
-      private void fylltxtAreaUtkvitteradutrustning()
-    {
-         txtAreaUtkvitteradutrustning.setText("");
+     private void fyllcbValjAgent(){
     
-        ArrayList<HashMap<String, String>> Utkvittutrust = new ArrayList<HashMap<String, String>>();
+   
+    String fragaAgentVal = "SELECT Agent_ID FROM Agent";
+    
+    ArrayList<String> allaAgentVal;
+    
+    try{
+    
+        allaAgentVal = idb.fetchColumn(fragaAgentVal);
+        cbValjAgent.removeAllItems();
         
-        try {
-            String fraga = "SELECT Utrustnings_ID, Benamning FROM Utrustning WHERE Utrustnings_ID IN (SELECT Utrustnings_ID FROM Innehar_Utrustning WHERE Agent_ID IN (SELECT Agent_ID FROM Agent))";
-            Utkvittutrust = idb.fetchRows(fraga);
+            for(String ettVal : allaAgentVal){
+                
+                cbValjAgent.addItem(ettVal);
             
-            for (HashMap<String, String> Utrust : Utkvittutrust) {
-                txtAreaUtkvitteradutrustning.append(Utrust.get("Utrustnings_ID") + "\t");
-                txtAreaUtkvitteradutrustning.append(Utrust.get("Benamning") + "\n");
             }
-        } catch (InfException UndantagEn) {
-                    JOptionPane.showMessageDialog(null, "Databasfel!");
-                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
-                }
-                catch (Exception UndantagEn) {
-                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
-                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
-                }
+    
+    }catch(InfException ettUndantag){
+            
+              JOptionPane.showMessageDialog(null, " Databasfel! " );
+              System.out.println("Internt felmedelande" + ettUndantag.getMessage());     
+          }
+    }
+    
+private void fylltxtAreaUtkvitteradutrustning() {
+    txtAreaUtkvitteradutrustning.setText("");
+
+    ArrayList<HashMap<String, String>> Utkvittutrust = new ArrayList<HashMap<String, String>>();
+    String ValjAgent = cbValjAgent.getSelectedItem().toString();
+
+    try {
+        String fraga = "SELECT IU.UTRUSTNINGS_ID, U.BENAMNING " +
+                       "FROM INNEHAR_UTRUSTNING IU " +
+                       "JOIN UTRUSTNING U ON IU.UTRUSTNINGS_ID = U.UTRUSTNINGS_ID " +
+                       "WHERE IU.AGENT_ID = '" + ValjAgent + "'";
         
-  
+        Utkvittutrust = idb.fetchRows(fraga);
+
+        for (HashMap<String, String> Utrust : Utkvittutrust) {
+            // Använd "UTRUSTNINGS_ID" och "BENAMNING" som nycklar istället för "Utrustnings_ID" och "Benamning"
+            txtAreaUtkvitteradutrustning.append(Utrust.get("UTRUSTNINGS_ID") + "\t");
+            txtAreaUtkvitteradutrustning.append(Utrust.get("BENAMNING") + "\n");
         }
+    } catch (InfException UndantagEn) {
+        JOptionPane.showMessageDialog(null, "Databasfel!");
+        System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+    } catch (Exception UndantagEn) {
+        JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+        System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+    }
+}
+
       
-      // Variables declaration - do not modify                     
-    private javax.swing.JComboBox<String> cbVäljkategori;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblKategoriförutkvitteradutrustning;
-    private javax.swing.JLabel lblUtkvittrubrik;
-    private javax.swing.JTextArea txtAreaUtkvitteradutrustning;
-    // End of variables declaration  
+//       Variables declaration - do not modify                     
+//    private javax.swing.JComboBox<String> cbVäljkategori;
+//    private javax.swing.JScrollPane jScrollPane1;
+//    private javax.swing.JLabel lblKategoriförutkvitteradutrustning;
+//    private javax.swing.JLabel lblUtkvittrubrik;
+//    private javax.swing.JTextArea txtAreaUtkvitteradutrustning;
+//     End of variables declaration  
     
     
     /**
@@ -71,23 +99,35 @@ public class Minutrustning extends javax.swing.JFrame {
     private void initComponents() {
 
         lblUtkvittrubrik = new javax.swing.JLabel();
-        cbVäljkategori = new javax.swing.JComboBox<>();
+        cbValjAgent = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaUtkvitteradutrustning = new javax.swing.JTextArea();
-        lblKategoriförutkvitteradutrustning = new javax.swing.JLabel();
+        lblValjAgentID = new javax.swing.JLabel();
+        btnSoker = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblUtkvittrubrik.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
         lblUtkvittrubrik.setText("Här visas den utrustning du har utkvitterad:");
 
-        cbVäljkategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbValjAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbValjAgentActionPerformed(evt);
+            }
+        });
 
         txtAreaUtkvitteradutrustning.setColumns(20);
         txtAreaUtkvitteradutrustning.setRows(5);
         jScrollPane1.setViewportView(txtAreaUtkvitteradutrustning);
 
-        lblKategoriförutkvitteradutrustning.setText("Välj kategori");
+        lblValjAgentID.setText("Välj ditt AgentID");
+
+        btnSoker.setText("Sök");
+        btnSoker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSokerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,9 +138,11 @@ public class Minutrustning extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUtkvittrubrik)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblKategoriförutkvitteradutrustning)
+                        .addComponent(lblValjAgentID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbVäljkategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbValjAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSoker)))
                 .addContainerGap(98, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -114,8 +156,9 @@ public class Minutrustning extends javax.swing.JFrame {
                 .addComponent(lblUtkvittrubrik)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblKategoriförutkvitteradutrustning)
-                    .addComponent(cbVäljkategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblValjAgentID)
+                    .addComponent(cbValjAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSoker))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(103, Short.MAX_VALUE))
@@ -124,48 +167,80 @@ public class Minutrustning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSokerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokerActionPerformed
+        
+        fylltxtAreaUtkvitteradutrustning();
+    }//GEN-LAST:event_btnSokerActionPerformed
+
+    private void cbValjAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValjAgentActionPerformed
+//         txtAreaUtkvitteradutrustning.setText("");
+//    
+//        ArrayList<HashMap<String, String>> Utkvittutrust = new ArrayList<HashMap<String, String>>();
+//        
+//        try {
+//            String fraga = "SELECT Utrustnings_ID, Benamning FROM Utrustning JOIN Innehar_Utrustning ON Utrustnings_ID = Utrustnings_ID WHERE Agent_ID = '" + ValjAgent + "')";
+//            Utkvittutrust = idb.fetchRows(fraga);
+//            
+//            for (HashMap<String, String> Utrust : Utkvittutrust) {
+//                txtAreaUtkvitteradutrustning.append(Utrust.get("Utrustnings_ID") + "\t");
+//                txtAreaUtkvitteradutrustning.append(Utrust.get("Benamning") + "\n");
+//            }
+//        } catch (InfException UndantagEn) {
+//                    JOptionPane.showMessageDialog(null, "Databasfel!");
+//                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+//                }
+//                catch (Exception UndantagEn) {
+//                    JOptionPane.showMessageDialog(null, "Ett fel uppstod!");
+//                    System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
+//                }
+//        
+  
+        
+    }//GEN-LAST:event_cbValjAgentActionPerformed
+
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//               // new Minutrustning().setVisible(true);
-//            }
-//        });
-//    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Minutrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    /*
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+               // new Minutrustning().setVisible(true);
+            }
+        });
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbVäljkategori;
+    private javax.swing.JButton btnSoker;
+    private javax.swing.JComboBox<String> cbValjAgent;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblKategoriförutkvitteradutrustning;
     private javax.swing.JLabel lblUtkvittrubrik;
+    private javax.swing.JLabel lblValjAgentID;
     private javax.swing.JTextArea txtAreaUtkvitteradutrustning;
     // End of variables declaration//GEN-END:variables
-*/
+
 }
