@@ -11,7 +11,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
- *
+ *Här ändrar man lösenord för en agent.
  * @author mallan
  */
 public class AndraLosenordAgent extends javax.swing.JFrame {
