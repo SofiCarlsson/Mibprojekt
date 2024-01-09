@@ -77,6 +77,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         txtnyAgentLosenord = new javax.swing.JTextField();
         btnnyAgentRegistrera = new javax.swing.JButton();
         cbValjOmrade = new javax.swing.JComboBox<>();
+        lblDatumFormat = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,6 +122,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
         cbValjOmrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        lblDatumFormat.setText("Vänligen ange datum i formatet ÅÅÅÅ_MM_DD");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,8 +166,10 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                                     .addComponent(cbValjOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtnyAgentAdminstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(31, 31, 31)
-                        .addComponent(btnnyAgentRegistrera)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnnyAgentRegistrera)
+                            .addComponent(lblDatumFormat))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +191,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAnstallningsdatum)
-                    .addComponent(txtnyAgentAnstallningsDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtnyAgentAnstallningsDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDatumFormat))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAdministratorstatus)
@@ -195,7 +201,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOmrade)
                     .addComponent(cbValjOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEpost)
                     .addComponent(txtNyAgentEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -292,6 +298,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lblAdministratorstatus;
     private javax.swing.JLabel lblAgentID;
     private javax.swing.JLabel lblAnstallningsdatum;
+    private javax.swing.JLabel lblDatumFormat;
     private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblLosenord;
     private javax.swing.JLabel lblNamn;

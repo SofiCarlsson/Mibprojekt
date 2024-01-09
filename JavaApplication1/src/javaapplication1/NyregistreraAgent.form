@@ -72,10 +72,13 @@
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="btnnyAgentRegistrera" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnnyAgentRegistrera" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDatumFormat" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -103,6 +106,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAnstallningsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtnyAgentAnstallningsDatum" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDatumFormat" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -114,7 +118,7 @@
                   <Component id="lblOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbValjOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblEpost" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyAgentEpost" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -233,6 +237,11 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDatumFormat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="V&#xe4;nligen ange datum i formatet &#xc5;&#xc5;&#xc5;&#xc5;_MM_DD"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
