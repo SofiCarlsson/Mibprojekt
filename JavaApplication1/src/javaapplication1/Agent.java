@@ -309,7 +309,7 @@ public class Agent extends javax.swing.JFrame {
 
     private void btnSökOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökOmrådeschefActionPerformed
            //Knapp till SökOmrådeschef 
-           SokOmrådeschef visaChef = new SokOmrådeschef(idb);
+           SokOmradeschef visaChef = new SokOmradeschef(idb);
            visaChef.setVisible(true);
     }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
 
