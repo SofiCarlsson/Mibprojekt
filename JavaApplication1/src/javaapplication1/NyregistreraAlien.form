@@ -99,9 +99,19 @@
                                           <Component id="txtNyAlienAnsvarigAgent" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblAngeAID" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblAngePID" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                           <Component id="lblRubrikvidnyregistrering" min="-2" max="-2" attributes="0"/>
@@ -166,12 +176,14 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNyAlienAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyAlienAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAngeAID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNyAlienPlats" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyAlienPlats" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnRegistreraAlien" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAngePID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
           </Group>
@@ -297,6 +309,16 @@
     <Component class="javax.swing.JLabel" name="lblDatumFormat">
       <Properties>
         <Property name="text" type="java.lang.String" value="V&#xe4;nligen ange datum i formatet &#xc5;&#xc5;&#xc5;&#xc5;-MM-DD"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAngeAID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="V&#xe4;nligen ange Agentens ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAngePID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="V&#xe4;nligen ange platsens ID"/>
       </Properties>
     </Component>
   </SubComponents>

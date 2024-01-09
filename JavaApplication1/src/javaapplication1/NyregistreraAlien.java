@@ -67,6 +67,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         lblRasVal = new javax.swing.JLabel();
         lblRas = new javax.swing.JLabel();
         lblDatumFormat = new javax.swing.JLabel();
+        lblAngeAID = new javax.swing.JLabel();
+        lblAngePID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,6 +117,10 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         lblRas.setText("Ras");
 
         lblDatumFormat.setText("Vänligen ange datum i formatet ÅÅÅÅ-MM-DD");
+
+        lblAngeAID.setText("Vänligen ange Agentens ID");
+
+        lblAngePID.setText("Vänligen ange platsens ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,9 +185,16 @@ public class NyregistreraAlien extends javax.swing.JFrame {
                                             .addComponent(lblNyAlienAnsvarigAgent)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(txtNyAlienAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnRegistreraAlien)
-                                    .addGap(11, 11, 11)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lblAngeAID)
+                                            .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lblAngePID)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnRegistreraAlien)
+                                            .addGap(11, 11, 11)))))
                             .addComponent(lblRubrikvidnyregistrering))))
                 .addGap(61, 61, 61))
         );
@@ -228,12 +241,14 @@ public class NyregistreraAlien extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyAlienAnsvarigAgent)
-                    .addComponent(txtNyAlienAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNyAlienAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAngeAID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNyAlienPlats)
                     .addComponent(txtNyAlienPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegistreraAlien))
+                    .addComponent(btnRegistreraAlien)
+                    .addComponent(lblAngePID))
                 .addGap(115, 115, 115))
         );
 
@@ -381,6 +396,8 @@ private void updateTextInfo() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbValjRas;
     private javax.swing.JButton btnRegistreraAlien;
+    private javax.swing.JLabel lblAngeAID;
+    private javax.swing.JLabel lblAngePID;
     private javax.swing.JLabel lblDatumFormat;
     private javax.swing.JLabel lblNyAlienAlienID;
     private javax.swing.JLabel lblNyAlienAnsvarigAgent;

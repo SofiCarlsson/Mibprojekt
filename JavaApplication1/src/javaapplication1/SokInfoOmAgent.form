@@ -46,7 +46,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="68" max="32767" attributes="0"/>
+                      <EmptySpace pref="101" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnSokInfoAgent" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAndraInfoAgent" min="-2" max="-2" attributes="0"/>
@@ -153,7 +153,7 @@
                   <Component id="lblagentKontorschef" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbKontorsChef" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
