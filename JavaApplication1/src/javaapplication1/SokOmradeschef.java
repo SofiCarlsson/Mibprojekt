@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  *
  * Denna metoden söker upp Omradeschefen för ett angivet Område
  */
-public class SokOmrådeschef extends javax.swing.JFrame {
+public class SokOmradeschef extends javax.swing.JFrame {
     
     private InfDB idb;
     /**
      * Creates new form SökOmrådeschef
      */
-    public SokOmrådeschef(InfDB db) {
+    public SokOmradeschef(InfDB db) {
         initComponents();
         idb = db;
         fyllCbValjOmrade();
@@ -179,13 +179,13 @@ public class SokOmrådeschef extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(SokOmradeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(SokOmradeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(SokOmradeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(SokOmrådeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(SokOmradeschef.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //        //</editor-fold>
@@ -193,7 +193,7 @@ public class SokOmrådeschef extends javax.swing.JFrame {
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//               //new SokOmrådeschef().setVisible(true);
+//               //new SokOmradeschef().setVisible(true);
 //            }
 //        });
 //    } 
