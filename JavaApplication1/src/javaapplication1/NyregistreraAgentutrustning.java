@@ -69,8 +69,6 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
 
         txtKategori.setColumns(4);
 
-        cbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         btnRegistreraUtrustning.setText("Registrera Utrustning");
         btnRegistreraUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

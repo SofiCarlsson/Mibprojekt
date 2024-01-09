@@ -114,8 +114,6 @@ private void updateTextInfo() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        CbValjRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         textAlienInfo.setColumns(20);
         textAlienInfo.setRows(5);
         jScrollPane1.setViewportView(textAlienInfo);
