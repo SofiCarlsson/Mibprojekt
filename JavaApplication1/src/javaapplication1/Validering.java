@@ -3,14 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package javaapplication1;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
-
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 /**
  *
  * @author soficarlsson
@@ -21,7 +21,8 @@ public class Validering {
     
     public Validering(InfDB db){
         idb = db;
-    }
+    } 
+    
     //Denna metoden kollar så att rutan inte är tom
     public static boolean txtFaltArInteTom(JTextField txtAttKolla){
     
@@ -55,6 +56,7 @@ public class Validering {
        return resultat;
     }
     
+    //Denna meroden kollar så att lösenordet består av 6 eller mindre tecken.
     public static boolean losenordRattLangd(JTextField txtAttKolla){
     String losenord = txtAttKolla.getText();
     boolean resultat = true;

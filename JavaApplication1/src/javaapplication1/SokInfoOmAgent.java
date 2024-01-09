@@ -389,7 +389,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     //När man trycker på denna knappen och skrivit in något nytt i textfälten ändras värdet till det man skrev in. 
     //(Man får inte ändra epost)
     private void btnAndraInfoAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraInfoAgentActionPerformed
-        if(Validering.txtFaltArInteTom(txtinfoAgentAnstallningsdatum) && Validering.txtFaltArInteTom(txtinfoAgentNamn) && Validering.txtFaltArInteTom(txtinfoAgentLosenord)&& Validering.txtFaltArInteTom(txtInfoAgentAdminStatus) && Validering.txtFaltArInteTom(txtinfoAgentEpost)&& Validering.txtFaltArInteTom(txtifoAgentTelefon)){
+        if(Validering.txtFaltArInteTom(txtinfoAgentAnstallningsdatum) && Validering.txtFaltArInteTom(txtinfoAgentNamn) && Validering.txtFaltArInteTom(txtinfoAgentLosenord) && Validering.losenordRattLangd(txtinfoAgentLosenord)&& Validering.txtFaltArInteTom(txtInfoAgentAdminStatus) && Validering.txtFaltArInteTom(txtinfoAgentEpost)&& Validering.txtFaltArInteTom(txtifoAgentTelefon)){
        try{
            String fragaAgent = "SELECT * FROM Agent";
 

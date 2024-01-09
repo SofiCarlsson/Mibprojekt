@@ -216,7 +216,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
     private void btnnyAgentRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnyAgentRegistreraActionPerformed
 
-    if(Validering.txtFaltArInteTom(txtnyAgentID) && Validering.isHeltal(txtnyAgentID) && Validering.txtFaltArInteTom(txtnyAgentNamn) && Validering.txtFaltArInteTom(txtnyAgentTelefon)&& Validering.isHeltal(txtnyAgentTelefon) && Validering.txtFaltArInteTom(txtnyAgentAnstallningsDatum) && Validering.txtFaltArInteTom(txtnyAgentAdminstatus)&& Validering.txtFaltArInteTom(txtNyAgentEpost)&& Validering.txtFaltArInteTom(txtnyAgentLosenord)){
+    if(Validering.txtFaltArInteTom(txtnyAgentID) && Validering.isHeltal(txtnyAgentID) && Validering.txtFaltArInteTom(txtnyAgentNamn) && Validering.txtFaltArInteTom(txtnyAgentTelefon)&& Validering.isHeltal(txtnyAgentTelefon) && Validering.txtFaltArInteTom(txtnyAgentAnstallningsDatum) && Validering.txtFaltArInteTom(txtnyAgentAdminstatus)&& Validering.txtFaltArInteTom(txtNyAgentEpost)&& Validering.txtFaltArInteTom(txtnyAgentLosenord) && Validering.losenordRattLangd(txtnyAgentLosenord)){
          
         try{
             String nyAgentID = txtnyAgentID.getText();

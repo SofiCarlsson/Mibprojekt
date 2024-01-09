@@ -119,8 +119,9 @@ public class AndraLosenordAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Denna metoden ändrar lösenordet om lösenordet fältet, det nya lösenordet och emailadressen inte är tomt pluss att lösenorden består av minst 6 tecken.
     private void btnAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordActionPerformed
-     if(Validering.txtFaltArInteTom(txtMejladress) && Validering.txtFaltArInteTom(txtGammaltLosenord)&& Validering.txtFaltArInteTom(txtNyttLosenord)){  
+     if(Validering.txtFaltArInteTom(txtMejladress) && Validering.txtFaltArInteTom(txtGammaltLosenord)&& Validering.losenordRattLangd(txtGammaltLosenord)&& Validering.txtFaltArInteTom(txtNyttLosenord)&& Validering.losenordRattLangd(txtNyttLosenord)){  
         try{
             if (!lyckadAndring) { // Kontroll för att undvika upprepade ändringar
             String epost = txtMejladress.getText();
