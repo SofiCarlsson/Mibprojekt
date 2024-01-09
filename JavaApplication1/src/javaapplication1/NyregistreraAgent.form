@@ -75,10 +75,11 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="btnnyAgentRegistrera" min="-2" max="-2" attributes="0"/>
                           <Component id="lblDatumFormat" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAdminStatusJN" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,6 +113,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAdministratorstatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtnyAgentAdminstatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAdminStatusJN" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -235,7 +237,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblDatumFormat">
       <Properties>
-        <Property name="text" type="java.lang.String" value="V&#xe4;nligen ange datum i formatet &#xc5;&#xc5;&#xc5;&#xc5;_MM_DD"/>
+        <Property name="text" type="java.lang.String" value="V&#xe4;nligen ange datum i formatet &#xc5;&#xc5;&#xc5;&#xc5;-MM-DD"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAdminStatusJN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="V&#xe4;nligen fyll i J f&#xf6;r JA eller N f&#xf6;r NEJ"/>
       </Properties>
     </Component>
   </SubComponents>

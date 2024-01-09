@@ -78,6 +78,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         btnnyAgentRegistrera = new javax.swing.JButton();
         cbValjOmrade = new javax.swing.JComboBox<>();
         lblDatumFormat = new javax.swing.JLabel();
+        lblAdminStatusJN = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,7 +121,9 @@ public class NyregistreraAgent extends javax.swing.JFrame {
             }
         });
 
-        lblDatumFormat.setText("Vänligen ange datum i formatet ÅÅÅÅ_MM_DD");
+        lblDatumFormat.setText("Vänligen ange datum i formatet ÅÅÅÅ-MM-DD");
+
+        lblAdminStatusJN.setText("Vänligen fyll i J för JA eller N för NEJ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,8 +169,9 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnnyAgentRegistrera)
-                            .addComponent(lblDatumFormat))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                            .addComponent(lblDatumFormat)
+                            .addComponent(lblAdminStatusJN, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,7 +198,8 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAdministratorstatus)
-                    .addComponent(txtnyAgentAdminstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtnyAgentAdminstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAdminStatusJN))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOmrade)
@@ -293,6 +298,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private javax.swing.JButton btnnyAgentRegistrera;
     private javax.swing.JComboBox<String> cbValjOmrade;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAdminStatusJN;
     private javax.swing.JLabel lblAdministratorstatus;
     private javax.swing.JLabel lblAgentID;
     private javax.swing.JLabel lblAnstallningsdatum;
