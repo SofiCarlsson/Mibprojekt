@@ -72,11 +72,9 @@ public class Inloggning extends javax.swing.JFrame {
 
         txtEpost.setColumns(4);
         txtEpost.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
-        txtEpost.setText("ao@mib.net");
 
         txtLosenord.setColumns(4);
         txtLosenord.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
-        txtLosenord.setText("planka");
 
         lblLoggaInAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 15)); // NOI18N
         lblLoggaInAlien.setText("Logga in Alien");
@@ -174,7 +172,7 @@ public class Inloggning extends javax.swing.JFrame {
     
         //Denna if-sats kollar om fälten Lösenord och Epost inte är tomt mha klassen validering.
         //Sedan kollar denna metoden om lösenordet och email hör ihopp, om den gör det loggar man in på Agent.
-     if(Validering.txtFaltArInteTom(txtLosenord) && Validering.txtFaltArInteTom(txtEpost)){  
+     if(Validering.txtFaltArInteTom(txtLosenord) && Validering.txtFaltArInteTom(txtEpost) && Validering.losenordRattLangd(txtLosenord)){  
       try{
           String epost = txtEpost.getText();
 	  String losenord = txtLosenord.getText(); 

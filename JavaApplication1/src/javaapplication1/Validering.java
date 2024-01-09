@@ -4,8 +4,12 @@
  */
 package javaapplication1;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -13,6 +17,11 @@ import javax.swing.JTextField;
  */
 public class Validering {
     
+    private static InfDB idb;
+    
+    public Validering(InfDB db){
+        idb = db;
+    }
     //Denna metoden kollar så att rutan inte är tom
     public static boolean txtFaltArInteTom(JTextField txtAttKolla){
     
@@ -45,4 +54,20 @@ public class Validering {
      
        return resultat;
     }
-}
+    
+    public static boolean losenordRattLangd(JTextField txtAttKolla){
+    String losenord = txtAttKolla.getText();
+    boolean resultat = true;
+        
+        if(losenord.length()<=6){
+        resultat = true;
+        }else{
+        JOptionPane.showMessageDialog(null, " Skriv in ett lösenord som är minst 6 tecken" );               
+        txtAttKolla.requestFocus();
+        resultat = false;
+                }
+    
+    return resultat;
+    }
+        }
+
