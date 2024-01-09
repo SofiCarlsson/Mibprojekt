@@ -245,14 +245,6 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
 
         lblagentKontorschef.setText("Kontorschef");
 
-        cbinfoAgentOmrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbOmradesChef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbKontorsChef.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbinfoAgentID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         txtinfoAgentNamn.setColumns(7);
 
         txtifoAgentTelefon.setColumns(7);

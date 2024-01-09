@@ -120,8 +120,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
             }
         });
 
-        cbValjOmrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         lblDatumFormat.setText("Vänligen ange datum i formatet ÅÅÅÅ_MM_DD");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
