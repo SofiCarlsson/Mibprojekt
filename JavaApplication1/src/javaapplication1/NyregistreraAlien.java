@@ -284,6 +284,8 @@ public class NyregistreraAlien extends javax.swing.JFrame {
         
     }
 }
+ 
+ //Denna metod nyregistrera en Alien
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
 if(Validering.txtFaltArInteTom(txtNyAlienRegistreringsdatum) && Validering.datumRattLangd(txtNyAlienRegistreringsdatum)&& Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtNyAlienNamn)&& Validering.isHeltal(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienEpost)&& Validering.txtFaltArInteTom(txtNyAlienLösenord) && Validering.losenordRattLangd(txtNyAlienLösenord) && Validering.txtFaltArInteTom(txtNyAlienAnsvarigAgent)&& Validering.txtFaltArInteTom(txtNyAlienPlats)){
         try {
@@ -316,6 +318,7 @@ String fraga = "INSERT INTO Alien VALUES ('"+
         JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Alien: " + e.getMessage());
     }
 
+ //Denna kod hämtar vad för slags rasVariable som ska fyllas i när en specifik ras har valts.
 if(Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtRasVariabel)){   
 try {
     String alienID = txtNyAlienAlienID.getText();
@@ -340,6 +343,7 @@ try {
 }
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
+    //Denna metoden hämtar vad som ska skirvas in när en specifik ras har valts.
 private void updateTextInfo() {
     try {
         // Hämta den valda rasen från ComboBox

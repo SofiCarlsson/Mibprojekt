@@ -219,9 +219,10 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Denna metoden nyregistrerar en Agent.
     private void btnnyAgentRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnyAgentRegistreraActionPerformed
 
-    if(Validering.txtFaltArInteTom(txtnyAgentID) && Validering.isHeltal(txtnyAgentID) && Validering.txtFaltArInteTom(txtnyAgentNamn) && Validering.txtFaltArInteTom(txtnyAgentTelefon)&& Validering.isHeltal(txtnyAgentTelefon) && Validering.txtFaltArInteTom(txtnyAgentAnstallningsDatum) && Validering.txtFaltArInteTom(txtnyAgentAdminstatus)&& Validering.txtFaltArInteTom(txtNyAgentEpost)&& Validering.txtFaltArInteTom(txtnyAgentLosenord) && Validering.losenordRattLangd(txtnyAgentLosenord)){
+    if(Validering.txtFaltArInteTom(txtnyAgentID) && Validering.isHeltal(txtnyAgentID) && Validering.txtFaltArInteTom(txtnyAgentNamn) && Validering.txtFaltArInteTom(txtnyAgentTelefon)&& Validering.isHeltal(txtnyAgentTelefon) && Validering.txtFaltArInteTom(txtnyAgentAnstallningsDatum) && Validering.datumRattLangd(txtnyAgentAnstallningsDatum) && Validering.txtFaltArInteTom(txtnyAgentAdminstatus)&& Validering.txtFaltArInteTom(txtNyAgentEpost)&& Validering.txtFaltArInteTom(txtnyAgentLosenord) && Validering.losenordRattLangd(txtnyAgentLosenord)){
          
         try{
             String nyAgentID = txtnyAgentID.getText();
