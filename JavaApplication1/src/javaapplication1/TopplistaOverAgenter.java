@@ -31,10 +31,6 @@ public class TopplistaOverAgenter extends javax.swing.JFrame {
         String fraga = ("SELECT distinct Omrade FROM Agent");
                 
                 ArrayList<String> allaOmraden;
-//                ArrayList<String> allaOmraden2 = new ArrayList<String>();
-//                allaOmraden2.add("97");
-//                allaOmraden2.add("98");
-//                allaOmraden2.add("99");
                 
                 try {
                     allaOmraden = idb.fetchColumn(fraga);

@@ -16,7 +16,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
 
     private InfDB idb;
     /**
-     * Creates new form NyregistreraAlien
+     * Konstruktor för NyregistreraAlien
      */
     public NyregistreraAlien(InfDB idb) {
         initComponents();
@@ -254,40 +254,40 @@ public class NyregistreraAlien extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- private void fyllCbValjRas()   {
-   CbValjRas.removeAllItems();
+    private void fyllCbValjRas()   {
+    CbValjRas.removeAllItems();
         // Skapa en lista för raserna
-    ArrayList<String> allaRaser = new ArrayList<>();
+        ArrayList<String> allaRaser = new ArrayList<>();
 
     try {
         // Hämta raserna från databasen och lägg till i listan
-        allaRaser.add("Squid");
-        allaRaser.add("Worm");
-        allaRaser.add("Boglodite");
+         allaRaser.add("Squid");
+         allaRaser.add("Worm");
+         allaRaser.add("Boglodite");
 
-        // Skapa ett ComboBoxModel och fyll det med raserna
-        javax.swing.DefaultComboBoxModel<String> model = new javax.swing.DefaultComboBoxModel<>(allaRaser.toArray(String[]::new));
+         // Skapa ett ComboBoxModel och fyll det med raserna
+         javax.swing.DefaultComboBoxModel<String> model = new javax.swing.DefaultComboBoxModel<>(allaRaser.toArray(String[]::new));
 
-        // Tilldela ComboBoxModel till ComboBox
-        CbValjRas.setModel(model);
+            // Tilldela ComboBoxModel till ComboBox
+            CbValjRas.setModel(model);
         
-        CbValjRas.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-        // Hantera händelsen när användaren väljer en ras
-        updateTextInfo();
-        }
-        });
+            CbValjRas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            // Hantera händelsen när användaren väljer en ras
+             updateTextInfo();
+             }
+             });
         
     } catch (Exception e) {
        e.printStackTrace();
-        // Hantera eventuella fel här
+       // Hantera eventuella fel här
         
     }
 }
  
  //Denna metod nyregistrera en Alien
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-if(Validering.txtFaltArInteTom(txtNyAlienRegistreringsdatum) && Validering.datumRattLangd(txtNyAlienRegistreringsdatum)&& Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtNyAlienNamn)&& Validering.isHeltal(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienEpost)&& Validering.txtFaltArInteTom(txtNyAlienLösenord) && Validering.losenordRattLangd(txtNyAlienLösenord) && Validering.txtFaltArInteTom(txtNyAlienAnsvarigAgent)&& Validering.txtFaltArInteTom(txtNyAlienPlats)){
+    if(Validering.txtFaltArInteTom(txtNyAlienRegistreringsdatum) && Validering.datumRattLangd(txtNyAlienRegistreringsdatum)&& Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtNyAlienNamn)&& Validering.isHeltal(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienEpost)&& Validering.txtFaltArInteTom(txtNyAlienLösenord) && Validering.losenordRattLangd(txtNyAlienLösenord) && Validering.txtFaltArInteTom(txtNyAlienAnsvarigAgent)&& Validering.txtFaltArInteTom(txtNyAlienPlats)){
         try {
     String registreringsdatum = txtNyAlienRegistreringsdatum.getText();
     String alienID = txtNyAlienAlienID.getText();
@@ -298,7 +298,7 @@ if(Validering.txtFaltArInteTom(txtNyAlienRegistreringsdatum) && Validering.datum
     String ansvarigAgent = txtNyAlienAnsvarigAgent.getText();
     String plats = txtNyAlienPlats.getText();
 
-String fraga = "INSERT INTO Alien VALUES ('"+
+    String fraga = "INSERT INTO Alien VALUES ('"+
         alienID + "' , '" +
         registreringsdatum + "' , '" +
         epost + "' , '" +
@@ -318,50 +318,51 @@ String fraga = "INSERT INTO Alien VALUES ('"+
         JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Alien: " + e.getMessage());
     }
 
- //Denna kod hämtar vad för slags rasVariable som ska fyllas i när en specifik ras har valts.
-if(Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtRasVariabel)){   
-try {
-    String alienID = txtNyAlienAlienID.getText();
-    String rasVariabel = txtRasVariabel.getText();
-    String valdRas = CbValjRas.getSelectedItem().toString();
+    //Denna kod hämtar vad för slags rasVariable som ska fyllas i när en specifik ras har valts.
+    if(Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtRasVariabel)){   
+    try {
+     String alienID = txtNyAlienAlienID.getText();
+     String rasVariabel = txtRasVariabel.getText();
+     String valdRas = CbValjRas.getSelectedItem().toString();
 
-    String rasFraga = "INSERT INTO " + valdRas + " VALUES ('" +
+     String rasFraga = "INSERT INTO " + valdRas + " VALUES ('" +
             alienID + "' , '" +
             rasVariabel + "')";
 
-    System.out.println (rasFraga);
+        System.out.println (rasFraga);
     
-    idb.insert(rasFraga);
+        idb.insert(rasFraga);
 
-    JOptionPane.showMessageDialog(null, "Ny Alien har registrerats i rastabell!");
-} catch (InfException e) {
+        JOptionPane.showMessageDialog(null, "Ny Alien har registrerats i rastabell!");
+    } catch (InfException e) {
     e.printStackTrace();
     // Meddela användaren om att något gick fel
     JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Alien: " + e.getMessage());
-}
-}
-}
+    }
+    }
+    }
     }//GEN-LAST:event_btnRegistreraAlienActionPerformed
 
     //Denna metoden hämtar vad som ska skirvas in när en specifik ras har valts.
-private void updateTextInfo() {
-    try {
-        // Hämta den valda rasen från ComboBox
-        String valdRas = CbValjRas.getSelectedItem().toString();
-        if (valdRas.equals("Boglodite")) {
-            lblRasVal.setText("Antal Boogies");
-        } else if (valdRas.equals("Squid")) {
-            lblRasVal.setText("Antal Armar");
-        } else if (valdRas.equals("Worm")) {
-            lblRasVal.setText("Längd");
-        } else {
-            lblRasVal.setText("");
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-        // Hantera eventuella fel här
+    private void updateTextInfo() {
+        try {
+            // Hämta den valda rasen från ComboBox
+            String valdRas = CbValjRas.getSelectedItem().toString();
+                if (valdRas.equals("Boglodite")) {
+                    lblRasVal.setText("Antal Boogies");
+                } else if (valdRas.equals("Squid")) {
+                    lblRasVal.setText("Antal Armar");
+                } else if (valdRas.equals("Worm")) {
+                    lblRasVal.setText("Längd");
+                } else {
+                    lblRasVal.setText("");
+                }
+        } catch (Exception e) {
+         e.printStackTrace();
+         // Hantera eventuella fel här
     }
-}
+    }
+    
     /**
      * @param args the command line arguments
      */
