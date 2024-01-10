@@ -12,13 +12,13 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.sql.Statement;
 /*
-Här loggas min in som agent och kan då välja vad man vill göra som inloggad agent.
+Här loggas man in som agent och kan då välja vad man vill göra som inloggad agent.
 */
 
 public class Agent extends javax.swing.JFrame {
 
     //Fälten för klassen Agent
-    private InfDB idb;
+    private InfDB  idb;
     private String Agent_ID;
     private String Namn;
     private String Telefon;
@@ -92,8 +92,6 @@ public class Agent extends javax.swing.JFrame {
         return Losenord;
      }
     
-    
-    //Här ska get + set kanske in om vi ska ha område som fält
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -292,13 +290,13 @@ public class Agent extends javax.swing.JFrame {
     private void btnNyregistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNyregistreraAlienActionPerformed
         //Knapp till NyregistreraAlien
         NyregistreraAlien visaNyAlien = new NyregistreraAlien(idb);
-        visaNyAlien.setVisible(true);
+             visaNyAlien.setVisible(true);
     }//GEN-LAST:event_btnNyregistreraAlienActionPerformed
 
     private void btnMinutrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinutrustningActionPerformed
         //Knapp till MinUtrustning
         Minutrustning visaMinUtrustning = new Minutrustning(idb);
-        visaMinUtrustning.setVisible(true);
+             visaMinUtrustning.setVisible(true);
     }//GEN-LAST:event_btnMinutrustningActionPerformed
 
     private void btnAdministratörActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministratörActionPerformed
@@ -310,31 +308,31 @@ public class Agent extends javax.swing.JFrame {
     private void btnSökOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökOmrådeschefActionPerformed
            //Knapp till SökOmrådeschef 
            SokOmradeschef visaChef = new SokOmradeschef(idb);
-           visaChef.setVisible(true);
+                 visaChef.setVisible(true);
     }//GEN-LAST:event_btnSökOmrådeschefActionPerformed
 
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
     //Knapp som går tillbaka till inloggningen
         Inloggning visaInloggning = new Inloggning(idb);
-        visaInloggning.setVisible(true);
+                visaInloggning.setVisible(true);
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     private void btnSokAliensEfterRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAliensEfterRasActionPerformed
         //Knapp till SökAliensEfterRas
         SokAliensEfterRas visaRas = new SokAliensEfterRas(idb);
-        visaRas.setVisible(true);
+                visaRas.setVisible(true);
     }//GEN-LAST:event_btnSokAliensEfterRasActionPerformed
 
     private void btnAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordActionPerformed
         // Knapp till ändra lösenord för agenter
      try {
-        // Skapa en instans av AndraLosenordAlienFrame och gör den synlig
-        AndraLosenordAgent losenordFonsterAgent = new AndraLosenordAgent();
-        losenordFonsterAgent.setVisible(true);
+             // Skapa en instans av AndraLosenordAlienFrame och gör den synlig
+             AndraLosenordAgent losenordFonsterAgent = new AndraLosenordAgent();
+                losenordFonsterAgent.setVisible(true);
 
     } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println("Ett fel inträffade vid ändring av lösenordet.");
+            e.printStackTrace();
+            System.out.println("Ett fel inträffade vid ändring av lösenordet.");
     }  
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
 

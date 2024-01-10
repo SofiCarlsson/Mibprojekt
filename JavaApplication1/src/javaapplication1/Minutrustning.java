@@ -18,7 +18,7 @@ public class Minutrustning extends javax.swing.JFrame {
 
     private InfDB idb;
     /**
-     * Creates new form Minutrustning
+     * Konstruktor för Minutrustning
      */
     public Minutrustning(InfDB db) {
         idb = db;
@@ -27,12 +27,11 @@ public class Minutrustning extends javax.swing.JFrame {
     }
     
     //Fyller väljagent-rullmenyn med värden.
-     private void fyllcbValjAgent(){
+    private void fyllcbValjAgent(){
     
-   
     String fragaAgentVal = "SELECT Agent_ID FROM Agent";
     
-    ArrayList<String> allaAgentVal;
+        ArrayList<String> allaAgentVal;
     
     try{
     

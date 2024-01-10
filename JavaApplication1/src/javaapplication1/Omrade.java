@@ -17,7 +17,7 @@ public class Omrade extends javax.swing.JFrame {
     private String Benamning;
     
     /**
-     * Creates new form Omrade
+     * Konstruktor för Omrade
      */
     public Omrade(InfDB db, String Omrades_ID) {
         idb = db;

@@ -287,7 +287,7 @@ public class NyregistreraAlien extends javax.swing.JFrame {
  
  //Denna metod nyregistrera en Alien
     private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
-if(Validering.txtFaltArInteTom(txtNyAlienRegistreringsdatum) && Validering.datumRattLangd(txtNyAlienRegistreringsdatum)&& Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtNyAlienNamn)&& Validering.isHeltal(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienEpost)&& Validering.txtFaltArInteTom(txtNyAlienLösenord) && Validering.losenordRattLangd(txtNyAlienLösenord) && Validering.txtFaltArInteTom(txtNyAlienAnsvarigAgent)&& Validering.txtFaltArInteTom(txtNyAlienPlats)){
+if(Validering.txtFaltArInteTom(txtNyAlienRegistreringsdatum) && Validering.datumRattLangd(txtNyAlienRegistreringsdatum) && Validering.isHeltal(txtNyAlienAlienID)&& Validering.txtFaltArInteTom(txtNyAlienAlienID) && Validering.txtFaltArInteTom(txtNyAlienNamn)&& Validering.isHeltal(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienEpost)&& Validering.txtFaltArInteTom(txtNyAlienLösenord) && Validering.losenordRattLangd(txtNyAlienLösenord) && Validering.txtFaltArInteTom(txtNyAlienAnsvarigAgent)&& Validering.txtFaltArInteTom(txtNyAlienPlats)){
         try {
     String registreringsdatum = txtNyAlienRegistreringsdatum.getText();
     String alienID = txtNyAlienAlienID.getText();

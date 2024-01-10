@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class TabBortUtrustning extends javax.swing.JFrame {
 
     /**
-     * Creates new form TabBortUtrustning
+     * Konstruktor för TabBortUtrustning
      */
     private InfDB idb;
     
@@ -81,7 +81,8 @@ public class TabBortUtrustning extends javax.swing.JFrame {
 
     private void btnraderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnraderaUtrustningActionPerformed
    //Raderar en utrustning från systemet
-        try{
+    if(Validering.isHeltal(txtUtrustningsID)){   
+    try{
             //Ger variabelnman till värdena från rutorna och boxarna
             String utrustningsID = txtUtrustningsID.getText();
             String raderaFraga = "SELECT Utrustnings_ID from mibdb.Utrustning";
@@ -121,6 +122,7 @@ public class TabBortUtrustning extends javax.swing.JFrame {
               System.out.println("Det gick inte att ta bort utrustningen" + ettUndantag.getMessage());
               //txtraderaAlien.requestFocus();
         }
+    }
 }
     private javax.swing.JButton btnraderaUtrustning;
     private javax.swing.JLabel jLabel1;
