@@ -47,10 +47,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtnyAgentID" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtnyAgentNamn" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtnyAgentNamn" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtnyAgentTelefon" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -71,12 +68,19 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnnyAgentRegistrera" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblDatumFormat" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblAdminStatusJN" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblAgentIDInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btnnyAgentRegistrera" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDatumFormat" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAdminStatusJN" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="lblAgentIDInfo" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -92,7 +96,6 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAgentID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtnyAgentID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAgentIDInfo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -122,7 +125,7 @@
                   <Component id="lblOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbValjOmrade" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblEpost" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyAgentEpost" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -182,11 +185,6 @@
     <Component class="javax.swing.JLabel" name="lblOmrade">
       <Properties>
         <Property name="text" type="java.lang.String" value="Omr&#xe5;de"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtnyAgentID">
-      <Properties>
-        <Property name="columns" type="int" value="7"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtnyAgentNamn">
@@ -249,7 +247,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblAgentIDInfo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ange ett ID som heltal"/>
+        <Property name="text" type="java.lang.String" value="ID genereras automatiskt"/>
       </Properties>
     </Component>
   </SubComponents>

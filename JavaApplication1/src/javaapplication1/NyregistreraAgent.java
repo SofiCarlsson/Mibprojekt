@@ -68,7 +68,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
         lblEpost = new javax.swing.JLabel();
         lblLosenord = new javax.swing.JLabel();
         lblOmrade = new javax.swing.JLabel();
-        txtnyAgentID = new javax.swing.JTextField();
         txtnyAgentNamn = new javax.swing.JTextField();
         txtnyAgentTelefon = new javax.swing.JTextField();
         txtnyAgentAnstallningsDatum = new javax.swing.JTextField();
@@ -101,8 +100,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
         lblOmrade.setText("Område");
 
-        txtnyAgentID.setColumns(7);
-
         txtnyAgentNamn.setColumns(7);
 
         txtnyAgentTelefon.setColumns(7);
@@ -126,7 +123,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
 
         lblAdminStatusJN.setText("Vänligen fyll i J för JA eller N för NEJ");
 
-        lblAgentIDInfo.setText("Ange ett ID som heltal");
+        lblAgentIDInfo.setText("ID genereras automatiskt");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,9 +150,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                                     .addComponent(lblNamn))
                                 .addGap(91, 91, 91)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtnyAgentID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtnyAgentNamn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtnyAgentNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtnyAgentTelefon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(lblAnstallningsdatum)
@@ -169,12 +164,16 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbValjOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtnyAgentAdminstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnnyAgentRegistrera)
-                            .addComponent(lblDatumFormat)
-                            .addComponent(lblAdminStatusJN, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAgentIDInfo, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnnyAgentRegistrera)
+                                    .addComponent(lblDatumFormat)
+                                    .addComponent(lblAdminStatusJN, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(lblAgentIDInfo)))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -185,7 +184,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAgentID)
-                    .addComponent(txtnyAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAgentIDInfo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,7 +207,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOmrade)
                     .addComponent(cbValjOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEpost)
                     .addComponent(txtNyAgentEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -227,11 +225,10 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     //Denna metoden nyregistrerar en Agent.
     private void btnnyAgentRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnyAgentRegistreraActionPerformed
 
-    if(/*Validering.txtFaltArInteTom(txtnyAgentID) && Validering.isHeltal(txtnyAgentID) && */ Validering.txtFaltArInteTom(txtnyAgentNamn) && Validering.txtFaltArInteTom(txtnyAgentTelefon)&& Validering.isHeltal(txtnyAgentTelefon) && Validering.txtFaltArInteTom(txtnyAgentAnstallningsDatum) && Validering.datumRattLangd(txtnyAgentAnstallningsDatum) && Validering.txtFaltArInteTom(txtnyAgentAdminstatus)&& Validering.txtFaltArInteTom(txtNyAgentEpost)&& Validering.txtFaltArInteTom(txtnyAgentLosenord) && Validering.losenordRattLangd(txtnyAgentLosenord)){
+    if(Validering.txtFaltArInteTom(txtnyAgentNamn) && Validering.txtFaltArInteTom(txtnyAgentTelefon)&& Validering.isHeltal(txtnyAgentTelefon) && Validering.txtFaltArInteTom(txtnyAgentAnstallningsDatum) && Validering.datumRattLangd(txtnyAgentAnstallningsDatum) && Validering.txtFaltArInteTom(txtnyAgentAdminstatus)&& Validering.txtFaltArInteTom(txtNyAgentEpost)&& Validering.txtFaltArInteTom(txtnyAgentLosenord) && Validering.losenordRattLangd(txtnyAgentLosenord)){
          
         try{
             String nyAgentID = idb.getAutoIncrement("Agent","Agent_ID");
-           // String nyAgentID = txtnyAgentID.getText();
             String nyNamn = txtnyAgentNamn.getText();
             String nyTelefon = txtnyAgentTelefon.getText();
             String nyAnstallningsdatum = txtnyAgentAnstallningsDatum.getText();
@@ -319,7 +316,6 @@ public class NyregistreraAgent extends javax.swing.JFrame {
     private javax.swing.JTextField txtNyAgentEpost;
     private javax.swing.JTextField txtnyAgentAdminstatus;
     private javax.swing.JTextField txtnyAgentAnstallningsDatum;
-    private javax.swing.JTextField txtnyAgentID;
     private javax.swing.JTextField txtnyAgentLosenord;
     private javax.swing.JTextField txtnyAgentNamn;
     private javax.swing.JTextField txtnyAgentTelefon;
