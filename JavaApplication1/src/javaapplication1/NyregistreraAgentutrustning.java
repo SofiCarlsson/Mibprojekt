@@ -4,6 +4,8 @@
  */
 package javaapplication1;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -136,45 +138,49 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistreraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraUtrustningActionPerformed
-     if(Validering.txtFaltArInteTom(txtNyRegUtrustningsID) && Validering.isHeltal(txtNyRegUtrustningsID) && Validering.txtFaltArInteTom(txtNyRegBenämning)){ 
         try {
-            String UtrustningsID = txtNyRegUtrustningsID.getText();
-            String kommunikationsBenamning = txtNyRegBenämning.getText();
-
-            String fraga = "INSERT INTO Utrustning VALUES ('"+
-            UtrustningsID + "' , '" +
-            kommunikationsBenamning + "')";
-
-            idb.insert(fraga);
-
-            JOptionPane.showMessageDialog(null, "Ny Utrustning har registrerats!");
-        } catch (InfException e) {
-            e.printStackTrace();
-            // Meddela användaren om att något gick fel
-            JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Utrustning: " + e.getMessage());
+            String UtrustningsID = idb.getAutoIncrement("Utrustning","Utrustnings_ID");
+            if(Validering.txtFaltArInteTom(txtNyRegBenämning)){
+                try {
+                    // String UtrustningsID = txtNyRegUtrustningsID.getText();
+                    String kommunikationsBenamning = txtNyRegBenämning.getText();
+                    
+                    String fraga = "INSERT INTO Utrustning VALUES ('"+
+                            UtrustningsID + "' , '" +
+                            kommunikationsBenamning + "')";
+                    
+                    idb.insert(fraga);
+                    
+                    JOptionPane.showMessageDialog(null, "Ny Utrustning har registrerats!");
+                } catch (InfException e) {
+                    e.printStackTrace();
+                    // Meddela användaren om att något gick fel
+                    JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Utrustning: " + e.getMessage());
+                }
+                if(Validering.txtFaltArInteTom(txtKategori)){
+                    try {
+                        // String UtrustningsID = txtNyRegUtrustningsID.getText();
+                        String kategoriVariabel = txtKategori.getText();
+                        String valdKategori = cbKategori.getSelectedItem().toString();
+                        
+                        String kategoriFraga = "INSERT INTO " + valdKategori + " VALUES ('" +
+                                UtrustningsID + "' , '" +
+                                kategoriVariabel + "')";
+                        
+                        System.out.println (kategoriFraga);
+                        
+                        idb.insert(kategoriFraga);
+                        
+                        JOptionPane.showMessageDialog(null, "Ny Utrustning har registrerats i utrustningstabell!");
+                    } catch (InfException e) {
+                        e.printStackTrace();
+                        // Meddela användaren om att något gick fel
+                        JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Utrustningstabell: " + e.getMessage());
+                    }
+                }
+            }  } catch (InfException ex) {
+            Logger.getLogger(NyregistreraAgentutrustning.class.getName()).log(Level.SEVERE, null, ex);
         }
-     if(Validering.txtFaltArInteTom(txtNyRegUtrustningsID) && Validering.isHeltal(txtNyRegUtrustningsID) && Validering.txtFaltArInteTom(txtKategori)){ 
-        try {
-            String UtrustningsID = txtNyRegUtrustningsID.getText();
-            String kategoriVariabel = txtKategori.getText();
-            String valdKategori = cbKategori.getSelectedItem().toString();
-
-            String kategoriFraga = "INSERT INTO " + valdKategori + " VALUES ('" +
-            UtrustningsID + "' , '" +
-            kategoriVariabel + "')";
-
-            System.out.println (kategoriFraga);
-
-            idb.insert(kategoriFraga);
-
-            JOptionPane.showMessageDialog(null, "Ny Utrustning har registrerats i utrustningstabell!");
-        } catch (InfException e) {
-            e.printStackTrace();
-            // Meddela användaren om att något gick fel
-            JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Utrustningstabell: " + e.getMessage());
-        }
-     }
-     }
     }//GEN-LAST:event_btnRegistreraUtrustningActionPerformed
 
  private void fyllcbKategori()   {
