@@ -146,7 +146,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Beirut" size="13" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="aj@mib.net"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtLosenord">
@@ -155,7 +154,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Beirut" size="13" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="solros"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLoggaInAlien">
@@ -185,13 +183,11 @@
     <Component class="javax.swing.JTextField" name="txtEpostAlien">
       <Properties>
         <Property name="columns" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="blomma@angen.nu"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtLosenordAlien">
       <Properties>
         <Property name="columns" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="blomma"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnLoggaInAlien">

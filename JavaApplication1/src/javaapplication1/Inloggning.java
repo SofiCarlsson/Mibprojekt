@@ -65,11 +65,9 @@ public class Inloggning extends javax.swing.JFrame {
 
         txtEpost.setColumns(4);
         txtEpost.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
-        txtEpost.setText("aj@mib.net");
 
         txtLosenord.setColumns(4);
         txtLosenord.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
-        txtLosenord.setText("solros");
 
         lblLoggaInAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 15)); // NOI18N
         lblLoggaInAlien.setText("Logga in Alien");
@@ -81,10 +79,8 @@ public class Inloggning extends javax.swing.JFrame {
         lblLosenordAlien.setText("Lösenord:");
 
         txtEpostAlien.setColumns(4);
-        txtEpostAlien.setText("blomma@angen.nu");
 
         txtLosenordAlien.setColumns(4);
-        txtLosenordAlien.setText("blomma");
 
         btnLoggaInAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
         btnLoggaInAlien.setText("Logga in");
