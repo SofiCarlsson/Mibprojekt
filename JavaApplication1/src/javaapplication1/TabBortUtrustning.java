@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class TabBortUtrustning extends javax.swing.JFrame {
 
     /**
-     * Creates new form TabBortUtrustning
+     * Konstruktor för TabBortUtrustning
      */
     private InfDB idb;
     

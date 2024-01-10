@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class TaBortAgent extends javax.swing.JFrame {
 
     /**
-     * Creates new form TaBortAgent
+     * Konstruktor för TaBortAgent
      */
     private InfDB idb;
     
