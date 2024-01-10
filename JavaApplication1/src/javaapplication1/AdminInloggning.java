@@ -150,12 +150,12 @@ public class AdminInloggning extends javax.swing.JFrame {
                     }
                 }
                 if (!lyckadInloggning) {
-                    JOptionPane.showMessageDialog(null, " Fel epost eller lösenord" );
+                    JOptionPane.showMessageDialog(null, " Fel epost eller lösenord, kontrollera dina uppgifter" );
                     txtLosenord.requestFocus();
                 }
                 }
                 else {
-                  JOptionPane.showMessageDialog(null, " Adminstatus saknas för den angivna mejlen och lösenordet" );
+                  JOptionPane.showMessageDialog(null, " Adminstatus saknas för den angivna eposten" );
                     txtLosenord.requestFocus();     
                 }
 
