@@ -161,7 +161,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                     }
                  }
                 if (!lyckadAndring) {
-                JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord");
+                JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord, vänligen kontrollera dina uppgifter");
                 }
        
         }catch(InfException ettUndantag){

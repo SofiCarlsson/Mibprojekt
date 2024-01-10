@@ -23,102 +23,70 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="336" max="-2" attributes="0"/>
-                      <Component id="lblRasVal" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblRas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblNyAlienRegistreringsdatum" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtNyAlienRegistreringsdatum" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="lblNyAlienAlienID" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="txtNyAlienAlienID" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="lblNyAlienNamn" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="txtNyAlienNamn" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="lblNyAlienTelefon" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="txtNyAlienTelefon" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                                  <Component id="txtNyAlienEpost" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="lblNyAlienLösenord" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="txtNyAlienLösenord" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                          <Component id="lblNyAlienEpost" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                          <Component id="lblRubrikvidnyregistrering" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblNyAlienRegistreringsdatum" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyAlienAlienID" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyAlienNamn" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyAlienTelefon" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyAlienLösenord" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyAlienEpost" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyAlienAnsvarigAgent" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNyAlienPlats" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtNyAlienEpost" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNyAlienAlienID" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="txtNyAlienRegistreringsdatum" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Component id="lblDatumFormat" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="lblRas" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="CbValjRas" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtNyAlienNamn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNyAlienTelefon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="CbValjRas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtNyAlienLösenord" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblRasVal" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtRasVariabel" min="-2" pref="71" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="lblDatumFormat" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblNyAlienPlats" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="txtNyAlienPlats" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtNyAlienAnsvarigAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtNyAlienPlats" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblNyAlienAnsvarigAgent" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtNyAlienAnsvarigAgent" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblAngeAID" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblAngePID" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                          <Component id="lblAngeAID" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="lblRubrikvidnyregistrering" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,64 +95,58 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="lblRubrikvidnyregistrering" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-              <Component id="lblRasVal" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNyAlienRegistreringsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyAlienRegistreringsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDatumFormat" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtNyAlienAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyAlienAlienID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtNyAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNyAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtRasVariabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CbValjRas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblRas" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNyAlienTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNyAlienTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNyAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyAlienNamn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtNyAlienTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyAlienTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblRasVal" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyAlienLösenord" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyAlienLösenord" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="CbValjRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRasVariabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtNyAlienEpost" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNyAlienEpost" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNyAlienAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyAlienAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyAlienAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAngeAID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNyAlienPlats" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNyAlienPlats" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnRegistreraAlien" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNyAlienPlats" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAngePID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <Component id="btnRegistreraAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -299,11 +261,14 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtRasVariabel">
     </Component>
-    <Component class="javax.swing.JLabel" name="lblRasVal">
-    </Component>
     <Component class="javax.swing.JLabel" name="lblRas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ras"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRasVal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fyll i antal"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDatumFormat">
