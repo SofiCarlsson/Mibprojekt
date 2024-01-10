@@ -59,7 +59,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnNyregistreraAlien" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAdministratör" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAdminInloggning" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -83,7 +83,7 @@
                   <Component id="btnTopplistaöverAgenter" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnAdministratör" min="-2" max="-2" attributes="0"/>
+              <Component id="btnAdminInloggning" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
               <Component id="btnNyregistreraAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -180,7 +180,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMinutrustningActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnAdministrat&#xf6;r">
+    <Component class="javax.swing.JButton" name="btnAdminInloggning">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Rounded MT Bold" size="13" style="0"/>
@@ -188,7 +188,7 @@
         <Property name="text" type="java.lang.String" value="Administrat&#xf6;r"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdministrat&#xf6;rActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminInloggningActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnListaAliensPaPlats">
