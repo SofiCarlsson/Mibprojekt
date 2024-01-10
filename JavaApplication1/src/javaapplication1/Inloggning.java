@@ -65,11 +65,9 @@ public class Inloggning extends javax.swing.JFrame {
 
         txtEpost.setColumns(4);
         txtEpost.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
-        txtEpost.setText("aj@mib.net");
 
         txtLosenord.setColumns(4);
         txtLosenord.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
-        txtLosenord.setText("solros");
 
         lblLoggaInAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 15)); // NOI18N
         lblLoggaInAlien.setText("Logga in Alien");
@@ -81,10 +79,8 @@ public class Inloggning extends javax.swing.JFrame {
         lblLosenordAlien.setText("Lösenord:");
 
         txtEpostAlien.setColumns(4);
-        txtEpostAlien.setText("blomma@angen.nu");
 
         txtLosenordAlien.setColumns(4);
-        txtLosenordAlien.setText("blomma");
 
         btnLoggaInAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
         btnLoggaInAlien.setText("Logga in");
@@ -162,66 +158,82 @@ public class Inloggning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Loggar in på programmet genom att sätta in tabellvärdena i en ArrayLis/HashMap och jämföra med txt fälten som skickas in.
+        //Denna metoden loggar in som Agent. Den kollar om lösenordet och email hör ihopp, om den gör det loggar man in på Agent.
+         //Denna metod kontrollerar också att eposten man skrivit in finns registrerad i databasen, annars kommer ett felmeddelande.
+
     private void btnLoggainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggainActionPerformed
-    
-        //Denna if-sats kollar om fälten Lösenord och Epost inte är tomt mha klassen validering.
-        //Sedan kollar denna metoden om lösenordet och email hör ihopp, om den gör det loggar man in på Agent.
+
+        //Denna if-sats kollar om om fälten inte ät tomma och lösenord är större eller lika med 6 tecken .
      if(Validering.txtFaltArInteTom(txtLosenord) && Validering.losenordRattLangd(txtLosenord) && Validering.txtFaltArInteTom(txtEpost)){  
-      try{
-          String epost = txtEpost.getText();
-	  String losenord = txtLosenord.getText(); 
-          String epostOchLosenord = epost + losenord;
+      try {
+            String epost = txtEpost.getText();
+            String losenord = txtLosenord.getText(); 
+            String epostOchLosenord = epost + losenord;
+
+            String fragaAgent = "SELECT Epost, Losenord, Agent_ID FROM Agent";
+                     
+            ArrayList<HashMap<String, String>> agentLista = idb.fetchRows(fragaAgent);
          
-          String fragaAgent = "SELECT Epost, Losenord, Agent_ID FROM Agent";
-                 
-          ArrayList<HashMap<String, String>> Agent = idb.fetchRows(fragaAgent);
-          
-          
-          for(int i= 0 ; i<Agent.size() ; i++){
-              String output = "";
-              output += Agent.get(i).get("Epost") + Agent.get(i).get("Losenord");
-             
-                if (epostOchLosenord.equals(output)){
-                   JOptionPane.showMessageDialog(null, " Rätt lösnenord angivet" );
-                  
-                   //Kommer in i Source för Agent.
-                   Agent agentFonster = new Agent(idb, Agent.get(i).get("Agent_ID"));
-                   agentFonster.setVisible(true);
-                   
-                   lyckadInloggning = true;
-                   break;
+            boolean lyckadInloggning = false;
+            boolean epostHittad = false;
+
+            for (int i = 0; i < agentLista.size(); i++) {
+                String output = "";
+                output += agentLista.get(i).get("Epost") + agentLista.get(i).get("Losenord");
+
+                if (epostOchLosenord.equals(output)) {
+                    JOptionPane.showMessageDialog(null, "Rätt lösenord angivet");
+
+                    // Kommer in i Source för Agent.
+                    Agent agentFonster = new Agent(idb, agentLista.get(i).get("Agent_ID"));
+                    agentFonster.setVisible(true);
+
+                    lyckadInloggning = true;
+                    break;
+                    }
+
+                if  (epost.equals(agentLista.get(i).get("Epost"))) {
+                    epostHittad = true;
+                    break;
                 }
-          }
-                if (!lyckadInloggning) {
-                    JOptionPane.showMessageDialog(null, " Fel email eller Lösenord angivet" );
-                    txtLosenord.requestFocus();
+            }
+
+            if (!lyckadInloggning) {
+                if (!epostHittad) {
+                    JOptionPane.showMessageDialog(null, " Denna Eposten finns inte registrerad. Vänligen ange en giltig ");
+                    } else {
+                     JOptionPane.showMessageDialog(null, "Fel epost eller lösenord angivet, vänligen prova igen");
+                     }
+                     txtLosenord.requestFocus();
                 }
 
-        }catch(InfException ettUndantag){
-            
-              JOptionPane.showMessageDialog(null, " Databasfel" );
-              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
-              txtLosenord.requestFocus();
-        
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Databasfel");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+            txtLosenord.requestFocus();
         }
     }//GEN-LAST:event_btnLoggainActionPerformed
     }
-    //Denna if-sats kollar om fälten Lösenord och Epost inte är tomt mha klassen validering.
-    //Denna metod loggar in på Alien om txtFalt har värde och lösenord och email hör ihop. 
-    private void btnLoggaInAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInAlienActionPerformed
 
+    //Denna metod loggar in på Alien om txtFalt har värde och lösenord och email hör ihop.
+    //Denna metod kontrollerar också att eposten man skrivit in finns registrerad i databasen, annars kommer ett felmeddelande.
+    private void btnLoggaInAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInAlienActionPerformed
+        
+        //Denna if-sats kollar om om fälten inte ät tomma och lösenord är större eller lika med 6 tecken .
        if(Validering.txtFaltArInteTom(txtLosenordAlien) && Validering.losenordRattLangd(txtLosenordAlien)&& Validering.txtFaltArInteTom (txtEpostAlien)){ 
            try{
        String EpostAlien = txtEpostAlien.getText();
        String losenordAlien = txtLosenordAlien.getText();
        String epostOchLosenord = EpostAlien + losenordAlien;
        
-       String fragaAlien = "SELECT Epost, Losenord FROM Alien";
+       String fragaAlien = "SELECT Epost, Losenord, Alien_ID FROM Alien";
        
        ArrayList<HashMap<String, String>> Alien = idb.fetchRows(fragaAlien);
-       
-       //Går igenom alla Alien Losenord med Email och kollar om något mtachar med det som skrevs in i txt fälten. 
+      
+             boolean lyckadInloggningAlien = false;
+             boolean epostHittadAlien = false;
+            
+           //Går igenom alla Alien Losenord med Email och kollar om något mtachar med det som skrevs in i txt fälten. 
           for(int i= 0 ; i<Alien.size() ; i++){
               String output = "";
               
@@ -235,25 +247,31 @@ public class Inloggning extends javax.swing.JFrame {
                    Alien alienFonster = new Alien(idb, Alien.get(i).get("Alien_ID"));
                    alienFonster.setVisible(true);
                    
-                   lyckadInloggning = true;
+                   lyckadInloggningAlien = true;
                    break;
-                }
-                }
-                 if (!lyckadInloggning) {
-                    JOptionPane.showMessageDialog(null, " Fel email eller Lösenord angivet" );
-                    txtLosenordAlien.requestFocus();
-                }
-          
-                
-             }catch(InfException ettUndantag){
-            
-              JOptionPane.showMessageDialog(null, " Databasfel" );
-              System.out.println("Internt felmedelande" + ettUndantag.getMessage());
-              txtLosenordAlien.requestFocus();
-                     
                      }
-        
+                
+                if (EpostAlien.equals(Alien.get(i).get("Epost"))) {
+                    epostHittadAlien = true;
+                    break;
+                    }
+              }
+                 
+           if (!lyckadInloggningAlien) {
+                if (!epostHittadAlien) {
+                    JOptionPane.showMessageDialog(null, " Denna Eposten finns inte registrerad. Vänligen ange en giltig ");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Fel epost eller lösenord angivet, vänligen prova igen");
+                        }
+                txtLosenordAlien.requestFocus();
+            }
+
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Databasfel");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+            txtLosenord.requestFocus();
         }
+      }                                          
     }
        
           // Variables declaration - do not modify                     
