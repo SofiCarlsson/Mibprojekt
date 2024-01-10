@@ -165,7 +165,7 @@ public class Inloggning extends javax.swing.JFrame {
     
         //Denna if-sats kollar om fälten Lösenord och Epost inte är tomt mha klassen validering.
         //Sedan kollar denna metoden om lösenordet och email hör ihopp, om den gör det loggar man in på Agent.
-     if(Validering.txtFaltArInteTom(txtLosenord) && Validering.txtFaltArInteTom(txtEpost) && Validering.losenordRattLangd(txtLosenord)){  
+     if(Validering.txtFaltArInteTom(txtLosenord) && Validering.losenordRattLangd(txtLosenord) && Validering.txtFaltArInteTom(txtEpost)){  
       try{
           String epost = txtEpost.getText();
 	  String losenord = txtLosenord.getText(); 
@@ -209,7 +209,7 @@ public class Inloggning extends javax.swing.JFrame {
     //Denna metod loggar in på Alien om txtFalt har värde och lösenord och email hör ihop. 
     private void btnLoggaInAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInAlienActionPerformed
 
-       if(Validering.txtFaltArInteTom(txtLosenordAlien) && Validering.txtFaltArInteTom (txtEpostAlien)){ 
+       if(Validering.txtFaltArInteTom(txtLosenordAlien) && Validering.losenordRattLangd(txtLosenordAlien)&& Validering.txtFaltArInteTom (txtEpostAlien)){ 
            try{
        String EpostAlien = txtEpostAlien.getText();
        String losenordAlien = txtLosenordAlien.getText();
