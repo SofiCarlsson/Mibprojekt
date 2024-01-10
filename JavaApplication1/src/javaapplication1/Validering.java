@@ -11,6 +11,9 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  *
  * @author soficarlsson
@@ -21,7 +24,38 @@ public class Validering {
     
     public Validering(InfDB db){
         idb = db;
-    } 
+    }
+    
+    /*******
+     * 
+     */
+    //Denna metoden har inte koppling till Inloggningen pga felmedelnade men den måste kopplas korrekt.
+     public static boolean agentEpostFinns(JTextField txtAttKolla){
+         boolean hittad = false;  
+     
+         try{
+            String epostAgent = txtAttKolla.getText();
+            String fragaAgentEpost = "select epost from Agent";
+            ArrayList<String> Alien = idb.fetchColumn(fragaAgentEpost);
+        
+             for(String enEpost : Alien){
+            
+                 if(enEpost.equals(epostAgent)){
+                 hittad = true;
+                 break;
+             }
+        }
+             if(!hittad){
+                JOptionPane.showMessageDialog(null, "En agent med denna epost finns inte registrerad" ); 
+                hittad = false;
+        }
+         }catch(InfException ettUndantag){
+            JOptionPane.showMessageDialog(null, " Databasfel" );
+            }
+    return hittad; 
+     }
+
+
     
     //Denna metoden kollar så att rutan inte är tom
     public static boolean txtFaltArInteTom(JTextField txtAttKolla){
@@ -59,7 +93,7 @@ public class Validering {
     //Denna meroden kollar så att lösenordet består av 6 eller mindre tecken.
     public static boolean losenordRattLangd(JTextField txtAttKolla){
     String losenord = txtAttKolla.getText();
-    boolean resultat = true;
+    boolean resultat = false;
         
         if(losenord.length()<=6){
         resultat = true;
@@ -71,5 +105,34 @@ public class Validering {
     
     return resultat;
     }
+    
+    //Denna metoden kollar så att datumet är inskrivet i rätt format  v.
+   public static boolean datumRattLangd(JTextField txtAttKolla){
+    
+    boolean resultat = true;
+
+        String datumText = txtAttKolla.getText();
+
+        //Denna koden skirver in att vi vill ha datumet i formatet datumRattLangd.
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+
+        try {
+            // Denna metdoen kollar så att. Försök konvertera texten till ett datum
+            Date parsedDate = dateFormat.parse(datumText);
+
+            // Kontrollera om det konverterade datumet är samma som ursprungstexten
+            if (!dateFormat.format(parsedDate).equals(datumText)) {
+                resultat = false;
+            }
+
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, " Skriv in datumet i formatet yyyy-mm-dd");
+            resultat = false;
         }
+    return resultat;
+   }
+   
+   
+}
 
