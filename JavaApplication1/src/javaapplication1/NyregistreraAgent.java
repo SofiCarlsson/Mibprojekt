@@ -259,7 +259,7 @@ public class NyregistreraAgent extends javax.swing.JFrame {
                 
         } catch(InfException e){
             //e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Agent!");
+            JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Agent, vänligen kontrollera dina uppgifter!");
         }
 
        }
