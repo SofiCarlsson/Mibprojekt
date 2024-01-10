@@ -84,7 +84,7 @@ public class TabBortUtrustning extends javax.swing.JFrame {
         try{
             //Ger variabelnman till värdena från rutorna och boxarna
             String utrustningsID = txtUtrustningsID.getText();
-            String raderaFraga = "SELECT Utrustnings_ID from mibdb.Alien";
+            String raderaFraga = "SELECT Utrustnings_ID from mibdb.Utrustning";
             
             //Hämtar kolumnen enligt sql-frågan och gör en lista
             ArrayList allaUtrustningsID = idb.fetchColumn(raderaFraga);
@@ -92,7 +92,7 @@ public class TabBortUtrustning extends javax.swing.JFrame {
             //Kollar om ID:t finns i listan
             if (allaUtrustningsID.contains(utrustningsID)){
             //Uppdaterar databasen
-            String raderaUtrustningInnehar = "DELETE FROM Innehar_Utrustning WHERE Utrustnings_ID = " + utrustningsID;
+            String raderaUtrustningInnehar = "DELETE FROM Innehar_Utrustning WHERE Utrustnings_ID = " + utrustningsID ;
             idb.delete(raderaUtrustningInnehar);
             
             String raderaUtrustningKommunikation = "DELETE FROM Kommunikation WHERE Utrustnings_ID = " + utrustningsID;
@@ -104,8 +104,9 @@ public class TabBortUtrustning extends javax.swing.JFrame {
             String raderaUtrustningVapen = "DELETE FROM Vapen WHERE Utrustnings_ID = " + utrustningsID;
             idb.delete(raderaUtrustningVapen);
             
-            String raderaUtrustning = "DELETE FROM Alien WHERE Utrustnings_ID = " + utrustningsID;
+            String raderaUtrustning = "DELETE FROM Utrustning WHERE Utrustnings_ID = " + utrustningsID;
             idb.delete(raderaUtrustning);
+
 
             //Skriver ut meddelande att agenten är raderad
             JOptionPane.showMessageDialog(null, " Utrustningen har raderats." );
