@@ -109,7 +109,7 @@ public class Agent extends javax.swing.JFrame {
         btnSökOmrådeschef = new javax.swing.JButton();
         btnTopplistaöverAgenter = new javax.swing.JButton();
         btnMinutrustning = new javax.swing.JButton();
-        btnAdministratör = new javax.swing.JButton();
+        btnAdminInloggning = new javax.swing.JButton();
         btnListaAliensPaPlats = new javax.swing.JButton();
         btnLoggaUt = new javax.swing.JButton();
         btnSokAliensEfterRas = new javax.swing.JButton();
@@ -169,11 +169,11 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
-        btnAdministratör.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
-        btnAdministratör.setText("Administratör");
-        btnAdministratör.addActionListener(new java.awt.event.ActionListener() {
+        btnAdminInloggning.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 13)); // NOI18N
+        btnAdminInloggning.setText("Administratör");
+        btnAdminInloggning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdministratörActionPerformed(evt);
+                btnAdminInloggningActionPerformed(evt);
             }
         });
 
@@ -249,7 +249,7 @@ public class Agent extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnNyregistreraAlien)
-                            .addComponent(btnAdministratör))
+                            .addComponent(btnAdminInloggning))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -266,7 +266,7 @@ public class Agent extends javax.swing.JFrame {
                     .addComponent(btnNyregistreraAgentutrustning)
                     .addComponent(btnTopplistaöverAgenter))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAdministratör)
+                .addComponent(btnAdminInloggning)
                 .addGap(74, 74, 74)
                 .addComponent(btnNyregistreraAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -299,11 +299,10 @@ public class Agent extends javax.swing.JFrame {
              visaMinUtrustning.setVisible(true);
     }//GEN-LAST:event_btnMinutrustningActionPerformed
 
-    private void btnAdministratörActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministratörActionPerformed
+    private void btnAdminInloggningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminInloggningActionPerformed
         //Knapp till Administratör
-        Administrator adminFonster = new Administrator(idb);
-                   adminFonster.setVisible(true);
-    }//GEN-LAST:event_btnAdministratörActionPerformed
+        new AdminInloggning(idb).setVisible(true);
+    }//GEN-LAST:event_btnAdminInloggningActionPerformed
 
     private void btnSökOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökOmrådeschefActionPerformed
            //Knapp till SökOmrådeschef 
@@ -397,7 +396,7 @@ public class Agent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdministratör;
+    private javax.swing.JButton btnAdminInloggning;
     private javax.swing.JButton btnAndraLosenord;
     private javax.swing.JButton btnDatumForRegistreringAvAliens;
     private javax.swing.JButton btnListaAliensPaPlats;
