@@ -65,9 +65,11 @@ public class Inloggning extends javax.swing.JFrame {
 
         txtEpost.setColumns(4);
         txtEpost.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
+        txtEpost.setText("aj@mib.net");
 
         txtLosenord.setColumns(4);
         txtLosenord.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
+        txtLosenord.setText("solros");
 
         lblLoggaInAlien.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 15)); // NOI18N
         lblLoggaInAlien.setText("Logga in Alien");
