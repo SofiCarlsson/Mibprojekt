@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class SokInfoOmAgent extends javax.swing.JFrame {
 
     /**
-     * Creates new form SokInfoOmAgent
+     * CKonstruktor för SokInfoOmAgent
      */
     private InfDB idb;
     
@@ -31,14 +31,14 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
         fyllKontorsChef();
     }
 
-    //Fyller AgentID-rullmenyn med värden
+        //Fyller AgentID-rullmenyn med värden
             private void fyllCBAgentID(){
                 cbinfoAgentID.removeAllItems();
         String fraga = "SELECT agent_ID from mibdb.Agent";
         
                 ArrayList<String> allaAgentID;
                 
-       try {
+        try {
                allaAgentID = idb.fetchColumn(fraga);
                
                for (String ettID : allaAgentID){
@@ -46,7 +46,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                 
                }
        
-       }catch(InfException ettUndantag){
+        }catch(InfException ettUndantag){
             
               JOptionPane.showMessageDialog(null, " Databasfel! " );
               System.out.println("Internt felmedelande" + ettUndantag.getMessage());
@@ -54,19 +54,19 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     }
     }
             
-             //Fyller Administratörstatus-rullmenyn med värden
+            //Fyller Administratörstatus-rullmenyn med värden
             private void fyllCBOmrade(){
                 cbinfoAgentOmrade.removeAllItems();
-        String fraga = "SELECT Omrades_ID from Omrade";
+                String fraga = "SELECT Omrades_ID from Omrade";
         
                 ArrayList<String> allaOmraden;
                 
-       try {
+        try {
                allaOmraden = idb.fetchColumn(fraga);
                for (String adminStatus : allaOmraden)   
                cbinfoAgentOmrade.addItem(adminStatus);     
        
-       }catch(InfException ettUndantag){
+        }catch(InfException ettUndantag){
             
               JOptionPane.showMessageDialog(null, " Databasfel!" );
               System.out.println("Internt felmedelande" + ettUndantag.getMessage());
@@ -74,7 +74,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     }
    }
             
-             //Fyller Områdeschefs-rullmenyn med värden
+        //Fyller Områdeschefs-rullmenyn med värden
         private void fyllOmradesChef(){
             cbOmradesChef.removeAllItems();
             String fraga = "SELECT Omrades_ID FROM Omrade";
@@ -93,7 +93,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
              
     }   
 }
-                    //Fyller Kontorschefs-rullmenyn med värden
+        //Fyller Kontorschefs-rullmenyn med värden
         private void fyllKontorsChef(){
             cbKontorsChef.removeAllItems();
             String fraga = "SELECT Kontorsbeteckning FROM Kontorschef";
@@ -113,10 +113,10 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     }   
 }
 
-       private void fyllPaInfo(){
-               // Fyller på information om en viss agent
+        private void fyllPaInfo(){
+            // Fyller på information om en viss agent
        
-               txtinfoAgentNamn.setText("");
+            txtinfoAgentNamn.setText("");
     
         ArrayList<HashMap<String, String>> agentIDLista;
         ArrayList<HashMap<String, String>> omradesChefsLista;

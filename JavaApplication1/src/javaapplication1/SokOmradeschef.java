@@ -16,14 +16,12 @@ public class SokOmradeschef extends javax.swing.JFrame {
     
     private InfDB idb;
     /**
-     * Creates new form SökOmrådeschef
+     * Konstruktor för SökOmrådeschef
      */
     public SokOmradeschef(InfDB db) {
         initComponents();
         idb = db;
         fyllCbValjOmrade();
-        
-        
     }
 
     /**
@@ -105,7 +103,7 @@ public class SokOmradeschef extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Denna metoden fyller TextArea med informationen om vem som är Områdeschef fför den valda benämningen av området.
+    //Denna metoden fyller TextArea med informationen om vem som är Områdeschef för den valda benämningen av området.
     private void cbVäljområdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVäljområdeActionPerformed
         txtAreaÄrOmrådeschef.setText("");
         

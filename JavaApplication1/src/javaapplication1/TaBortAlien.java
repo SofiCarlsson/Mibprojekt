@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class TaBortAlien extends javax.swing.JFrame {
 
     /**
-     * Creates new form TaBortAlien
+     * Konstruktor för TaBortAlien
      */
     
     private InfDB idb;

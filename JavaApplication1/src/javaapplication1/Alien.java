@@ -8,6 +8,7 @@ import oru.inf.InfException;
 
 /**
  *Hit kommer man om man är inloggad som en alien.
+ * 
  * @author oliviacleve
  */
 public class Alien extends javax.swing.JFrame {
@@ -19,20 +20,17 @@ public class Alien extends javax.swing.JFrame {
     private String Losenord;
     private String Namn;
     private String Telefon;
-    //private int Plats;
-    //private int Ansvarig_Agent;
+    
     
     /**
-     * Creates new form Alien
+     * Konstruktor för Alien
      */
-    //test
+
     public Alien(InfDB db, String Alien_ID) {
         idb = db;
         this.Alien_ID = Alien_ID;
         
         initComponents();
-        //Här ska en sql-fråga in där vem som är onmrådesansvarig
-        //för (ett valt) alltså en aliens område in. 
     }
     
     public String getAlien_ID() {
@@ -47,10 +45,9 @@ public class Alien extends javax.swing.JFrame {
         return Registreringsdatum;
     }
     
-    //public void setRegistreringsdatum() {
-    //  this.Registreringsdatum = Registreringsdatum;
-    //}
-    
+    public void setRegistreringsdatum() {
+      this.Registreringsdatum = Registreringsdatum;
+    }
     
     public String getEpost() {
         return Epost;
@@ -235,15 +232,16 @@ public class Alien extends javax.swing.JFrame {
     String resultatFyra = idb.fetchSingle(fragaFyra);
     lblMejladress.setText(resultatFyra);
     
-} catch (InfException e) {
+    } catch (InfException e) {
     }    
   }
 
     }//GEN-LAST:event_btnHamtaOmradeschefActionPerformed
-//Knapp för att gå tillbaka till inloggningen
+    
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
+        //Knapp för att gå tillbaka till inloggningen
         Inloggning visaInloggning = new Inloggning(idb);
-        visaInloggning.setVisible(true);        
+            visaInloggning.setVisible(true);        
     }//GEN-LAST:event_btnLoggaUtActionPerformed
 
     /**

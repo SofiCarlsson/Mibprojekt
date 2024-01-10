@@ -18,7 +18,7 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
     private InfDB idb;
    
     /**
-     * Creates new form Alienspaplats
+     * Konstruktor för Alienspaplats
      */
     public ListaAlienspaplats(InfDB db) {
         idb = db;

@@ -8,17 +8,13 @@ import oru.inf.InfException;
 
 /**
  * Här kan man se vad en administratör kan göra och klicka sig vidare på de funktionerna.
+ * 
  * @author sarahill
  */
 public class Administrator extends javax.swing.JFrame {
 
     private InfDB idb; 
-    /**
-     * Creates new form Administrator
-     */
-    /**
-     * Creates new form Inlogg
-     */
+    
     public Administrator(InfDB db) {
         idb = db;
         initComponents();

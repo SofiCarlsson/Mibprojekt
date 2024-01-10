@@ -376,7 +376,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
     //När man trycker på denna knappen och skrivit in något nytt i textfälten ändras värdet till det man skrev in.
     //(Man får inte ändra epost)
     private void btnÄndraInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnÄndraInfoActionPerformed
-    if(Validering.txtFaltArInteTom(txtVisaRegDatum) && Validering.txtFaltArInteTom(txtVisaNamn) && Validering.txtFaltArInteTom(txtVisaLösenord)&& Validering.losenordRattLangd(txtVisaLösenord) && Validering.txtFaltArInteTom(txtVisaPlats) && Validering.txtFaltArInteTom(txtVisaAnsvarigAgent)){
+    if(Validering.txtFaltArInteTom(txtVisaRegDatum) && Validering.datumRattLangd(txtVisaRegDatum) && Validering.txtFaltArInteTom(txtVisaNamn) && Validering.txtFaltArInteTom(txtVisaLösenord)&& Validering.losenordRattLangd(txtVisaLösenord) && Validering.txtFaltArInteTom(txtVisaPlats) && Validering.txtFaltArInteTom(txtVisaAnsvarigAgent)){
           try{
            String fragaAlien = "SELECT * FROM Alien";
 

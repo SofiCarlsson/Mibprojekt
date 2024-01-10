@@ -136,7 +136,7 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistreraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraUtrustningActionPerformed
-     if(Validering.txtFaltArInteTom(txtNyRegUtrustningsID) && Validering.txtFaltArInteTom(txtNyRegBenämning)){ 
+     if(Validering.txtFaltArInteTom(txtNyRegUtrustningsID) && Validering.isHeltal(txtNyRegUtrustningsID) && Validering.txtFaltArInteTom(txtNyRegBenämning)){ 
         try {
             String UtrustningsID = txtNyRegUtrustningsID.getText();
             String kommunikationsBenamning = txtNyRegBenämning.getText();
@@ -153,7 +153,7 @@ public class NyregistreraAgentutrustning extends javax.swing.JFrame {
             // Meddela användaren om att något gick fel
             JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Utrustning: " + e.getMessage());
         }
-     if(Validering.txtFaltArInteTom(txtNyRegUtrustningsID) && Validering.txtFaltArInteTom(txtKategori)){ 
+     if(Validering.txtFaltArInteTom(txtNyRegUtrustningsID) && Validering.isHeltal(txtNyRegUtrustningsID) && Validering.txtFaltArInteTom(txtKategori)){ 
         try {
             String UtrustningsID = txtNyRegUtrustningsID.getText();
             String kategoriVariabel = txtKategori.getText();
