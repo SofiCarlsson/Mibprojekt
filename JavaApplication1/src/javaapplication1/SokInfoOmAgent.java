@@ -412,7 +412,6 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
            String nyOmradesChef = cbOmradesChef.getSelectedItem() != null ? cbOmradesChef.getSelectedItem().toString() : null;
            String nyKontorsChef = cbKontorsChef.getSelectedItem() != null ? cbKontorsChef.getSelectedItem().toString() : null;
 
-
            // Ändrar namn
            String uppdateraNamn = "UPDATE Agent SET Namn = '" + nyttNamn + "' WHERE Agent_ID = '" + valdAgent + "'";
            
@@ -444,27 +443,10 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                  idb.update(uppdateraOmrade);
                  
             //Ändrar/lägger till område agenten är chef för    
-            String fragaOmradesChefsOmrade = "SELECT Omradeschef.Omrade FROM mibdb.Omradeschef";
-            String fragaAgentID = "SELECT Omradeschef.Agent_ID FROM mibdb.Omradeschef";
-            
-            ArrayList<String> omradesLista = idb.fetchColumn(fragaOmradesChefsOmrade);
-            ArrayList<String> allaAgentID =idb.fetchColumn(fragaAgentID);
-            
-            if (omradesLista.contains(nyOmradesChef) && allaAgentID.contains(valdAgent)){
-        
-                 String uppdateraOmradesChef = "UPDATE mibdb.Omradeschef SET Omradeschef.Agent_ID = '" + valdAgent + "' WHERE Omradeschef.Omrade = '" + nyOmradesChef + "'";
-                 idb.update(uppdateraOmradesChef);
-            }
-            
-                else {
-                        String laggTillAgent = "INSERT INTO mibdb.Omradeschef (Agent_ID) VALUES ('" + valdAgent + "')";
-                        idb.update(laggTillAgent);
-//                        String laggTillOmrade = "INSERT INTO mibdb.Omradeschef (Omrade) VALUES ('" + nyOmradesChef + "')";
-//                         idb.update(laggTillOmrade);
-                         String uppdateraOmradesChef = "UPDATE mibdb.Omradeschef SET Omradeschef.Omrade = '" + nyOmradesChef + "' WHERE Omradeschef.Agent_ID = '" + valdAgent + "'";
-                         idb.update(uppdateraOmradesChef);
-                         }
-
+//            String uppdateraOmradesChef = "UPDATE Omradeschef SET Agent_ID = '" + valdAgent + "' WHERE Omradeschef.Omrade = '" + nyOmradesChef + "'";
+//                 
+//                idb.update(uppdateraOmradesChef);          
+               
             //Ändrar/lägger till kontor där agenten är kontorschef     
             String uppdateraKontorsChef = "UPDATE Kontorschef SET Agent_ID = '" + valdAgent + "' WHERE Kontorsbeteckning = '" + nyKontorsChef + "'";
            
