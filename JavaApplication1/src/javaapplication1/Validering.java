@@ -106,6 +106,7 @@ public class Validering {
     
     return resultat;
     }
+   
     
     //Denna metoden kollar så att datumet är inskrivet i rätt format  v.
    public static boolean datumRattLangd(JTextField txtAttKolla){
