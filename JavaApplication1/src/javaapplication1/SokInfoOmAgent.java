@@ -437,9 +437,19 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
            
                  idb.update(uppdateraOmrade);
                  
+                 
+           String fragaOmradesChefsOmrade = "SELECT Omrades_ID FROM Omradeschef";      
+            
+            if (fragaOmradesChefsOmrade.contains(nyttOmrade)){
+                 
+            String laggTillOmrade = "INSERT IGNORE INTO Omradeschef'" + (nyttOmrade) + "'";
+            idb.update(laggTillOmrade);
+            }
+                 
             String uppdateraOmradesChef = "UPDATE Omradeschef SET Agent_ID = '" + valdAgent + "' WHERE Omrade = '" + nyOmradesChef + "'";
            
                  idb.update(uppdateraOmradesChef);
+
                  
             String uppdateraKontorsChef = "UPDATE Kontorschef SET Agent_ID = '" + valdAgent + "' WHERE Kontorsbeteckning = '" + nyKontorsChef + "'";
            
