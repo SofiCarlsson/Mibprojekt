@@ -331,7 +331,7 @@ public class Agent extends javax.swing.JFrame {
 
     } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Ett fel inträffade vid ändring av lösenordet.");
+            System.out.println("Ett fel inträffade vid ändring av lösenordet, vänligen kontrollera dina uppgifter.");
     }  
     }//GEN-LAST:event_btnAndraLosenordActionPerformed
 
