@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package javaapplication1;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -214,25 +216,48 @@ public class Alien extends javax.swing.JFrame {
 
     private void btnHamtaOmradeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHamtaOmradeschefActionPerformed
    if(Validering.txtFaltArInteTom(txtMittOmrade) && Validering.isHeltal(txtMittOmrade)){
-        try {
-    String Omrade = txtMittOmrade.getText();
-    String fragaEtt = "SELECT AGENT_ID from OMRADESCHEF where OMRADE =" +Omrade;
-            String resultatEtt = idb.fetchSingle(fragaEtt);
-    lblOmradesChef.setText(resultatEtt);
+        
+       
+       
+       try {
+            Boolean omradeIDfinns = false;
+             String fragaOmradeFinns = "SELECT Omrades_ID FROM Omrade";
+             ArrayList<String> ettOmrade = idb.fetchColumn(fragaOmradeFinns);
+       
+             String inskrivetOmrade = txtMittOmrade.getText();
+             
+             for(String ettOmradeTabellen: ettOmrade){
+             
+                 if(ettOmradeTabellen.equals(inskrivetOmrade)){
+                 
+                      omradeIDfinns = true;
+                 }
+            
+             }
+             if(omradeIDfinns==true){
+             String Omrade = txtMittOmrade.getText();
+             String fragaEtt = "SELECT AGENT_ID from OMRADESCHEF where OMRADE =" +Omrade;
+             String resultatEtt = idb.fetchSingle(fragaEtt);
+             lblOmradesChef.setText(resultatEtt);
    
-    String fragaTva = "SELECT NAMN from AGENT where AGENT_ID =" +resultatEtt;
-    String resultatTva = idb.fetchSingle(fragaTva);
-    lblNamn.setText(resultatTva);
+             String fragaTva = "SELECT NAMN from AGENT where AGENT_ID =" +resultatEtt;
+             String resultatTva = idb.fetchSingle(fragaTva);
+             lblNamn.setText(resultatTva);
     
-    String fragaTre = "SELECT TELEFON from AGENT where AGENT_ID =" +resultatEtt;
-    String resultatTre = idb.fetchSingle(fragaTre);
-    lblTelefonnummer.setText(resultatTre);
+             String fragaTre = "SELECT TELEFON from AGENT where AGENT_ID =" +resultatEtt;
+             String resultatTre = idb.fetchSingle(fragaTre);
+             lblTelefonnummer.setText(resultatTre);
     
-    String fragaFyra = "SELECT EPOST from AGENT where AGENT_ID =" +resultatEtt;
-    String resultatFyra = idb.fetchSingle(fragaFyra);
-    lblMejladress.setText(resultatFyra);
+             String fragaFyra = "SELECT EPOST from AGENT where AGENT_ID =" +resultatEtt;
+             String resultatFyra = idb.fetchSingle(fragaFyra);
+            lblMejladress.setText(resultatFyra);
     
-    } catch (InfException e) {
+             }
+             else{
+             JOptionPane.showMessageDialog(null, "Detta områdesID finns inte. Skirv in ett annat ID");
+             }
+       
+       } catch (InfException e) {
     }    
   }
 

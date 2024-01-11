@@ -201,8 +201,9 @@ public class Inloggning extends javax.swing.JFrame {
             if (!lyckadInloggning) {
                 if (!epostHittad) {
                     JOptionPane.showMessageDialog(null, " Denna Eposten finns inte registrerad. Vänligen ange en giltig ");
-                    } else {
-                     JOptionPane.showMessageDialog(null, "Fel epost eller lösenord angivet, vänligen prova igen");
+                    } 
+                else {
+                     JOptionPane.showMessageDialog(null, "Fel lösenord angivet, vänligen prova igen");
                      }
                      txtLosenord.requestFocus();
                 }
@@ -261,7 +262,7 @@ public class Inloggning extends javax.swing.JFrame {
                 if (!epostHittadAlien) {
                     JOptionPane.showMessageDialog(null, " Denna Eposten finns inte registrerad. Vänligen ange en giltig ");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Fel epost eller lösenord angivet, vänligen prova igen");
+                    JOptionPane.showMessageDialog(null, "Fel lösenord angivet, vänligen prova igen");
                         }
                 txtLosenordAlien.requestFocus();
             }
