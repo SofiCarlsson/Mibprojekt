@@ -270,7 +270,6 @@ public class NyregistreraAlien extends javax.swing.JFrame {
             if(Validering.txtFaltArInteTom(txtNyAlienRegistreringsdatum) && Validering.datumRattLangd(txtNyAlienRegistreringsdatum) && Validering.txtFaltArInteTom(txtNyAlienNamn) && Validering.txtFaltArInteTom(txtNyAlienTelefon) && Validering.txtFaltArInteTom(txtNyAlienEpost)&& Validering.txtFaltArInteTom(txtNyAlienLösenord) && Validering.losenordRattLangd(txtNyAlienLösenord) && Validering.txtFaltArInteTom(txtNyAlienAnsvarigAgent)&& Validering.txtFaltArInteTom(txtNyAlienPlats)){
                 try {
                     String registreringsdatum = txtNyAlienRegistreringsdatum.getText();
-                    // String alienID = idb.getAutoIncrement("Alien","Alien_ID");
                     String namn = txtNyAlienNamn.getText();
                     String telefon = txtNyAlienTelefon.getText();
                     String epost = txtNyAlienEpost.getText();
@@ -293,7 +292,6 @@ public class NyregistreraAlien extends javax.swing.JFrame {
                     
                     JOptionPane.showMessageDialog(null, "Ny Alien har registrerats!");
                 } catch (InfException e) {
-                    e.printStackTrace();
                     // Meddela användaren om att något gick fel
                     JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Alien: " + e.getMessage());
                 }
@@ -315,7 +313,6 @@ public class NyregistreraAlien extends javax.swing.JFrame {
                         
                         JOptionPane.showMessageDialog(null, "Ny Alien har registrerats i rastabell!");
                     } catch (InfException e) {
-                        e.printStackTrace();
                         // Meddela användaren om att något gick fel
                         JOptionPane.showMessageDialog(null, "Ett fel inträffade vid registrering av Alien: " + e.getMessage());
                     }
