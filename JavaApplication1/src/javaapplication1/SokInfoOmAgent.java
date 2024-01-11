@@ -396,7 +396,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     //När man trycker på denna knappen och skrivit in något nytt i textfälten ändras värdet till det man skrev in. 
     //(Man får inte ändra epost)
     private void btnAndraInfoAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraInfoAgentActionPerformed
-        if(Validering.txtFaltArInteTom(txtinfoAgentAnstallningsdatum) && Validering.datumRattLangd(txtinfoAgentAnstallningsdatum) && Validering.txtFaltArInteTom(txtinfoAgentNamn) && Validering.txtFaltArInteTom(txtinfoAgentLosenord) && Validering.losenordRattLangd(txtinfoAgentLosenord)&& Validering.txtFaltArInteTom(txtInfoAgentAdminStatus) && Validering.txtFaltArInteTom(txtinfoAgentEpost)&& Validering.txtFaltArInteTom(txtifoAgentTelefon) && Validering.isHeltal(txtifoAgentTelefon)){
+        if(Validering.txtFaltArInteTom(txtinfoAgentAnstallningsdatum) && Validering.datumRattLangd(txtinfoAgentAnstallningsdatum) && Validering.txtFaltArInteTom(txtinfoAgentNamn) && Validering.txtFaltArInteTom(txtinfoAgentLosenord) && Validering.losenordRattLangd(txtinfoAgentLosenord)&& Validering.txtFaltArInteTom(txtInfoAgentAdminStatus) && Validering.txtFaltArInteTom(txtinfoAgentEpost)){
        try{
            String fragaAgent = "SELECT * FROM Agent";
 
@@ -442,10 +442,10 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
            
                  idb.update(uppdateraOmrade);
                  
-            //Ändrar/lägger till område agenten är chef för    
-//            String uppdateraOmradesChef = "UPDATE Omradeschef SET Agent_ID = '" + valdAgent + "' WHERE Omradeschef.Omrade = '" + nyOmradesChef + "'";
-//                 
-//                idb.update(uppdateraOmradesChef);          
+            //Ändrar lägger till område agenten är chef för    
+            String uppdateraOmradesChef = "UPDATE Omradeschef SET Agent_ID = '" + valdAgent + "' WHERE Omradeschef.Omrade = '" + nyOmradesChef + "'";
+                 
+                idb.update(uppdateraOmradesChef);          
                
             //Ändrar/lägger till kontor där agenten är kontorschef     
             String uppdateraKontorsChef = "UPDATE Kontorschef SET Agent_ID = '" + valdAgent + "' WHERE Kontorsbeteckning = '" + nyKontorsChef + "'";

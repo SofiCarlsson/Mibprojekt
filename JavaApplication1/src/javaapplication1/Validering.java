@@ -29,33 +29,6 @@ public class Validering {
     /*******
      * 
      */
-    //Denna metoden har inte koppling till Inloggningen pga felmedelnade men den måste kopplas korrekt.
-     public static boolean agentEpostFinns(JTextField txtAttKolla){
-         boolean hittad = false;  
-     
-         try{
-            String epostAgent = txtAttKolla.getText();
-            String fragaAgentEpost = "select epost from Agent";
-            ArrayList<String> Alien = idb.fetchColumn(fragaAgentEpost);
-        
-             for(String enEpost : Alien){
-            
-                 if(enEpost.equals(epostAgent)){
-                 hittad = true;
-                 break;
-             }
-        }
-             if(!hittad){
-                JOptionPane.showMessageDialog(null, "En agent med denna epost finns inte registrerad" ); 
-                hittad = false;
-        }
-         }catch(InfException ettUndantag){
-            JOptionPane.showMessageDialog(null, " Databasfel" );
-            }
-    return hittad; 
-     }
-
-
     
     //Denna metoden kollar så att rutan inte är tom
     public static boolean txtFaltArInteTom(JTextField txtAttKolla){

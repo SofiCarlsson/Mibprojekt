@@ -77,10 +77,14 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
      private void fylltxtAreaDatumAliens()
     {
          txtAreaVisaDatumen.setText("");
+         
     
         ArrayList<HashMap<String, String>> DatAlien = new ArrayList<HashMap<String, String>>();
         String Datum1 = cbDatum1.getSelectedItem().toString();
         String Datum2 = cbDatum2.getSelectedItem().toString(); 
+        
+        if(Datum1.compareTo(Datum2) < 0){
+        
         try {
             String fraga = "SELECT Alien_ID, Namn FROM Alien WHERE Registreringsdatum BETWEEN '"+ Datum1 + "' AND '"+ Datum2 +"'";
             DatAlien = idb.fetchRows(fraga);
@@ -90,6 +94,7 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
                 txtAreaVisaDatumen.append(Datum.get("Namn") + "\n");
 
             }
+            
         } catch (InfException UndantagEn) {
                     JOptionPane.showMessageDialog(null, "Databasfel!");
                     System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
@@ -99,7 +104,10 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
                     System.out.println("Internt felmeddelande" + UndantagEn.getMessage());
                 }
         
-  
+        }
+        else{
+        JOptionPane.showMessageDialog(null, "Kontrollera att du angivit giltiga datum");
+        }
         }
    
 
