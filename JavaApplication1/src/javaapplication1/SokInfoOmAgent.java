@@ -198,14 +198,14 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblInfoAgent = new javax.swing.JLabel();
         lblnamn = new javax.swing.JLabel();
         lbltelefon = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblAnstallningsDatum = new javax.swing.JLabel();
+        lblAdmin = new javax.swing.JLabel();
+        lblEpost = new javax.swing.JLabel();
+        lblLosenord = new javax.swing.JLabel();
+        lblOmrade = new javax.swing.JLabel();
         lblvaljEnAgent = new javax.swing.JLabel();
         lblagentOmradeschef = new javax.swing.JLabel();
         lblagentKontorschef = new javax.swing.JLabel();
@@ -223,25 +223,26 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
         btnAndraInfoAgent = new javax.swing.JButton();
         lblJNAdminStatus = new javax.swing.JLabel();
         lblEpostvisainteandra = new javax.swing.JLabel();
+        lblInfoChefsOmrade = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
-        jLabel1.setText("Information om agent");
+        lblInfoAgent.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
+        lblInfoAgent.setText("Information om agent");
 
         lblnamn.setText("Namn");
 
         lbltelefon.setText("Telefon");
 
-        jLabel4.setText("Anställningsdatum");
+        lblAnstallningsDatum.setText("Anställningsdatum");
 
-        jLabel5.setText("Administartörstatus");
+        lblAdmin.setText("Administartörstatus");
 
-        jLabel6.setText("Epost");
+        lblEpost.setText("Epost");
 
-        jLabel7.setText("Lösenord");
+        lblLosenord.setText("Lösenord");
 
-        jLabel8.setText("Område");
+        lblOmrade.setText("Område");
 
         lblvaljEnAgent.setText("Välj en agent");
 
@@ -279,6 +280,8 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
 
         lblEpostvisainteandra.setText("E-post visas men kan inte ändras");
 
+        lblInfoChefsOmrade.setText("Denna agent är chef för detta område");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -294,7 +297,7 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lbltelefon)
-                                        .addComponent(jLabel4)
+                                        .addComponent(lblAnstallningsDatum)
                                         .addComponent(lblnamn))
                                     .addGap(24, 24, 24)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,12 +312,12 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtInfoAgentAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblJNAdminStatus))
-                            .addComponent(jLabel1)
+                            .addComponent(lblInfoAgent)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -326,26 +329,31 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cbOmradesChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
+                                        .addComponent(lblOmrade)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cbinfoAgentOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel7))
+                                            .addComponent(lblEpost)
+                                            .addComponent(lblLosenord))
                                         .addGap(77, 77, 77)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtinfoAgentLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtinfoAgentEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblEpostvisainteandra)))
-                        .addContainerGap(74, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblEpostvisainteandra))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(39, 39, 39)
+                                        .addComponent(lblInfoChefsOmrade)))))
+                        .addContainerGap(49, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel1)
+                .addComponent(lblInfoAgent)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblvaljEnAgent)
@@ -362,30 +370,31 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
                     .addComponent(txtifoAgentTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(lblAnstallningsDatum)
                     .addComponent(txtinfoAgentAnstallningsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(lblAdmin)
                     .addComponent(txtInfoAgentAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblJNAdminStatus))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(lblEpost)
                     .addComponent(txtinfoAgentEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEpostvisainteandra))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(lblLosenord)
                     .addComponent(txtinfoAgentLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                    .addComponent(lblOmrade)
                     .addComponent(cbinfoAgentOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblagentOmradeschef)
-                    .addComponent(cbOmradesChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbOmradesChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInfoChefsOmrade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblagentKontorschef)
@@ -515,14 +524,15 @@ public class SokInfoOmAgent extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbOmradesChef;
     private javax.swing.JComboBox<String> cbinfoAgentID;
     private javax.swing.JComboBox<String> cbinfoAgentOmrade;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lblAdmin;
+    private javax.swing.JLabel lblAnstallningsDatum;
+    private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblEpostvisainteandra;
+    private javax.swing.JLabel lblInfoAgent;
+    private javax.swing.JLabel lblInfoChefsOmrade;
     private javax.swing.JLabel lblJNAdminStatus;
+    private javax.swing.JLabel lblLosenord;
+    private javax.swing.JLabel lblOmrade;
     private javax.swing.JLabel lblagentKontorschef;
     private javax.swing.JLabel lblagentOmradeschef;
     private javax.swing.JLabel lblnamn;
