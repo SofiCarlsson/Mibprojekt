@@ -28,16 +28,17 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
         fyllCbDatum2();
     }
     
-    //Fyller combocoxen med registreringsdatumsvärden.
+    //Fyller den första combocoxen med registreringsdatumsvärden. Denna metod ser också till att det inte blir dubletter av samma datum.
      private void fyllCbDatum1() {
         String fraga = ("SELECT Registreringsdatum FROM Alien");
                 
-                 Set<String> unikaDatum;
+                 Set<String> unikaDatum1;
 
+                 //Här sätter vi in de unika datumen i en HashSet för skrollbox ett.
                 try {
-                    unikaDatum = new HashSet<>(idb.fetchColumn(fraga));
+                    unikaDatum1 = new HashSet<>(idb.fetchColumn(fraga));
                      cbDatum1.removeAllItems();
-                        for (String Datum1 : unikaDatum) {
+                        for (String Datum1 : unikaDatum1) {
                               cbDatum1.addItem(Datum1);
                                 }
                  } catch (InfException UndantagEtt) {
@@ -50,16 +51,17 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
                 }
     }
      
-     //Fyller den andra combocoxen med registreringsdatumsvärden.
+     //Fyller den andra combocoxen med registreringsdatumsvärden. Denna metod ser också till att det inte blir dubletter av samma datum.
      private void fyllCbDatum2() {
         String fraga = ("SELECT Registreringsdatum FROM Alien");
                 
-               Set<String> unikaDatum;
+               Set<String> unikaDatum2;
 
+             //Här sätter vi in de unika datumen i en HashSet för skrollbox två.
             try {
-                    unikaDatum = new HashSet<>(idb.fetchColumn(fraga));
+                    unikaDatum2 = new HashSet<>(idb.fetchColumn(fraga));
                      cbDatum2.removeAllItems();
-                        for (String Dat2 : unikaDatum) {
+                        for (String Dat2 : unikaDatum2) {
                               cbDatum2.addItem(Dat2);
                                 }
                  }catch (InfException UndantagEtt) {
@@ -206,6 +208,7 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Denna metoden fyller på textArea med de alien som är registrerade mellan de två datumen. 
     private void btnSokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokActionPerformed
         //Anropar metoden för att fylla i textrutorna
         fylltxtAreaDatumAliens();
