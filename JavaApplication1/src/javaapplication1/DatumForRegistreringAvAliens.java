@@ -5,6 +5,8 @@
 package javaapplication1;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -30,15 +32,15 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
      private void fyllCbDatum1() {
         String fraga = ("SELECT Registreringsdatum FROM Alien");
                 
-                ArrayList<String> allaDatum;
-                
+                 Set<String> unikaDatum;
+
                 try {
-                    allaDatum = idb.fetchColumn(fraga);
-                    cbDatum1.removeAllItems();
-                    for (String Dat1 : allaDatum) {
-                        cbDatum1.addItem(Dat1);
-                    }
-                } catch (InfException UndantagEtt) {
+                    unikaDatum = new HashSet<>(idb.fetchColumn(fraga));
+                     cbDatum1.removeAllItems();
+                        for (String Datum1 : unikaDatum) {
+                              cbDatum1.addItem(Datum1);
+                                }
+                 } catch (InfException UndantagEtt) {
                     JOptionPane.showMessageDialog(null, "Databasfel!");
                     System.out.println("Internt felmeddelande" + UndantagEtt.getMessage());
                 }
@@ -52,15 +54,15 @@ public class DatumForRegistreringAvAliens extends javax.swing.JFrame {
      private void fyllCbDatum2() {
         String fraga = ("SELECT Registreringsdatum FROM Alien");
                 
-                ArrayList<String> allaDatumen;
-                
-                try {
-                    allaDatumen = idb.fetchColumn(fraga);
-                    cbDatum2.removeAllItems();
-                    for (String Dat2 : allaDatumen) {
-                        cbDatum2.addItem(Dat2);
-                    }
-                } catch (InfException UndantagEtt) {
+               Set<String> unikaDatum;
+
+            try {
+                    unikaDatum = new HashSet<>(idb.fetchColumn(fraga));
+                     cbDatum2.removeAllItems();
+                        for (String Dat2 : unikaDatum) {
+                              cbDatum2.addItem(Dat2);
+                                }
+                 }catch (InfException UndantagEtt) {
                     JOptionPane.showMessageDialog(null, "Databasfel!");
                     System.out.println("Internt felmeddelande" + UndantagEtt.getMessage());
                 }
