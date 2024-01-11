@@ -17,7 +17,7 @@ import oru.inf.InfException;
 public class AndraLosenordAgent extends javax.swing.JFrame {
 
        private InfDB idb; 
-       private boolean lyckadAndring = false;
+       private boolean lyckadAldring = false;
     
     /**
      * Creates new form AndraLosenordAgent
@@ -131,7 +131,7 @@ public class AndraLosenordAgent extends javax.swing.JFrame {
     private void btnAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordActionPerformed
      if(Validering.txtFaltArInteTom(txtMejladress) && Validering.txtFaltArInteTom(txtGammaltLosenord)&& Validering.losenordRattLangd(txtGammaltLosenord)&& Validering.txtFaltArInteTom(txtNyttLosenord)&& Validering.losenordRattLangd(txtNyttLosenord)){  
         try{
-            if (!lyckadAndring) { // Kontroll för att undvika upprepade ändringar
+            if (!lyckadAldring) { // Kontroll för att undvika upprepade ändringar
             String epost = txtMejladress.getText();
             String gammaltLosenord = txtGammaltLosenord.getText();
             String nyttLosenord = txtNyttLosenord.getText();
@@ -163,11 +163,11 @@ public class AndraLosenordAgent extends javax.swing.JFrame {
                     Agent agentFonster = new Agent(idb, Agent.get(i).get("Agent_ID"));
                     agentFonster.setVisible(true);
 
-                    lyckadAndring = true;
+                    lyckadAldring = true;
                     break;
                 }
             }
-                 if (!lyckadAndring) {
+                 if (!lyckadAldring) {
                      JOptionPane.showMessageDialog(null, "Felaktigt e-post eller lösenord, vänligen kontrollera dina uppgifter");
 
                      }

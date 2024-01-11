@@ -202,6 +202,7 @@ public class Alien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Denna metoden ändrar lösenordet för Alien när knappen trycks för att ändra lösenord.
     private void btnAndraLosenordAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraLosenordAlienActionPerformed
      try {
         // Skapa en instans av AndraLosenordAlienFrame och gör den synlig
@@ -214,11 +215,10 @@ public class Alien extends javax.swing.JFrame {
     }   
     }//GEN-LAST:event_btnAndraLosenordAlienActionPerformed
 
+    //Denna metoden har en kontroll för att kolla om det inskrivna områdesID finns och om detta är fallet så skirvs informationen ut om agenten som är områdeschef. Om områdesID inte finns så skirvs felmedelandet ut.
     private void btnHamtaOmradeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHamtaOmradeschefActionPerformed
    if(Validering.txtFaltArInteTom(txtMittOmrade) && Validering.isHeltal(txtMittOmrade)){
         
-       
-       
        try {
             Boolean omradeIDfinns = false;
              String fragaOmradeFinns = "SELECT Omrades_ID FROM Omrade";
@@ -232,8 +232,8 @@ public class Alien extends javax.swing.JFrame {
                  
                       omradeIDfinns = true;
                  }
-            
              }
+             
              if(omradeIDfinns==true){
              String Omrade = txtMittOmrade.getText();
              String fragaEtt = "SELECT AGENT_ID from OMRADESCHEF where OMRADE =" +Omrade;
@@ -251,20 +251,24 @@ public class Alien extends javax.swing.JFrame {
              String fragaFyra = "SELECT EPOST from AGENT where AGENT_ID =" +resultatEtt;
              String resultatFyra = idb.fetchSingle(fragaFyra);
             lblMejladress.setText(resultatFyra);
-    
              }
-             else{
+             
+             if(omradeIDfinns==false){
              JOptionPane.showMessageDialog(null, "Detta områdesID finns inte. Skirv in ett annat ID");
+             txtMittOmrade.requestFocus();
              }
        
        } catch (InfException e) {
-    }    
-  }
-
+            JOptionPane.showMessageDialog(null, "Databasfel");
+            System.out.println("Internt felmeddelande" + e.getMessage());
+       } 
+             
+     }
     }//GEN-LAST:event_btnHamtaOmradeschefActionPerformed
     
+    //Denna metoden loggar ut från Alien sidan när man trycker på knappen 'Logga ut'. Då kommer man tillbaka till inloggningsidan.
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
-        //Knapp för att gå tillbaka till inloggningen
+
         Inloggning visaInloggning = new Inloggning(idb);
             visaInloggning.setVisible(true);        
     }//GEN-LAST:event_btnLoggaUtActionPerformed

@@ -27,6 +27,7 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
        
     }
     
+    //Denna metoden fyller på comboboxen med platsID.
       private void fyllCbValjplats() {
         String fraga = ("SELECT Plats_ID FROM Plats");
                 
@@ -49,7 +50,7 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
                 }
     }
       
-      
+      //Denna metoden fyller på med info om alien som finns i den angivna platsen.
       private void fylltxtAreaDessaAliensFinns()
     {
          txtAreaDessaAliensFinns.setText("");
@@ -161,8 +162,9 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Denna metod är bortkommenterad men den behöver vara vara kvar för att det vi ville lösa ska fungera. Vi är osäkra på varför men eftersom det funkar låter vi den vara kvar. 
     private void CbValjplatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbValjplatsActionPerformed
-//        // TODO add your handling code here:
+
 //        txtAreaDessaAliensFinns.setText("");
 //        
 //        ArrayList<HashMap<String, String>> AliensPlats;
@@ -195,6 +197,7 @@ public class ListaAlienspaplats extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CbValjplatsActionPerformed
 
+    //Denna metod fyller txtArea med infon om alien när knappen trycks.
     private void btnSokareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokareActionPerformed
 
         fylltxtAreaDessaAliensFinns();
