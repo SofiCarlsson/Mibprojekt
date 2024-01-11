@@ -49,6 +49,7 @@ public class AndraLosenordAgent extends javax.swing.JFrame {
         txtGammaltLosenord = new javax.swing.JTextField();
         txtNyttLosenord = new javax.swing.JTextField();
         btnAndraLosenord = new javax.swing.JButton();
+        lblAndralosenord = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,15 +72,20 @@ public class AndraLosenordAgent extends javax.swing.JFrame {
             }
         });
 
+        lblAndralosenord.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
+        lblAndralosenord.setText("Ändra lösenord");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMejladress)
-                    .addComponent(txtMejladress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblAndralosenord)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblMejladress)
+                        .addComponent(txtMejladress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
@@ -101,7 +107,9 @@ public class AndraLosenordAgent extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(28, 28, 28)
+                .addComponent(lblAndralosenord)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGammaltLosenord)
                     .addComponent(lblMejladress)
@@ -213,6 +221,7 @@ public class AndraLosenordAgent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraLosenord;
+    private javax.swing.JLabel lblAndralosenord;
     private javax.swing.JLabel lblGammaltLosenord;
     private javax.swing.JLabel lblMejladress;
     private javax.swing.JLabel lblNyttLosenord;

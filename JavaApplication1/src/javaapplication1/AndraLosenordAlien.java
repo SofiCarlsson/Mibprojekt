@@ -49,6 +49,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
         txtGammaltLosenord = new javax.swing.JTextField();
         txtNyttLosenord = new javax.swing.JTextField();
         btnAndraLosenord = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +71,9 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                 btnAndraLosenordActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Beirut", 0, 13)); // NOI18N
+        jLabel1.setText("Ändra lösenord");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,11 +101,17 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                                 .addComponent(lblNyttLosenord)))))
                 .addGap(45, 45, 45))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGammaltLosenord)
                     .addComponent(lblMejladress)
@@ -113,7 +123,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
                     .addComponent(txtNyttLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(btnAndraLosenord)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,6 +221,7 @@ public class AndraLosenordAlien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraLosenord;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblGammaltLosenord;
     private javax.swing.JLabel lblMejladress;
     private javax.swing.JLabel lblNyttLosenord;
