@@ -70,12 +70,13 @@ public class Validering {
         
         if(losenord.length()<=6){
         resultat = true;
-        }else{
+        }
+        
+        else{
         JOptionPane.showMessageDialog(null, " Skriv in ett lösenord som är mindre eller 6 tecken" ); 
-        //System.out.println("Hej");
         txtAttKolla.requestFocus();
         resultat = false;
-                }
+         }
     
     return resultat;
     }

@@ -418,7 +418,7 @@ public class SeOchAndraInfoOmAlien extends javax.swing.JFrame {
            
                  idb.update(updateQueryAnsvarigAgent);
                  
-            JOptionPane.showMessageDialog(null, " Infomrationen har ändrats." );
+            JOptionPane.showMessageDialog(null, " Informationen har ändrats." );
                  
           }catch(InfException ettUndantag){
 
